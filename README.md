@@ -11,4 +11,7 @@ Automated daily position reports from V5 Paper Trader (S&P 500, 8-factor conflue
 - **Schedule:** Mon–Fri 7:00 AM ICT
 
 ## Latest Report
-[](reports/v5_paper_report.md)
+[`reports/v5_paper_report.md`](reports/v5_paper_report.md)
+
+## Repo
+https://github.com/thirawatk/v5-paper-trader
