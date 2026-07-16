@@ -339,6 +339,7 @@ def scan_and_trade():
             log_trade(trade)
         else:
             pos["days_held"] = days_held
+            pos["current_price"] = round(float(today_close), 2)
             new_positions.append(pos)
 
     positions = new_positions
@@ -515,11 +516,14 @@ def generate_markdown_report(state, signals_today, exits_today):
     if positions:
         lines.append("## 📂 Open Positions")
         lines.append("")
-        lines.append("| Ticker | Entry | Price | Score | SL | TP1 | TP2 | Days |")
-        lines.append("|--------|-------|-------|-------|-----|------|------|------|")
+        lines.append("| Ticker | Entry | Now | Δ | Score | SL | TP1 | Days |")
+        lines.append("|--------|-------|-----|---|-------|-----|------|------|")
         for p in sorted(positions, key=lambda x: x["composite"], reverse=True):
             days = p.get("days_held", 0)
-            lines.append(f"| {p['ticker']} | {p['entry_date']} | ${p['entry_price']:.2f} | {p['composite']:.1f} | ${p['sl']:.2f} | ${p['tp1']:.2f} | ${p['tp2']:.2f} | {days}d |")
+            entry = p["entry_price"]
+            current = p.get("current_price", entry)
+            chg = (current - entry) / entry * 100
+            lines.append(f"| {p['ticker']} | ${entry:.2f} | ${current:.2f} | {chg:+.1f}% | {p['composite']:.1f} | ${p['sl']:.2f} | ${p['tp1']:.2f} | {days}d |")
         lines.append("")
 
     # ── Closed Trades History ──
