@@ -1,0 +1,22 @@
+# State files — runtime data, not code
+*_state.json
+*_state*.json
+amzn_watch_state.json
+daily_scan_state.json
+
+# Reports (generated weekly)
+v5_weekly_report.md
+v5_paper_report*.md
+*_report_20*.md
+
+# Cache
+__pycache__/
+*.pyc
+
+# Large binaries / one-off docs
+*.pdf
+*.html
+
+# Backtest result dumps
+*_results.json
+backtest_*results*.csv

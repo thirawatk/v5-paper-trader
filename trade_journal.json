@@ -1,0 +1,83 @@
+{
+  "description": "Tay's REAL trading journal (Dime/IBKR) - manually logged exits",
+  "currency": "USD",
+  "created": "2026-08-21",
+  "trades": [
+    {
+      "id": 1,
+      "ticker": "PTC",
+      "side": "LONG",
+      "entry_date": "2026-08-11",
+      "exit_date": "2026-08-20",
+      "entry_price": 129.50,
+      "exit_price": 152.64,
+      "quantity": 2.29,
+      "cost_basis": 296.96,
+      "pnl_usd": 53.13,
+      "pnl_pct": 17.9,
+      "hold_days": 9,
+      "exit_reason": "Manual exit at 3M high resistance ($154)",
+      "notes": "TP2 hit ($145.93) before exit. RSI was 94 overbought at exit."
+    },
+    {
+      "id": 2,
+      "ticker": "S",
+      "side": "LONG",
+      "entry_date": null,
+      "exit_date": "2026-08-20",
+      "entry_price": 18.00,
+      "exit_price": 21.10,
+      "quantity": 100,
+      "cost_basis": 1800.00,
+      "pnl_usd": 310.00,
+      "pnl_pct": 17.2,
+      "hold_days": null,
+      "exit_reason": "Manual exit after TP2 hit ($20.55) + overbought RSI 85.8",
+      "notes": "Entry date not recorded."
+    },
+    {
+      "id": 3,
+      "ticker": "NVDU",
+      "side": "LONG",
+      "status": "OPEN",
+      "entry_date": null,
+      "exit_date": null,
+      "entry_price": 90.00,
+      "quantity": 27,
+      "cost_basis": 2430.00,
+      "exit_price": null,
+      "pnl_usd": null,
+      "pnl_pct": null,
+      "hold_days": null,
+      "exit_reason": null,
+      "notes": "Direxion Daily NVDA Bull 2x Shares. Trailing stop mode active (SL ~2xATR below price). All TPs passed."
+    },
+    {
+      "id": 4,
+      "ticker": "ZS",
+      "side": "LONG",
+      "status": "OPEN",
+      "entry_date": null,
+      "exit_date": null,
+      "entry_price": 150.00,
+      "quantity": 15,
+      "cost_basis": 2250.00,
+      "exit_price": null,
+      "pnl_usd": null,
+      "pnl_pct": null,
+      "hold_days": null,
+      "exit_reason": null,
+      "notes": "TP2 hit ($172.44), overbought RSI 81. Partial profit candidate."
+    }
+  ],
+  "realized_summary": {
+    "closed_trades": 2,
+    "wins": 2,
+    "losses": 0,
+    "win_rate": 100.0,
+    "total_pnl_usd": 363.13,
+    "total_cost_basis": 2096.96,
+    "avg_return_pct": 17.55
+  },
+  "open_positions_value_at_cost": 4680.00
+}
