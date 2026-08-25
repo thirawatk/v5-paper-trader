@@ -9,7 +9,7 @@
 
 | Ticker | Market | Entry | Qty | SL | TP1 | TP2 | TP3 | Status |
 |--------|--------|-------|-----|-----|-----|-----|-----|--------|
-| HYPE | HYPE/USDC perp | $80.80 (25 Aug) | — | $75.44 | $84.82 | $87.50 | $90.18 | 🟢 Running |
+| HYPE | HYPE/USDC perp | $80.80 (25 Aug) | **3.93** (~$317.54) | $75.44 | $84.82 | $87.50 | $90.18 | 🟢 Running |
 
 **Entry reason:** UPTREND pullback confirmed — 4h close $80.88 > $80.20 + green candle, CMF 0.220, ROC +1.48%
 
