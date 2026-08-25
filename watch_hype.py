@@ -24,6 +24,18 @@ CMF_TRIGGER = 0.15
 KILL_LEVEL = 73.47
 MAX_BARS = 30   # ~5 days of 4h bars
 
+# ── LIVE POSITION (entered 2026-08-25 @ $80.80) ──
+POSITION = {
+    "active": True,
+    "entry": 80.80,
+    "atr": 2.68,           # ATR(14) at entry
+    "sl": 75.44,           # entry - 2×ATR
+    "tp1": 84.82,          # entry + 1.5R
+    "tp2": 87.50,          # entry + 2.5R
+    "tp3": 90.18,          # entry + 3.5R
+    "entry_date": "2026-08-25",
+}
+
 
 def fetch_4h(hours=24 * 14):
     c = _normalize_candles(_post_info({
@@ -90,6 +102,62 @@ def main():
     alert = None
     triggered_by = None
 
+    # ═══ POSITION TRACKING MODE (entry confirmed) ═══
+    if POSITION.get("active"):
+        pos = POSITION
+        entry = pos["entry"]
+        pnl = (price - entry) / entry * 100
+        pnl_usd_per_coin = price - entry
+
+        # TP checks (from high of bar to catch wicks)
+        bar_high = candles[-1]['high']
+
+        if price <= pos["sl"] or candles[-1]['low'] <= pos["sl"]:
+            alert = (
+                f"🔴 **HYPE STOP LOSS HIT**\n"
+                f"Price: ${price:.2f} | SL: ${pos['sl']:.2f}\n"
+                f"P&L: {pnl:+.2f}% (${pnl_usd_per_coin:+.2f}/coin)\n"
+                f"Exited — risk managed. {pos['entry_date']} entry."
+            )
+        elif bar_high >= pos["tp3"] and state.get('alerted') != 'tp3':
+            alert = (
+                f"🎯 **HYPE TP3 HIT** ${pos['tp3']:.2f}\n"
+                f"Price: ${price:.2f} | P&L: {pnl:+.2f}% (${pnl_usd_per_coin:+.2f}/coin)\n"
+                f"+3.5R — full exit or trail with 2×ATR below price"
+            )
+            state['alerted'] = 'tp3'
+        elif bar_high >= pos["tp2"] and state.get('alerted') not in ('tp3', 'tp2'):
+            alert = (
+                f"🎯 **HYPE TP2 HIT** ${pos['tp2']:.2f}\n"
+                f"Price: ${price:.2f} | P&L: {pnl:+.2f}% (${pnl_usd_per_coin:+.2f}/coin)\n"
+                f"+2.5R — sell rest or move stop to breakeven"
+            )
+            state['alerted'] = 'tp2'
+        elif bar_high >= pos["tp1"] and state.get('alerted') not in ('tp3', 'tp2', 'tp1'):
+            alert = (
+                f"🎯 **HYPE TP1 HIT** ${pos['tp1']:.2f}\n"
+                f"Price: ${price:.2f} | P&L: {pnl:+.2f}% (${pnl_usd_per_coin:+.2f}/coin)\n"
+                f"+1.5R — sell half, move stop to breakeven"
+            )
+            state['alerted'] = 'tp1'
+
+        if alert is None and state.get('alerted') in ('tp1', 'tp2', 'tp3'):
+            # After partial exits, also alert on SL hit (breakeven move)
+            if price <= entry:
+                alert = (
+                    f"⚠️ **HYPE back to breakeven** ${price:.2f}\n"
+                    f"Entry ${entry:.2f} | Stop moved to BE after TP1 — protect gains"
+                )
+                state['alerted'] = 'be'
+
+        if alert:
+            with open(STATE_FILE, 'w') as f:
+                json.dump(state, f, indent=1)
+            print(f"**📡 HYPE Position Monitor — {now_str}**\n\n{alert}")
+            return
+        return  # silent while position healthy
+
+    # ═══ ENTRY CONFIRMATION MODE (no position yet) ═══
     if price > TRIGGER_CLOSE and green:
         triggered_by = f"4h close ${price:.2f} > ${TRIGGER_CLOSE} + green candle"
     elif cmf is not None and cmf > CMF_TRIGGER and roc is not None and roc > 0:
