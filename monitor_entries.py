@@ -16,7 +16,7 @@ try:
     _TV_EXCH = {
         "GOOG": ["NASDAQ"], "RDDT": ["NYSE"], "GDDY": ["NYSE"],
         "PTC": ["NASDAQ"], "VOO": ["AMEX", "NASDAQ"], "VXUS": ["NASDAQ", "AMEX"],
-        "NVDU": ["AMEX", "NASDAQ"], "ZS": ["NYSE", "NASDAQ"], "BCC": ["NYSE", "NASDAQ"], "FBK": ["NYSE", "NASDAQ"],
+        "NVDU": ["AMEX", "NASDAQ"], "ZS": ["NYSE", "NASDAQ"], "BCC": ["NYSE", "NASDAQ"], "FBK": ["NYSE", "NASDAQ"], "AMZN": ["NASDAQ"],
     }
     _TV_BARS = {"5d": 7, "1mo": 200, "3mo": 66, "6mo": 300, "1y": 300}
     _TV_INTERVAL = {"1d": TVInterval.in_daily, "1h": TVInterval.in_1_hour}
@@ -82,6 +82,7 @@ TICKERS = {
     "ZS": "ZS",
     "BCC": "BCC",
     "FBK": "FBK",
+    "AMZN": "AMZN",
 }
 
 # Live positions — update as trades are made
@@ -648,6 +649,72 @@ def check_entry_fbk(a):
     summary += f"\n{get_verdict(a)}\n"
     return summary
 
+def check_entry_amzn(a):
+    """Check AMZN entry conditions. Pullback entries in uptrend.
+    Expert-approved trigger: close >$263 (SMA20 reclaim) or MACD hist >0.
+    Only alerts on actionable setups — suppresses noise in downtrends."""
+    alerts = []
+    price = a['price']
+    r = a['rsi14']
+    sma20 = a['sma20']
+    sma50 = a['sma50']
+    sma100 = a['sma100']
+    vol_ratio = a['vol_ratio']
+    regime = a['regime']
+
+    # In DOWNTREND: only alert on capitulation
+    if regime == 'DOWNTREND':
+        if vol_ratio > 1.5 and a['chg_pct'] < -1.5:
+            alerts.append(f"🔥 Sell-off ({a['chg_pct']:+.2f}%, {vol_ratio}x vol) — watch for reversal")
+        if not alerts:
+            return None
+
+    # Condition 1: RSI cooled to pullback zone in uptrend
+    if r is not None and r < 40 and regime in ('UPTREND', 'PULLBACK'):
+        alerts.append(f"🟢 RSI pullback to {r} in {regime} — entry zone")
+
+    # Condition 2: Testing SMA 20 support
+    if sma20 and price >= sma20 * 0.98 and price <= sma20 * 1.02:
+        if a['below_sma20']:
+            alerts.append(f"📏 Testing SMA 20 support at ${sma20:.2f}")
+
+    # Condition 3: Testing SMA 50 support (deeper pullback)
+    if sma50 and price >= sma50 * 0.98 and price <= sma50 * 1.02:
+        alerts.append(f"📏 Testing SMA 50 support at ${sma50:.2f} — stronger entry")
+
+    # Condition 4: Fib 38.2%-50% pullback zone
+    fib382 = a.get('fib_382', 0)
+    fib50 = a.get('fib_50', 0)
+    if fib382 and fib50 and price >= fib50 * 0.99 and price <= fib382 * 1.01:
+        alerts.append(f"🎯 In Fib pullback zone (${fib50:.2f}–${fib382:.2f})")
+
+    # Condition 5: Expert-approved confirmation trigger — close > SMA20 (≈$263) or MACD hist > 0
+    macd_hist = a.get('macd_hist')
+    if not a['below_sma20'] and a['green_streak'] >= 1:
+        alerts.append(f"🟢 CLOSE > SMA20 (${sma20:.2f}) — entry confirmation per approved plan")
+    elif macd_hist is not None and macd_hist > 0:
+        alerts.append(f"📈 MACD hist turned positive ({macd_hist:.2f}) — entry confirmation per approved plan")
+
+    # Condition 6: Green streak after pullback (bounce confirmation)
+    if a['green_streak'] >= 2 and r is not None and r > 40 and r < 60:
+        alerts.append(f"🟢 {a['green_streak']}d green streak, RSI {r} — bounce confirmed")
+
+    # Condition 7: Volume spike + red day (capitulation buy opportunity)
+    if vol_ratio > 1.5 and a['chg_pct'] < -1.5:
+        alerts.append(f"🔥 Sell-off ({a['chg_pct']:+.2f}%, {vol_ratio}x vol) — watch for reversal")
+
+    if not alerts:
+        return None
+
+    summary = f"📡 **AMZN Entry Monitor**\n"
+    summary += f"Price: ${price:.2f} ({a['chg_pct']:+.2f}%) | RSI: {r} | Vol: {vol_ratio}x\n"
+    if sma20: summary += f"SMA 20: ${sma20} | SMA 50: ${sma50} | SMA 100: ${sma100}\n"
+    summary += f"5d: {a['red_days_5']}🔴/{a['green_days_5']}🟢\n"
+    for alert in alerts:
+        summary += f"• {alert}\n"
+    summary += f"\n{get_verdict(a)}\n"
+    return summary
+
 def check_entry_voo(a):
     """Check VOO (S&P 500 ETF) entry conditions. Pullback entries in uptrend.
     Only alerts on actionable setups — suppresses noise in downtrends."""
@@ -888,6 +955,19 @@ def get_verdict(a):
         if r == 'PULLBACK':
             entry = s50 if s50 else fib50
             return f"📍 **VERDICT: 🟡 NEAR ENTRY** | {r} | Entry: ${entry} (SMA50) | Stop: ${round(entry-1.5*atr,2)} | TP1: ${s20} | TP2: ${s10}"
+        elif r == 'UPTREND':
+            return f"📍 **VERDICT: 🟢 UPTREND** | Entry on dip: ${fib382}–${fib50} | Stop: ${round(fib618-atr,2)} | TP: ${h3m}"
+        elif r == 'DOWNTREND':
+            return f"📍 **VERDICT: 🔴 WAIT** | {r} | Entry: ${fib618}–${fib786} | Needs RSI<30 + green candle"
+        elif r == 'BOUNCE':
+            return f"📍 **VERDICT: ⚠️ BOUNCE** | Risky | Wait for SMA50 reclaim (>${s50}) | Entry then: ${s50}"
+        else:
+            return f"📍 **VERDICT: ⏳ MONITOR** | Regime: {r}"
+
+    elif t == 'AMZN':
+        if r == 'PULLBACK':
+            entry = s50 if s50 else fib50
+            return f"📍 **VERDICT: 🟡 NEAR ENTRY** | {r} | Entry: ${entry} (SMA50) | Stop: ${round(entry-1.5*atr,2)} | TP1: ${s20} | Confirmation: close >${round(s20,2)} or MACD hist >0"
         elif r == 'UPTREND':
             return f"📍 **VERDICT: 🟢 UPTREND** | Entry on dip: ${fib382}–${fib50} | Stop: ${round(fib618-atr,2)} | TP: ${h3m}"
         elif r == 'DOWNTREND':
@@ -1173,7 +1253,7 @@ def main():
 
     results = []
 
-    for ticker in ["GOOG", "RDDT", "GDDY", "VOO", "VXUS", "NVDU", "ZS", "BCC", "FBK"]:
+    for ticker in ["GOOG", "RDDT", "GDDY", "VOO", "VXUS", "NVDU", "ZS", "BCC", "FBK", "AMZN"]:
         a = analyze_ticker(ticker)
         if not a:
             continue
@@ -1203,6 +1283,8 @@ def main():
             msg = check_entry_bcc(a)
         elif a['ticker'] == 'FBK':
             msg = check_entry_fbk(a)
+        elif a['ticker'] == 'AMZN':
+            msg = check_entry_amzn(a)
         if msg and a['ticker'] not in POSITIONS:
             triggered.append(msg)
 
