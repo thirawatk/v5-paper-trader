@@ -9,6 +9,69 @@ from datetime import datetime, timezone, timedelta
 # Thailand timezone
 BKK = timezone(timedelta(hours=7))
 
+# ---- TradingView primary data source (Yahoo fallback) ----
+try:
+    from tvDatafeed import TvDatafeed, Interval as TVInterval
+    _TV = None
+    _TV_EXCH = {
+        "GOOG": ["NASDAQ"], "RDDT": ["NYSE"], "GDDY": ["NYSE"],
+        "PTC": ["NASDAQ"], "VOO": ["AMEX", "NASDAQ"], "VXUS": ["NASDAQ", "AMEX"],
+        "NVDU": ["AMEX", "NASDAQ"], "ZS": ["NYSE", "NASDAQ"],
+    }
+    _TV_BARS = {"5d": 7, "1mo": 200, "3mo": 66, "6mo": 300, "1y": 300}
+    _TV_INTERVAL = {"1d": TVInterval.in_daily, "1h": TVInterval.in_1_hour}
+
+    def _tv():
+        global _TV
+        if _TV is None:
+            _TV = TvDatafeed()
+        return _TV
+
+    def fetch_tv_chart(ticker, period="6mo", interval="1d"):
+        """Fetch OHLCV from TradingView, return Yahoo-shaped dict or None."""
+        try:
+            iv = _TV_INTERVAL.get(interval)
+            if iv is None:
+                return None
+            ex_list = _TV_EXCH.get(ticker, ["NASDAQ", "NYSE", "AMEX"])
+            n = _TV_BARS.get(period, 130)
+            df = None
+            for ex in ex_list:
+                try:
+                    df = _tv().get_hist(symbol=ticker, exchange=ex, interval=iv, n_bars=n)
+                except Exception:
+                    df = None
+                if df is not None and not df.empty:
+                    break
+            if df is None or df.empty:
+                return None
+            df = df.dropna(subset=["close", "high", "low", "volume"])
+            if len(df) < 5:
+                return None
+            closes = [float(x) for x in df["close"]]
+            highs = [float(x) for x in df["high"]]
+            lows = [float(x) for x in df["low"]]
+            volumes = [float(x) for x in df["volume"]]
+            ts = [int(t.timestamp()) for t in df.index]
+            # 52-week extremes: last ~252 daily bars (all bars for intraday)
+            w = 252 if interval == "1d" else len(highs)
+            meta = {
+                "fiftyTwoWeekHigh": max(highs[-w:]),
+                "fiftyTwoWeekLow": min(lows[-w:]),
+            }
+            return {"chart": {"result": [{
+                "timestamp": ts,
+                "indicators": {"quote": [{
+                    "close": closes, "high": highs, "low": lows, "volume": volumes,
+                }]},
+                "meta": meta,
+            }]}}
+        except Exception:
+            return None
+except Exception:
+    def fetch_tv_chart(ticker, period="6mo", interval="1d"):
+        return None
+
 TICKERS = {
     "GOOG": "GOOG",
     "RDDT": "RDDT",
@@ -25,8 +88,8 @@ POSITIONS = {
     "ZS": {"entry": 150.00, "cost": 2250.00, "currency": "USD"},
 }
 
-def fetch_chart(ticker, period="5d", interval="1d"):
-    """Fetch daily chart from Yahoo Finance"""
+def _fetch_chart_yahoo(ticker, period="5d", interval="1d"):
+    """Fetch daily chart from Yahoo Finance (fallback)"""
     url = f"https://query1.finance.yahoo.com/v8/finance/chart/{ticker}?range={period}&interval={interval}"
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"})
     try:
@@ -34,6 +97,13 @@ def fetch_chart(ticker, period="5d", interval="1d"):
             return json.loads(resp.read())
     except Exception as e:
         return None
+
+def fetch_chart(ticker, period="5d", interval="1d"):
+    """Fetch chart data — TradingView primary, Yahoo fallback."""
+    d = fetch_tv_chart(ticker, period, interval)
+    if d is not None:
+        return d
+    return _fetch_chart_yahoo(ticker, period, interval)
 
 def fetch_1mo(ticker):
     """Fetch 1 month of hourly data for finer signals"""
