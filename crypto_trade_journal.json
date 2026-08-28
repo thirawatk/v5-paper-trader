@@ -4,8 +4,7 @@
   "currency": "USDC",
   "started": "2026-08-25",
   "notes": "Separate from stock journal (Dime/IBKR). Entries guided by 11-factor confluence + Wyckoff confirmation. 2×ATR stops, R-multiple targets.",
-  "closed_trades": [],
-  "open_positions": [
+  "closed_trades": [
     {
       "ticker": "HYPE",
       "market": "HYPE/USDC perp",
@@ -13,15 +12,19 @@
       "entry_price": 80.80,
       "quantity": 3.93,
       "notional": 317.54,
-      "leverage": null,
-      "sl": 75.44,
-      "tp1": 84.82,
-      "tp2": 87.50,
-      "tp3": 90.18,
-      "entry_reason": "UPTREND pullback confirmed: 4h close $80.88 > $80.20 + green candle, CMF 0.220, ROC +1.48%, EMA50/200 bullish",
-      "status": "open"
+      "exit_date": "2026-08-28",
+      "exit_legs": [
+        {"leg": "TP1", "qty": 1.965, "exit_price": 84.82, "pnl_usdc": 7.90, "pnl_pct": 2.50},
+        {"leg": "TP2", "qty": 1.965, "exit_price": 85.55, "pnl_usdc": 9.33, "pnl_pct": 2.94}
+      ],
+      "avg_exit": 85.19,
+      "realized_pnl_usdc": 17.23,
+      "realized_pnl_pct": 5.43,
+      "exit_reason": "TP1 (50%) @ $84.82 + TP2 (50%) @ $85.55 — both target points exited; original plan TP2 $85.55 (watcher config was $87.50 — user executed on plan levels).",
+      "status": "closed"
     }
   ],
-  "realized_pnl_usdc": 0.0,
-  "win_rate": null
+  "open_positions": [],
+  "realized_pnl_usdc": 17.23,
+  "win_rate": 1.0
 }
