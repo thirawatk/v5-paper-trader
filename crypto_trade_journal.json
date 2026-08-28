@@ -14,17 +14,32 @@
       "notional": 317.54,
       "exit_date": "2026-08-28",
       "exit_legs": [
-        {"leg": "TP1", "qty": 1.965, "exit_price": 84.82, "pnl_usdc": 7.90, "pnl_pct": 2.50},
-        {"leg": "TP2", "qty": 1.965, "exit_price": 85.55, "pnl_usdc": 9.33, "pnl_pct": 2.94}
+        {"leg": "TP1 (50% of pos)", "qty": 1.965, "exit_price": 84.82, "pnl_usdc": 7.90, "pnl_pct": 2.50},
+        {"leg": "TP2 (50% of remainder)", "qty": 0.9825, "exit_price": 85.55, "pnl_usdc": 4.67, "pnl_pct": 1.47}
       ],
-      "avg_exit": 85.19,
-      "realized_pnl_usdc": 17.23,
-      "realized_pnl_pct": 5.43,
-      "exit_reason": "TP1 (50%) @ $84.82 + TP2 (50%) @ $85.55 — both target points exited; original plan TP2 $85.55 (watcher config was $87.50 — user executed on plan levels).",
-      "status": "closed"
+      "realized_pnl_usdc": 12.57,
+      "realized_pnl_pct": 5.28,
+      "exit_reason": "Scale-out: 50% of position @ TP1 $84.82, then 50% of remainder @ TP2 $85.55. Remaining 0.9825 HYPE (25%) still running.",
+      "status": "partially_closed"
     }
   ],
-  "open_positions": [],
-  "realized_pnl_usdc": 17.23,
+  "open_positions": [
+    {
+      "ticker": "HYPE",
+      "market": "HYPE/USDC perp",
+      "entry_date": "2026-08-25",
+      "entry_price": 80.80,
+      "quantity": 0.9825,
+      "notional": 79.39,
+      "leverage": null,
+      "sl": 75.44,
+      "tp1": 84.82,
+      "tp2": 87.50,
+      "tp3": 90.18,
+      "entry_reason": "UPTREND pullback confirmed: 4h close $80.88 > $80.20 + green candle, CMF 0.220, ROC +1.48%",
+      "status": "running (profit-run runner after TP1+TP2 scale-outs)"
+    }
+  ],
+  "realized_pnl_usdc": 12.57,
   "win_rate": 1.0
 }

@@ -24,17 +24,19 @@ CMF_TRIGGER = 0.15
 KILL_LEVEL = 73.47
 MAX_BARS = 30   # ~5 days of 4h bars
 
-# ── CLOSED POSITION (entered 2026-08-25 @ $80.80, exited Aug 28 @ TP1+TP2) ──
+# ── PARTIALLY CLOSED POSITION (entered 2026-08-25 @ $80.80) ──
+# TP1 (50% of 3.93 = 1.965) @ $84.82 + TP2 (50% of remainder = 0.9825) @ $85.55
+# Runner: 0.9825 HYPE (~25%) still open — profit run mode
 POSITION = {
-    "active": False,        # CLOSED — exited both TP tranches Aug 28
+    "active": True,         # still tracking the runner (TP3 / SL)
     "entry": 80.80,
     "atr": 2.68,           # ATR(14) at entry
     "sl": 75.44,           # entry - 2×ATR
     "tp1": 84.82,          # entry + 1.5R
-    "tp2": 87.50,          # entry + 2.5R (original plan: 85.55 — user exited there)
+    "tp2": 87.50,          # entry + 2.5R (original plan: 85.55 — user executed there)
     "tp3": 90.18,          # entry + 3.5R
     "entry_date": "2026-08-25",
-    "exit_date": "2026-08-28",
+    "remaining_qty": 0.9825,   # 25% runner after TP1+TP2 tranches
 }
 
 
