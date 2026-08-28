@@ -39,6 +39,16 @@ POSITION = {
     "remaining_qty": 0.9825,   # 25% runner after TP1+TP2 tranches
 }
 
+# ── RE-ENTRY OBSERVATION (runs while position held) ──
+REENTRY = {
+    "enabled": True,
+    "ema_period": 50,       # pullback zone = EMA50
+    "zone_pct": 0.03,       # within +3% / -6% of EMA50
+    "rsi_max": 40,          # RSI must be < 40 for pullback zone
+    "breakout_level": 86.73,  # 4h close above = breakout re-entry (prior rejection high)
+    "breakout_retreat_pct": 0.05,  # re-arm breakout alert when price retreats 5% below level
+}
+
 
 def fetch_4h(hours=24 * 14):
     c = _normalize_candles(_post_info({
@@ -70,6 +80,31 @@ def roc_10(candles):
     if len(candles) < 11:
         return None
     return (candles[-1]['close'] / candles[-11]['close'] - 1) * 100
+
+
+def rsi_4h(candles, p=14):
+    closes = [c['close'] for c in candles]
+    if len(closes) < p + 1:
+        return None
+    gains = losses = 0.0
+    for i in range(len(closes) - p, len(closes)):
+        ch = closes[i] - closes[i - 1]
+        gains += max(ch, 0)
+        losses += abs(min(ch, 0))
+    if losses == 0:
+        return 100
+    return 100 - 100 / (1 + gains / losses)
+
+
+def ema_4h(candles, p=50):
+    closes = [c['close'] for c in candles]
+    if len(closes) < p:
+        return None
+    m = 2 / (p + 1)
+    r = sum(closes[:p]) / p
+    for v in closes[p:]:
+        r = (v - r) * m + r
+    return r
 
 
 def main():
@@ -158,6 +193,52 @@ def main():
                 json.dump(state, f, indent=1)
             print(f"**📡 HYPE Position Monitor — {now_str}**\n\n{alert}")
             return
+
+        # ═══ RE-ENTRY OBSERVATION (position held — watch for next entry) ═══
+        if REENTRY.get("enabled"):
+            r4 = rsi_4h(candles)
+            e50 = ema_4h(candles, REENTRY["ema_period"])
+            if e50 and r4 is not None:
+                in_zone = (r4 < REENTRY["rsi_max"]
+                           and price <= e50 * (1 + REENTRY["zone_pct"])
+                           and price >= e50 * (1 - REENTRY["zone_pct"] * 2))
+                if in_zone:
+                    if not state.get('reentry_zone'):
+                        alert = (
+                            f"📍 **HYPE RE-ENTRY ZONE**\n"
+                            f"Price: ${price:.2f} | RSI: {r4:.1f} | EMA50: ${e50:.2f}\n"
+                            f"Pullback to EMA50 — watch for green 4h close to confirm\n"
+                            f"Plan: entry EMA50 zone | SL below zone low (2×ATR ≈ ${atr:.2f}) | TPs 1.5R/2.5R from fill"
+                        )
+                        state['reentry_zone'] = True
+                    elif green and not state.get('reentry_confirmed'):
+                        alert = (
+                            f"🟢 **HYPE RE-ENTRY CONFIRMED**\n"
+                            f"Price: ${price:.2f} | RSI: {r4:.1f} | EMA50: ${e50:.2f} | Green 4h close\n"
+                            f"**Execution (Wyckoff):** BUY-STOP above trigger candle high | SL below candle low | TPs 1.5R/2.5R from fill"
+                        )
+                        state['reentry_confirmed'] = True
+                else:
+                    state['reentry_zone'] = False
+                    state['reentry_confirmed'] = False  # re-arm after leaving zone
+
+            # Breakout re-entry (prior rejection high)
+            if price > REENTRY["breakout_level"] and not state.get('reentry_breakout'):
+                alert = (
+                    f"🚀 **HYPE BREAKOUT RE-ENTRY**\n"
+                    f"Price: ${price:.2f} > ${REENTRY['breakout_level']} (prior rejection high)\n"
+                    f"**Execution:** BUY-STOP above breakout candle high | SL below breakout candle low | TP: prior TP3 $90.18 → extension"
+                )
+                state['reentry_breakout'] = True
+            elif price < REENTRY["breakout_level"] * (1 - REENTRY["breakout_retreat_pct"]):
+                state['reentry_breakout'] = False  # re-arm after retreat
+
+            if alert:
+                with open(STATE_FILE, 'w') as f:
+                    json.dump(state, f, indent=1)
+                print(f"**📡 HYPE Re-Entry Watch — {now_str}**\n\n{alert}")
+                return
+
         return  # silent while position healthy
 
     # ═══ ENTRY CONFIRMATION MODE (no position yet) ═══
