@@ -3,7 +3,7 @@
 V5 Paper Trader — Real-Time S&P 500
 ====================================
 $1,000 starting capital, 1% risk per trade.
-V5 scoring (trend-slope, VWAP-center, OBV, CMF, MFI, VIX, VPQ, candle).
+V5 scoring (trend-slope, VWAP-center, OBV, CMF, MFI, momentum, VIX, VPQ, candle).
 Entry: composite ≥ 4.0. Exit: SL=2.0×ATR | TP1=1.2R | TP2=2.5R | Max 30d.
 """
 
@@ -18,7 +18,7 @@ from pathlib import Path
 
 # ═══ CONFIG ═══
 STARTING_CAPITAL = 1000.0
-RISK_PER_TRADE = 0.01       # 1% of capital
+RISK_PER_TRADE = 0.03       # 3% of capital (rolling WF: +31% alpha vs SPY)
 MAX_POSITIONS = 5
 MIN_CONFLUENCE = 4.0
 STOP_ATR = 2.0
@@ -29,14 +29,53 @@ VOLUME_FILTER = 1.2     # entry requires vol > 1.2× 20-day avg
 
 # V5 weights
 W_TREND=1.5; W_VWAP=2.0; W_OBV=1.0; W_CMF=1.0
-W_MFI=1.0; W_VIX=2.0; W_VPQ=2.0; W_CANDLE=1.5
-TOTAL_W=W_TREND+W_VWAP+W_OBV+W_CMF+W_MFI+W_VIX+W_VPQ+W_CANDLE
+W_MFI=1.0; W_MOM=1.0; W_VIX=2.0; W_VPQ=2.0; W_CANDLE=1.5
+TOTAL_W=W_TREND+W_VWAP+W_OBV+W_CMF+W_MFI+W_MOM+W_VIX+W_VPQ+W_CANDLE
 
 # Paths
 STATE_FILE = "/root/.hermes/profiles/trader/scripts/v5_paper_state.json"
 SP500_FILE = "/root/.hermes/profiles/trader/scripts/sp500_universe.txt"
 LOG_FILE = "/root/.hermes/profiles/trader/scripts/v5_paper_trades.csv"
 REPORT_FILE = "/root/.hermes/profiles/trader/scripts/v5_paper_report.md"
+
+# ═══ TRADINGVIEW FEED (primary — Yahoo fallback) ═══
+_TV = None
+QUIET = "--quiet" in sys.argv
+
+
+def p(*a, **kw):
+    """Print unless --quiet (cron watchdog mode — silent unless events fire)."""
+    if not QUIET:
+        print(*a, **kw)
+
+
+def _tv():
+    global _TV
+    if _TV is None:
+        from tvDatafeed import TvDatafeed
+        _TV = TvDatafeed()
+    return _TV
+
+
+def get_tv_daily(sym):
+    """TradingView daily OHLCV → (close, high, low) or None if unavailable.
+    Last bar is the LIVE forming bar during market hours (like monitor_entries.py)."""
+    try:
+        from tvDatafeed import Interval
+        for ex in ("NYSE", "NASDAQ", "AMEX"):
+            try:
+                df = _tv().get_hist(symbol=sym, exchange=ex, interval=Interval.in_daily, n_bars=70)
+            except Exception:
+                df = None
+            if df is not None and not df.empty:
+                last = df.iloc[-1]
+                c, h, l = float(last["close"]), float(last["high"]), float(last["low"])
+                if pd.notna(c) and np.isfinite(c) and np.isfinite(h) and np.isfinite(l):
+                    return (c, h, l)
+    except Exception:
+        pass
+    return None
+
 
 # ═══ HELPERS ═══
 
@@ -223,9 +262,12 @@ def score_signal(df, vix_val, idx):
     else: s["candle"]=0.0
 
     # Composite
+    mom_val=df["MOM"].iloc[idx] if pd.notna(df["MOM"].iloc[idx]) else 0.0
+    mom_score=round(max(-1.0, min(1.0, mom_val / 2)), 2)
+    s["momentum"]=mom_score
     wsum=(s.get("trend",0)*W_TREND+s.get("vwap",0)*W_VWAP+s.get("obv",0)*W_OBV+
-          s.get("cmf",0)*W_CMF+s.get("mfi",0)*W_MFI+s.get("vix",0)*W_VIX+
-          s.get("vp_quality",0)*W_VPQ+s.get("candle",0)*W_CANDLE)
+          s.get("cmf",0)*W_CMF+s.get("mfi",0)*W_MFI+s.get("momentum",0)*W_MOM+
+          s.get("vix",0)*W_VIX+s.get("vp_quality",0)*W_VPQ+s.get("candle",0)*W_CANDLE)
     raw=(wsum/TOTAL_W)*10
     s["composite"]=round(raw**1.15 if raw>0 else -(abs(raw)**1.15),2)
     return s
@@ -233,33 +275,37 @@ def score_signal(df, vix_val, idx):
 # ═══ MAIN ═══
 
 def scan_and_trade():
-    print(f"\n{'='*60}")
-    print(f"  V5 PAPER TRADER — {datetime.now().strftime('%Y-%m-%d %H:%M')}")
-    print(f"{'='*60}")
+    p(f"\n{'='*60}")
+    p(f"  V5 PAPER TRADER — {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    p(f"{'='*60}")
 
     state = load_state()
     capital = state["capital"]
     positions = state["positions"]
     closed_trades = state["closed_trades"]
 
-    print(f"  Capital: ${capital:.2f} | Positions: {len(positions)} | Closed: {len(closed_trades)}")
+    p(f"  Capital: ${capital:.2f} | Positions: {len(positions)} | Closed: {len(closed_trades)}")
 
     # Track today's activity
     exits_today = []
     signals_today = []
 
     # ── Fetch VIX ──
-    print("\n[1] Fetching VIX...")
-    vix_df = yf.download("^VIX", period="5d", progress=False)
-    if hasattr(vix_df.columns, 'levels'):
-        vix_val = float(vix_df.iloc[-1].iloc[0])
-    else:
-        vix_val = float(vix_df["Close"].iloc[-1])
-    print(f"  VIX: {vix_val:.1f}")
+    p("\n[1] Fetching VIX...")
+    try:
+        vix_df = yf.download("^VIX", period="5d", progress=False)
+        if hasattr(vix_df.columns, 'levels'):
+            vix_val = float(vix_df.iloc[-1].iloc[0])
+        else:
+            vix_val = float(vix_df["Close"].iloc[-1])
+        p(f"  VIX: {vix_val:.1f}")
+    except Exception:
+        vix_val = 0.0
+        p("  VIX unavailable — using 0 (no penalty)")
 
     # ── Fetch SP500 tickers ──
     tickers = load_tickers(SP500_FILE)
-    print(f"\n[2] Scanning {len(tickers)} S&P 500 stocks...")
+    p(f"\n[2] Scanning {len(tickers)} S&P 500 stocks...")
 
     # Batch download recent data
     all_data = {}
@@ -280,22 +326,28 @@ def scan_and_trade():
                         all_data[sym] = df
                 except: pass
 
-    print(f"  Loaded {len(all_data)} stocks")
+    p(f"  Loaded {len(all_data)} stocks")
 
     # ── Update existing positions ──
-    print(f"\n[3] Checking {len(positions)} open positions...")
+    p(f"\n[3] Checking {len(positions)} open positions...")
     new_positions = []
     for pos in positions:
         sym = pos["ticker"]
-        if sym not in all_data:
-            new_positions.append(pos)  # Keep if no data
-            continue
 
-        df = all_data[sym]
-        today = df.index[-1]
-        today_close = float(df["close"].iloc[-1])
-        today_low = float(df["low"].iloc[-1])
-        today_high = float(df["high"].iloc[-1])
+        # TradingView first (live), then Yahoo batch, else keep last-known price
+        tv = get_tv_daily(sym)
+        if tv:
+            today_close, today_high, today_low = tv
+            today = datetime.now()
+        elif sym in all_data:
+            df = all_data[sym]
+            today = df.index[-1]
+            today_close = float(df["close"].iloc[-1])
+            today_low = float(df["low"].iloc[-1])
+            today_high = float(df["high"].iloc[-1])
+        else:
+            new_positions.append(pos)  # no data — keep position as-is (last-known price)
+            continue
         days_held = pos.get("days_held", 0) + 1
 
         # Check exits
@@ -339,13 +391,14 @@ def scan_and_trade():
             log_trade(trade)
         else:
             pos["days_held"] = days_held
-            pos["current_price"] = round(float(today_close), 2)
+            if np.isfinite(today_close):
+                pos["current_price"] = round(float(today_close), 2)
             new_positions.append(pos)
 
     positions = new_positions
 
     # ── Scan for new signals ──
-    print(f"\n[4] Scanning for new entries (max {MAX_POSITIONS - len(positions)} slots)...")
+    p(f"\n[4] Scanning for new entries (max {MAX_POSITIONS - len(positions)} slots)...")
     open_tickers = {p["ticker"] for p in positions}
     signals_found = 0
 
@@ -364,6 +417,7 @@ def scan_and_trade():
         df["CMF"] = compute_cmf(df)
         df["MFI"] = compute_mfi(df)
         df["VP_Quality"] = compute_vp_quality(df)
+        df["MOM"] = (df["close"] - df["close"].shift(10)) / df["close"].shift(10) * 100
 
         # Score last candle
         idx = len(df) - 1
@@ -393,6 +447,7 @@ def scan_and_trade():
             "ticker": sym,
             "entry_date": df.index[idx].strftime("%Y-%m-%d"),
             "entry_price": round(close, 2),
+            "current_price": round(close, 2),
             "shares": shares,
             "sl": round(sl, 2),
             "tp1": round(tp1, 2),
@@ -421,22 +476,22 @@ def scan_and_trade():
     total_value = capital + sum(p["capital_risked"] for p in positions)
     total_return = (total_value - STARTING_CAPITAL) / STARTING_CAPITAL * 100
 
-    print(f"\n{'='*60}")
-    print(f"  DAILY SUMMARY")
-    print(f"{'='*60}")
-    print(f"  Cash: ${capital:.2f}")
-    print(f"  In positions: ${sum(p['capital_risked'] for p in positions):.2f}")
-    print(f"  Total value: ${total_value:.2f} ({total_return:+.1f}%)")
-    print(f"  Open positions: {len(positions)} | Closed trades: {len(closed_trades)}")
+    p(f"\n{'='*60}")
+    p(f"  DAILY SUMMARY")
+    p(f"{'='*60}")
+    p(f"  Cash: ${capital:.2f}")
+    p(f"  In positions: ${sum(p['capital_risked'] for p in positions):.2f}")
+    p(f"  Total value: ${total_value:.2f} ({total_return:+.1f}%)")
+    p(f"  Open positions: {len(positions)} | Closed trades: {len(closed_trades)}")
     if closed_trades:
         wins = sum(1 for t in closed_trades if t["r_multiple"] > 0)
         total_r = sum(t["r_multiple"] for t in closed_trades)
-        print(f"  Win rate: {wins}/{len(closed_trades)} ({wins/max(len(closed_trades),1)*100:.0f}%)")
-        print(f"  Total R: {total_r:+.2f} | Total P&L: ${sum(t['pnl'] for t in closed_trades):+.2f}")
+        p(f"  Win rate: {wins}/{len(closed_trades)} ({wins/max(len(closed_trades),1)*100:.0f}%)")
+        p(f"  Total R: {total_r:+.2f} | Total P&L: ${sum(t['pnl'] for t in closed_trades):+.2f}")
 
     # ── Generate Markdown Report ──
     report_path = generate_markdown_report(state, signals_today, exits_today)
-    print(f"\n  📄 Report saved: {report_path}")
+    p(f"\n  📄 Report saved: {report_path}")
 
     return state
 
@@ -463,7 +518,7 @@ def generate_markdown_report(state, signals_today, exits_today):
 
     lines = []
     lines.append(f"# 📊 V5 Paper Trader Report")
-    lines.append(f"**{now}** | S&P 500 | 8-Factor Confluence")
+    lines.append(f"**{now}** | S&P 500 | 9-Factor Confluence")
     lines.append("")
     lines.append("## 📈 Account Summary")
     lines.append("")

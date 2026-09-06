@@ -76,7 +76,7 @@ def generate_report():
         f"",
         f"> Generated: {now.strftime('%Y-%m-%d %H:%M')}",
         f"> Strategy: 9-Factor Confluence (S&P 500 stocks)",
-        f"> Config: 3% risk, 5 positions, TP2=1.5R",
+        f"> Config: 3% risk, 5 positions, TP2=2.5R",
         f"",
         f"---",
         f"",
