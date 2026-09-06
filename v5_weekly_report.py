@@ -50,8 +50,10 @@ def generate_report():
     trades = state.get("closed_trades", [])
     last_run = state.get("last_run", "N/A")
 
-    total_return = (capital - STARTING_CAPITAL) / STARTING_CAPITAL * 100
-    dd = (peak - capital) / peak * 100 if peak > 0 else 0
+    # Total value = cash + reserved capital in open positions (reserved at entry, released at exit)
+    total_value = capital + sum(p.get("capital_risked", 0) for p in positions)
+    total_return = (total_value - STARTING_CAPITAL) / STARTING_CAPITAL * 100
+    dd = (peak - total_value) / peak * 100 if peak > 0 else 0
 
     wins = [t for t in trades if t.get("r_multiple", 0) > 0]
     losses = [t for t in trades if t.get("r_multiple", 0) < 0]
@@ -85,11 +87,12 @@ def generate_report():
         f"| Metric | Value |",
         f"|---|---|",
         f"| Starting Capital | ${STARTING_CAPITAL:,.2f} |",
-        f"| Current Capital | ${capital:,.2f} |",
+        f"| Current Capital | ${total_value:,.2f} |",
         f"| Total Return | {total_return:+.2f}% |",
         f"| Peak Capital | ${peak:,.2f} |",
         f"| Drawdown | {dd:.1f}% |",
         f"| Unrealized P&L | ${unrealized:+,.2f} |",
+        f"| Cash (reserved) | ${capital:,.2f} (+${sum(p.get('capital_risked', 0) for p in positions):,.2f} in positions) |",
         f"| Last Run | {last_run} |",
         f"",
     ]
