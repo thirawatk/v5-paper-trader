@@ -10,8 +10,13 @@
 | Ticker | Market | Entry | Qty | SL | TP1 | TP2 | TP3 | Status |
 |--------|--------|-------|-----|-----|-----|-----|-----|--------|
 | HYPE | HYPE/USDC perp | $80.80 (25 Aug) | **0.9825** (~$79.39) | $75.44 | $84.82 ✅ | $87.50 | $90.18 | 🟢 Profit run (25% runner) |
+| HYPE | HYPE/USDC perp | $83.537 (8 Sep) | **1.75** (~$146.19) | $81.49 | $86.61 | $88.66 | $90.70 | 🟢 Re-entry (re-entry signal) |
+
+**Combined HYPE exposure:** 2.7325 coins, blended entry **$82.55** (~$225.58). Runner + re-entry tracked separately.**
 
 **Runner note:** 50% sold @ TP1 ($84.82), 50% of remainder sold @ TP2 ($85.55) on Aug 28. Remaining 0.9825 HYPE rides for TP3 / trail.
+
+**Re-entry note (8 Sep):** green 4h close in EMA50 pullback zone (RSI 38.1) — zone alert 19:20, confirmed 21:21 @ $83.43, filled $83.537. SL = trigger candle low ($81.49), TPs 1.5R/2.5R/3.5R from fill.
 
 **Entry reason (HYPE):** UPTREND pullback confirmed — 4h close $80.88 > $80.20 + green candle, CMF 0.220, ROC +1.48%
 
