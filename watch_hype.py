@@ -24,19 +24,19 @@ CMF_TRIGGER = 0.15
 KILL_LEVEL = 73.47
 MAX_BARS = 30   # ~5 days of 4h bars
 
-# ── PARTIALLY CLOSED POSITION (entered 2026-08-25 @ $80.80) ──
-# TP1 (50% of 3.93 = 1.965) @ $84.82 + TP2 (50% of remainder = 0.9825) @ $85.55
-# Runner: 0.9825 HYPE (~25%) still open — profit run mode
+# ── LIVE POSITION (RE-ENTRY 2026-09-08 @ $83.537, 1.75 HYPE) ──
+# Trigger candle: O83.15 H83.74 L81.49 C83.52 (green 4h) — Wyckoff SL below candle low
+# TP1 = 1.5R ($86.61), TP2 = 2.5R ($88.66) from fill; scale-out 50% / 50% of remainder / runner
 POSITION = {
-    "active": True,         # still tracking the runner (TP3 / SL)
-    "entry": 80.80,
-    "atr": 2.68,           # ATR(14) at entry
-    "sl": 75.44,           # entry - 2×ATR
-    "tp1": 84.82,          # entry + 1.5R
-    "tp2": 87.50,          # entry + 2.5R (original plan: 85.55 — user executed there)
-    "tp3": 90.18,          # entry + 3.5R
-    "entry_date": "2026-08-25",
-    "remaining_qty": 0.9825,   # 25% runner after TP1+TP2 tranches
+    "active": True,
+    "entry": 83.537,
+    "atr": 1.74,
+    "sl": 81.49,           # trigger candle low (L81.49)
+    "tp1": 86.61,          # 1.5R from fill
+    "tp2": 88.66,          # 2.5R from fill
+    "tp3": 90.70,          # 3.5R from fill
+    "entry_date": "2026-09-08",
+    "remaining_qty": 1.75,
 }
 
 # ── RE-ENTRY OBSERVATION (runs while position held) ──
