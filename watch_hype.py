@@ -24,19 +24,18 @@ CMF_TRIGGER = 0.15
 KILL_LEVEL = 73.47
 MAX_BARS = 30   # ~5 days of 4h bars
 
-# ── LIVE POSITION (RE-ENTRY 2026-09-08 @ $83.537, 1.75 HYPE) ──
+# ── RE-ENTRY POSITION CLOSED (SL $81.49, Sep 11) ──
 # Trigger candle: O83.15 H83.74 L81.49 C83.52 (green 4h) — Wyckoff SL below candle low
-# TP1 = 1.5R ($86.61), TP2 = 2.5R ($88.66) from fill; scale-out 50% / 50% of remainder / runner
 POSITION = {
-    "active": True,
+    "active": False,        # STOPPED at $81.49 on Sep 11
     "entry": 83.537,
     "atr": 1.74,
-    "sl": 81.49,           # trigger candle low (L81.49)
-    "tp1": 86.61,          # 1.5R from fill
-    "tp2": 88.66,          # 2.5R from fill
-    "tp3": 90.70,          # 3.5R from fill
+    "sl": 81.49,
+    "tp1": 86.61,
+    "tp2": 88.66,
+    "tp3": 90.70,
     "entry_date": "2026-09-08",
-    "remaining_qty": 1.75,
+    "remaining_qty": 0,
 }
 
 # ── RE-ENTRY OBSERVATION (runs while position held) ──
@@ -151,9 +150,12 @@ def main():
         bar_high = candles[-1]['high']
 
         if price <= pos["sl"] or candles[-1]['low'] <= pos["sl"]:
+            exit_price = pos['sl']  # SL fills at stop level, not current price
+            pnl = (exit_price - entry) / entry * 100
+            pnl_usd_per_coin = exit_price - entry
             alert = (
                 f"🔴 **HYPE STOP LOSS HIT**\n"
-                f"Price: ${price:.2f} | SL: ${pos['sl']:.2f}\n"
+                f"Price: ${price:.2f} | SL fill: ${exit_price:.2f}\n"
                 f"P&L: {pnl:+.2f}% (${pnl_usd_per_coin:+.2f}/coin)\n"
                 f"Exited — risk managed. {pos['entry_date']} entry."
             )

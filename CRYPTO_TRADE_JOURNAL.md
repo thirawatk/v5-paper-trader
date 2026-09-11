@@ -18,6 +18,8 @@
 
 **Re-entry note (8 Sep):** green 4h close in EMA50 pullback zone (RSI 38.1) — zone alert 19:20, confirmed 21:21 @ $83.43, filled $83.537. SL = trigger candle low ($81.49), TPs 1.5R/2.5R/3.5R from fill.
 
+**⚠️ Re-entry stopped (11 Sep):** SL hit at $81.49, realized −$3.58 (−2.45%). Runner (0.9825 @ $80.80) still open.
+
 **Entry reason (HYPE):** UPTREND pullback confirmed — 4h close $80.88 > $80.20 + green candle, CMF 0.220, ROC +1.48%
 
 ---
@@ -27,6 +29,7 @@
 | Ticker | Entry | Exit | Qty | Realized P&L | % | Notes |
 |--------|-------|------|-----|--------------|---|-------|
 | HYPE | $80.80 (25 Aug) | TP1: 1.965 @ $84.82 + TP2: 0.9825 @ $85.55 (28 Aug) | 2.9475 | **+$12.57** | **+5.28%** | Scale-out 50% + 50% of remainder |
+| HYPE | $83.537 (8 Sep) | SL: 1.75 @ $81.49 (11 Sep) | 1.75 | **−$3.58** | **−2.45%** | Re-entry stopped at trigger candle low |
 
 ---
 

@@ -21,6 +21,20 @@
       "realized_pnl_pct": 5.28,
       "exit_reason": "Scale-out: 50% of position @ TP1 $84.82, then 50% of remainder @ TP2 $85.55. Remaining 0.9825 HYPE (25%) still running.",
       "status": "partially_closed"
+    },
+    {
+      "ticker": "HYPE",
+      "market": "HYPE/USDC perp",
+      "entry_date": "2026-09-08",
+      "entry_price": 83.537,
+      "quantity": 1.75,
+      "notional": 146.19,
+      "exit_date": "2026-09-11",
+      "exit_price": 81.49,
+      "realized_pnl_usdc": -3.58,
+      "realized_pnl_pct": -2.45,
+      "exit_reason": "SL hit at trigger candle low $81.49 (−1R). Re-entry stopped.",
+      "status": "closed"
     }
   ],
   "open_positions": [
@@ -38,23 +52,8 @@
       "tp3": 90.18,
       "entry_reason": "UPTREND pullback confirmed: 4h close $80.88 > $80.20 + green candle, CMF 0.220, ROC +1.48%",
       "status": "running (profit-run runner after TP1+TP2 scale-outs)"
-    },
-    {
-      "ticker": "HYPE",
-      "market": "HYPE/USDC perp",
-      "entry_date": "2026-09-08",
-      "entry_price": 83.537,
-      "quantity": 1.75,
-      "notional": 146.19,
-      "leverage": null,
-      "sl": 81.49,
-      "tp1": 86.61,
-      "tp2": 88.66,
-      "tp3": 90.70,
-      "entry_reason": "Re-entry signal: green 4h close in EMA50 pullback zone (RSI 38.1, zone alert 19:20, confirmed 21:21 @ $83.43). SL = trigger candle low $81.49, TPs 1.5R/2.5R/3.5R from fill.",
-      "status": "open (re-entry 2026-09-08)"
     }
   ],
-  "realized_pnl_usdc": 12.57,
-  "win_rate": 1.0
+  "realized_pnl_usdc": 8.99,
+  "win_rate": 0.5
 }
