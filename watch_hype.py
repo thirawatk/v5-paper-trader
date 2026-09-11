@@ -6,6 +6,8 @@ Triggers (either):
   1. 4h close > $80.20 (previous swing high) + green candle
   2. CMF > 0.15 AND ROC-10 turns positive
 
+Every entry alert includes the 11-factor confluence score (≥±0.50 required).
+
 Kill: 4h close < $73.47 (2×ATR stop level) → setup dead
 Watchdog: silent unless trigger/kill fires.
 """
@@ -14,6 +16,7 @@ from datetime import datetime, timezone, timedelta
 
 sys.path.insert(0, "/root/.hermes/profiles/trader/skills/hyperliquid/scripts")
 sys.path.insert(0, "/root/.hermes/profiles/trader/scripts")
+import confluence_score
 from hyperliquid_client import _post_info, _normalize_candles, _hours_ago_ms
 
 BKK = timezone(timedelta(hours=7))
@@ -214,10 +217,21 @@ def main():
                         )
                         state['reentry_zone'] = True
                     elif green and not state.get('reentry_confirmed'):
+                        # Run 11-factor confluence scoring
+                        try:
+                            cf = confluence_score.score('HYPE')
+                            cf_text = confluence_score.format_alert(cf, 'HYPE')
+                        except Exception as e:
+                            cf = None
+                            cf_text = f"⚠️ Confluence scoring unavailable: {e}"
+                        gate_pass = cf.get('passes', False) if cf else False
+
                         alert = (
                             f"🟢 **HYPE RE-ENTRY CONFIRMED**\n"
-                            f"Price: ${price:.2f} | RSI: {r4:.1f} | EMA50: ${e50:.2f} | Green 4h close\n"
-                            f"**Execution (Wyckoff):** BUY-STOP above trigger candle high | SL below candle low | TPs 1.5R/2.5R from fill"
+                            f"Price: ${price:.2f} | RSI: {r4:.1f} | EMA50: ${e50:.2f} | Green 4h close\n\n"
+                            f"{cf_text}\n\n"
+                            f"**Execution (Wyckoff):** BUY-STOP above trigger candle high | SL below candle low | TPs 1.5R/2.5R from fill\n\n"
+                            f"{'🟢 Entry valid — score passes 11-factor gate' if gate_pass else '🔴 WAIT — score below ±0.50 threshold, no edge'}"
                         )
                         state['reentry_confirmed'] = True
                 else:
@@ -250,17 +264,30 @@ def main():
         triggered_by = f"CMF {cmf:.3f} > {CMF_TRIGGER} AND ROC {roc:+.2f}% turned positive"
 
     if triggered_by and state.get('alerted') != 'entry':
+        # Run 11-factor confluence scoring before presenting the entry
+        try:
+            cf = confluence_score.score('HYPE')
+            cf_text = confluence_score.format_alert(cf, 'HYPE')
+        except Exception as e:
+            cf = None
+            cf_text = f"⚠️ Confluence scoring unavailable: {e}"
+
+        gate_pass = cf.get('passes', False) if cf else False
+        gate_icon = "✅ PASSES" if gate_pass else "❌ BELOW THRESHOLD"
+
         alert = (
             f"🟢 **HYPE ENTRY CONFIRMED**\n"
             f"Price: ${price:.2f} | Trigger: {triggered_by}\n"
             f"CMF: {cmf:.3f} | ROC-10: {roc:+.2f}% | Bars waited: {state.get('bars', 0)}\n\n"
+            f"{cf_text}\n\n"
             f"**Execution (Wyckoff stop-order discipline):**\n"
             f"1. Note trigger candle HIGH & LOW\n"
             f"2. Place BUY-STOP ~0.1% above candle high\n"
             f"3. SL: below trigger candle low (or $73.47, whichever is tighter)\n"
             f"4. TPs: 1.5R / 2.5R / 3.5R from ACTUAL entry (recalculated at fill — do NOT reuse old levels)\n"
             f"5. Size: 1% risk (2×ATR stop = $2.68/coin)\n"
-            f"6. TP1 hit → sell half, stop to breakeven; TP2 → sell rest or trail"
+            f"6. TP1 hit → sell half, stop to breakeven; TP2 → sell rest or trail\n\n"
+            f"{'🟢 Entry valid — score passes 11-factor gate' if gate_pass else '🔴 WAIT — score below ±0.50 threshold, no edge'}"
         )
         state['alerted'] = 'entry'
 
