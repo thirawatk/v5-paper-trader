@@ -15,7 +15,7 @@ try:
     _TV = None
     _TV_EXCH = {
         "GOOG": ["NASDAQ"], "RDDT": ["NYSE"], "GDDY": ["NYSE"],
-        "PTC": ["NASDAQ"], "VOO": ["AMEX", "NASDAQ"], "VXUS": ["NASDAQ", "AMEX"],
+        "PTC": ["NASDAQ"],
         "NVDU": ["AMEX", "NASDAQ"], "ZS": ["NYSE", "NASDAQ"], "BCC": ["NYSE", "NASDAQ"], "FBK": ["NYSE", "NASDAQ"], "AMZN": ["NASDAQ"], "GEV": ["NYSE", "NASDAQ"],
         "MRVL": ["NASDAQ", "NYSE"],
     }
@@ -77,8 +77,6 @@ TICKERS = {
     "GOOG": "GOOG",
     "RDDT": "RDDT",
     "GDDY": "GDDY",
-    "VOO": "VOO",
-    "VXUS": "VXUS",
     "NVDU": "NVDU",
     "ZS": "ZS",
     "BCC": "BCC",
@@ -1417,7 +1415,7 @@ def main():
 
     results = []
 
-    for ticker in ["GOOG", "RDDT", "GDDY", "VOO", "VXUS", "NVDU", "ZS", "BCC", "FBK", "AMZN", "MRVL", "GEV"]:
+    for ticker in ["GOOG", "RDDT", "GDDY", "NVDU", "ZS", "BCC", "FBK", "AMZN", "MRVL", "GEV"]:
         a = analyze_ticker(ticker)
         if not a:
             continue
