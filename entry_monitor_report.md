@@ -1,6 +1,6 @@
-# 📡 Entry Monitor Report — Thu 24 Sep 2026 22:00 ICT
+# 📡 Entry Monitor Report — Fri 25 Sep 2026 03:00 ICT
 
-**Run:** `monitor_entries.py` exit 0. No 🟢 entry verdicts. Exit/trailing signals fired on BOTH open positions → report triggered. (tvDatafeed connection timed out — data served via fallback; prices may be slightly delayed.)
+**Run:** `monitor_entries.py` exit 0. No 🟢 entry verdicts (GEV = ⚠️ BOUNCE, not actionable). Exit/trailing signals fired on BOTH open positions → report triggered. (tvDatafeed connection timed out — data served via fallback; prices may be slightly delayed.)
 
 ---
 
@@ -8,16 +8,17 @@
 
 **NONE this scan.** No 🟢 entry confirmations — no expert entry pipeline run.
 
+**GEV watch:** $954.99 (+0.33%), RSI 52.4, vol 0.63x — still BELOW SMA 50 ($974.48), testing support. Verdict ⚠️ BOUNCE / Risky. Entry only on reclaim >$974.48.
+
 **Budget $2,500:** no deployment this scan — 100% reserved.
 
 ---
 
-## Changes Since 21:00 Report
+## Changes Since 22:00 Report
 
-- **NVDU: +54.2% → +52.5%** — price $138.77 → $137.23, still **below SMA20 ($138.86)** — trend weakening flag persists. Trail floor $125.65 → **$124.11** (2×ATR recalculated on lower price). Momentum STRONG (+3), RSI 42.0 → 40.8, regime PULLBACK.
-- **ZS: +42.1% → +42.6%** — price $213.09 → $213.93, still near 3M high $216.43 (+1.2% away). Trail floor $192.89 → **$193.73**. RSI 72.1 → 72.8, Stoch 95.6, momentum +3, regime UPTREND.
-- Combined open P&L: +$2,263.14 → **+$2,234.16** (drift −$28.98).
-- GDDY no longer appears in scan output this run (previous 🔴 WAIT).
+- **NVDU: +52.5% → +56.8%** — price $137.23 → **$141.16**, RECLAIMED SMA20 — trend-weakening flag cleared. Regime PULLBACK → **UPTREND**, momentum +3 → **+5**, RSI 40.8 → 43.9. Trail floor $124.11 → **$128.04** (locks ≥+$1,027, +42.3%).
+- **ZS: +42.6% → +43.2%** — price $213.93 → **$214.74**, now only **+1.06% ($2.23)** below 3M high $216.97. Trail floor $193.73 → **$194.46** (locks ≥+$667, +29.6%). RSI 72.8 → 73.4, Stoch 96.1, momentum +3, regime UPTREND.
+- Combined open P&L: +$2,234.16 → **+$2,352.34** (+$118.18 improvement).
 
 ---
 
@@ -25,45 +26,45 @@
 
 | Ticker | Action | Exit Price | P&L | Notes |
 |--------|--------|-----------|-----|-------|
-| **NVDU** | 📈 TRAILING + 📉 below-SMA20 — hold on trail (watch) | n/a (trail $124.11) | **+52.5% (+$1,275.21, 27 sh)** | Below SMA20 ($138.86) — trend weakening. Trail 2×ATR locks ≥+$921 (+37.9%). Regime PULLBACK, RSI 40.8, momentum +3. No exit hit — trail governs |
-| **ZS** | 📈 TRAILING — hold | n/a (trail $193.73) | **+42.6% (+$963.00–958.95, 15 sh)** | Trail 2×ATR locks ≥+$656 (+31.1%). Near 3M high $216.43 (+1.2% away) — resistance zone. RSI 72.8 / Stoch 95.6 overbought. Momentum STRONG (+3), regime UPTREND |
+| **NVDU** | 📈 TRAILING — hold, trend recovered | n/a (trail $128.04) | **+56.8% (+$1,381.32, 27 sh)** | Back above SMA20, regime UPTREND, momentum +5. Trail 2×ATR locks ≥+$1,027 (+42.3%). RSI 43.9 — room to run |
+| **ZS** | 📈 TRAILING — hold at resistance | n/a (trail $194.46) | **+43.2% (+$971.02, 15 sh)** | 3M high $216.97 only +1.06% above — supply zone. Trail locks ≥+$667 (+29.6%). RSI 73.4 / Stoch 96.1 overbought |
 
-*Combined open P&L: **+$2,234.16** on $4,680 deployed (+47.7%). Worst case if BOTH trails hit: **≈+$1,577 (+33.7%)** locked.*
+*Combined open P&L: **+$2,352.34** on $4,680 deployed (+50.3%). Worst case if BOTH trails hit: **≈+$1,694 (+36.2%)** locked.*
 
 ---
 
 ## Expert Analysis — Exit Decisions (Active Positions)
 
-### NVDU — 📈 TRAILING / below SMA20 → HOLD ON TRAIL
+### NVDU — 📈 TRAILING, trend recovered → HOLD ON TRAIL
 
 **Setup**
-- Entry $90.00 → Current **$137.23** | P&L **+52.5% (+$1,275.21, 27 sh)**
-- Trail stop **$124.11** (2×ATR) locks in **≥ +$921 (+37.9%)** minimum
-- RSI 40.8 (cooled further from 42.0) | Stoch 43.0 | Momentum STRONG (+3) | ATR $6.56 | Regime **PULLBACK**, price below SMA20 ($138.86)
+- Entry $90.00 → Current **$141.16** | P&L **+56.8% (+$1,381.32, 27 sh)**
+- Trail stop **$128.04** (2×ATR) locks in **≥ +$1,027 (+42.3%)** minimum
+- RSI 43.9 | Stoch 55.1 | Momentum **STRONG (+5)** | ATR $6.56 | Regime **UPTREND** (reclaimed SMA20)
 
 | Expert | Key Read | Verdict | Score |
 |---|---|---|---|
-| 🔢 Thorp | Floor still locks +37.9% with unbounded upside — positive-EV hold with a defined ruin point. But signal set continues to decay (2nd consecutive session: below SMA20, RSI sliding 49.6→42.0→40.8) — classic Phase 5 edge-decay pattern. Trail, not conviction, carries the trade. | **BET on hold via trail** (confidence: moderate) | 3/5 |
-| 📊 Wyckoff | Markup Phase E pulling back toward first structure. No SOW bar, no distribution climax — normal test after a run. Last shakeout direction still up. A sustained break below trail = distribution warning; SOS at trail/SMA zone = markup resumes. | **NEUTRAL — markup intact, pullback deepening** | 3/5 |
-| 🧬 Medallion | Confluence degraded further: ~3 aligned factors (positive P&L, momentum +3, trail discipline) vs 6 at 04:01. Single deterministic rule (2×ATR trail) governs — low overfit risk, but signal flip within one session remains a fragility flag, not entry-quality. | **WEAK SIGNAL (hold — trail governs)** | 2/5 |
+| 🔢 Thorp | Floor locks +42.3% with unbounded upside — positive-EV hold, defined ruin point. Trend-weakening signal from 22:00 cleared (back above SMA20, momentum +3→+5). Edge carried by trail, but structure improved: conviction and trail now align. | **BET on hold via trail** (confidence: moderate-high) | 4/5 |
+| 📊 Wyckoff | Markup Phase E resumed after a one-session test — reclaim of SMA20 reads as Back Up / test of broken structure holding. No SOW bar, no distribution climax. Last shakeout direction still up. Break below $128.04 = distribution warning. | **NEUTRAL-LEAN BULLISH — markup intact** | 4/5 |
+| 🧬 Medallion | Confluence rebuilt: ~5 aligned factors (UPTREND regime, momentum +5, RSI recovery, SMA20 reclaim, trail discipline) vs 3 at 22:00. Deterministic trail, no tuned parameters — low overfit risk. Signal flip back within one session shows fragility, but current alignment is genuine. | **MODERATE SIGNAL (hold — trail governs)** | 3/5 |
 
-**Expert Consensus: 3/3 → HOLD with trail $124.11. Weakening trend — no averaging, exit automatically if trail hit.**
+**Expert Consensus: 3/3 → HOLD with trail $128.04. Trend recovered — strongest NVDU read since 22:00.**
 
-### ZS — 📈 TRAILING → HOLD
+### ZS — 📈 TRAILING, at 3M-high resistance → HOLD
 
 **Setup**
-- Entry $150.00 → Current **$213.93** | P&L **+42.6% (+$958.95, 15 sh)**
-- Trail stop **$193.73** (2×ATR) locks in **≥ +$656 (+31.1%)** minimum
-- 3M high $216.43 only **+1.2% ($2.50)** above price (supply zone)
-- RSI 72.8 | Stoch 95.6 | Momentum STRONG (+3) | Regime UPTREND
+- Entry $150.00 → Current **$214.74** | P&L **+43.2% (+$971.02, 15 sh)**
+- Trail stop **$194.46** (2×ATR) locks in **≥ +$667 (+29.6%)** minimum
+- 3M high $216.97 only **+1.06% ($2.23)** above price (supply zone)
+- RSI 73.4 | Stoch 96.1 | Momentum STRONG (+3) | Regime UPTREND
 
 | Expert | Key Read | Verdict | Score |
 |---|---|---|---|
-| 🔢 Thorp | Hold R:R to 3M high vs trail = $2.50 vs $20.20 ≈ **0.12:1** — poor immediate reward at an overbought extreme (Stoch 95.6). But trail guarantees +31.1% and momentum +3: asymmetric hold with a hard floor. Realizing into known supply remains the standing alternative. | **MARGINAL BET on hold** (confidence: moderate) | 3/5 |
-| 📊 Wyckoff | Phase E markup driving into 3M-high supply. Stoch 95.6 / RSI 72.8 extended but no SOW bar, no confirmed distribution structure. Structure says trend intact; exiting into strength at known supply is valid if risk appetite drops. | **NEUTRAL — supply zone ahead, markup intact** | 3/5 |
-| 🧬 Medallion | Factors: overbought Stoch + 3M-high resistance vs momentum +3 + UPTREND regime = 2v2 split. Deterministic trail resolves the tie. RSI gate flicker at 21:00 confirmed as noise, not signal — no fresh edge either way. | **WEAK SIGNAL (no fresh edge — trail governs)** | 2/5 |
+| 🔢 Thorp | Hold R:R to 3M high vs trail = $2.23 vs $20.28 ≈ **0.11:1** — poor immediate reward at overbought extreme (Stoch 96.1). Trail guarantees +29.6% regardless: asymmetric hold with hard floor. Realizing into known supply remains the standing alternative. | **MARGINAL BET on hold** (confidence: moderate) | 3/5 |
+| 📊 Wyckoff | Phase E markup driving into 3M-high supply. RSI 73.4 / Stoch 96.1 extended but no SOW bar, no confirmed distribution structure. Structure says trend intact; exiting into strength at known supply is valid if risk appetite drops. | **NEUTRAL — supply zone ahead, markup intact** | 3/5 |
+| 🧬 Medallion | Factors: overbought Stoch + 3M-high resistance vs momentum +3 + UPTREND regime = 2v2 split. Deterministic trail resolves the tie. No fresh edge either way — riding a mature trend, not a new signal. | **WEAK SIGNAL (no fresh edge — trail governs)** | 2/5 |
 
-**Expert Consensus: 3/3 → HOLD with trail $193.73. Alternative: realize +$958.95 into 3M-high resistance per standing TP call; trail guarantees ≥+$656 otherwise.**
+**Expert Consensus: 3/3 → HOLD with trail $194.46. Alternative: realize +$971 into 3M-high resistance per standing TP call; trail guarantees ≥+$667 otherwise.**
 
 ---
 
@@ -72,31 +73,40 @@
 | Ticker | Entry | Stop | TP1 | TP2 | R:R | Expert Consensus | Budget $2,500 |
 |---|---|---|---|---|---|---|---|
 | **— none —** | — | — | — | — | — | **NO ACTIONABLE ENTRY THIS SCAN** | **$0 deployed** |
-| *(hold)* **NVDU** | $90.00 | trail **$124.11** | ✅ $99.84 | ✅ $109.68 | +52.5% actual | **HOLD ON TRAIL 3/3** (avg 2.7/5 — weakening) | unrealized **+$1,275.21** |
-| *(hold)* **ZS** | $150.00 | trail **$193.73** | ✅ $165.15 | ✅ $180.30 | +42.6% actual | **HOLD ON TRAIL 3/3** (avg 2.7/5) | unrealized **+$958.95** |
+| *(watch)* **GEV** | $974.48 on SMA50 reclaim | — | — | — | — | N/A — ⚠️ BOUNCE, not actionable | reserved |
+| *(hold)* **NVDU** | $90.00 | trail **$128.04** | ✅ $99.84 | ✅ $109.68 | +56.8% actual | **HOLD ON TRAIL 3/3** (avg 3.7/5) | unrealized **+$1,381.32** |
+| *(hold)* **ZS** | $150.00 | trail **$194.46** | ✅ $165.21 | ✅ $180.42 | +43.2% actual | **HOLD ON TRAIL 3/3** (avg 2.7/5) | unrealized **+$971.02** |
 
-**Action today:** HOLD NVDU (trail $124.11, trend weakening — below SMA20) and ZS (trail $193.73, at 3M-high resistance). No new entries. Optional: realize ZS +$958.95 into resistance per the standing TP call.
+**Action today:** HOLD NVDU (trail $128.04, uptrend recovered, momentum +5) and ZS (trail $194.46, 1.06% from 3M high). No new entries. Optional: realize ZS +$971 into $216.97 resistance per the standing TP call. GEV: wait for reclaim >$974.48.
 
 ---
 
 ## Appendix — Raw Monitor Output
 
 ```
-**📡 Entry Monitor — Thu 24 Sep 2026 22:00 ICT**
+**📡 Entry Monitor — Fri 25 Sep 2026 03:00 ICT**
 
 🚨 NVDU EXIT SIGNAL
-Price: $137.23 | Entry: $90.00 | P&L: +52.5% ($+1275.21)
-Regime: PULLBACK | RSI: 40.8 | Stoch: 43.0 | ATR: $6.56
-Momentum: STRONG (+3) | R: $6.56
-SL: $124.11 (TRAILING 2×ATR) | TP1: $99.84 | TP2: $109.68 | TP3: ∞ (letting run)
-• 📈 TRAILING @ $137.23 | Trail stop: $124.11 (2×ATR below price) | P&L: +52.5% — let profits run
-• 📉 Below SMA20 ($138.86) | P&L: +52.5% — trend weakening
+Price: $141.16 | Entry: $90.00 | P&L: +56.8% ($+1381.32)
+Regime: UPTREND | RSI: 43.9 | Stoch: 55.1 | ATR: $6.56
+Momentum: STRONG (+5) | R: $6.56
+SL: $128.04 (TRAILING 2×ATR) | TP1: $99.84 | TP2: $109.68 | TP3: ∞ (letting run)
+• 📈 TRAILING @ $141.16 | Trail stop: $128.04 (2×ATR below price) | P&L: +56.8% — let profits run
 
 🚨 ZS EXIT SIGNAL
-Price: $213.93 | Entry: $150.00 | P&L: +42.6% ($+958.95)
-Regime: UPTREND | RSI: 72.8 | Stoch: 95.6 | ATR: $10.10
-Momentum: STRONG (+3) | R: $10.10
-SL: $193.73 (TRAILING 2×ATR) | TP1: $165.15 | TP2: $180.3 | TP3: ∞ (letting run)
-• 📈 TRAILING @ $213.93 | Trail stop: $193.73 (2×ATR below price) | P&L: +42.6% — let profits run
-• 📏 Near 3M High $216.43 | P&L: +42.6% — resistance zone
+Price: $214.74 | Entry: $150.00 | P&L: +43.2% ($+971.02)
+Regime: UPTREND | RSI: 73.4 | Stoch: 96.1 | ATR: $10.14
+Momentum: STRONG (+3) | R: $10.14
+SL: $194.46 (TRAILING 2×ATR) | TP1: $165.21 | TP2: $180.42 | TP3: ∞ (letting run)
+• 📈 TRAILING @ $214.74 | Trail stop: $194.46 (2×ATR below price) | P&L: +43.2% — let profits run
+• 📏 Near 3M High $216.97 | P&L: +43.2% — resistance zone
+
+📡 GEV Entry Monitor
+Price: $954.99 (+0.33%) | RSI: 52.4 | Vol: 0.63x
+SMA 20: $931.17 | SMA 50: $974.48 | SMA 100: $1006.14
+5d: 0🔴/5🟢
+• 📏 Testing SMA 50 support at $974.48 — stronger entry
+• 🟢 4d green streak, RSI 52.4 — bounce confirmed
+
+📍 VERDICT: ⚠️ BOUNCE | Risky | Wait for SMA50 reclaim (>$974.48) | Entry then: $974.48
 ```
