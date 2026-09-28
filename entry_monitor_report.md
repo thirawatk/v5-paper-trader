@@ -1,54 +1,55 @@
-# 📡 Entry Monitor Report — Tue 29 Sep 2026 03:00 ICT
-
-**Run:** `monitor_entries.py` @ 03:00 ICT, US session **closed** (Mon 28 Sep, 16:00 ET close).
-**Triggers:** MRVL = 🟢 UPTREND → 3-expert pipeline run. NVDU + ZS trailing → exit section.
-**Not actionable:** GDDY 🔴 WAIT ($93.74, below SMA50 $96.27, structurally broken) · GEV ⚠️ BOUNCE ($949.69, needs reclaim >$970.74 with volume, currently 0.62×) · GOOG/RDDT/BCC/FBK/AMZN no signal.
-
----
+# 📡 Entry Monitor Report — Tue 29 Sep 2026 04:01 ICT
 
 ## Actionable Entry Signals
 
-### MRVL (Marvell) — pullback in markup, still no trigger
+### MRVL (Marvell Technology) — 🟢 UPTREND dip zone
 
-**Setup:** Closed **$251.90 (−3.88%)**, off the intraday low $248.14 — dipped *into* the fib zone top intraday then reclaimed it. Pullback from the 25 Sep swing high **$267.48** on **0.62× volume** (13.75M vs 20.1M avg) = supply absent, no SOW. Structure intact — HH/HL out of the Aug base: lows 162.90→200.62→213.63→235.96→244.99, highs 241.88→261.18→267.48. Price **above every SMA**: $248.97 (10) / $234.65 (20) / $221.83 (50) / $228.69 (100). ATR14 **$12.98**.
+**Setup:** Uptrend pullback into Fib 38.2–50% of the 3-month range ($162.90–$299.93). Price $251.90 (−3.83%) after 3 red days off the $267.48 swing high; pullback on below-avg volume (0.88x). Regime UPTREND (price > SMA20 $234.65 and SMA50 $221.83).
 
-**60-day volume profile (fresh):** VPOC **$222.16** · Value Area **$204.73–$253.54** → price is **testing VAH from the edge**; the entry zone $231.45–$247.63 sits on top of the **$218.7–$239.6 HVN cluster (≈35% of 60d volume)** = acceptance support, not air.
-
-| | |
-|---|---|
-| **Entry** | **$247.63–$231.45** (fib 38.2–50% of the $162.90→$300.00 leg) — limit in zone, OR SOS buy-stop above trigger-bar high. **Never market-buy.** |
-| **Stop** | **$202.29** (monitor: fib 61.8 − ATR = thesis kill) · tight tactical **$226.90** (below SMA100 $228.69) · structural **$213.63** (09-14 shakeout low) |
-| **TP1** | **$267.48** (prior 20d swing high) |
-| **TP2** | **$300.00** (monitor TP / fib 100 / round number) |
-| **R:R** | **1.6:1** → TP2 from mid-zone @ monitor stop · **4.8:1** @ tight stop · ⚠️ TP1 alone = **0.75R** @ monitor stop (needs >57% WR to pay) · breakeven WR @ monitor stop = **38.5%** |
-
-**Expert panel:**
-
-| Expert | Verdict | Score / basis |
+| Level | Price | Notes |
 |---|---|---|
-| 🔢 **Thorp Edge** | **NO BET at full size** — small/paper only | **21/40**, confidence *medium-low*. Logical 3 (momentum + pullback-to-value, textbook) · **Statistical 1 (n=1, no backtest, no t-stat)** · Cost-adj 3 (≈0.1% round trip vs $37 risk — negligible, sign of p unverified) · Robustness 3 · Capacity 4 (ADV ~20M sh) · Backtest 2 · Paper 2 · R:R 3. **Kelly: p=50%→f=18.8%, p=45%→f=10.6% → half-Kelly 5–9% = $130–235 ≈ 0.5–1 share.** |
-| 📊 **Wyckoff 2.0** | **ACCUMULATION CONFIRMED** — Phase E markup, trigger pending | Rising swing lows + SOS bars (09-17/21/22, 0.95–1.07× vol) out of the Aug base; current decline is a **low-volume Back-Up into the fib/HVN zone**, no SOW. Needs **SOS bar** (wide green, close upper third, ≥1× vol) → buy-stop above its high. **Alt scenario:** lose $247.63 on rising volume → $231.45 → $215.27 (fib 61.8) = failed markup, stand down. Caution: lower highs vs Jul $297.89 / Jun $329.88 — recovery, not new highs. |
-| 🧬 **Medallion** | **WEAK SIGNAL** | **7/11 factors aligned**: uptrend regime · HH/HL · fib 38.2–50 retrace · zone inside 60d HVN cluster · volume contraction (0.62×) · RSI cooled to 62.7 · catalysts (MS PT $268, Seaport Buy, Oct 6 Investor Day). **But n=1, no t-stat, single asset, moderate fib-window overfit risk** — passes zero of the "multiple markets / multiple periods / cost-survival" checks. |
+| **Entry (limit zone)** | **$247.63 – $231.45** | Prefer lower half; price is 1.7% above zone top — do NOT chase at market |
+| **Stop** | **$202.29** | fib61.8 − ATR (~$13); 19.9% below market |
+| **TP1** | $267.50 | retest of Sep 25 swing high |
+| **TP2** | $300.00 | 3-month high (monitor TP) — June supply zone, heavy overhead |
+| **R:R (to TP2)** | 1.14:1 @ zone top / 2.31:1 @ zone bottom / **0.96:1 @ market now** | Breakeven WR: 46.7% @ top, 30.2% @ bottom |
 
-**Expert consensus: ⚠️ CONDITIONAL — limit order inside $247.63–$231.45 + SOS confirmation only.** Wyckoff structure is bullish, Thorp (21/40) and Medallion both flag zero statistical validation → size small, wait for the trigger, do not chase above the zone.
+**3-Expert Analysis:**
 
-**Budget $2,500:** At monitor stop, full 10 sh ($2,476 @ zone top) risks **$453 (18.1%)** — breaches the 1% rule. **Strict 1%/half-Kelly = 0.5–1 sh ($130–250).** Practical plan: **start 5 sh ($1,240) only after the SOS fires, tight stop $226.90 = $207 (8.3%) max loss**, scale rest on hold above $253.54 (VAH).
+| Expert | Verdict | Evidence |
+|---|---|---|
+| 🔢 **Thorp Edge** | ❌ **NO BET** (high confidence) | Exact signal backtested on MRVL (5y, net 10bp costs): **n=93, WR 29.0%, expectancy −0.372R/trade, t=−3.43, PF 0.48, Kelly 0%**. Thorp kill rule #1 hit (negative net expectancy over 50+ trades). Scorecard **20/40**. Full signal across 9 tickers: n=832, WR 51.8%, +0.112R, t=2.76 (below Renaissance t>3.0 bar) — edge is regime-dependent (2023/24 good, 2022/26 negative) and MRVL is one of 4 tickers where it LOSES. |
+| 📊 **Wyckoff 2.0** | ✅ **ACCUMULATION CONFIRMED** (markup, trigger not fired) | Phase E markup: HH/HL (10d H267.5/L220.9 vs prior H241.9/L200.6). Footprint: CMF20 +0.115, OBV 60d slope +1.71M/day rising, 30d up/down volume 1.18, only 2 distribution days in 25, MFI14 57.5. Low-volume pullback (0.88x) = no selling pressure. 3m VPOC $208.77 (+20.7% above = acceptance), HVN support at **$236 inside entry zone**. Caveats: no SOS bar yet (trigger not fired — no wide-range bullish close on high volume), overhead supply at $300 from June distribution top. |
+| 🧬 **Medallion Pattern** | ⚠️ **WEAK SIGNAL** | Confluence composite **+5.5/10**: regime +1, SMA stack +1, fib zone +1, momentum burst (+213→267 in 8d) +1, above VPOC +1, RSI +0.5; volume confirmation 0, 5d pattern 0, MACD 0. Fails statistical bar (t=2.76 all-ticker, MRVL t=−3.43). Fails cross-market (negative on MRVL/GDDY/FBK). Overfit flag: per-ticker RSI thresholds (MRVL/GEV <45 vs others <40). |
 
-**vs 28 Sep 22:00 run:** price 248.5–250.3 → **251.90 close** (reclaimed zone top), RSI 57–62 → 62.7, vol 0.34× → 0.62×. Setup **unchanged, still untriggered** — no SOS bar printed in the final hour.
+**Expert Consensus: ❌ NO ENTRY NOW (1 of 3 bullish)**
+Wyckoff structure is constructive, but Thorp's data says this exact signal has lost on MRVL in 71% of 93 historical cases (−0.37R/trade) and Medallion can't clear significance. **Plan: only reconsider on a limit fill inside $247.6–$231.4 WITH a subsequent SOS bar (buy-stop above its high, stop below its low). No SOS = no trade.** Historical odds stay negative even at zone bottom (breakeven needs 30.2% WR vs 29% realized).
+
+**Budget $2,500:** zone-bottom fill → 0.86 sh ≈ **$198 notional (8% of budget), $25 risk (1%)** at $202.29 stop. The 19.9% stop forces a micro-position — size is too small to matter; skip unless a tighter SOS-based stop (~$248 structure) appears.
+
+**Backtest evidence — MRVL by year (same signal):**
+
+| Year | n | WR | Expectancy | PF |
+|---|---|---|---|---|
+| 2022 | 21 | 0% | −1.034R | 0.00 |
+| 2023 | 20 | 55% | +0.288R | 1.63 |
+| 2024 | 37 | 27% | −0.449R | 0.37 |
+| 2025 | 7 | 57% | +0.425R | 1.98 |
+| 2026 | 8 | 25% | −0.627R | 0.21 |
+| **All** | **93** | **29%** | **−0.372R (t=−3.43)** | **0.48** |
+
+Where the same signal DOES work (5y): ZS +0.590R (t=4.44), RDDT +0.480R, BCC +0.282R, GEV +0.307R. Signal quality is ticker-dependent — MRVL is in the losing bucket.
 
 ---
 
 ## Exit Signals (Active Positions)
 
-| Ticker | Action | Exit Price | P&L | Notes |
+| Ticker | Action | Mark Price | P&L | Notes |
 |---|---|---|---|---|
-| **NVDU** | 📈 TRAILING — hold | — (trail **$133.88**) | **+62.5% (+$1,519.02, 27 sh @ $90.00)** | RSI 52.6→52.2, Stoch 81.1, mom +5, ATR $6.19, TP3 ∞. Floor locks ≥ **+$1,184.76** |
-| **ZS** | 📈 TRAILING — hold | — (trail **$177.36**) | **+33.0% (+$742.50, 15 sh @ $150.00)** | RSI **70.7 (hot)**, Stoch 68.9, mom +5, ATR $11.07. Floor locks ≥ **+$410.40** |
+| **NVDU** | 📈 TRAILING — HOLD | $146.13 | **+62.4% (+$1,515.51)** | Trail stop $133.75 (2×ATR). Regime UPTREND, RSI 52.0, momentum STRONG (+5). Entry $90.00. Let profits run. |
+| **ZS** | 📈 TRAILING — HOLD | $199.39 | **+32.9% (+$740.85)** | Trail stop $177.25 (2×ATR). RSI 70.6 hot, stoch 68.7 — tightest of the two. Entry $150.00. Let profits run. |
 
-Combined open: **+$2,261.52** on $4,680 deployed (**+48.3%**). Both trails hit → **≥ +$1,595.16 (+34.1%) locked**.
-
-*vs 28 Sep 22:00 ICT run:* NVDU $146.75→$146.26 (−$13), ZS $197.41→**$199.50** (+$31) → net **+$18 in 5h, no exit triggered.**
-⚠️ Trail is still **non-ratcheted** (NVDU floor fell $134.37→$133.88 as price dropped; ZS $175.53→$177.36 rose only because price rose). Fix (`max(prev, price − 2×ATR)`) **still pending your confirmation** — exit-logic change, not applied.
+Combined open P&L: **+$2,256.36**. No exit executed — both trailing.
 
 ---
 
@@ -56,6 +57,6 @@ Combined open: **+$2,261.52** on $4,680 deployed (**+48.3%**). Both trails hit �
 
 | Ticker | Entry | Stop | TP1 | TP2 | R:R | Expert Consensus | Budget $2,500 |
 |---|---|---|---|---|---|---|---|
-| **MRVL** | $247.63–$231.45 | $202.29 (tight $226.90) | $267.48 | $300.00 | 1.6:1 | ⚠️ **CONDITIONAL** — zone + SOS only (Thorp **21/40** · Wyckoff ACCUM · Medallion WEAK) | 5 sh starter after SOS = $1,240 (8.3% risk @ tight stop); **Kelly/1% rule → 0.5–1 sh only** |
+| **MRVL** | $247.63–$231.45 (limit only) | $202.29 | $267.50 | $300.00 | 1.14–2.31:1 | ❌ NO ENTRY NOW (Thorp NO BET / Wyckoff ACCUMULATION / Medallion WEAK) | 0.86 sh ≈ $198, $25 risk (1%) |
 
-**Positions:** NVDU trail **$133.88** / ZS trail **$177.36** — both TRAILING, hold. **No other actionable signals.**
+Not actionable this run: GDDY 🔴 WAIT (below SMA50), GEV ⚠️ BOUNCE (wait for reclaim >$970.74).
