@@ -1,17 +1,17 @@
-# 📡 Entry Monitor Report — Mon 28 Sep 2026 20:01 ICT
+# 📡 Entry Monitor Report — Mon 28 Sep 2026 21:01 ICT
 
-**Run:** `monitor_entries.py` exit 0, 20:01 ICT (pre-open — US cash opens 20:30 ICT).
-**Triggers:** no 🟢 entry verdict (GDDY = 🟡, GEV = ⚠️) → **trailing signals fired on BOTH open positions** → report.
-**Data:** tvDatafeed connection timed out ×2 → fallback used. **Every number is byte-identical to the 03:00 ICT report — markets have not traded since Friday close.** Zero new information this run.
+**Run:** `monitor_entries.py` exit 0, 21:01 ICT (US cash session live, open 20:30 ICT).
+**Triggers:** no 🟢 entry verdict (GDDY = 🔴, GEV = ⚠️) → **trailing signals fired on BOTH open positions** → report.
+**Data:** tvDatafeed connection timed out ×2 → fallback quote source used. Prices now moving with the live session.
 
 ---
 
 ## Actionable Entry Signals
 
-**NONE this scan.** No 🟢 entry confirmation → no entry pipeline run.
+**NONE this scan.** No 🟢 verdict → 3-expert entry pipeline not run.
 
-- **GDDY** $97.14 (−3.64%), RSI 45.9, vol 1.0x, 5d 3🔴/2🟢 — verdict 🟡 PULLBACK, price *below* SMA20 $99.14. Reclaim trigger $99.14. **Printed setup is broken: TP $99.89 vs stop $90.56 = 0.09:1 R:R ($0.75 reward / $8.58 risk). Do not take as printed — re-derive targets on entry.**
-- **GEV** $957.63 (+0.27%), RSI 52.8, vol 0.61x, 5d 0🔴/5🟢 — verdict ⚠️ BOUNCE (risky), still **$15.27 (1.6%) below** SMA50 $972.90 reclaim level. 4-day green streak but on 0.61x volume — need the reclaim *with* volume.
+- **GDDY** $94.96 (−2.24%), RSI 52.3, vol 0.06x, 5d 4🔴/1🟢 — verdict **🔴 WAIT / DOWNTREND**, price below SMA50 $96.30, structurally broken. Not an entry.
+- **GEV** $952.14 (−0.57%), RSI 46.2, vol 0.07x, 5d 1🔴/4🟢 — verdict **⚠️ BOUNCE (risky)**, still **$18.65 (1.9%) below** the SMA50 $970.79 reclaim level. Trigger only on reclaim >$970.79 **with volume** (0.07x is dead).
 
 **Budget $2,500: $0 deployed this scan — 100% reserved.**
 
@@ -21,23 +21,23 @@
 
 | Ticker | Action | Exit Price | P&L | Notes |
 |--------|--------|-----------|-----|-------|
-| **NVDU** | 📈 TRAILING — hold | n/a (trail **$129.11**) | **+57.5% (+$1,396.17, 27 sh)** | UPTREND, momentum +5, RSI 42.0, ATR $6.30. Floor locks ≥+$1,055.97 (+43.5%). TP1 ✅ TP2 ✅, TP3 ∞ |
-| **ZS** | 📈 TRAILING — hold, **floor eroding + swing low broken** | n/a (trail **$171.45**) | **+28.7% (+$645.75, 15 sh)** | UPTREND, momentum +6, RSI 62.6, ATR $10.80. Floor gives ≥+$321.75 (+14.3%) only — was +$372 Fri. −11.0% off $216.97 high |
+| **NVDU** | 📈 TRAILING — hold | n/a (trail **$137.95**) | **+67.0% (+$1,628.91, 27 sh)** | UPTREND, momentum +4, RSI 55.8, Stoch 95.4 (overbought), ATR $6.19. Floor locks ≥+$1,294.65 (+53.3%). TP1 ✅ TP2 ✅, TP3 ∞ |
+| **ZS** | 📈 TRAILING — hold | n/a (trail **$177.31**) | **+32.8% (+$737.55, 15 sh)** | UPTREND, momentum +5, RSI 70.5 (hot), ATR $10.93. Floor locks ≥+$409.65 (+18.2%). −8.2% off $216.97 high |
 
-*Combined open P&L: **+$2,041.92** on $4,680 deployed (+43.6%). Worst case if BOTH trails hit: **≈+$1,377.72 (+29.4%)** locked.*
+*Combined open P&L: **+$2,366.46** on $4,680 deployed (+50.6%). Worst case if BOTH trails hit: **≈+$1,704.30 (+36.4%)** locked.*
 
-**No change vs 03:00 ICT run** — same prices, same trails, same P&L. Pre-open duplicate; verdicts carry over unchanged (NVDU 3/3 HOLD avg 3.7/5, ZS 3/3 HOLD avg 2.3/5 — weakest hold in the book).
+**vs 20:01 ICT run:** NVDU flat ($150.33), ZS rebounded $196 → $199.17, P&L +28.7% → +32.8%. Trails recompute with price; no exit triggered. Prior 3-expert HOLD verdicts carry over (NVDU 3/3 HOLD avg 3.7/5, ZS 3/3 HOLD avg 2.3/5).
 
 ---
 
 ## ⚠️ Risk Note — trail is not a ratchet (still awaiting your OK)
 
-`monitor_entries.py` computes `trail = price − 2×ATR` fresh every run with **no persisted high-water mark**. ZS's floor has now eroded **3 consecutive runs** ($194.36 → $171.45, −$22.91 cumulative) with markets *closed* — pure recompute drift, no market information.
+`monitor_entries.py` computes `trail = price − 2×ATR` fresh every run with **no persisted high-water mark**. The 2×ATR gap itself is exact (verified: NVDU 150.33−137.95 = 12.38 = 2×6.19; ZS 199.17−177.31 = 21.86 = 2×10.93) — but the floor still *falls* when price falls.
 
-| | True ratchet | Actual (20:01) |
+| | True ratchet | Actual (21:01) |
 |---|---|---|
-| ZS floor | $194.36 (Fri 04:00 level) | **$171.45** (−$22.91 cumulative) |
-| Locked profit | +$665 (at $194.36 floor) | **+$321.75** (−$343 given back) |
+| ZS floor | $194.36 (Fri 04:00 level) | **$177.31** (−$17.05 cumulative) |
+| Locked profit | +$665.40 (at $194.36 floor) | **+$409.65** (−$255.75 given back) |
 
 **Recommended fix:** persist `entry_monitor_trail.json` and use `trail = max(prev_trail, price − 2×ATR)`. **Not applied** — exit-logic/risk change, waits for your confirmation.
 
@@ -48,46 +48,5 @@
 | Ticker | Entry | Stop | TP1 | TP2 | R:R | Expert Consensus | Budget $2,500 |
 |---|---|---|---|---|---|---|---|
 | **— none —** | — | — | — | — | — | **NO ACTIONABLE ENTRY THIS SCAN** | **$0 deployed** |
-| *(watch)* **GDDY** | $99.14 on SMA20 reclaim | $90.56 | $99.89 | — | 0.09:1 ⚠️ | 🟡 not actionable — broken R:R, re-derive targets | reserved |
-| *(watch)* **GEV** | $972.90 on SMA50 reclaim | — | — | — | — | ⚠️ not actionable — 1.6% below trigger | reserved |
-| *(hold)* **NVDU** | $90.00 | trail **$129.11** | ✅ $99.45 | ✅ $108.90 | +57.5% actual | **HOLD ON TRAIL 3/3** (avg 3.7/5) | unrealized **+$1,396.17** |
-| *(hold)* **ZS** | $150.00 | trail **$171.45** | ✅ $166.20 | ✅ $182.40 | +28.7% actual | **HOLD ON TRAIL 3/3** (avg 2.3/5) — weakest hold | unrealized **+$645.75** |
 
-**Action:** HOLD NVDU (trail $129.11) and ZS (trail $171.45). No new entries — budget $2,500 unspent. ZS watch: reclaim $194.36 = shakeout recovery, decisive break lower = distribution confirmed. GDDY: reclaim $99.14 **but only with rebuilt targets**. GEV: wait for reclaim **>$972.90 with volume**. Ratchet fix still pending your OK. **Next fresh information: cash open 20:30 ICT.**
-
----
-
-## Appendix — Raw Monitor Output
-
-```
-**📡 Entry Monitor — Mon 28 Sep 2026 20:01 ICT**
-
-📡 **GDDY Entry Monitor**
-Price: $97.14 (-3.64%) | RSI: 45.9 | Vol: 1.0x
-SMA 20: $99.14 | SMA 50: $96.28 | SMA 100: $90.93
-5d: 3🔴/2🟢
-• 📏 Testing SMA 20 support at $99.14
-📍 **VERDICT: 🟡 PULLBACK** | Entry: $99.14 (SMA20) | Stop: $90.56 | TP: $99.89
-
-🚨 **NVDU EXIT SIGNAL**
-Price: $141.71 | Entry: $90.00 | P&L: +57.5% ($+1396.17)
-Regime: UPTREND | RSI: 42.0 | Stoch: 59.6 | ATR: $6.30
-Momentum: STRONG (+5) | R: $6.30
-SL: $129.11 (TRAILING 2×ATR) | TP1: $99.45 | TP2: $108.9 | TP3: ∞ (letting run)
-• 📈 **TRAILING** @ $141.71 | Trail stop: $129.11 (2×ATR below price) | P&L: +57.5% — let profits run
-
-🚨 **ZS EXIT SIGNAL**
-Price: $193.05 | Entry: $150.00 | P&L: +28.7% ($+645.75)
-Regime: UPTREND | RSI: 62.6 | Stoch: 58.6 | ATR: $10.80
-Momentum: STRONG (+6) | R: $10.80
-SL: $171.45 (TRAILING 2×ATR) | TP1: $166.2 | TP2: $182.4 | TP3: ∞ (letting run)
-• 📈 **TRAILING** @ $193.05 | Trail stop: $171.45 (2×ATR below price) | P&L: +28.7% — let profits run
-
-📡 **GEV Entry Monitor**
-Price: $957.63 (+0.27%) | RSI: 52.8 | Vol: 0.61x
-SMA 20: $931.36 | SMA 50: $972.9 | SMA 100: $1004.98
-5d: 0🔴/5🟢
-• 📏 Testing SMA 50 support at $972.90 — stronger entry
-• 🟢 4d green streak, RSI 52.8 — bounce confirmed
-📍 **VERDICT: ⚠️ BOUNCE** | Risky | Wait for SMA50 reclaim (>$972.9) | Entry then: $972.9
-```
+**Positions:** NVDU trail $137.95 / ZS trail $177.31 — both TRAILING, hold.
