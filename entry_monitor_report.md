@@ -1,45 +1,52 @@
-# 📡 Entry Monitor Report — Mon 28 Sep 2026 21:01 ICT
+# 📡 Entry Monitor Report — Mon 28 Sep 2026 22:00 ICT
 
-**Run:** `monitor_entries.py` exit 0, 21:01 ICT (US cash session live, open 20:30 ICT).
-**Triggers:** no 🟢 entry verdict (GDDY = 🔴, GEV = ⚠️) → **trailing signals fired on BOTH open positions** → report.
-**Data:** tvDatafeed connection timed out ×2 → fallback quote source used. Prices now moving with the live session.
+**Run:** `monitor_entries.py` (pre-run 22:00 ICT), US session live (11:00 ET).
+**Triggers:** MRVL = 🟢 UPTREND → 3-expert pipeline run. NVDU + ZS trailing hold → exit section.
+**Silent:** GOOG, RDDT, BCC, FBK, AMZN — no signal.
 
 ---
 
 ## Actionable Entry Signals
 
-**NONE this scan.** No 🟢 verdict → 3-expert entry pipeline not run.
+### MRVL (Marvell) — pullback in markup
 
-- **GDDY** $94.96 (−2.24%), RSI 52.3, vol 0.06x, 5d 4🔴/1🟢 — verdict **🔴 WAIT / DOWNTREND**, price below SMA50 $96.30, structurally broken. Not an entry.
-- **GEV** $952.14 (−0.57%), RSI 46.2, vol 0.07x, 5d 1🔴/4🟢 — verdict **⚠️ BOUNCE (risky)**, still **$18.65 (1.9%) below** the SMA50 $970.79 reclaim level. Trigger only on reclaim >$970.79 **with volume** (0.07x is dead).
+**Setup:** −4.4%→−5.1% today to ~$248.5–250.3 in a **sector-wide semi dip** (SMH −2.2%, AMD −5.3%, AVGO −1.1%; NVDA +2.3%; **no company-specific negative news found**). Structure intact: HH/HL since Jul (lows 162.9→201.7→211.1→213.6; highs 222.7→230.1→252.5→254.6→266.0), price **above ALL SMAs (20/50/100/200)** and above every 60-day HVN ($210/$220/$235). Pullback on **0.34× volume** = supply absent. Now at **fib 38.2% retrace** of the 3-month range ($162.90–$300.00).
 
-**Budget $2,500: $0 deployed this scan — 100% reserved.**
+| | |
+|---|---|
+| **Entry** | **$247.63–$231.45** (fib 38.2–50%) — limit in zone, OR SOS buy-stop above trigger-bar high |
+| **Stop** | **$202.29** (monitor: fib61.8 − ATR = thesis kill) · tighter tactical **$226.90** (below fib50/SMA20 $234.60) |
+| **TP1** | **$267.48** (prior swing high, 20d) |
+| **TP2** | **$300.00** (3-month high = monitor TP) |
+| **R:R** | **1.6:1** → TP2 from mid-zone @ monitor stop · **4.8:1** @ tight stop · ⚠️ TP1 alone = **0.75R** @ monitor stop (needs >57% WR to pay) |
+
+**Expert panel:**
+
+| Expert | Verdict | Score / basis |
+|---|---|---|
+| 🔢 **Thorp Edge** | **NO BET at full size** — small / paper only | **21/40**, confidence *medium*. Statistical significance **1/5** (n=1 signal, no backtest, no t-stat). Costs negligible (~0.1% round trip) → expectancy hinges entirely on unverified win rate. Kelly (assumed p=50%, RR=1.6) ≈ 19% full / **9.5% half-Kelly** — unreliable without a backtest |
+| 📊 **Wyckoff 2.0** | **ACCUMULATION CONFIRMED** — markup Phase E, trigger pending | Back-up into fib38.2/HVN-top on 0.34× vol, no SOW. Needs **SOS bar** (wide green, close upper third, ≥1× vol) to fire. Alt scenario: lose $247.63 on rising volume → $231.45, then $215.27 |
+| 🧬 **Medallion** | **WEAK SIGNAL** | 7 factors aligned (uptrend regime, fib retrace, HH/HL structure, >all HVNs, volume contraction, RSI cooled to 57–62, catalysts: MS PT $268 + Seaport Buy + Oct 6 Investor Day) — but **n=1, no t-stat**, moderate fib-window overfit risk |
+
+**Expert consensus: ⚠️ CONDITIONAL — zone entry + SOS confirmation only; do NOT market-buy into the falling tape.** Wyckoff structure is bullish, but Thorp + Medallion both flag zero statistical validation → small size, wait for stabilization.
+
+**Budget $2,500:** 10 sh = $2,476 @ zone top. Risk (10 sh): **$207** tight stop (8.4%) / **$453** monitor stop (18.3%). → **Start 5 sh (~$1,240) until SOS fires, then add.**
+
+**Not actionable:** GDDY 🔴 WAIT ($94.56, below SMA50 $96.29) · GEV ⚠️ BOUNCE ($951.35, needs reclaim >$970.77 with volume — currently 0.24×).
 
 ---
 
 ## Exit Signals (Active Positions)
 
 | Ticker | Action | Exit Price | P&L | Notes |
-|--------|--------|-----------|-----|-------|
-| **NVDU** | 📈 TRAILING — hold | n/a (trail **$137.95**) | **+67.0% (+$1,628.91, 27 sh)** | UPTREND, momentum +4, RSI 55.8, Stoch 95.4 (overbought), ATR $6.19. Floor locks ≥+$1,294.65 (+53.3%). TP1 ✅ TP2 ✅, TP3 ∞ |
-| **ZS** | 📈 TRAILING — hold | n/a (trail **$177.31**) | **+32.8% (+$737.55, 15 sh)** | UPTREND, momentum +5, RSI 70.5 (hot), ATR $10.93. Floor locks ≥+$409.65 (+18.2%). −8.2% off $216.97 high |
+|---|---|---|---|---|
+| **NVDU** | 📈 TRAILING — hold | — (trail **$134.37**) | **+63.1% (+$1,532.25, 27 sh)** | RSI 52.6, mom +5, ATR $6.19, TP3 ∞. Floor locks ≥ **+$1,197.99** |
+| **ZS** | 📈 TRAILING — hold | — (trail **$175.53**) | **+31.6% (+$711.15, 15 sh)** | RSI 70.0 (hot), mom +6, ATR $10.94. Floor locks ≥ **+$382.95** |
 
-*Combined open P&L: **+$2,366.46** on $4,680 deployed (+50.6%). Worst case if BOTH trails hit: **≈+$1,704.30 (+36.4%)** locked.*
+Combined open: **+$2,243.40** on $4,680 deployed (+47.9%). Both trails hit → **≥ +$1,580.94 (+33.8%) locked**.
 
-**vs 20:01 ICT run:** NVDU flat ($150.33), ZS rebounded $196 → $199.17, P&L +28.7% → +32.8%. Trails recompute with price; no exit triggered. Prior 3-expert HOLD verdicts carry over (NVDU 3/3 HOLD avg 3.7/5, ZS 3/3 HOLD avg 2.3/5).
-
----
-
-## ⚠️ Risk Note — trail is not a ratchet (still awaiting your OK)
-
-`monitor_entries.py` computes `trail = price − 2×ATR` fresh every run with **no persisted high-water mark**. The 2×ATR gap itself is exact (verified: NVDU 150.33−137.95 = 12.38 = 2×6.19; ZS 199.17−177.31 = 21.86 = 2×10.93) — but the floor still *falls* when price falls.
-
-| | True ratchet | Actual (21:01) |
-|---|---|---|
-| ZS floor | $194.36 (Fri 04:00 level) | **$177.31** (−$17.05 cumulative) |
-| Locked profit | +$665.40 (at $194.36 floor) | **+$409.65** (−$255.75 given back) |
-
-**Recommended fix:** persist `entry_monitor_trail.json` and use `trail = max(prev_trail, price − 2×ATR)`. **Not applied** — exit-logic/risk change, waits for your confirmation.
+*vs 21:01 ICT run:* NVDU $150.33→$146.75 (+67.0%→+63.1%), ZS $199.17→$197.41 (+32.8%→+31.6%) — **−$123 in the hour, no exit triggered.**
+⚠️ Trail is still non-ratcheted: NVDU floor fell $137.95→$134.37, ZS $177.31→$175.53 as price dropped. Fix (`max(prev, price − 2×ATR)`) **still pending your confirmation** — exit-logic change.
 
 ---
 
@@ -47,6 +54,6 @@
 
 | Ticker | Entry | Stop | TP1 | TP2 | R:R | Expert Consensus | Budget $2,500 |
 |---|---|---|---|---|---|---|---|
-| **— none —** | — | — | — | — | — | **NO ACTIONABLE ENTRY THIS SCAN** | **$0 deployed** |
+| **MRVL** | $247.63–$231.45 | $202.29 (tight $226.90) | $267.48 | $300.00 | 1.6:1 | ⚠️ **CONDITIONAL** — zone + SOS only (Thorp 21/40 · Wyckoff ACCUM · Medallion WEAK) | max 10 sh; **start 5 sh ($1,240)** |
 
-**Positions:** NVDU trail $137.95 / ZS trail $177.31 — both TRAILING, hold.
+**Positions:** NVDU trail $134.37 / ZS trail $175.53 — both TRAILING, hold.
