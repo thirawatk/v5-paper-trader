@@ -1,26 +1,38 @@
-# 📡 Entry Monitor Report — Tue 29 Sep 2026 21:01 ICT
+# 📡 Entry Monitor Report — Tue 29 Sep 2026 22:02 ICT
+
+**Run result: NO actionable entry.** Both active positions in TRAILING mode (profits running). GEV on watch — 📏 support test, entry zone not reached.
+
+---
 
 ## Actionable Entry Signals
 
-**None.** No 🟢 verdicts this scan — expert pipeline (Thorp/Wyckoff/Medallion) not triggered.
+**None this run.**
 
-| Ticker | Verdict | Status |
-|---|---|---|
-| GEV | ⚠️ BOUNCE | Price $960.88, testing SMA50 ($968.38) from below — wait for reclaim >$968.38 |
-| GDDY | 🔴 WAIT | $93.38, downtrend, structurally below SMA50 ($96.24), 4🔴/5d |
+### GEV — WATCH (not actionable)
 
-*Prior MRVL 🟢 signal from 20:01 run no longer appears in this scan's actionable set — monitor's current verdict list does not include it. Re-evaluate MRVL only if it re-triggers 🟢.*
+- **Price:** $968.65 (+1.99%) | RSI 53.5 | Vol 0.2x | 5d: 1🔴/4🟢
+- **SMA 20:** $936.76 | **SMA 50:** $968.53 | **SMA 100:** $1002.02
+- 📏 **Testing SMA 50 support at $968.53** — price is 0.01% above SMA50 with only 0.2x volume (quiet test, but flag = WAIT per monitor rules)
+- Regime verdict: 🟢 UPTREND — but "entry on dip" zone **$1,032.10–$1,070.76 sits 6.5–10.5% ABOVE price**. Price has already retraced below the Fib 50/61.8 band — no executable entry exists right now
+- Levels if reclaim confirmed: Stop $958.97 (Fib61.8 − ATR) | TP $1,195.94 (3M high) | R:R ≈ **1.6:1** (zone mid) to **2.2:1** (zone low)
+- 3-expert pass deferred: 📏 flag = not actionable per pipeline rules
 
 ---
 
 ## Exit Signals (Active Positions)
 
-| Ticker | Action | Mark Price | P&L | Notes |
+| Ticker | Action | Exit Price | P&L | Notes |
 |---|---|---|---|---|
-| **NVDU** | 📈 TRAILING — HOLD | $148.07 | **+64.5% (+$1,567.89)** | Trail stop $135.41 (2×ATR $6.33). Regime UPTREND, RSI 57.0, stoch 87.4, momentum STRONG (+5). Entry $90.00. Let profits run. |
-| **ZS** | 📈 TRAILING — HOLD | $197.40 | **+31.6% (+$711.00)** | Trail stop $175.50 (2×ATR $10.95). Regime UPTREND, RSI 67.7, stoch 65.2, momentum STRONG (+6). Entry $150.00. Let profits run. |
+| NVDU | HOLD / TRAIL | $149.08 (last) | **+65.6% (+$1,595.16)** | Trail stop $136.42 (2×ATR below); TP3 run mode; Stoch 91.0 overbought — expect wider swings; momentum +4 |
+| ZS | HOLD / TRAIL | $196.74 (last) | **+31.2% (+$701.03)** | Trail stop $174.84 (2×ATR below); already past TP2 $182.85; momentum +6 (strongest in book); RSI 67.2 not extreme |
 
-Combined open P&L: **+$2,278.89**. No exit executed — both trailing, stops ratcheted up this run (NVDU $133.75→$135.41, ZS $177.25→$175.50).
+**Expert read on the exit decisions:**
+
+- 🔢 **Thorp — BET (hold both), confidence medium-high.** Planned giveback to trail = ~$342 (NVDU: $149.08→$136.42 × 27sh) and ~$297 (ZS: $196.74→$174.84 × 15sh) vs open-ended upside in confirmed uptrends. Harvesting now = negative EV against the system's trend-following payoff structure (small losses, occasional big winners — these are the big winners).
+- 📊 **Wyckoff — MARKUP INTACT (ACCUMULATION confirmed, continuation).** Both in Phase E markup: higher highs/higher lows, momentum STRONG, no SOW bar, no distribution footprint. No sign of supply — no reason to preempt the trail. Overbought Stoch on NVDU is normal in markup, not a distribution signal by itself.
+- 🧬 **Medallion — STRONG (hold per plan).** Rule-based 2×ATR trail removes discretion; 9-factor entry stack + momentum still firing. Caveats: live sample (3 closed trades) far too small for statistical significance; Stoch 91 on NVDU = short-term mean-reversion risk, which the trail is designed to absorb (planned giveback, not an exit signal).
+
+**⚠️ Correlation caveat (Thorp stress test):** NVDU (2× NVDA) and ZS are both tech-beta assets — a single bad market day can tag both trails simultaneously. Combined exposure ≈ $6,976 (NVDU $4,025 + ZS $2,951). Correlation-spike scenario is the standing risk here.
 
 ---
 
@@ -28,9 +40,8 @@ Combined open P&L: **+$2,278.89**. No exit executed — both trailing, stops rat
 
 | Ticker | Entry | Stop | TP1 | TP2 | R:R | Expert Consensus | Budget $2,500 |
 |---|---|---|---|---|---|---|---|
-| **NVDU** | held @ $90.00 | $135.41 (trail) | — | TP3 ∞ | — | TRAILING — hold | — |
-| **ZS** | held @ $150.00 | $175.50 (trail) | — | TP3 ∞ | — | TRAILING — hold | — |
-| GEV | $968.38 (on SMA50 reclaim) | — | — | — | — | Not triggered — wait | Hold |
-| GDDY | — | — | — | — | — | 🔴 NO TRADE | Hold |
+| GEV | 🕐 WATCH zone $1,032–$1,071 (price $968.65 below it) | $958.97 | — | $1,195.94 | 1.6–2.2:1 | **WAIT** — 📏 SMA50 test, zone not reached | Hold budget |
+| NVDU | position (entry $90.00) | $136.42 trail | — | — | — | **HOLD / TRAIL** +65.6% | — |
+| ZS | position (entry $150.00) | $174.84 trail | — | — | — | **HOLD / TRAIL** +31.2% | — |
 
-**Action: no new entries this run. Hold NVDU + ZS on trailing stops. Next GEV trigger: reclaim >$968.38.**
+**No new entries this run — $2,500 entry budget undeployed. Next GEV trigger: reclaim into $1,032+ with volume, or confirmed hold above SMA50 on >1x volume.**
