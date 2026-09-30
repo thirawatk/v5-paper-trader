@@ -11,8 +11,8 @@ GEV: 31 trades
 
 ========== THORP BACKTEST (monitor signal replicated, 5y, 9 tickers) ==========
 --- ALL trades (net of 10bp RT costs) ---
-n=833 WR=52.2% avgWin=1.159R avgLoss=1.020R payoff=1.14
-expectancy=0.118R (1.28%/trade) t=2.91 PF=1.24 maxConsecLoss=24 kelly=10.2%
+n=833 WR=52.0% avgWin=1.163R avgLoss=1.015R payoff=1.15
+expectancy=0.117R (1.28%/trade) t=2.89 PF=1.24 maxConsecLoss=24 kelly=10.1%
 trades by reason: TP=429 STOP=386 TIME=18
 avg days in trade: 14.5
 --- H1 (older half) ---
@@ -21,8 +21,8 @@ expectancy=0.022R (0.26%/trade) t=0.37 PF=1.04 maxConsecLoss=24 kelly=1.9%
 trades by reason: TP=201 STOP=214 TIME=1
 avg days in trade: 13.9
 --- H2 (recent half) ---
-n=417 WR=56.1% avgWin=1.161R avgLoss=0.998R payoff=1.16
-expectancy=0.214R (2.30%/trade) t=3.79 PF=1.49 maxConsecLoss=21 kelly=18.4%
+n=417 WR=55.6% avgWin=1.168R avgLoss=0.987R payoff=1.18
+expectancy=0.212R (2.30%/trade) t=3.77 PF=1.48 maxConsecLoss=21 kelly=18.1%
 trades by reason: TP=228 STOP=172 TIME=17
 avg days in trade: 15.1
 --- year 2022 ---
@@ -46,18 +46,18 @@ expectancy=0.085R (1.16%/trade) t=0.93 PF=1.16 maxConsecLoss=20 kelly=6.7%
 trades by reason: TP=83 STOP=91 TIME=1
 avg days in trade: 18.0
 --- year 2026 ---
-n=148 WR=45.3% avgWin=1.126R avgLoss=0.966R payoff=1.17
-expectancy=-0.019R (-0.02%/trade) t=-0.21 PF=0.96 maxConsecLoss=21 kelly=0.0%
+n=148 WR=43.9% avgWin=1.152R avgLoss=0.944R payoff=1.22
+expectancy=-0.024R (-0.02%/trade) t=-0.25 PF=0.96 maxConsecLoss=21 kelly=0.0%
 trades by reason: TP=62 STOP=70 TIME=16
 avg days in trade: 12.9
 --- AMZN ---
-n=107 WR=55.1% avgWin=1.233R avgLoss=0.958R payoff=1.29
-expectancy=0.250R (2.44%/trade) t=2.16 PF=1.58 maxConsecLoss=25 kelly=20.3%
+n=107 WR=55.1% avgWin=1.233R avgLoss=0.948R payoff=1.30
+expectancy=0.255R (2.48%/trade) t=2.21 PF=1.60 maxConsecLoss=25 kelly=20.7%
 trades by reason: TP=59 STOP=40 TIME=8
 avg days in trade: 19.5
 --- BCC ---
-n=130 WR=56.9% avgWin=1.261R avgLoss=1.015R payoff=1.24
-expectancy=0.280R (2.38%/trade) t=2.58 PF=1.64 maxConsecLoss=20 kelly=22.2%
+n=130 WR=56.9% avgWin=1.261R avgLoss=1.017R payoff=1.24
+expectancy=0.280R (2.37%/trade) t=2.57 PF=1.64 maxConsecLoss=20 kelly=22.2%
 trades by reason: TP=74 STOP=55 TIME=1
 avg days in trade: 11.1
 --- FBK ---
@@ -76,12 +76,12 @@ expectancy=0.307R (3.52%/trade) t=1.65 PF=1.86 maxConsecLoss=7 kelly=29.8%
 trades by reason: TP=20 STOP=11 TIME=0
 avg days in trade: 12.4
 --- GOOG ---
-n=94 WR=56.4% avgWin=1.079R avgLoss=0.977R payoff=1.10
-expectancy=0.183R (1.49%/trade) t=1.56 PF=1.43 maxConsecLoss=16 kelly=16.9%
+n=94 WR=54.3% avgWin=1.111R avgLoss=0.943R payoff=1.18
+expectancy=0.171R (1.44%/trade) t=1.46 PF=1.40 maxConsecLoss=16 kelly=15.4%
 trades by reason: TP=50 STOP=39 TIME=5
 avg days in trade: 12.8
 --- MRVL ---
-n=94 WR=29.8% avgWin=1.161R avgLoss=1.012R payoff=1.15
+n=94 WR=29.8% avgWin=1.160R avgLoss=1.012R payoff=1.15
 expectancy=-0.365R (-3.80%/trade) t=-3.39 PF=0.49 maxConsecLoss=27 kelly=0.0%
 trades by reason: TP=26 STOP=65 TIME=3
 avg days in trade: 13.3
@@ -96,8 +96,8 @@ expectancy=0.590R (4.94%/trade) t=4.44 PF=2.69 maxConsecLoss=14 kelly=41.7%
 trades by reason: TP=61 STOP=31 TIME=0
 avg days in trade: 14.4
 --- GOOG only ---
-n=94 WR=56.4% avgWin=1.079R avgLoss=0.977R payoff=1.10
-expectancy=0.183R (1.49%/trade) t=1.56 PF=1.43 maxConsecLoss=16 kelly=16.9%
+n=94 WR=54.3% avgWin=1.111R avgLoss=0.943R payoff=1.18
+expectancy=0.171R (1.44%/trade) t=1.46 PF=1.40 maxConsecLoss=16 kelly=15.4%
 trades by reason: TP=50 STOP=39 TIME=5
 avg days in trade: 12.8
 --- GOOG year 2022 ---
@@ -121,8 +121,8 @@ expectancy=1.110R (9.03%/trade) t=3.51 PF=10.78 maxConsecLoss=1 kelly=80.6%
 trades by reason: TP=8 STOP=1 TIME=0
 avg days in trade: 32.3
 --- GOOG year 2026 ---
-n=16 WR=43.8% avgWin=0.901R avgLoss=0.821R payoff=1.10
-expectancy=-0.068R (-0.51%/trade) t=-0.27 PF=0.85 maxConsecLoss=7 kelly=0.0%
+n=16 WR=31.2% avgWin=1.149R avgLoss=0.718R payoff=1.60
+expectancy=-0.134R (-0.78%/trade) t=-0.53 PF=0.73 maxConsecLoss=8 kelly=0.0%
 trades by reason: TP=4 STOP=7 TIME=5
 avg days in trade: 10.5
 --- GOOG H1 (older) ---
@@ -131,55 +131,55 @@ expectancy=-0.193R (-1.10%/trade) t=-1.27 PF=0.67 maxConsecLoss=16 kelly=0.0%
 trades by reason: TP=20 STOP=27 TIME=0
 avg days in trade: 9.9
 --- GOOG H2 (recent) ---
-n=47 WR=70.2% avgWin=1.174R avgLoss=0.894R payoff=1.31
-expectancy=0.558R (4.08%/trade) t=3.46 PF=3.10 maxConsecLoss=7 kelly=47.5%
+n=47 WR=66.0% avgWin=1.232R avgLoss=0.813R payoff=1.51
+expectancy=0.536R (3.99%/trade) t=3.29 PF=2.93 maxConsecLoss=8 kelly=43.5%
 trades by reason: TP=30 STOP=12 TIME=5
 avg days in trade: 15.6
 
 --- portfolio sim (1% equity risk/trade, chronological, stop-sized) ---
-final equity multiple = 2.818 over 833 trades; peak=3.229; maxDD=53.6%
-period years=4.57 CAGR=25.4%
-SPY buy&hold same window: 87.0% (4.57y)
+final equity multiple = 2.799 over 833 trades; peak=3.229; maxDD=53.6%
+period years=4.57 CAGR=25.2%
+SPY buy&hold same window: 86.9% (4.57y)
 
 ========== CURRENT GOOG SIGNAL ECONOMICS ==========
-last bar: 2026-09-30 close=347.29 fib382=356.02 fib50=348.12 fib618=340.23 atr=8.15 h3m=381.56
+last bar: 2026-09-30 close=344.36 fib382=356.02 fib50=348.12 fib618=340.23 atr=8.19 h3m=381.56
 monitor-specified: entry dip zone 356.25-348.35, stop 331.84, TP 381.81
-entry@zone top (fib38.2) $356.02: risk=23.94 (6.7%) reward=25.55 (7.2%) R:R=1.07:1
-entry@zone mid $352.07: risk=19.99 (5.7%) reward=29.49 (8.4%) R:R=1.48:1
-entry@zone bottom (fib50) $348.12: risk=16.04 (4.6%) reward=33.44 (9.6%) R:R=2.08:1
-entry@market now $347.29: risk=15.21 (4.4%) reward=34.27 (9.9%) R:R=2.25:1
+entry@zone top (fib38.2) $356.02: risk=23.97 (6.7%) reward=25.55 (7.2%) R:R=1.07:1
+entry@zone mid $352.07: risk=20.03 (5.7%) reward=29.49 (8.4%) R:R=1.47:1
+entry@zone bottom (fib50) $348.12: risk=16.08 (4.6%) reward=33.44 (9.6%) R:R=2.08:1
+entry@market now $344.36: risk=12.31 (3.6%) reward=37.21 (10.8%) R:R=3.02:1
 breakeven WR @ zone top: 48.4% (payoff 1.07)
-breakeven WR @ zone bottom: 32.4% (payoff 2.08)
+breakeven WR @ zone bottom: 32.5% (payoff 2.08)
 
 ========== WYCKOFF / VOLUME PROFILE (GOOG 1y) ==========
 1y range: 236.07 (2025-10-10) - 403.96 (2026-05-18)
 3m high: 381.56 on 2026-08-05 | 3m low: 314.69 on 2026-07-23
-current: 347.29 | dist from 3m high: -9.0% | off 3m low: 10.4%
+current: 344.36 | dist from 3m high: -9.8% | off 3m low: 9.4%
 VPOC=332.26 VAH=380.76 VAL=244.96 (70% value area)
-price vs VPOC: +4.5% | price in value area: True
-volume profile in entry zone (price, vol M): 339:220, 342:211, 345:176, 348:68, 352:147, 355:206, 358:84, 361:63, 365:84
-3m VPOC=334.51 | 3m VAH=355.88 VAL=318.85 | price vs 3m VPOC: +3.8%
-MFI14=61.1
-CMF20=0.022 (5d avg +0.005)
-OBV 60d slope: -698,818/day (FALLING = distribution)
-30d up-volume vs down-volume: 259M vs 231M (ratio 1.12)
+price vs VPOC: +3.6% | price in value area: True
+volume profile in entry zone (price, vol M): 339:220, 342:218, 345:172, 348:68, 352:147, 355:206, 358:84, 361:63, 365:84
+3m VPOC=343.06 | 3m VAH=355.88 VAL=318.85 | price vs 3m VPOC: +0.4%
+MFI14=61.5
+CMF20=0.011 (5d avg +0.003)
+OBV 60d slope: -694,830/day (FALLING = distribution)
+30d up-volume vs down-volume: 262M vs 231M (ratio 1.13)
 distribution days (last 25): 4
 10d: H=359.98 L=332.81 | prior 10d: H=346.45 L=325.63 -> HH/HL (markup)
-price vs SMA20/50/100: +2.3% / +1.7% / -1.8%
-30d leg 325.63->359.98, current retrace = 36.9%
+price vs SMA20/50/100: +1.5% / +0.9% / -2.6%
+30d leg 325.63->359.98, current retrace = 45.5%
 
 ========== MEDALLION SIGNAL QUALITY ==========
 factors:
    Regime (price>SMA20&SMA50) = UPTREND -> 1 | trend aligned
    SMA stack 20>50 = 339>341 -> -1 | fast above slow
    Fib zone touch (38.2-50%) = 348-356 -> 1 | price inside alert band (+2%)
-   RSI14 = 55.1 -> 0.5 | neutral-cool, not overbought
-   Vol vs 20d = 0.20x -> -1 | heavy volume drain on bounce (0.20x) - no initiative volume
+   RSI14 = 53.0 -> 0.5 | neutral-cool, not overbought
+   Vol vs 20d = 0.39x -> -1 | no initiative volume
    5d pattern = 2R/3G -> 0.5 | mild pullback then bounce
-   Price vs VPOC = +4.5% -> 1 | above VPOC = acceptance
+   Price vs VPOC = +3.6% -> 1 | above VPOC = acceptance
    Price in value area = yes -> 0 | inside 1y value area
    Momentum burst = 5d mixed -> 0 | no clean SOS bar yet
 composite raw sum = +2.0 (scale roughly -10..+10) -> WEAK/NEUTRAL confluence
-sample size: backtest n=833 trades, t=2.91 (Renaissance bar: t>3.0)
+sample size: backtest n=833 trades, t=2.89 (Renaissance bar: t>3.0)
 cross-market: per-ticker trades AMZN:107, BCC:130, FBK:151, GDDY:104, GEV:31, GOOG:94, MRVL:94, RDDT:30, ZS:92
 cross-time: WR H1=48% vs H2=56%
