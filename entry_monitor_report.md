@@ -1,32 +1,36 @@
-# 📡 Entry Monitor Report — Wed 30 Sep 2026 04:01 ICT
+# 📡 Entry Monitor Report — Wed 30 Sep 2026 20:01 ICT
 
 ## Actionable Entry Signals
 
-**NONE** — no 🟢 PULLBACK ENTRY / uptrend entry confirmation this scan.
+**None.** No 🟢 verdicts this scan.
 
-| Ticker | Verdict | Status |
+| Ticker | Verdict | Why not actionable |
 |---|---|---|
-| GDDY | 🔴 WAIT | Downtrend, below SMA50 ($96.26), price $94.06 — structurally broken |
-| GEV | ⚠️ BOUNCE | Risky — testing SMA50 support $968.41, wait for reclaim >$968.41 |
+| GDDY | 🔴 WAIT | Downtrend, price $94.06 below SMA50 $96.26 — structurally broken |
+| GEV | ⚠️ BOUNCE | Risky bounce; wait for SMA50 reclaim >$968.41 (price $962.49) |
 
-Expert analysis (Thorp/Wyckoff/Medallion) not run — reserved for actionable 🟢 signals only.
+*3-expert pipeline (Thorp / Wyckoff / Medallion) skipped — no actionable ticker to score.*
+
+---
 
 ## Exit Signals (Active Positions)
 
-| Ticker | Action | Exit Price | P&L | Notes |
-|---|---|---|---|---|
-| NVDU | 📈 TRAILING — hold | $144.35 | +60.4% ($+1,467.45) | Uptrend, momentum STRONG (+6), RSI 53.2. Trail stop $131.39 (2×ATR). TP3 = ∞, let profits run |
-| ZS | 📈 TRAILING — hold | $198.35 | +32.2% ($+725.33) | Uptrend, momentum STRONG (+6), RSI 68.4. Trail stop $176.45 (2×ATR). TP3 = ∞, let profits run |
+| Ticker | Action | Price | Entry | P&L | Trail Stop | Notes |
+|---|---|---|---|---|---|---|
+| NVDU | TRAILING — hold | $144.35 | $90.00 | **+60.4% ($+1,467.45)** | $131.39 (2×ATR) | Uptrend, momentum STRONG (+6), RSI 53.2. TP1/TP2 exceeded → TP3 ∞, let it run |
+| ZS | TRAILING — hold | $198.35 | $150.00 | **+32.2% ($+725.33)** | $176.45 (2×ATR) | Uptrend, momentum STRONG (+6), RSI 68.4 (hot but not extreme). TP1/TP2 exceeded → letting run |
 
-Combined open P&L: **+$2,192.78**. Neither hit trail stop — no exit execution required this scan.
+Combined open P&L: **+$2,192.78**. No exit triggered — both stops trail below price.
+
+---
 
 ## 📋 SUMMARY — Entry Points
 
 | Ticker | Entry | Stop | TP1 | TP2 | R:R | Expert Consensus | Budget $2,500 |
 |---|---|---|---|---|---|---|---|
-| GDDY | — (WAIT) | — | — | — | — | No trade — downtrend | No |
-| GEV | $968.41 (on SMA50 reclaim) | — | — | — | — | Pending setup | Watch |
-| NVDU | HOLD (trailing) | $131.39 | — | — | — | Let run | Open +$1,467.45 |
-| ZS | HOLD (trailing) | $176.45 | — | — | — | Let run | Open +$725.33 |
+| GDDY | — | — | — | — | — | 🔴 NO TRADE | — |
+| GEV | $968.41 (on SMA50 reclaim) | — | — | — | — | ⏳ WAIT | — |
+| NVDU | (hold, trailing) | $131.39 | — | — | — | HOLD | in position |
+| ZS | (hold, trailing) | $176.45 | — | — | — | HOLD | in position |
 
-**Net action this scan: none.** No new entries, no exits — trailing stops remain in place.
+**Action:** No new capital deployed. Monitor GEV for reclaim above $968.41; trail NVDU/ZS stops.
