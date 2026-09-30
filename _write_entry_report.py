@@ -1,4 +1,5 @@
-# 📡 Entry Monitor Report — Wed 30 Sep 2026 21:01 ICT
+#!/usr/bin/env python3
+REPORT = r'''# 📡 Entry Monitor Report — Wed 30 Sep 2026 21:01 ICT
 
 ## Actionable Entry Signals
 
@@ -54,3 +55,8 @@ Combined open P&L: **+$2,361.30**. One action: realize ZS, keep trailing NVDU.
 
 ---
 *Backtest: `_goog_experts.py` → `_goog_expert_out.txt` (5y, 9 monitor tickers, net 10bp RT costs). Signal replicated exactly as the monitor emits it.*
+'''
+
+with open('/root/.hermes/profiles/trader/scripts/entry_monitor_report.md', 'w') as f:
+    f.write(REPORT)
+print('WROTE', len(REPORT), 'chars')

@@ -1,0 +1,110 @@
+{
+  "name": "NASDAQ 100",
+  "total_tickers": 95,
+  "fetched": 95,
+  "failed": 0,
+  "failed_tickers": [],
+  "total_signals": 436,
+  "avg_r": 0.17,
+  "win_rate_r": 38.8,
+  "profit_factor": 1.19,
+  "tp1_pct": 36.7,
+  "tp2_pct": 2.1,
+  "sl_pct": 43.1,
+  "expired_pct": 18.1,
+  "avg_bars": 9.3,
+  "outcome_counts": {
+    "tp1": 160,
+    "tp2": 9,
+    "sl": 188,
+    "expired": 79
+  },
+  "win_rate_5d": 55.3,
+  "win_rate_10d": 56.1,
+  "win_rate_20d": 58.9,
+  "avg_ret_20d": 2.97,
+  "avg_composite": 4.3,
+  "best_20d": "MU 2026-05-01 +90.98%",
+  "worst_20d": "ILMN 2025-01-13 -30.19%",
+  "top5_20d": [
+    {
+      "ticker": "MU",
+      "date": "2026-05-01",
+      "ret": 90.98,
+      "score": 4.2,
+      "r": 1.5
+    },
+    {
+      "ticker": "APP",
+      "date": "2025-08-20",
+      "ret": 50.72,
+      "score": 4.27,
+      "r": 1.5
+    },
+    {
+      "ticker": "CSCO",
+      "date": "2026-04-16",
+      "ret": 36.72,
+      "score": 4.39,
+      "r": 1.5
+    },
+    {
+      "ticker": "GFS",
+      "date": "2026-04-28",
+      "ret": 36.34,
+      "score": 4.23,
+      "r": 1.5
+    },
+    {
+      "ticker": "CSCO",
+      "date": "2026-05-01",
+      "ret": 32.1,
+      "score": 4.14,
+      "r": 1.5
+    }
+  ],
+  "worst5_20d": [
+    {
+      "ticker": "ILMN",
+      "date": "2025-01-13",
+      "ret": -30.19,
+      "score": 4.42,
+      "r": -1.0
+    },
+    {
+      "ticker": "APP",
+      "date": "2025-12-22",
+      "ret": -28.85,
+      "score": 4.05,
+      "r": -1.82
+    },
+    {
+      "ticker": "APP",
+      "date": "2025-12-23",
+      "ret": -28.01,
+      "score": 4.02,
+      "r": -1.72
+    },
+    {
+      "ticker": "ZS",
+      "date": "2025-11-07",
+      "ret": -23.48,
+      "score": 4.26,
+      "r": -1.09
+    },
+    {
+      "ticker": "DDOG",
+      "date": "2025-11-14",
+      "ret": -23.22,
+      "score": 4.09,
+      "r": -1.39
+    }
+  ],
+  "score_bands": {
+    "5-6": {
+      "count": 436,
+      "avg_r": 0.17,
+      "win_rate": 38.8
+    }
+  }
+}

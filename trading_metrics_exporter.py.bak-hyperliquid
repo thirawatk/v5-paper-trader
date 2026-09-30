@@ -1,0 +1,472 @@
+#!/usr/bin/env python3
+"""
+Trading Journal Prometheus Exporter
+====================================
+Exposes trader live state as Prometheus metrics.
+Runs on port 9102.
+
+Metrics:
+  trading_equity{coin}          - Current equity per coin
+  trading_peak_equity{coin}     - Peak equity per coin
+  trading_trade_counter{coin}   - Number of trades per coin
+  trading_starting_capital      - Starting capital
+  trading_total_equity          - Total equity across all coins
+  trading_total_peak_equity     - Total peak equity
+  trading_total_trades          - Total trade count
+  trading_watchlist{coin}       - 1 if coin is in watchlist
+  trading_last_run_timestamp    - Unix timestamp of last run
+  trading_decision_log_total    - Total decision log entries
+  trading_open_positions        - Number of open positions
+"""
+
+import json
+import os
+import time
+from http.server import HTTPServer, BaseHTTPRequestHandler
+from prometheus_client import (
+    Gauge, Counter, Info, generate_latest, REGISTRY
+)
+
+# Paths
+STATE_PATH = "/root/.hermes/profiles/trader/paper_trader_data/live_state.json"
+JOURNAL_DIR = "/root/.hermes/profiles/trader/paper_trade_reports"
+EXPORTER_PORT = 9102
+
+# Prometheus metrics
+EQUITY = Gauge("trading_equity", "Current equity per coin", ["coin"])
+PEAK_EQUITY = Gauge("trading_peak_equity", "Peak equity per coin", ["coin"])
+TRADE_COUNTER = Gauge("trading_trade_counter", "Number of trades per coin", ["coin"])
+STARTING_CAPITAL = Gauge("trading_starting_capital", "Starting capital")
+TOTAL_EQUITY = Gauge("trading_total_equity", "Total equity across all coins")
+TOTAL_PEAK_EQUITY = Gauge("trading_total_peak_equity", "Total peak equity")
+TOTAL_TRADES = Gauge("trading_total_trades", "Total trade count")
+WATCHLIST = Gauge("trading_watchlist", "1 if coin is in watchlist", ["coin"])
+LAST_RUN = Gauge("trading_last_run_timestamp", "Unix timestamp of last run")
+DECISION_LOG_TOTAL = Gauge("trading_decision_log_total", "Total decision log entries")
+OPEN_POSITIONS = Gauge("trading_open_positions", "Number of open positions")
+JOURNAL_ENTRIES = Gauge("trading_journal_entries", "Number of journal entries")
+
+# Weekly report metrics
+WEEKLY_PNL = Gauge("trading_weekly_pnl", "Weekly P&L", ["week"])
+WEEKLY_TRADES = Gauge("trading_weekly_trades", "Weekly trade count", ["week"])
+WEEKLY_WIN_RATE = Gauge("trading_weekly_win_rate", "Weekly win rate", ["week"])
+
+# Position detail metrics (for correlated dashboard)
+POSITION_ENTRY_PRICE = Gauge("trading_position_entry_price", "Entry price of open position", ["coin", "direction"])
+POSITION_STOP_LOSS = Gauge("trading_position_stop_loss", "Stop loss price", ["coin", "direction"])
+POSITION_TP1 = Gauge("trading_position_tp1", "Take profit 1 price", ["coin", "direction"])
+POSITION_TP2 = Gauge("trading_position_tp2", "Take profit 2 price", ["coin", "direction"])
+POSITION_SCORE = Gauge("trading_position_score", "Confluence score at entry", ["coin", "direction"])
+POSITION_RISK = Gauge("trading_position_risk_amount", "Risk amount in USD", ["coin", "direction"])
+POSITION_SIZE = Gauge("trading_position_size", "Position size in units", ["coin", "direction"])
+POSITION_PNL = Gauge("trading_position_pnl", "Current P&L", ["coin", "direction"])
+POSITION_HOURS_OPEN = Gauge("trading_position_hours_open", "Hours since entry", ["coin", "direction"])
+POSITION_CURRENT_PRICE = Gauge("trading_position_current_price", "Current mark price", ["coin", "direction"])
+POSITION_UNREALIZED_PNL = Gauge("trading_position_unrealized_pnl", "Unrealized PnL at current price", ["coin", "direction"])
+
+# Historical trade metrics
+CLOSED_TRADE_PNL = Gauge("trading_closed_trade_pnl", "PnL of closed trade", ["coin", "exit_type", "direction", "reason", "trade_id"])
+CLOSED_TRADE_COUNT = Gauge("trading_closed_trades_total", "Total closed trades")
+
+# Daily journal metrics
+DAILY_EQUITY = Gauge("trading_daily_equity", "Daily equity snapshot", ["date"])
+DAILY_PNL = Gauge("trading_daily_pnl", "Daily P&L", ["date"])
+DAILY_TRADES = Gauge("trading_daily_trades", "Trades opened that day", ["date"])
+DAILY_DRAWDOWN = Gauge("trading_daily_drawdown", "Daily drawdown %", ["date"])
+DAILY_PEAK = Gauge("trading_daily_peak", "Daily peak equity", ["date"])
+DAILY_TRADE_COUNT = Gauge("trading_daily_trade_count", "Total trades executed", ["date"])
+
+
+def load_state():
+    """Load the live trader state."""
+    if not os.path.exists(STATE_PATH):
+        return {}
+    try:
+        with open(STATE_PATH) as f:
+            return json.load(f)
+    except (json.JSONDecodeError, IOError):
+        return {}
+
+
+def load_weekly_reports():
+    """Load weekly report data."""
+    reports = {}
+    if not os.path.exists(JOURNAL_DIR):
+        return reports
+    for f in os.listdir(JOURNAL_DIR):
+        if f.startswith("weekly_report_") and f.endswith(".md"):
+            week = f.replace("weekly_report_", "").replace(".md", "")
+            path = os.path.join(JOURNAL_DIR, f)
+            try:
+                with open(path) as fh:
+                    content = fh.read()
+                # Parse the markdown for key metrics
+                reports[week] = content
+            except IOError:
+                pass
+    return reports
+
+
+def clear_stale_labels(gauge, label_name):
+    """Remove label values no longer in the live state."""
+    # Access the internal child metrics and collect stale label keys
+    stale = []
+    for label_values, child in gauge._metrics.items():
+        # _metrics keys are tuples of label values
+        stale.append(label_values)
+    for lv in stale:
+        try:
+            gauge.remove(*lv)
+        except KeyError:
+            pass
+
+
+def update_metrics():
+    """Update all Prometheus metrics from the live state."""
+    state = load_state()
+
+    # Starting capital
+    STARTING_CAPITAL.set(state.get("starting_capital", 0))
+
+    # Clear stale per-coin labels before refreshing
+    clear_stale_labels(EQUITY, "coin")
+    clear_stale_labels(PEAK_EQUITY, "coin")
+    clear_stale_labels(TRADE_COUNTER, "coin")
+    clear_stale_labels(WATCHLIST, "coin")
+    # Clear stale weekly labels
+    clear_stale_labels(WEEKLY_PNL, "week")
+    clear_stale_labels(WEEKLY_TRADES, "week")
+    clear_stale_labels(WEEKLY_WIN_RATE, "week")
+
+    # Per-coin metrics — ONLY for watchlist coins + coins with open trades
+    coin_states = state.get("coin_states", {})
+    watchlist = state.get("watchlist", [])
+
+    # Build set of active coins: watchlist + any coin with open positions or non-zero equity
+    active_coins = set(watchlist)
+    for coin, cs in coin_states.items():
+        if cs.get("open_trades") or cs.get("equity", 0) > 0:
+            active_coins.add(coin)
+
+    for coin in active_coins:
+        cs = coin_states.get(coin, {})
+        equity = cs.get("equity", 0)
+        peak = cs.get("peak_equity", 0)
+        counter = cs.get("trade_counter", 0)
+
+        EQUITY.labels(coin=coin).set(equity)
+        PEAK_EQUITY.labels(coin=coin).set(peak)
+        TRADE_COUNTER.labels(coin=coin).set(counter)
+        WATCHLIST.labels(coin=coin).set(1 if coin in watchlist else 0)
+
+    # Total equity from top-level state (correct: accounts for capital allocation)
+    # NOT sum of per-coin equity (which double-counts stale coins with open trades)
+    TOTAL_EQUITY.set(state.get("equity", 0))
+    TOTAL_PEAK_EQUITY.set(state.get("peak_equity", 0))
+
+    # Total trades: count ALL closed trades from trades dict (includes pruned coins)
+    all_trades_for_count = state.get("trades", {})
+    total_trades = sum(len(v) for v in all_trades_for_count.values() if isinstance(v, list))
+    total_open = sum(len(cs.get("open_trades", [])) for cs in coin_states.values())
+    TOTAL_TRADES.set(total_trades)
+    OPEN_POSITIONS.set(total_open)
+
+    # Last run timestamp
+    last_run = state.get("last_run", "")
+    if last_run:
+        try:
+            from datetime import datetime
+            dt = datetime.strptime(last_run, "%Y-%m-%d %H:%M:%S UTC")
+            LAST_RUN.set(dt.timestamp())
+        except (ValueError, TypeError):
+            LAST_RUN.set(0)
+
+    # Decision log
+    decision_log = state.get("decision_log", [])
+    DECISION_LOG_TOTAL.set(len(decision_log))
+
+    # Journal entries
+    if os.path.exists(JOURNAL_DIR):
+        journal_files = [f for f in os.listdir(JOURNAL_DIR)
+                        if f.startswith("journal_") and f.endswith(".md")]
+        JOURNAL_ENTRIES.set(len(journal_files))
+    else:
+        JOURNAL_ENTRIES.set(0)
+
+    # Weekly metrics — derive from live state since no weekly_data_*.json exist
+    # Calculate win rate from closed trades across all coins
+    # NOTE: closed trades live in state['trades'][coin], NOT in coin_states[coin]
+    all_trades = state.get("trades", {})
+    total_wins = 0
+    total_losses = 0
+    total_closed_pnl = 0.0
+    for coin, coin_trades in all_trades.items():
+        for trade in coin_trades:
+            pnl = trade.get("pnl", 0)
+            total_closed_pnl += pnl
+            if pnl > 0:
+                total_wins += 1
+            elif pnl < 0:
+                total_losses += 1
+
+    closed_trade_count = total_wins + total_losses
+    if closed_trade_count > 0:
+        WEEKLY_WIN_RATE.labels(week="current").set(round(total_wins / closed_trade_count * 100, 1))
+        WEEKLY_PNL.labels(week="current").set(round(total_closed_pnl, 2))
+        WEEKLY_TRADES.labels(week="current").set(closed_trade_count)
+    else:
+        # No closed trades yet — explicitly set to 0 so the metric exists
+        WEEKLY_WIN_RATE.labels(week="current").set(0)
+        WEEKLY_PNL.labels(week="current").set(0)
+        WEEKLY_TRADES.labels(week="current").set(0)
+
+    # Position detail metrics — expose each open position's data
+    # Clear stale position labels first
+    for gauge in [POSITION_ENTRY_PRICE, POSITION_STOP_LOSS, POSITION_TP1, POSITION_TP2,
+                  POSITION_SCORE, POSITION_RISK, POSITION_SIZE, POSITION_PNL, POSITION_HOURS_OPEN,
+                  POSITION_CURRENT_PRICE, POSITION_UNREALIZED_PNL]:
+        stale = list(gauge._metrics.keys())
+        for lv in stale:
+            try:
+                gauge.remove(*lv)
+            except KeyError:
+                pass
+
+    from datetime import datetime, timezone
+    now = datetime.now(timezone.utc)
+
+    # Fetch current prices from Hyperliquid for all open position coins
+    current_prices = {}
+    open_coins = [coin for coin, cs in coin_states.items() if cs.get("open_trades")]
+    if open_coins:
+        try:
+            import sys as _sys
+            _hl_dir = "/root/.hermes/profiles/trader/skills/hyperliquid/scripts"
+            if _hl_dir not in _sys.path:
+                _sys.path.insert(0, _hl_dir)
+            from hyperliquid_client import _post_info, _safe_float
+            mids = _post_info({"type": "allMids"})
+            if mids:
+                for coin in open_coins:
+                    if coin in mids:
+                        current_prices[coin] = _safe_float(mids[coin]) or 0.0
+        except Exception:
+            pass  # Fail silently — position data still useful without current price
+
+    for coin, cs in coin_states.items():
+        for trade in cs.get("open_trades", []):
+            direction = trade.get("direction", "long")
+            entry = trade.get("entry_price", 0)
+            sl = trade.get("stop_loss", 0)
+            tp1 = trade.get("tp1", 0)
+            tp2 = trade.get("tp2", 0)
+            score = trade.get("confluence_score", 0)
+            risk = trade.get("risk_amount", 0)
+            size = trade.get("position_size", 0)
+            pnl = trade.get("pnl", 0)
+
+            # Calculate hours open
+            hours_open = 0
+            entry_time_str = trade.get("entry_time", "")
+            if entry_time_str:
+                try:
+                    entry_dt = datetime.strptime(entry_time_str, "%Y-%m-%d %H:%M:%S UTC").replace(tzinfo=timezone.utc)
+                    hours_open = (now - entry_dt).total_seconds() / 3600
+                except (ValueError, TypeError):
+                    pass
+
+            POSITION_ENTRY_PRICE.labels(coin=coin, direction=direction).set(entry)
+            POSITION_STOP_LOSS.labels(coin=coin, direction=direction).set(sl)
+            POSITION_TP1.labels(coin=coin, direction=direction).set(tp1)
+            POSITION_TP2.labels(coin=coin, direction=direction).set(tp2)
+            POSITION_SCORE.labels(coin=coin, direction=direction).set(score)
+            POSITION_RISK.labels(coin=coin, direction=direction).set(risk)
+            POSITION_SIZE.labels(coin=coin, direction=direction).set(size)
+            POSITION_PNL.labels(coin=coin, direction=direction).set(pnl)
+            POSITION_HOURS_OPEN.labels(coin=coin, direction=direction).set(round(hours_open, 1))
+
+            # Current price and unrealized PnL
+            cur_price = current_prices.get(coin, 0)
+            POSITION_CURRENT_PRICE.labels(coin=coin, direction=direction).set(cur_price)
+
+            if cur_price > 0 and entry > 0:
+                if direction == "long":
+                    unrealized = (cur_price - entry) * size
+                else:
+                    unrealized = (entry - cur_price) * size
+                POSITION_UNREALIZED_PNL.labels(coin=coin, direction=direction).set(round(unrealized, 2))
+
+    # ── Historical trade metrics from trades section + decision log ──
+    # Clear stale labels
+    for gauge in [CLOSED_TRADE_PNL]:
+        stale = list(gauge._metrics.keys())
+        for lv in stale:
+            try:
+                gauge.remove(*lv)
+            except KeyError:
+                pass
+
+    all_trades = state.get("trades", {})
+    closed_count = 0
+    seen_coins = set()  # Track by coin to avoid duplicates across sources
+
+    # Build trade lookup from trades dict (has entry/exit times)
+    trade_lookup = {}
+    for coin, coin_trades in all_trades.items():
+        for trade in coin_trades:
+            trade_lookup[coin] = trade  # Last trade per coin (most recent)
+
+    # First pass: collect from decision log (has enriched entry criteria)
+    decision_log = state.get("decision_log", [])
+    dl_idx = 0
+    for entry in decision_log:
+        if entry.get("action") in ("exit", "partial_exit"):
+            coin = entry.get("coin", "UNK")
+            exit_type = entry.get("exit_type", "unknown")
+            pnl = entry.get("pnl", 0)
+            direction = entry.get("direction", "long")
+            base_reason = entry.get("reason", "")
+            entry_price = entry.get("entry_price", 0)
+            confluence_score = entry.get("confluence_score", 0)
+            rr_ratio = entry.get("rr_ratio", 0)
+            signal_breakdown = entry.get("signal_breakdown", "")
+
+            # Get entry/exit dates from trade lookup
+            matched_trade = trade_lookup.get(coin, {})
+            entry_date = matched_trade.get("entry_time", "")[:10]  # YYYY-MM-DD
+            exit_date = matched_trade.get("exit_time", "")[:10]    # YYYY-MM-DD
+
+            if entry_price > 0:
+                reason = f"{base_reason} | Entry: ${entry_price:.4f} Score: {confluence_score:+.1f} R:R:{rr_ratio:.1f}"
+                if signal_breakdown:
+                    reason += f" [{signal_breakdown}]"
+                if entry_date:
+                    reason += f" | Opened: {entry_date}"
+                if exit_date:
+                    reason += f" Closed: {exit_date}"
+            else:
+                reason = base_reason
+                if entry_date:
+                    reason += f" | {entry_date}→{exit_date}"
+            reason = reason[:200]
+            tid = f"dl_{coin}_{dl_idx}"
+            CLOSED_TRADE_PNL.labels(coin=coin, exit_type=exit_type, direction=direction, reason=reason, trade_id=tid).set(round(pnl, 2))
+            closed_count += 1
+            seen_coins.add(coin)
+            dl_idx += 1
+
+    # Second pass: add from trades dict ONLY if not already in decision log
+    for coin, coin_trades in all_trades.items():
+        for i, trade in enumerate(coin_trades):
+            status = trade.get("status", "")
+            if status in ("stopped", "timeout", "closed", "tp1_hit"):
+                if coin in seen_coins:
+                    continue  # Already have enriched entry from decision log
+                tid = f"{coin}_{i}"
+                exit_type = trade.get("exit_type", status)
+                pnl = trade.get("pnl", 0)
+                direction = trade.get("direction", "long")
+                reason = trade.get("notes", "") or f"{exit_type} exit"
+                entry_date = trade.get("entry_time", "")[:10]
+                exit_date = trade.get("exit_time", "")[:10]
+                if entry_date:
+                    reason += f" | {entry_date}→{exit_date}"
+                reason = reason[:200]
+                CLOSED_TRADE_PNL.labels(coin=coin, exit_type=exit_type, direction=direction, reason=reason, trade_id=tid).set(round(pnl, 2))
+                closed_count += 1
+
+    CLOSED_TRADE_COUNT.set(closed_count)
+
+    # ── Daily journal metrics ──
+    journal_dir = JOURNAL_DIR
+    # Clear stale labels
+    for gauge in [DAILY_EQUITY, DAILY_PNL, DAILY_TRADES, DAILY_DRAWDOWN, DAILY_PEAK, DAILY_TRADE_COUNT]:
+        stale = list(gauge._metrics.keys())
+        for lv in stale:
+            try:
+                gauge.remove(*lv)
+            except KeyError:
+                pass
+
+    if os.path.exists(journal_dir):
+        import re
+        for fname in sorted(os.listdir(journal_dir)):
+            if fname.startswith("journal_") and fname.endswith(".md"):
+                date = fname.replace("journal_", "").replace(".md", "")
+                try:
+                    with open(os.path.join(journal_dir, fname)) as f:
+                        content = f.read()
+                    # Parse equity and P&L
+                    eq_match = re.search(r"\*\*Equity:\*\*\s*\$([0-9,.]+)", content)
+                    pnl_match = re.search(r"\*\*P&L:\*\*\s*\$([0-9,.+-]+)", content)
+                    dd_match = re.search(r"\*\*Drawdown:\*\*\s*([0-9,.+-]+)%", content)
+                    peak_match = re.search(r"\*\*Peak:\*\*\s*\$([0-9,.]+)", content)
+                    # Count open positions
+                    open_count = len(re.findall(r"\*\*\w+\*\*\s.*@\s*\$", content))
+                    # Parse Stats section for actual trade data
+                    total_trades_match = re.search(r"Total trades:\s*(\d+)", content)
+                    wins_match = re.search(r"Wins:\s*(\d+)", content)
+                    losses_match = re.search(r"Losses:\s*(\d+)", content)
+                    total_trades = int(total_trades_match.group(1)) if total_trades_match else 0
+                    if eq_match:
+                        equity = float(eq_match.group(1).replace(",", ""))
+                        DAILY_EQUITY.labels(date=date).set(equity)
+                    if pnl_match:
+                        pnl_val = float(pnl_match.group(1).replace(",", "").replace("+", ""))
+                        DAILY_PNL.labels(date=date).set(pnl_val)
+                    if dd_match:
+                        DAILY_DRAWDOWN.labels(date=date).set(float(dd_match.group(1).replace(",", "")))
+                    if peak_match:
+                        DAILY_PEAK.labels(date=date).set(float(peak_match.group(1).replace(",", "")))
+                    DAILY_TRADES.labels(date=date).set(open_count)
+                    DAILY_TRADE_COUNT.labels(date=date).set(total_trades)
+                except (IOError, ValueError):
+                    pass
+
+
+class MetricsHandler(BaseHTTPRequestHandler):
+    """HTTP handler for Prometheus metrics endpoint."""
+
+    def do_GET(self):
+        if self.path == "/metrics":
+            try:
+                update_metrics()
+                output = generate_latest(REGISTRY)
+                self.send_response(200)
+                self.send_header("Content-Type", "text/plain; version=0.0.4")
+                self.end_headers()
+                self.wfile.write(output)
+            except Exception as e:
+                self.send_response(500)
+                self.send_header("Content-Type", "text/plain")
+                self.end_headers()
+                self.wfile.write(str(e).encode())
+        elif self.path == "/":
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html")
+            self.end_headers()
+            html = """<html><head><title>Trading Journal Exporter</title></head>
+<body><h1>📊 Trading Journal Prometheus Exporter</h1>
+<p>Metrics available at <a href="/metrics">/metrics</a></p>
+<p>Port: {}</p></body></html>""".format(EXPORTER_PORT)
+            self.wfile.write(html.encode())
+        else:
+            self.send_response(404)
+            self.end_headers()
+
+    def log_message(self, format, *args):
+        pass  # Suppress request logging
+
+
+def main():
+    server = HTTPServer(("0.0.0.0", EXPORTER_PORT), MetricsHandler)
+    print("Trading Journal Prometheus Exporter running on port {}".format(EXPORTER_PORT))
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("\nShutting down...")
+        server.shutdown()
+
+
+if __name__ == "__main__":
+    main()

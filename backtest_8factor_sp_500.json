@@ -1,0 +1,115 @@
+{
+  "name": "S&P 500",
+  "total_tickers": 488,
+  "fetched": 488,
+  "failed": 0,
+  "failed_tickers": [],
+  "total_signals": 1740,
+  "avg_r": 0.01,
+  "win_rate_r": 36.0,
+  "profit_factor": 0.95,
+  "tp1_pct": 34.1,
+  "tp2_pct": 1.9,
+  "sl_pct": 48.1,
+  "expired_pct": 15.9,
+  "avg_bars": 9.3,
+  "outcome_counts": {
+    "tp1": 593,
+    "tp2": 33,
+    "sl": 837,
+    "expired": 277
+  },
+  "win_rate_5d": 53.2,
+  "win_rate_10d": 53.1,
+  "win_rate_20d": 53.5,
+  "avg_ret_20d": 0.9,
+  "avg_composite": 4.3,
+  "best_20d": "MU 2026-05-01 +90.98%",
+  "worst_20d": "WST 2025-01-23 -38.65%",
+  "top5_20d": [
+    {
+      "ticker": "MU",
+      "date": "2026-05-01",
+      "ret": 90.98,
+      "score": 4.2,
+      "r": 1.5
+    },
+    {
+      "ticker": "HPE",
+      "date": "2026-05-08",
+      "ret": 59.07,
+      "score": 4.02,
+      "r": 1.5
+    },
+    {
+      "ticker": "NRG",
+      "date": "2025-04-24",
+      "ret": 46.94,
+      "score": 4.17,
+      "r": 3.0
+    },
+    {
+      "ticker": "CSCO",
+      "date": "2026-04-16",
+      "ret": 36.72,
+      "score": 4.39,
+      "r": 1.5
+    },
+    {
+      "ticker": "NTAP",
+      "date": "2026-05-13",
+      "ret": 35.33,
+      "score": 4.01,
+      "r": 3.0
+    }
+  ],
+  "worst5_20d": [
+    {
+      "ticker": "WST",
+      "date": "2025-01-23",
+      "ret": -38.65,
+      "score": 4.46,
+      "r": -1.13
+    },
+    {
+      "ticker": "WST",
+      "date": "2025-01-16",
+      "ret": -36.28,
+      "score": 4.31,
+      "r": -1.0
+    },
+    {
+      "ticker": "NWL",
+      "date": "2025-01-23",
+      "ret": -34.68,
+      "score": 4.32,
+      "r": -1.2
+    },
+    {
+      "ticker": "ALK",
+      "date": "2026-02-17",
+      "ret": -31.76,
+      "score": 4.26,
+      "r": -1.0
+    },
+    {
+      "ticker": "ILMN",
+      "date": "2025-01-13",
+      "ret": -30.19,
+      "score": 4.42,
+      "r": -1.0
+    }
+  ],
+  "score_bands": {
+    "5-6": {
+      "count": 1739,
+      "avg_r": 0.01,
+      "win_rate": 36.0
+    },
+    "6-7": {
+      "count": 1,
+      "avg_r": -1.44,
+      "win_rate": 0.0
+    }
+  }
+}

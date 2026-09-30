@@ -2,12 +2,15 @@
 """
 V5 Paper Trader — Real-Time S&P 500
 ====================================
-$1,000 starting capital, 1% risk per trade.
+$1,000 starting capital, 3% risk per trade.
 V5 scoring (trend-slope, VWAP-center, OBV, CMF, MFI, momentum, VIX, VPQ, candle).
 Entry: composite ≥ 4.0. Exit: SL=2.0×ATR | TP1=1.2R | TP2=2.5R | Max 30d.
+DATA: TradingView primary → Google Finance fallback for live prices (positions,
+VIX, entry confirmation). Yahoo batch = history-only for the 1y universe scan
+(NaN-guarded; never used for live pricing).
 """
 
-import json, os, time, sys, warnings
+import json, os, time, sys, re, warnings
 warnings.filterwarnings("ignore")
 import numpy as np
 import pandas as pd
@@ -75,6 +78,118 @@ def get_tv_daily(sym):
     except Exception:
         pass
     return None
+
+
+# ═══ GOOGLE FINANCE FEED (secondary live-price source) ═══
+_GF_UA = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36'}
+_GF_EXCH = {
+    # US stock → exchange codes used in google.com/finance/quote/{SYM}:{EXCH}
+    "NYSE": "NYSE", "NASDAQ": "NASDAQ", "AMEX": "AMEX",
+}
+
+def _gf_fetch(url, timeout=15):
+    import urllib.request
+    req = urllib.request.Request(url, headers=_GF_UA)
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        return resp.read().decode("utf-8", errors="replace")
+
+def _gf_parse_ohlc(html):
+    """Parse Google Finance quote page → (date_str, open, high, low, close, vol).
+    Merges intraday 1-min rows + daily candles to get the UNION session range
+    (never miss an SL/TP from a partially-embedded series)."""
+    # Intraday rows: [[Y,M,D,H,MIN,None,None,[tz]],[price,chg,pct,2,2,3],vol]
+    pat = re.compile(r'\[\[(\d{4}),(\d+),(\d+),(\d+),(\d+),None,None,\[-?14400\]\],\[([\d.]+),([\d.\-]+),([\d.\-]+),2,2,3\],(\d+)\]')
+    rows = pat.findall(html)
+    # Daily candles (close bar only — 16:00 ET for stocks, 15:00 CT for VIX):
+    # [O,C,H,L,"YYYY-MM-DDTHH:MM...",vol]
+    pat2 = re.compile(r'\[([\d.]+),([\d.]+),([\d.]+),([\d.]+),"(\d{4}-\d{2}-\d{2})T(?:15|16):00[^"]*",(\d+)\]')
+    dailies = pat2.findall(html)
+
+    if not rows and not dailies:
+        return None
+
+    # Latest date across both series
+    latest_date = None
+    closes = []
+    highs, lows = [], []
+    open_prices = []
+    total_vol = 0
+
+    if rows:
+        # All rows share the same date in Google's page (last session)
+        y, mo, d = rows[0][0], rows[0][1], rows[0][2]
+        latest_date = f"{y}-{mo.zfill(2)}-{d.zfill(2)}"
+        prices = [float(r[5]) for r in rows]
+        vols = [int(r[8]) for r in rows]
+        open_prices.append(prices[0])
+        closes.append(prices[-1])
+        highs.append(max(prices))
+        lows.append(min(prices))
+        total_vol = sum(vols)
+
+    if dailies:
+        # Candle tuples: (O, C, H, L, date, vol). Take ALL candles on the max
+        # date and UNION their ranges (page sometimes has both a full session
+        # candle and a trailing/duplicate candle for the same day — never let a
+        # partial candle mask the true high/low, or SL/TP checks miss).
+        day_candles = sorted(dailies, key=lambda c: c[4])
+        max_date = day_candles[-1][4]
+        keep = [c for c in day_candles if c[4] == max_date]
+        if latest_date is None:
+            latest_date = max_date
+        elif max_date > latest_date:
+            # live session rows exist but page has a fresher full candle — use it
+            latest_date = max_date
+        for o, c, h, l, dt, v in keep:
+            open_prices.append(float(o))
+            closes.append(float(c))
+            highs.append(float(h))
+            lows.append(float(l))
+            total_vol += int(v)
+
+    if latest_date is None or not closes:
+        return None
+
+    close = closes[-1]
+    o = open_prices[-1] if open_prices else close
+    hi = max(highs)
+    lo = min(lows)
+    if close <= 0 or hi < lo:
+        return None
+    return (latest_date, o, hi, lo, close, total_vol)
+
+def get_gf_daily(sym, exchanges=("NASDAQ", "NYSE", "AMEX")):
+    """Google Finance live quote → (close, high, low) or None.
+    Tries exchange codes in order. ~1.2MB page each — use sparingly (positions/VIX only)."""
+    for ex in exchanges:
+        try:
+            html = _gf_fetch(f"https://www.google.com/finance/quote/{sym}:{ex}")
+            r = _gf_parse_ohlc(html)
+            if r and r[1] > 0:
+                return (r[4], r[2], r[3])  # close, high, low
+        except Exception:
+            continue
+    return None
+
+def get_gf_vix():
+    """Google Finance VIX (INDEXCBOE) → float or None."""
+    try:
+        html = _gf_fetch("https://www.google.com/finance/quote/VIX:INDEXCBOE")
+        r = _gf_parse_ohlc(html)
+        if r and r[4] > 0:
+            return r[4]
+    except Exception:
+        pass
+    return None
+
+
+# ═══ LIVE PRICE CHAIN: TradingView primary → Google Finance fallback ═══
+def get_live_ohlc(sym):
+    """(close, high, low) from TradingView first, then Google Finance. None if both fail."""
+    tv = get_tv_daily(sym)
+    if tv:
+        return tv
+    return get_gf_daily(sym)
 
 
 # ═══ HELPERS ═══
@@ -292,13 +407,19 @@ def scan_and_trade():
 
     # ── Fetch VIX ──
     p("\n[1] Fetching VIX...")
+    vix_val = 0.0
     try:
-        vix_df = yf.download("^VIX", period="5d", progress=False)
-        if hasattr(vix_df.columns, 'levels'):
-            vix_val = float(vix_df.iloc[-1].iloc[0])
+        gf_vix = get_gf_vix()
+        if gf_vix:
+            vix_val = gf_vix
+            p(f"  VIX (Google Finance): {vix_val:.1f}")
         else:
-            vix_val = float(vix_df["Close"].iloc[-1])
-        p(f"  VIX: {vix_val:.1f}")
+            vix_df = yf.download("^VIX", period="5d", progress=False)
+            if hasattr(vix_df.columns, 'levels'):
+                vix_val = float(vix_df.iloc[-1].iloc[0])
+            else:
+                vix_val = float(vix_df["Close"].iloc[-1])
+            p(f"  VIX (Yahoo fallback): {vix_val:.1f}")
     except Exception:
         vix_val = 0.0
         p("  VIX unavailable — using 0 (no penalty)")
@@ -334,10 +455,10 @@ def scan_and_trade():
     for pos in positions:
         sym = pos["ticker"]
 
-        # TradingView first (live), then Yahoo batch, else keep last-known price
-        tv = get_tv_daily(sym)
-        if tv:
-            today_close, today_high, today_low = tv
+        # TradingView first (live), then Google Finance, else keep last-known price
+        live = get_live_ohlc(sym)
+        if live:
+            today_close, today_high, today_low = live
             today = datetime.now()
         elif sym in all_data:
             df = all_data[sym]
@@ -345,6 +466,10 @@ def scan_and_trade():
             today_close = float(df["close"].iloc[-1])
             today_low = float(df["low"].iloc[-1])
             today_high = float(df["high"].iloc[-1])
+            # NaN guard — never price a position off a throttled/NaN bar
+            if not (np.isfinite(today_close) and np.isfinite(today_low) and np.isfinite(today_high)) or today_close <= 0:
+                new_positions.append(pos)  # bad bar — keep last-known price
+                continue
         else:
             new_positions.append(pos)  # no data — keep position as-is (last-known price)
             continue
@@ -421,6 +546,10 @@ def scan_and_trade():
 
         # Score last candle
         idx = len(df) - 1
+        batch_close = float(df["close"].iloc[idx])
+        # NaN guard — skip throttled/NaN bars from Yahoo batch (never score or enter on them)
+        if not np.isfinite(batch_close) or batch_close <= 0:
+            continue
         sc = score_signal(df, vix_val, idx)
         if sc["composite"] < MIN_CONFLUENCE: continue
 
@@ -429,7 +558,12 @@ def scan_and_trade():
         if df["volume"].iloc[idx] < VOLUME_FILTER * vol_20avg:
             continue
 
-        close = float(df["close"].iloc[idx])
+        # Entry price from live chain (TV → GF); batch close only as last resort
+        live = get_live_ohlc(sym)
+        if live:
+            close = float(live[0])
+        else:
+            close = batch_close
         atr = float(df["ATR"].iloc[idx])
         if pd.isna(atr) or atr <= 0: continue
 
