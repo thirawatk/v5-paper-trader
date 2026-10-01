@@ -1,28 +1,32 @@
-# 📡 Entry Monitor Report — Thu 01 Oct 2026 04:00 ICT
+# 📡 Entry Monitor Report — Thu 01 Oct 2026 20:00 ICT
 
 ## Actionable Entry Signals
 
-**None this scan — no 🟢 signals.**
+**None this scan — no 🟢 verdicts.**
 
-| Ticker | Verdict | Why not actionable |
-|---|---|---|
-| GDDY | 🔴 WAIT | Downtrend; $95.51 below SMA50 $96.32 and SMA20 $98.5 — structurally broken. RSI 49.0, vol 0.62x |
-| GEV | ⚠️ BOUNCE | $950.49 below SMA50 $965.84 — wait for reclaim >$965.84 for entry confirmation. RSI 55.7, vol 0.83x |
+| Ticker | Price | Verdict | Why not actionable |
+|---|---|---|---|
+| GDDY | $95.51 (+1.54%) | 🔴 WAIT | Downtrend; below SMA50 $96.32 and SMA20 $98.5 — structurally broken. RSI 49.0, vol 0.63x. Testing SMA50 support |
+| GEV | $950.49 (−1.25%) | ⚠️ BOUNCE | Below SMA50 $965.84 — risky. Wait for reclaim >$965.84 for entry confirmation. RSI 55.7, vol 0.84x |
+
+3-expert entry pipeline: **NOT TRIGGERED** (rules: only 🟢 signals get scored).
 
 ## Exit Signals (Active Positions)
 
-| Ticker | Action | Exit Price | P&L | Notes |
+| Ticker | Action | Mark Price | P&L | Notes |
 |---|---|---|---|---|
-| **ZS** | 🎯 **TAKE FULL PROFITS** | $199.42 | **+32.9% (+$741.30)** | TP2 $177.2 (2.5R) hit and price overshot to $199.42. Momentum NEUTRAL (+1), MACD bearish (hist -0.14), RSI 70.9 — close 100% into strength |
-| **NVDU** | 📈 **HOLD — TRAILING** | $145.70 | **+61.9% (+$1,503.90)** | Trail stop $132.94 (2xATR below price). Momentum STRONG (+6), RSI 62.6, uptrend intact — let profits run, no exit yet |
+| **ZS** | 🎯 **TAKE FULL PROFITS** | $199.42 | **+32.9% (+$741.30)** | TP2 $177.20 (2.5R) hit, price overshot to 4.54R. Momentum NEUTRAL (+1), MACD bearish (hist −0.14), RSI 70.9 — close 100% into strength |
+| **NVDU** | 📈 **HOLD — TRAILING** | $145.70 | **+61.9% (+$1,503.90)** | Trail stop $132.94 (2×ATR) = locked +$42.94 (+6.7R) minimum. Momentum STRONG (+6), RSI 62.6, uptrend intact — let profits run |
 
-**Action required:** exit ZS. NVDU stays open on trailing stop ($132.94).
+**Action required:** exit ZS. NVDU stays open on trailing stop $132.94.
 
-### Expert Consensus on Exits
+### 3-Expert Read (exits)
 
-- **Thorp (edge / EV):** ZS — TP2 already delivered 2.5R; holding past target with fading momentum is negative-EV → realize the win. NVDU — trailing stop keeps upside open while capping give-back; hold expectancy > exit in a confirmed uptrend. **Verdict: both actions correct.**
-- **Wyckoff 2.0:** ZS RSI 70.9 / Stoch 68.8 + MACD rollover = SOW / uptrend exhaustion — distribute into strength. NVDU in Phase E markup (higher highs + higher lows), stop parked at structural level = sound. **Verdict: ZS = DISTRIBUTION RISK · NVDU = MARKUP CONTINUES**
-- **Medallion:** ZS factor confluence weak (momentum +1, MACD negative) → **WEAK SIGNAL**, no statistical reason to keep holding. NVDU confluence strong (momentum +6, regime uptrend) → **STRONG SIGNAL** to stay in.
+- **🔢 Thorp (edge / EV):** ZS — +4.54R at mark vastly exceeds system expectancy (+0.11R/trade); TP2 delivered, momentum fading → holding past target is negative-EV, realize the win. NVDU — trail locks +6.7R while keeping upside open; hold expectancy > exit in confirmed uptrend. **Verdict: both actions correct.**
+- **📊 Wyckoff 2.0:** ZS — RSI 70.9 / Stoch 68.8 + MACD rollover = SOW / uptrend exhaustion → distribute into strength (**DISTRIBUTION RISK**). NVDU — Phase E markup intact (higher highs + higher lows), no SOW bar, stop parked at structural level → **MARKUP CONTINUES**.
+- **🧬 Medallion:** ZS — factor confluence weak (momentum +1, MACD negative) → **WEAK SIGNAL**, no statistical reason to keep holding. NVDU — confluence strong (momentum +6, regime UPTREND) → **STRONG SIGNAL** to stay in.
+
+**Expert Consensus: ZS → EXIT now · NVDU → HOLD on trail.**
 
 ## 📋 SUMMARY — Entry Points
 
@@ -30,8 +34,8 @@
 |---|---|---|---|---|---|---|---|
 | GDDY | — (WAIT) | — | — | — | — | NO TRADE 🔴 downtrend | Not deployed |
 | GEV | $965.84 (on SMA50 reclaim) | — | — | — | — | NO TRADE until reclaim ⚠️ | Not deployed |
-| **ZS** | — | — | — | — | — | **EXIT — take profit now** | Frees ~$3,000 |
-| **NVDU** | — | $132.94 (trail) | — | — | — | **HOLD — trailing** | In market |
+| **ZS** | held @ $150.00 | — | ✓ $166.32 | ✓ $177.20 | 4.54R open | **EXIT — take profit now** | Frees ~$3,000 |
+| **NVDU** | held @ $90.00 | $132.94 (trail) | ✓ $99.57 | ✓ $109.14 | 8.73R (6.7R locked) | **HOLD — trailing** | In market |
 
 **Entry budget $2,500: untouched this scan.** Next trigger: GEV reclaim >$965.84 → run 3-expert pipeline.
 **Capital release:** closing ZS frees ~$3,000 (cost $2,250 + $741 profit) for the next qualified entry.
