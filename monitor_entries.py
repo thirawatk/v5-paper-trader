@@ -18,6 +18,7 @@ try:
         "PTC": ["NASDAQ"],
         "NVDU": ["AMEX", "NASDAQ"], "ZS": ["NYSE", "NASDAQ"], "BCC": ["NYSE", "NASDAQ"], "FBK": ["NYSE", "NASDAQ"], "AMZN": ["NASDAQ"], "GEV": ["NYSE", "NASDAQ"],
         "MRVL": ["NASDAQ", "NYSE"],
+        "MKSI": ["NASDAQ"],
     }
     _TV_BARS = {"5d": 7, "1mo": 200, "3mo": 66, "6mo": 300, "1y": 300}
     _TV_INTERVAL = {"1d": TVInterval.in_daily, "1h": TVInterval.in_1_hour}
@@ -84,6 +85,7 @@ TICKERS = {
     "AMZN": "AMZN",
     "MRVL": "MRVL",
     "GEV": "GEV",
+    "MKSI": "MKSI",
 }
 
 # Live positions — update as trades are made
@@ -851,6 +853,74 @@ def check_entry_gev(a):
     summary += f"\n{get_verdict(a)}\n"
     return summary
 
+def check_entry_mksi(a):
+    """Check MKSI (MKS Instruments) entry. High-vol recovery stock (ATR ~3.6%).
+    NEVER chase RSI>70 — wait for cooldown to SMA50/VWAP confluence zone."""
+    alerts = []
+    price = a['price']
+    r = a['rsi14']
+    stoch = a['stoch_k']
+    sma20 = a['sma20']
+    sma50 = a['sma50']
+    vol_ratio = a['vol_ratio']
+    regime = a['regime']
+    macd_hist = a.get('macd_hist')
+
+    # Overbought chase warning (Sep 2026 lesson: RSI 78 = no entry, gate score +0.05)
+    if r is not None and r > 70 and regime in ('UPTREND', 'PULLBACK'):
+        alerts.append(f"🔴 Overbought RSI {r} (Stoch {stoch}) — do NOT chase, wait for pullback to SMA50/VWAP")
+
+    # DOWNTREND: only capitulation
+    if regime == 'DOWNTREND':
+        if vol_ratio > 1.5 and a['chg_pct'] < -1.5:
+            alerts.append(f"🔥 Sell-off ({a['chg_pct']:+.2f}%, {vol_ratio}x vol) — watch for reversal")
+        if not alerts:
+            return None
+
+    # Condition 1: RSI cooled to pullback zone
+    if r is not None and r < 50 and regime in ('UPTREND', 'PULLBACK'):
+        alerts.append(f"🟢 RSI cooled to {r} in {regime} — entry zone")
+
+    # Condition 2: Testing SMA 20 support
+    if sma20 and price >= sma20 * 0.97 and price <= sma20 * 1.03:
+        alerts.append(f"📏 Testing SMA 20 support at ${sma20:.2f}")
+
+    # Condition 3: Testing SMA 50 support (primary entry — VWAP confluence)
+    if sma50 and price >= sma50 * 0.97 and price <= sma50 * 1.03:
+        alerts.append(f"📏 Testing SMA 50 support at ${sma50:.2f} — stronger entry")
+
+    # Condition 4: Fib pullback zone
+    fib382 = a.get('fib_382', 0)
+    fib50 = a.get('fib_50', 0)
+    if fib382 and fib50 and price >= fib50 * 0.98 and price <= fib382 * 1.02:
+        alerts.append(f"🎯 In Fib pullback zone (${fib50:.2f}–${fib382:.2f})")
+
+    # Condition 5: MACD confirmation when cooled near support
+    rsi_cooled = r is not None and r < 52
+    near_support = (sma20 and price <= sma20 * 1.03) or (sma50 and price <= sma50 * 1.03)
+    if macd_hist is not None and macd_hist > 0 and rsi_cooled and near_support:
+        alerts.append(f"📈 MACD hist positive ({macd_hist:.2f}) + RSI cooled ({r}) — momentum confirming dip")
+
+    # Condition 6: Green streak bounce confirmation
+    if a['green_streak'] >= 2 and r is not None and 40 < r < 65:
+        alerts.append(f"🟢 {a['green_streak']}d green streak, RSI {r} — bounce confirmed")
+
+    # Condition 7: Volume capitulation
+    if vol_ratio > 1.5 and a['chg_pct'] < -1.5:
+        alerts.append(f"🔥 Sell-off ({a['chg_pct']:+.2f}%, {vol_ratio}x vol) — watch for reversal")
+
+    if not alerts:
+        return None
+
+    summary = "📡 **MKSI Entry Monitor**\n"
+    summary += f"Price: ${price:.2f} ({a['chg_pct']:+.2f}%) | RSI: {r} | Stoch: {stoch} | Vol: {vol_ratio}x\n"
+    summary += f"SMA 20: ${sma20} | SMA 50: ${sma50} | SMA 100: ${a['sma100']}\n"
+    summary += f"5d: {a['red_days_5']}🔴/{a['green_days_5']}🟢\n"
+    for alert in alerts:
+        summary += f"• {alert}\n"
+    summary += f"\n{get_verdict(a)}\n"
+    return summary
+
 def check_entry_voo(a):
     """Check VOO (S&P 500 ETF) entry conditions. Pullback entries in uptrend.
     Only alerts on actionable setups — suppresses noise in downtrends."""
@@ -1139,6 +1209,19 @@ def get_verdict(a):
         else:
             return f"📍 **VERDICT: ⏳ MONITOR** | Regime: {r}"
 
+    elif t == 'MKSI':
+        if r in ('UPTREND', 'PULLBACK') and rsi and rsi > 70:
+            return f"📍 **VERDICT: 🔴 WAIT — OVERBOUGHT** | RSI {rsi} | Entry on cooldown: ${s50} (SMA50/VWAP zone) | Stop: ${round(s50-1.5*atr,2)} | TP1: ${fib618} TP2: ${fib50}"
+        elif r == 'PULLBACK':
+            entry = s50 if s50 else fib50
+            return f"📍 **VERDICT: 🟡 NEAR ENTRY** | {r} | Entry: ${entry} (SMA50) | Stop: ${round(entry-1.5*atr,2)} | TP1: ${fib618} TP2: ${fib50}"
+        elif r == 'UPTREND':
+            return f"📍 **VERDICT: 🟢 UPTREND** | Entry on dip: ${s50} (SMA50) | Stop: ${round(s50-1.5*atr,2)} | TP1: ${fib618} TP2: ${fib50} | Confirms: RSI <50 + green close"
+        elif r == 'DOWNTREND':
+            return f"📍 **VERDICT: 🔴 WAIT** | {r} | Needs capitulation (vol>1.5x) + green close | Stop: ${round(l3m-atr,2)}"
+        else:
+            return f"📍 **VERDICT: ⏳ MONITOR** | Regime: {r}"
+
     return f"📍 **VERDICT: ⏳** | {r}"
 
 
@@ -1415,7 +1498,7 @@ def main():
 
     results = []
 
-    for ticker in ["GOOG", "RDDT", "GDDY", "NVDU", "ZS", "BCC", "FBK", "AMZN", "MRVL", "GEV"]:
+    for ticker in ["GOOG", "RDDT", "GDDY", "NVDU", "ZS", "BCC", "FBK", "AMZN", "MRVL", "GEV", "MKSI"]:
         a = analyze_ticker(ticker)
         if not a:
             continue
@@ -1451,6 +1534,8 @@ def main():
             msg = check_entry_mrvl(a)
         elif a['ticker'] == 'GEV':
             msg = check_entry_gev(a)
+        elif a['ticker'] == 'MKSI':
+            msg = check_entry_mksi(a)
         if msg and a['ticker'] not in POSITIONS:
             triggered.append(msg)
 
