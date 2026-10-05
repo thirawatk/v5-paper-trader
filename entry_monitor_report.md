@@ -1,58 +1,69 @@
-# 📡 Entry Monitor Report — Tue 06 Oct 2026 03:00 ICT
+# 📡 Entry Monitor Report — Tue 06 Oct 2026 04:04 ICT
 
 ## 🟢 Entry Triggered
 
-None — no confirmation triggers printed this run. All three routed setups have price **below** their entry zones.
+**None — no confirmation triggers printed this run.**
 
 ---
 
 ## 🟡 Conditional Setup — Trigger Not Printed
 
-### GOOG — SMA100 reclaim pending (NEW signal)
+### GOOG
 
-- **Setup:** UPTREND structure — price **$343.89** (+1.04%) above SMA20 $339.70 and SMA50 $342.27, but **below SMA100 $352.31** (overhead). RSI 52.1 neutral. Volume **0.50×** = no participation. 5d: 2🔴/3🟢.
-- **Trigger needed (NOT printed):** daily **close into/above the entry band $348.35–$356.25**, i.e. reclaim **SMA100 $352.31**, on **≥0.8× volume** with a SOS bar (wide-range green, upper-third close) → buy-stop above that candle's high. Monitor's "Testing SMA100 support" bullet is mislabeled (see Data Notes).
-- **Planned levels:** Entry **$348.35–$356.25** (mid ≈ $352) · Stop **$331.46** · TP **$381.81** · R ≈ $20.8 · R:R ≈ **1.4R**
+- **Setup:** Uptrend, pullback-in-range. Price **$343.83 sits BELOW the entry band $348.35–$356.25** → trigger NOT printed. Volume 0.73x (below avg).
+- **Entry (planned):** $348.35–$356.25 (mid **$352.30**, reclaim of SMA100 $352.31)
+- **Stop:** $331.46 | **TP:** $381.81 | **R:R:** **1.42R**
+- **Trigger needed:** daily close ≥ ~$352.30 inside/on the band with volume ≥1x (RSI 52.1 — neutral, no exhaustion either way)
+- **Structure evidence:** 3-week balance $325–$360 (weekly lows 325.63 → 332.81 → 332.65; highs 355.13 → 359.98 → 350.09). Price = 43.6% of 60-day range, −14.9% off ATH $403.96. chg5 +1.4%, chg20 +2.5%.
 
-| Expert | Score / Verdict | Key point |
+| Expert | Verdict | Key points |
 |---|---|---|
-| 🔢 Thorp | **NO BET now (confidence 25%)** → conditional BET only on trigger | Logical basis **2/5** — trend/momentum continuation in mega-cap tech, textbook, no structural mispricing. EV now ≈ 0 (price below SMA100, 0.5× vol). On trigger: p≈0.48 @ 1.4R → **Kelly f\* ≈ 11% full / 6% half**, capped by 1% risk rule |
-| 📊 Wyckoff | **NEUTRAL** | Pullback into balance, higher lows, SMA20/50 reclaimed as support = cause building (Phase B/D). SMA100 $352.31 = **Ice** overhead. No Spring, no SOS with volume. Needs SOS through Ice → Phase E; poke-and-fail at range top = Upthrust risk |
-| 🧬 Medallion | **WEAK SIGNAL** | Confluence **3/6** (above SMA20+SMA50, 3/5 green, +1.04% day) vs 3 negatives (below SMA100, 0.5× vol, RSI flat 52). Single market, single timeframe, one-day snapshot — no statistical significance, no OOS evidence |
+| 🔢 Thorp | **NO BET (now)** — conf. medium | Textbook MAs/trend, no structural edge — can't write the skeptic sentence → hunch, not edge. RSI 52 neutral, vol 0.73x, price below SMA100. **Score 18/40** |
+| 📊 Wyckoff | **NEUTRAL** | Range/Phase B cause-building after pullback from 381. Flat lows 325–333 = creek base; lower high 359.98→350.09. Needs SOS close >$352–356 (Ice) with volume |
+| 🧬 Medallion | **WEAK SIGNAL** | Confluence 2/5 (above SMA20/50 ✓; below SMA100 ✗, vol ✗, RSI mid ✗). Single market, single setup, no t-stat, no OOS → noise-adjacent |
 
-**Expert consensus: WAIT — 3/3.** Budget $2,500: **$0 deployed now**; on trigger 1% risk = $25 ÷ $20.8 = 1.2 sh ≈ **$425 notional**.
+**Expert consensus: WAIT — trigger not printed.**
+**Budget $2,500:** 1 share ≈ $352 (14% capital), risk $20.54 = **0.82%** (1% rule ✓). TP $381.81 → +$29.51 if full target reached.
 
 ---
 
-### AMZN — SMA50 reclaim pending (volume + MACD improving)
+### AMZN
 
-- **Setup:** Base/reclaim inside balance $244.30–$259.49. Price **$251.52** (flat) above SMA20 $251.29 but **below SMA100 $253.08 and SMA50 $256.93**. RSI 54.4. Volume **0.71×**. MACD hist turned **positive (+0.15)** — step 1 of the approved plan only. 5d: 1🔴/3🟢.
-- **Trigger needed (NOT printed):** daily **close > $256.94 (SMA50)** on **≥0.8× volume** with a SOS bar → buy-stop above that candle's high. Positive MACD hist is confirmation, not the trigger.
-- **Planned levels:** Entry (est.) **$257.5** · Stop below trigger-candle low ≈ **$251.0** (hard invalidation < $244.30) · TP1 1.5R **$267.3** · TP2 2.5R **$273.8** · R ≈ $6.5 · R:R 1:1.5 / 1:2.5
+- **Setup:** Bounce inside 3-week range. MACD hist turned positive (+0.15, first confirmation per approved plan) **BUT price $251.40 < required SMA50 reclaim $256.93** → trigger NOT printed. Verdict ⚠️ BOUNCE / risky.
+- **Entry (planned):** **$256.93** (SMA50 reclaim, per approved plan)
+- **Stop:** $244.30 (range low) | **TP1:** $259.49 (range top / Ice) | **TP2:** $274.68 (measured move of 244.30–259.49 range)
+- **R:R:** **1.40R to TP2**, only 0.20R to TP1 → must size for TP2, not TP1
+- **Trigger needed:** daily close > $256.93 with MACD hist staying positive + volume ≥1x (now 1.06x ✓)
+- **Structure evidence:** range $244.30–$259.49 for 3 weeks; double low 244.30/244.73 = support; price 41.3% of 60-day range, −12.5% off ATH $287.20, chg20 −2.75%.
 
-| Expert | Score / Verdict | Key point |
+| Expert | Verdict | Key points |
 |---|---|---|
-| 🔢 Thorp | **NO BET now (confidence 25%)** → conditional BET only on trigger | Logical basis **2/5** — textbook MA reclaim, no structural mispricing. Edge quality improved since 22:00 (MACD+ , vol 0.24×→0.71×) but still under 0.8× threshold and below both key MAs. On trigger: WF expectancy +0.113R @ 51.3% WR → **Kelly f\* ≈ 10% full / 5% half**, capped by 1% risk rule |
-| 📊 Wyckoff | **NEUTRAL** | Phase B balance after 287→226 swing. No Spring, no SOS with volume. Needs SOS through **Ice $256.94–259.49**; failure at range top = Upthrust risk. Flat close at SMA20 = no conviction yet |
-| 🧬 Medallion | **WEAK SIGNAL** | Confluence **3/6** (hold > SMA20, MACD hist +0.15, vol 0.71×) vs 3 negatives (below SMA50+SMA100, vol <0.8×, RSI neutral 54). One indicator flip ≠ significance — needs t>3.0, n≥100 trades across markets |
+| 🔢 Thorp | **NO BET (now)** — conf. medium | Plan-defined momentum reclaim, but EV only positive on measured-move target (0.20R to range top is a losing setup if TP1 used). No unique structural edge. **Score 20/40** |
+| 📊 Wyckoff | **NEUTRAL — accumulation forming** | Markdown 287→226 then 3-wk balance; flat lows 244.3 = potential spring/base under Ice 259.5; MACD+ = early SOS attempt, **no SOS bar yet** |
+| 🧬 Medallion | **WEAK SIGNAL** | Confluence 2.5/5 (MACD+ ✓, at SMA20 ✓, vol neutral ✓; below SMA50/100 ✗, chg20 negative ✗). No multi-market or significance validation |
 
-**Expert consensus: WAIT — 3/3.** Budget $2,500: **$0 deployed now**; on trigger 1% risk = $25 ÷ $6.5 = 3.8 sh ≈ **$980 notional**.
+**Expert consensus: WAIT — needs close above $256.93.**
+**Budget $2,500:** 2 shares @ $256.93 = $513.86 (20.6% capital), risk $25.26 = **1.01%** (1% rule ✓). TP2 +$35.50.
 
 ---
 
-### GEV — reclaim of SMA100 + entry zone required
+### GEV
 
-- **Setup:** Recovery off the $868.25 low. Price **$990.53** (+0.19%), above SMA20 $947.09 and SMA50 $964.56, **below SMA100 $998.83**. Volume **0.57×**. 5d: 1🔴/4🟢. ATR ≈ $35.7 = 3.6%/day (wide). Monitor plain-RSI 86.5 (Wilder ≈ mid-50s per 05 Oct cross-check — short-term heat, not structure).
-- **Trigger needed (NOT printed):** reclaim **SMA100 $998.83** + re-enter the **$1,004.62–$1,036.80** zone on **≥0.8× volume** / SOS bar. Monitor's "In Fib pullback zone" bullet is **stale** — price is $14 *below* the zone.
-- **Planned levels:** Entry **$1,004.6–$1,036.8** (mid $1,020) · Stop **$939.82** · TP **$1,140.99** (60d high / HVN) · R ≈ $81 · R:R ≈ **1.5R**
+- **Setup:** Strong markup, but entry band **$1004.62–$1036.80 is ABOVE current price $990** → trigger NOT printed (+1.5% move needed). **RSI 86.4 — extreme overbought.** Vol 0.77x.
+- **Entry (planned):** $1004.62–$1036.80 (mid **$1020.71**, SMA100 reclaim $998.82 + Fib zone)
+- **Alt entry (stronger per monitor):** pullback to SMA50 **$964.55** / swing $973.70 — also no trigger now
+- **Stop:** $939.82 | **TP:** $1140.99 | **R:R:** **1.49R**
+- **Trigger needed:** close ≥ $1004.62 with RSI cooled (<70), OR SOS retest held at $964–974
+- **Structure evidence:** +14% off Sep-14 low $868.25. 10/01 wide-range **SOS bar** (942.00→1003.78, 2.95M vol ≈ 2x avg, close 987.45 upper third). Now consolidating $973.7–$1006 under SMA100. −17.2% off ATH $1195.94.
 
-| Expert | Score / Verdict | Key point |
+| Expert | Verdict | Key points |
 |---|---|---|
-| 🔢 Thorp | **NO BET now (confidence 25%)** | Chasing a +13.8%/20d rally into overhead SMA100 resistance on sub-0.8× volume = negative edge. Conditional: 1.5R @ p≈0.45–0.50 → **Kelly f\* ≈ 17% full / 8% half**, capped at 1% risk. 3.6% ATR inflates slippage/stop cost |
-| 📊 Wyckoff | **NEUTRAL — accumulation unconfirmed** | Markdown 1,140.99→868.25 complete; Phase B/D recovery with higher lows, price at **Ice $999–1,006**. Needs SOS + volume test → Phase E markup; poke-and-fail above = Upthrust |
-| 🧬 Medallion | **WEAK SIGNAL** | Confluence **3/6** (above SMA20/50, higher lows, 4/5 green) vs 0.57× vol, below SMA100, entry zone not reached, short-term RSI overheat |
+| 🔢 Thorp | **NO BET** — conf. high | Buying ≥$1004 at RSI 86.4 = paying for exhaustion; short-term expectancy at RSI>85 is historically negative. Also unfundable under 1% risk at $2,500. **Score 17/40** |
+| 📊 Wyckoff | **ACCUMULATION CONFIRMED (Phase E markup)** | 10/01 SOS on 2x volume broke the 868–980 balance; higher lows intact (868→942→973); current pause = Back-Up/consolidation under Ice $998–1006 |
+| 🧬 Medallion | **WEAK SIGNAL** (structure strong, timing poor) | Confluence 3.5/5 (trend ✓, SOS volume ✓, 4/5 green days ✓; RSI 86 ✗, vol 0.77x now ✗). Extreme-RSI chase entry not statistically validated |
 
-**Expert consensus: WAIT — 3/3.** Budget $2,500: **$0 deployed now**; on trigger 1% risk = $25 ÷ $81 = 0.31 sh ≈ **$316 notional**.
+**Expert consensus: WAIT — structure bullish, timing no.** Prefer pullback entry $964–974 or cooled-RSI reclaim of $1004.
+**Budget $2,500:** 1 share @ $1020.71 = 41% capital, risk **$80.89 = 3.2% > 1% rule → NOT FUNDABLE** at planned stop. Even stop under swing $973.70 = $46 = 1.85% (still over). Skip or paper-watch only.
 
 ---
 
@@ -60,10 +71,10 @@ None — no confirmation triggers printed this run. All three routed setups have
 
 | Ticker | Action | Exit Price | P&L | Notes |
 |---|---|---|---|---|
-| **NVDU** (27 sh @ $90.00) | **TAKE PROFIT — ≥50% now, trail remainder at $146** | $159.00 | **+76.7% (+$1,863.00)** | 4 confluence triggers: TP2 ($106.33) far exceeded · plain-RSI 84.4 / Stoch 95.6 · **near 3M high $160.46** = resistance zone · momentum neutral. **Thorp: EXIT ≥50%, confidence 80%** — edge fully harvested; 2× single-stock ETF carries volatility decay, no new edge at extreme overbought resistance. **Wyckoff: DISTRIBUTION RISK** — markup into range high = LPSY zone, watch for SOW, do not add. **Medallion: STRONG exit signal** (3/3 exit factors aligned). Monitor SL $99.8 / TP1 $99.8 / TP2 $106.33 all **stale** (entry-anchored) → re-anchor trail = 2×ATR ≈ **$146** |
-| **ZS** (15 sh @ $150.00) | **PARTIAL 50–75% + TRAIL $184** | $202.10 | **+34.7% (+$781.50)** | TP2 ($173.12) exceeded by 17% → TP1/TP2 stale; MACD hist **−0.9** fading, but structure intact (above SMA20/50/100, daily RSI 56.4 neutral, +2.6% today). **Thorp: HARVEST MAJORITY, confidence 65%** — profits past plan = house money, no fresh edge at +34.7%. **Wyckoff: Phase E markup intact, no SOW** → hold runner with trail. **Medallion: WEAK exit signal** (uptrend vs MACD fade conflict) → partial + trail, not full exit. Trail = 2×ATR ≈ **$184** |
+| **NVDU** | **TRIM ≥50% now, trail the rest** | $159.37 | **+77.1% (+$1,872.99)** | TP2 (2.5R) hit long ago; RSI 84.5 + Stoch 96.7 overbought; at 3M high $160.46 (52w high $171.15). Listed SL $99.80 / TP $106.33 are STALE entry-based levels — raise trail stop to **~$149.57** (1.5×ATR $6.53 below price) |
+| **ZS** | **TAKE PROFITS (full, or trail tight)** | $201.80 | **+34.5% (+$777.00)** | TP2 (2.5R) hit; MACD bearish hist −0.92; volume 0.47x drying after 9/25 distribution bar (214→193 on 6.7M vol); rejected at 20d high $216.97. Listed SL $163.88 stale — raise trail to **$195.10** (swing low) or $183.30 (2×ATR) |
 
-**Not routed (per rules):** MKSI — 🔴 WAIT/OVERBOUGHT (plain-RSI 87.9, Stoch 91.9, price $280.36 below SMA100 $311.53, 0.58× vol). Correct hold; cooldown entry stays $274.92 (SMA50 zone).
+Both positions hit plan TP2 → per plan, take profits. NVDU = hold runner only with tightened trail; ZS momentum fading faster (bearish MACD + volume collapse).
 
 ---
 
@@ -71,21 +82,12 @@ None — no confirmation triggers printed this run. All three routed setups have
 
 | Ticker | Entry | Stop | TP1 | TP2 | R:R | Trigger State | Expert Consensus | Budget $2,500 |
 |---|---|---|---|---|---|---|---|---|
-| GOOG | $348.35–$356.25 (SMA100 $352.31 reclaim) | $331.46 | — | $381.81 | ~1.4R | **NOT PRINTED** — price $343.89, below zone and SMA100, vol 0.5× | **WAIT 3/3** — Thorp NO BET · Wyckoff NEUTRAL · Medallion WEAK | $0 now → ~$425 on trigger |
-| AMZN | $257.5 (buy-stop above SOS candle, SMA50 reclaim) | $251.0 (hard < $244.30) | $267.3 | $273.8 | 1:1.5 / 1:2.5 | **NOT PRINTED** — needs close > $256.94 on ≥0.8× vol | **WAIT 3/3** — Thorp NO BET · Wyckoff NEUTRAL · Medallion WEAK | $0 now → ~$980 on trigger |
-| GEV | $1,004.6–$1,036.8 zone (SMA100 reclaim) | $939.82 | — | $1,140.99 | ~1.5R | **NOT PRINTED** — price $990.53, below SMA100 $998.83 and below zone | **WAIT 3/3** — Thorp NO BET · Wyckoff NEUTRAL · Medallion WEAK | $0 now → ~$316 on trigger |
-| MKSI | $274.92 (cooldown / SMA50) | $260.18 | $286.54 | $304.48 | 1:1 / 1:2.2 | **NOT PRINTED** (🔴 not routed) | n/a — overbought hold | $0 |
-| **Exits** | — | — | — | — | — | **NVDU TAKE PROFIT + trail $146 · ZS PARTIAL + trail $184** | Thorp: harvest both | — |
+| GOOG | 348.35–356.25 (mid 352.30) | 331.46 | — | 381.81 | 1.42R | **NOT PRINTED** (below band, vol 0.73x) | WAIT — NO BET / NEUTRAL / WEAK | 1 sh ≈ $352, risk $20.54 (0.82%) ✓ |
+| AMZN | 256.93 (SMA50 reclaim) | 244.30 | 259.49 | 274.68 | 1.40R (TP2) | **NOT PRINTED** (price 251.40) | WAIT — NO BET / NEUTRAL / WEAK | 2 sh ≈ $514, risk $25.26 (1.01%) ✓ |
+| GEV | 1004.62–1036.80 (mid 1020.71) | 939.82 | — | 1140.99 | 1.49R | **NOT PRINTED** (price 990, RSI 86.4) | WAIT — NO BET / ACCUM CONFIRMED / WEAK | ✗ 1 sh = $80.89 risk (3.2%) > 1% rule — not fundable |
 
-**Net action this run: 0 entries, 2 exits to execute (NVDU take profit ≥50%, ZS partial 50–75% + trail).**
+**Not routed this run:** MKSI (🔴 WAIT — RSI 87.9 / Stoch 92.2 overbought, per routing rules), plus 📏/🔴 signals on GOOG/GEV support tests.
 
----
+**Action items this run:** (1) NVDU trim + raise trail, (2) ZS take profits / tight trail, (3) no new entries — all three setups conditional, triggers unprinted.
 
-## Data Notes (cross-checked vs yfinance daily close 05 Oct)
-
-1. **TV feed timed out twice this run** (tvDatafeed connection timeout) — monitor fell back to secondary source. Cross-check vs yfinance 05 Oct close: **all 6 tickers match within $0.6** (GOOG 343.83/343.89 · AMZN 251.40/251.52 · GEV 989.96/990.53 · MKSI 280.50/280.36 · NVDU 159.37/159.00 · ZS 201.80/202.10). Data trustworthy.
-2. **GOOG bullet "Testing SMA100 support at $352.31" is mislabeled** — price $343.89 is 2.4% *below* SMA100; it is overhead resistance and price is not at it.
-3. **GEV "In Fib pullback zone" bullet is stale** — price $990.53 is $14 below the stated $1,004.62–$1,036.80 zone.
-4. **NVDU/ZS SL & TP levels are entry-anchored and stale** ($99.80 / $163.88–$173.12, all long passed). Re-anchor to 2×ATR trails: **NVDU $146, ZS $184**.
-5. **Volume ratios (0.50–0.71×) are higher than the 22:00 run (0.17–0.24×) but that is mostly time-in-session accumulation**, not proven new participation — no setup clears the **0.8× confirmation threshold** anyway.
-6. Monitor RSI is a **plain 14-day window**, not Wilder-smoothed (prior cross-check: GEV 85.2 vs Wilder 56.1, NVDU 83.7 vs 65.4, MKSI 88.3 vs 60.2). Overbought flags = short-term heat, not daily-structure extremes.
+*Sources: monitor_entries.py (live scan) + yfinance 1y daily for Wyckoff structure. Costs: $0 commission, est. 0.01–0.05% spread+slippage — below edge on all three setups' planned R:R.*
