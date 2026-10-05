@@ -1,58 +1,72 @@
-# 📡 Entry Monitor Report — Mon 05 Oct 2026 21:01 ICT
+# 📡 Entry Monitor Report — Mon 05 Oct 2026 22:00 ICT
 
-> **Data basis:** live intraday (US cash session open 20:30 ICT). TradingView feed timed out → Yahoo fallback; figures below are the 21:01 monitor run + fresh expert backtest run at 21:01.
+## 🟢 Entry Triggered
 
-## Actionable Entry Signals
+None — no confirmation triggers printed this run.
 
-### GEV (GE Vernova) — 🟢 UPTREND (fib-dip) — TWO-MOVE, NO TRIGGER YET
+---
 
-**Setup (verified live):** Phase E markup out of Wyckoff accumulation — Sep 14 selling climax (low $868.25) → Spring Sep 24 ($921.53, undercuts Sep 17 low) → **SOS bar Oct 1** (+3.9%, 1.38× vol) → rejected Oct 2 at **$1,006.00 = Ice / SMA100 $998.69**. Monday pullback to **$977.00 (−1.18%)** on **0.06× volume** (no selling pressure) — holding above SMA50 $964.29 and sitting on the **3m VPOC $985.88**. Price is **2.8% BELOW the monitor's entry band** ($1,004.62–$1,036.80) → the dip test never happened; this is a **two-move scenario**: rally into the band on >1x volume with an SOS bar → buy-stop above it.
+## 🟡 Conditional Setup — Trigger Not Printed
 
-| Level | Value |
-|---|---|
-| Entry zone | $1,004.62 (fib50) – $1,036.80 (fib38.2) — **buy-stop ONLY, above $1,006 Oct-2/Ice high** |
-| Trigger | Wide-range green SOS bar >1x volume. Not printed (Vol 0.06×) |
-| Stop | $940.08 (monitor) / $936.81 (fib618 − ATR) — note HVN $930–943 sits at the stop |
-| TP1 | ~$1,073 (3m VAH $1,072.60 / 1y VAH $1,068.11 confluence) |
-| TP2 | $1,140.99 (3m high = monitor TP; beyond $1,100 volume thins → fast move) |
-| R:R | **2.01:1 from zone bottom** (BE WR 33%) · **1.04:1 from zone top** (BE WR 49%) |
+### AMZN — SMA50 reclaim pending
 
-### Expert Panel — GEV
+- **Setup:** Base/reclaim inside balance $244.30–$259.49 (20d). Price **$251.79** sits above SMA20 $251.31 but **below SMA100 $253.08 and SMA50 $256.94**. ATR $5.43. Volume **0.24×** = no participation yet. 5d: 1🔴/4🟢.
+- **Trigger needed (NOT printed):** daily **close > $256.94 (SMA50)** on **≥0.8× volume** with a SOS bar (wide-range green, upper-third close) → buy-stop above that candle's high. The monitor's 🟢 "close > SMA20" bullet is only step 1 of the approved plan.
+- **Planned levels:** Entry (est.) **$257.5** · Stop below trigger-candle low ≈ **$251.0** (hard invalidation < $244.30) · TP1 1.5R **$267.3** · TP2 2.5R **$273.8** · R ≈ $6.5 · R:R 1:1.5 / 1:2.5
 
-| Expert | Verdict | Score / Key numbers |
+| Expert | Score / Verdict | Key point |
 |---|---|---|
-| 🔢 **Thorp Edge** | **NO BET** (full size) — paper-only | Scorecard **22/40** · backtest of this exact signal, 5y / 9 tickers, net 10bp: n=**834**, WR 51.8%, exp **+0.116R**, PF 1.24, **t=2.86 (below the 3.0 bar)**, Kelly 9.9%, maxConsecLoss **24**. GEV-only: n=32, WR 62.5%, exp +0.289R, PF 1.82, t=1.59 (small sample). **2026 NEGATIVE — all-tickers PF 0.94 / GEV PF 0.71, Kelly 0%**: edge decayed this year. GEV recent half (16 trades) PF 0.94 = flat. Portfolio sim **24.9% CAGR vs SPY 14.1%** (beats index) **BUT maxDD 53.6%** — far past the 25% limit |
-| 📊 **Wyckoff 2.0** | **ACCUMULATION CONFIRMED — Phase E back-up test in progress** | Spring Sep 24 → SOS Oct 1 → Ice rejection $1,006 → low-vol back-up (0.06×) = healthy. 10d HH/HL (1,006/921 vs 983/868), OBV 60d slope **+9,438/day (rising)**, 30d up/down vol 38M/22M (**1.70×**), only 3 distribution days/25, MFI 56.9, price in 1y value area. Cautions: price **below SMA100 (−2.3%)** and below Sep-9 H $983, **CMF20 −0.055**, band untested. Alternative: reclaim $1,006 → markup resumes; **lose $940/$921 → structure failure, abort** |
-| 🧬 **Medallion** | **WEAK SIGNAL** | Composite **−1.5 / ~10**. ✓ regime · ✓ RSI neutral (Wilder 54.5; monitor's simple-14d RSI 79.9) · ✓ 5d 2R/3G · ✓ above VPOC · ✗ SMA stack bearish (946 < 964) · ✗ below SMA100 · ✗ **outside fib band (no trigger)** · ✗ **volume 0.06–0.09× (no initiative)** · ✗ 60% retrace of 3m leg. t=2.86 pooled **< 3.0**; GEV t=1.59. Cross-market NOT uniform: ZS 2.69, RDDT 2.27, GEV 1.82, AMZN 1.60 vs **MRVL 0.49, GDDY 0.69, FBK 0.91** (3/9 negative) → data-mining risk. Standard parameters, no curve-fit — but 2026 expectancy negative = edge decay |
+| 🔢 Thorp | **NO BET now (confidence 25%)** → conditional BET only on trigger | Logical basis **2/5** — textbook MA reclaim, no structural mispricing. EV now ≈ 0/negative (below both key MAs, 0.24× volume). On trigger: WF expectancy +0.113R @ 51.3% WR, payoff 1.18 → **Kelly f\* ≈ 10% full / 5% half**, capped by 1% risk rule |
+| 📊 Wyckoff | **NEUTRAL** | Phase B balance after 287→226 swing. No Spring, no SOS with volume. Needs SOS through Ice $256.94–259.49; failure at range top = Upthrust risk |
+| 🧬 Medallion | **WEAK SIGNAL (≈ noise)** | Confluence **2/6** (green close > SMA20, 4/5 green days) vs 4 negatives (0.26× vol, below SMA50+SMA100, RSI neutral 49–55, no volume). Single market, single timeframe, no OOS evidence |
 
-**Expert Consensus: ⏳ WAIT — NO BET until the trigger.** Structure is bullish (Wyckoff accumulation confirmed) but there is no entry: price below the band, no SOS bar, no volume, and the signal's own 2026 expectancy is negative (PF 0.94) with t=2.86 < 3.0. **Buy-stop > $1,006 into $1,004.62–$1,036.80 on >1x volume; if price never reclaims $1,006, no trade.** Entering at the band top is only 1.04:1 — coin-flip geometry.
+**Expert consensus: WAIT — 3/3.** Budget $2,500: **$0 deployed now**; on trigger 1% risk = $25 → ~4 sh ≈ **$1,030 notional**.
 
-**Budget $2,500:** **$0 deployed** — score 22/40 = paper-trade band. If forward-testing on the trigger: 1 share ≈ $1,020 notional (41% of budget), risk to $940 = **$80 = 3.2%** — already 3× the 1% risk rule; 2 shares = 80% concentration / 6.4% risk. GEV's share price makes it structurally oversized for this account → paper only.
+---
+
+### GEV — reclaim of SMA100 + entry zone required
+
+- **Setup:** Recovery off the $868.25 low, pinned under SMA100. Price **$986.77** (SMA20 $946.91 · SMA50 $964.48 · **SMA100 $998.79**). ATR **$35.68 = 3.6%/day** (wide). Volume **0.17×** = dead. Daily RSI plain 85.2 / Wilder 56.1 (see Data Notes).
+- **Trigger needed (NOT printed):** reclaim **SMA100 $998.79** + re-enter the **$1,004.62–$1,036.80** zone on **≥0.8× volume** / SOS bar. Monitor's "In Fib pullback zone" bullet is **stale** — price is $18 *below* the zone.
+- **Planned levels:** Entry **$1,004.6–$1,036.8** · Stop **$940.06** (below SMA50) · TP **$1,140.99** (60d high / HVN) · R:R ≈ **1.5R** (from $1,020 mid: risk $80, reward $121)
+
+| Expert | Score / Verdict | Key point |
+|---|---|---|
+| 🔢 Thorp | **NO BET now (confidence 25%)** | Chasing a **+13.8%/20d** rally into overhead SMA100 resistance at 0.17× volume = negative edge. Conditional: 1.5R @ p≈0.45–0.50 → **Kelly f\* ≈ 17% full / 8% half**, capped at 1% risk. 3.6% ATR inflates slippage/stop cost |
+| 📊 Wyckoff | **NEUTRAL — accumulation unconfirmed** | Markdown 1,140.99→868.25 complete; Phase B/D recovery with higher lows, price at Ice $999–1,006. Needs SOS + volume test → Phase E markup; poke-and-fail above = Upthrust |
+| 🧬 Medallion | **WEAK SIGNAL** | Confluence **3/6** (above SMA20/50, higher lows, 3/5 green) vs 0.17× vol, below SMA100, entry zone not reached, short-term RSI overheat |
+
+**Expert consensus: WAIT — 3/3.** Budget $2,500: **$0 deployed now**; on trigger 1% risk = $25 ÷ $80 stop = 0.31 sh ≈ **$316 notional**.
 
 ---
 
 ## Exit Signals (Active Positions)
 
-| Ticker | Action | Exit Price | Entry | P&L | Stop / Trigger | Notes |
-|---|---|---|---|---|---|---|
-| **NVDU** | 🎯 **TRIM ≥50% into strength** | $157.00 | $90.00 | **+74.4% ($+1,809.00)** | trail $144.34 (2×ATR $6.33) | TP2 ($105.83 / 2.5R) exceeded long ago. **OVERBOUGHT: RSI 83.7 + Stoch 97.7**, 0.4% from 3M high $157.69 (resistance). Momentum NEUTRAL (+2) = fading. 2× leveraged ETF — decay punishes holding. Realize half, trail the rest |
-| **ZS** | 🎯 **TAKE PROFITS** | $202.21 | $150.00 | **+34.8% ($+783.15)** | trail $183.95 (2×ATR $9.13) | TP2 ($172.82 / 2.5R) hit, price ran +17% past it. **MACD bearish (hist −0.9)**, momentum NEUTRAL (+2), RSI 56.5. Close ≥50%, trail the rest below $184 |
+| Ticker | Action | Exit Price | P&L | Notes |
+|---|---|---|---|---|
+| **NVDU** (27 sh @ $90.00) | **TAKE PROFIT — ≥50% now, trail remainder at $143** | $157.00 | **+74.4% (+$1,809.00)** | 4 confluence triggers: TP2 ($105.83) far exceeded · plain-RSI 83.7 / Stoch 97.7 · printing AT the exact 3M/60d high **$157.69** · momentum neutral. **Thorp: EXIT, confidence 80%** — edge fully harvested; 2x single-stock ETF carries volatility decay, no new edge at extreme overbought resistance. **Wyckoff: DISTRIBUTION RISK** — markup into range high = LPSY zone, watch for SOW, do not add. **Medallion: STRONG SIGNAL** (3/3 exit factors aligned). Monitor SL **$99.5 is stale** (entry-anchored) → re-anchor to 2×ATR ≈ **$143** |
+| **ZS** (15 sh @ $150.00) | **PARTIAL 50–75% + TRAIL $186** | $204.62 | **+36.4% (+$819.30)** | TP2 ($173.07) exceeded by 18% → TP1/TP2 stale; MACD hist **−0.74** fading, but structure intact (above SMA20/50/100, daily RSI 58 neutral, today +4.2%). **Thorp: HARVEST MAJORITY, confidence 65%** — profits past plan = house money, no fresh edge at +36%. **Wyckoff: Phase E markup intact, no SOW** → hold runner with trail. **Medallion: WEAK exit signal** (uptrend vs MACD fade conflict) → partial + trail, not full exit. Trail = 2×ATR ≈ **$186** |
 
-**Combined open P&L: +$2,592.15.** Two actions: realize both into strength, keep only NVDU runners on trail.
+**Not routed (per rules):** MKSI — 🔴 WAIT/OVERBOUGHT (plain-RSI 88.3, Stoch 93.3, price $283.16 below SMA100 $311.55, 0.19× vol). Correct hold; cooldown entry stays $274.98 (SMA50).
 
 ---
 
 ## 📋 SUMMARY — Entry Points
 
-| Ticker | Entry | Stop | TP1 | TP2 | R:R | Expert Consensus | Budget $2,500 |
-|---|---|---|---|---|---|---|---|
-| **GEV** | $1,004.62–$1,036.80 **only on SOS bar >1x vol / buy-stop >$1,006** | $940.08 | ~$1,073 | $1,140.99 | 2.01:1 | ⏳ WAIT — Wyckoff ACCUMULATION · Thorp NO BET 22/40 · Medallion WEAK | $0 — paper only (1 sh risk = 3.2%) |
-| AMZN | — (wait SMA50 reclaim >$256.94) | — | — | — | — | ⚠️ BOUNCE — not actionable | — |
-| MKSI | — (cooldown to $274.89) | — | — | — | — | 🔴 WAIT — RSI 85.4 overbought | — |
-| NVDU | (exit) | trail $144.34 | — | — | — | 🎯 TRIM ≥50% | in position |
-| ZS | (exit) | trail $183.95 | — | — | — | 🎯 TAKE PROFITS | in position |
+| Ticker | Entry | Stop | TP1 | TP2 | R:R | Trigger State | Expert Consensus | Budget $2,500 |
+|---|---|---|---|---|---|---|---|---|
+| AMZN | $257.5 (buy-stop above SOS candle, SMA50 reclaim) | $251.0 (hard < $244.30) | $267.3 | $273.8 | 1:1.5 / 1:2.5 | **NOT PRINTED** — needs close > $256.94 on ≥0.8× vol | **WAIT 3/3** — Thorp NO BET · Wyckoff NEUTRAL · Medallion WEAK | $0 now → ~$1,030 on trigger |
+| GEV | $1,004.6–$1,036.8 zone (SMA100 reclaim) | $940.06 | $1,140.99 | — | ~1.5R | **NOT PRINTED** — price $986.77, below SMA100 $998.79 and below zone | **WAIT 3/3** — Thorp NO BET · Wyckoff NEUTRAL · Medallion WEAK | $0 now → ~$316 on trigger |
+| MKSI | $274.98 (cooldown / SMA50) | $260.24 | $286.54 | $304.48 | 1:1 / 1:2.2 | **NOT PRINTED** (🔴 not routed) | n/a — overbought hold | $0 |
+| **Exits** | — | — | — | — | — | **NVDU EXIT · ZS PARTIAL+TRAIL** | Thorp: harvest both | — |
 
-**Action:** No new capital deployed. Wait for a GEV SOS bar above $1,006 on volume. Take ZS profits and trim NVDU — combined open P&L **+$2,592.15**.
+**Net action this run: 0 entries, 2 exits to execute (NVDU take profit, ZS partial + trail).**
 
 ---
-*Backtest: `_gev_experts.py` → `_gev_expert_out.txt` (5y, 9 monitor tickers, net 10bp RT costs; signal replicated exactly as the monitor emits it).*
+
+## Data Notes (cross-checked vs TradingView scanner + yfinance daily, 05 Oct intraday)
+
+1. **Monitor RSI is a plain 14-day window**, not Wilder-smoothed — it reads hotter when the last 14 days are strongly up: GEV 85.2 vs TV/Wilder **56.1**, NVDU 83.7 vs **65.4**, MKSI 88.3 vs **60.2** (AMZN/ZS match both ways). Not a bug: use plain RSI for trigger timing, Wilder RSI for structure. Overbought flags = short-term, not daily-structure extremes.
+2. **GEV "In Fib pullback zone" bullet is stale** — price $986.77 is below the stated $1,004.62–$1,036.80 zone.
+3. **NVDU/ZS SL & TP levels are entry-anchored and stale** ($99.50 / $163.84–$173.07, all long passed). Re-anchor to 2×ATR trails: **NVDU $143**, **ZS $186**.
+4. Volume across the board is **0.17–0.37× of 20d average** — no entry has real participation behind it this run.
