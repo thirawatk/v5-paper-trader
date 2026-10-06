@@ -11,8 +11,9 @@
 |---|--------|-------|------|-----|-------|-------|------|-------------|
 | 1 | PTC | $129.50 | $152.64 | ~2.29 | +$53.13 | +17.9% | 9 | 3M high resistance, TP2 passed |
 | 2 | S | $18.00 | $21.10 | 100 | +$310.00 | +17.2% | — | Overbought (RSI 86), TP2 passed |
+| 3 | NVDU | $90.00 | $163.20 | 14 | +$1,024.80 | +81.3% | — | **Partial trim** — 3-expert panel: RSI 84.5 + new 3M high w/o SOS bar |
 
-**Realized: +$363.13** | Win rate: 2/2 (100%) | Avg return: +17.6%
+**Realized: +$1,387.93** | Win rate: 3/3 (100%) | Avg return: +38.8%
 
 ---
 
@@ -20,11 +21,11 @@
 
 | Ticker | Entry | Qty | Cost | Status |
 |--------|-------|-----|------|--------|
-| NVDU | $90.00 | 27 | $2,430.00 | 📈 Trailing stop (~$120), letting profits run |
-| ZS | $150.00 | 15 | $2,250.00 | ⚠️ TP2 hit, RSI 81 overbought — partial candidate |
+| NVDU | $90.00 | 13 | $1,170.00 | ✂️ 14 sh trimmed @ $163.20 (+$1,024.80) · runner trail $149.54 |
+| ZS | $150.00 | 15 | $2,250.00 | ⏳ 3-expert WAIT — trail $193.09 (SMA20), trim into $216.97 |
 
-**Open at cost:** $4,680.00
-**Unrealized (at logging):** NVDU ~+53%, ZS ~+17% → **~+$1,668**
+**Open at cost:** $3,420.00
+**Unrealized:** NVDU 13 sh ~+80% · ZS 15 sh ~+38% → **~+$2,811** (Oct 6 premarket)
 
 ---
 
