@@ -20,6 +20,8 @@ try:
         "MRVL": ["NASDAQ", "NYSE"],
         "MKSI": ["NASDAQ"],
         "OPEN": ["NASDAQ"],
+        "ACMR": ["NASDAQ", "NYSE"],
+        "AMKR": ["NASDAQ", "NYSE"],
     }
     _TV_BARS = {"5d": 7, "1mo": 200, "3mo": 66, "6mo": 300, "1y": 300}
     _TV_INTERVAL = {"1d": TVInterval.in_daily, "1h": TVInterval.in_1_hour}
@@ -88,6 +90,8 @@ TICKERS = {
     "GEV": "GEV",
     "MKSI": "MKSI",
     "OPEN": "OPEN",
+    "ACMR": "ACMR",
+    "AMKR": "AMKR",
 }
 
 # Live positions — update as trades are made
@@ -1099,6 +1103,124 @@ def check_entry_vxus(a):
     summary += f"\n{get_verdict(a)}\n"
     return summary
 
+def check_entry_acmr(a):
+    """Check ACMR (ACM Research) entry. China-exposed semicap in DOWNTREND — never buy the knife.
+    Entry only on structure reclaim (green close > SMA20) or capitulation reversal."""
+    alerts = []
+    price = a['price']
+    r = a['rsi14']
+    stoch = a['stoch_k']
+    sma20 = a['sma20']
+    sma50 = a['sma50']
+    vol_ratio = a['vol_ratio']
+    regime = a['regime']
+    macd_hist = a.get('macd_hist')
+    fib786 = a.get('fib_786')
+
+    # Capitulation sell-off — watch for reversal, never market-buy
+    if vol_ratio > 1.5 and a['chg_pct'] < -1.5:
+        alerts.append(f"🔥 Sell-off ({a['chg_pct']:+.2f}%, {vol_ratio}x vol) — capitulation watch, wait for green close")
+
+    if regime == 'DOWNTREND':
+        # Structure reclaim: green close back above SMA20
+        if a['green_streak'] >= 1 and sma20 and price > sma20:
+            alerts.append(f"🟢 RECLAIM: ${price:.2f} back above SMA20 ${sma20:.2f} — buy-stop above trigger candle")
+        # 78.6% fib retrace — deep support, needs trigger
+        if fib786 and price <= fib786 * 1.02:
+            alerts.append(f"📏 At/near 78.6% retrace ${fib786:.2f} — deep support, no entry without reversal trigger")
+        # Below-SMA structure warning
+        if sma20 and price < sma20 and not alerts:
+            alerts.append(f"📉 Below SMA20 (${sma20:.2f}) — structurally broken, WAIT")
+        if not alerts:
+            return None
+    else:
+        # Recovered regime: standard conditions
+        if r is not None and r < 45 and regime in ('UPTREND', 'PULLBACK'):
+            alerts.append(f"🟢 RSI cooled to {r} in {regime} — entry zone")
+        if sma50 and price >= sma50 * 0.97 and price <= sma50 * 1.03:
+            alerts.append(f"📏 Testing SMA50 support ${sma50:.2f} — stronger entry")
+        if sma20 and price >= sma20 * 0.97 and price <= sma20 * 1.03:
+            alerts.append(f"📏 Testing SMA20 support ${sma20:.2f}")
+        rsi_cooled = r is not None and r < 52
+        near_support = (sma20 and price <= sma20 * 1.03) or (sma50 and price <= sma50 * 1.03)
+        if macd_hist is not None and macd_hist > 0 and rsi_cooled and near_support:
+            alerts.append(f"📈 MACD hist positive ({macd_hist:.2f}) + RSI cooled ({r}) — momentum confirming dip")
+        if stoch is not None and stoch > 85 and r is not None and r > 70:
+            alerts.append(f"🔴 Overbought RSI {r}/Stoch {stoch} — do NOT chase")
+
+    if not alerts:
+        return None
+
+    summary = "📡 **ACMR Entry Monitor**\n"
+    summary += f"Price: ${price:.2f} ({a['chg_pct']:+.2f}%) | RSI: {r} | Stoch: {stoch} | Vol: {vol_ratio}x\n"
+    summary += f"SMA 20: ${sma20} | SMA 50: ${sma50} | SMA 100: ${a['sma100']}\n"
+    summary += f"5d: {a['red_days_5']}🔴/{a['green_days_5']}🟢\n"
+    for alert in alerts:
+        summary += f"• {alert}\n"
+    summary += f"\n{get_verdict(a)}\n"
+    return summary
+
+def check_entry_amkr(a):
+    """Check AMKR (Amkor Technology) entry. OSAT packager in UPTREND, SMA20/50 support cluster.
+    Never chase RSI>70 — wait for support retest with RSI cooled."""
+    alerts = []
+    price = a['price']
+    r = a['rsi14']
+    stoch = a['stoch_k']
+    sma20 = a['sma20']
+    sma50 = a['sma50']
+    vol_ratio = a['vol_ratio']
+    regime = a['regime']
+    macd_hist = a.get('macd_hist')
+
+    # Overbought chase warning
+    if r is not None and r > 70 and regime in ('UPTREND', 'PULLBACK'):
+        alerts.append(f"🔴 Overbought RSI {r} (Stoch {stoch}) — do NOT chase, wait for pullback to SMA20/50")
+
+    if regime == 'DOWNTREND':
+        if vol_ratio > 1.5 and a['chg_pct'] < -1.5:
+            alerts.append(f"🔥 Sell-off ({a['chg_pct']:+.2f}%, {vol_ratio}x vol) — watch for reversal")
+        if not alerts:
+            return None
+
+    # Condition 1: RSI cooled to pullback zone
+    if r is not None and r < 50 and regime in ('UPTREND', 'PULLBACK'):
+        alerts.append(f"🟢 RSI cooled to {r} in {regime} — entry zone")
+
+    # Condition 2: Testing SMA20 support
+    if sma20 and price >= sma20 * 0.97 and price <= sma20 * 1.03:
+        alerts.append(f"📏 Testing SMA 20 support at ${sma20:.2f}")
+
+    # Condition 3: Testing SMA50 support (SMA20/50 cluster = primary entry)
+    if sma50 and price >= sma50 * 0.97 and price <= sma50 * 1.03:
+        alerts.append(f"📏 Testing SMA 50 support at ${sma50:.2f} — SMA20/50 cluster, stronger entry")
+
+    # Condition 4: MACD confirmation when cooled near support
+    rsi_cooled = r is not None and r < 52
+    near_support = (sma20 and price <= sma20 * 1.03) or (sma50 and price <= sma50 * 1.03)
+    if macd_hist is not None and macd_hist > 0 and rsi_cooled and near_support:
+        alerts.append(f"📈 MACD hist positive ({macd_hist:.2f}) + RSI cooled ({r}) — momentum confirming dip")
+
+    # Condition 5: Green streak bounce confirmation
+    if a['green_streak'] >= 2 and r is not None and 40 < r < 65:
+        alerts.append(f"🟢 {a['green_streak']}d green streak, RSI {r} — bounce confirmed")
+
+    # Condition 6: Volume capitulation
+    if vol_ratio > 1.5 and a['chg_pct'] < -1.5:
+        alerts.append(f"🔥 Sell-off ({a['chg_pct']:+.2f}%, {vol_ratio}x vol) — watch for reversal")
+
+    if not alerts:
+        return None
+
+    summary = "📡 **AMKR Entry Monitor**\n"
+    summary += f"Price: ${price:.2f} ({a['chg_pct']:+.2f}%) | RSI: {r} | Stoch: {stoch} | Vol: {vol_ratio}x\n"
+    summary += f"SMA 20: ${sma20} | SMA 50: ${sma50} | SMA 100: ${a['sma100']}\n"
+    summary += f"5d: {a['red_days_5']}🔴/{a['green_days_5']}🟢\n"
+    for alert in alerts:
+        summary += f"• {alert}\n"
+    summary += f"\n{get_verdict(a)}\n"
+    return summary
+
 def get_verdict(a):
     """Generate entry verdict line for a ticker based on regime + indicators."""
     t = a['ticker']
@@ -1293,6 +1415,35 @@ def get_verdict(a):
             return f"📍 **VERDICT: 🟡 NEAR ENTRY** | {r} | Entry: ${s50} | Stop: ${round(s50-1.5*atr,2)} | TP: ${s20}"
         elif r == 'UPTREND':
             return f"📍 **VERDICT: 🟢 UPTREND** | Entry on dip: ${s50} (SMA50) | Stop: ${round(s50-1.5*atr,2)} | TP: ${h3m}"
+        else:
+            return f"📍 **VERDICT: ⏳ MONITOR** | Regime: {r}"
+
+    elif t == 'ACMR':
+        if r == 'DOWNTREND':
+            if a.get('green_streak', 0) >= 1 and s20 and p > s20:
+                return f"📍 **VERDICT: 🟢 RECLAIM TRIGGER** | green close back above SMA20 ${s20} | Buy-stop above trigger candle | Stop: ${round(l3m-atr,2)} | TP1: ${s50} TP2: ${s10}"
+            elif rsi and rsi < 35 and (a.get('vol_ratio') or 0) > 1.3:
+                return f"📍 **VERDICT: ⏳ CAPITULATION WATCH** | {r} RSI {rsi} at ${p} | Needs green close > SMA20 ${s20} | Stop: ${round(l3m-atr,2)} (3M low ${l3m})"
+            else:
+                return f"📍 **VERDICT: 🔴 WAIT** | {r} below all SMAs | Needs green close > SMA20 ${s20} | Knife — no market-buy"
+        elif r == 'PULLBACK':
+            entry = s50 if s50 else p
+            return f"📍 **VERDICT: 🟡 NEAR ENTRY** | {r} | Entry: ${entry} (SMA50) | Stop: ${round(entry-1.5*atr,2)} | TP: ${s20}"
+        elif r == 'UPTREND':
+            return f"📍 **VERDICT: 🟢 UPTREND** | Entry on dip: ${s50} (SMA50) | Stop: ${round(s50-1.5*atr,2)} | TP1: ${fib618} TP2: ${fib50}"
+        else:
+            return f"📍 **VERDICT: ⏳ MONITOR** | Regime: {r}"
+
+    elif t == 'AMKR':
+        if r in ('UPTREND', 'PULLBACK') and rsi and rsi > 70:
+            return f"📍 **VERDICT: 🔴 WAIT — OVERBOUGHT** | RSI {rsi} | Entry on cooldown: ${s50} (SMA50 zone) | Stop: ${round(s50-1.5*atr,2)} | TP1: ${fib618} TP2: ${fib50}"
+        elif r == 'PULLBACK':
+            entry = s50 if s50 else fib50
+            return f"📍 **VERDICT: 🟡 NEAR ENTRY** | {r} | Entry: ${entry} (SMA50/SMA20 cluster) | Stop: ${round(entry-1.5*atr,2)} | TP1: ${fib618} TP2: ${fib50}"
+        elif r == 'UPTREND':
+            return f"📍 **VERDICT: 🟢 UPTREND** | Entry on dip: ${s50} (SMA50) | Stop: ${round(s50-1.5*atr,2)} | TP1: ${fib618} TP2: ${fib50} | Confirms: RSI <50 + green close"
+        elif r == 'DOWNTREND':
+            return f"📍 **VERDICT: 🔴 WAIT** | {r} | Needs capitulation (vol>1.5x) + green close | Stop: ${round(l3m-atr,2)}"
         else:
             return f"📍 **VERDICT: ⏳ MONITOR** | Regime: {r}"
 
@@ -1572,7 +1723,7 @@ def main():
 
     results = []
 
-    for ticker in ["GOOG", "RDDT", "GDDY", "NVDU", "ZS", "BCC", "FBK", "AMZN", "MRVL", "GEV", "MKSI", "OPEN"]:
+    for ticker in ["GOOG", "RDDT", "GDDY", "NVDU", "ZS", "BCC", "FBK", "AMZN", "MRVL", "GEV", "MKSI", "OPEN", "ACMR", "AMKR"]:
         a = analyze_ticker(ticker)
         if not a:
             continue
@@ -1612,6 +1763,10 @@ def main():
             msg = check_entry_mksi(a)
         elif a['ticker'] == 'OPEN':
             msg = check_entry_open(a)
+        elif a['ticker'] == 'ACMR':
+            msg = check_entry_acmr(a)
+        elif a['ticker'] == 'AMKR':
+            msg = check_entry_amkr(a)
         if msg and a['ticker'] not in POSITIONS:
             triggered.append(msg)
 
