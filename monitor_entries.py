@@ -19,6 +19,7 @@ try:
         "NVDU": ["AMEX", "NASDAQ"], "ZS": ["NYSE", "NASDAQ"], "BCC": ["NYSE", "NASDAQ"], "FBK": ["NYSE", "NASDAQ"], "AMZN": ["NASDAQ"], "GEV": ["NYSE", "NASDAQ"],
         "MRVL": ["NASDAQ", "NYSE"],
         "MKSI": ["NASDAQ"],
+        "OPEN": ["NASDAQ"],
     }
     _TV_BARS = {"5d": 7, "1mo": 200, "3mo": 66, "6mo": 300, "1y": 300}
     _TV_INTERVAL = {"1d": TVInterval.in_daily, "1h": TVInterval.in_1_hour}
@@ -86,6 +87,7 @@ TICKERS = {
     "MRVL": "MRVL",
     "GEV": "GEV",
     "MKSI": "MKSI",
+    "OPEN": "OPEN",
 }
 
 # Live positions — update as trades are made
@@ -921,6 +923,52 @@ def check_entry_mksi(a):
     summary += f"\n{get_verdict(a)}\n"
     return summary
 
+def check_entry_open(a):
+    """Check OPEN (Opendoor) entry. Downtrend at 3M low + squeeze-ready OI (P/C 0.17).
+    Never market-buy the knife — only alert on green-close reversal trigger at support."""
+    alerts = []
+    price = a['price']
+    r = a['rsi14']
+    stoch = a['stoch_k']
+    sma20 = a['sma20']
+    vol_ratio = a['vol_ratio']
+    regime = a['regime']
+    macd_hist = a.get('macd_hist')
+
+    low_3m = a.get('low_3m', 0)
+
+    # At 3M low support — squeeze watch zone ($2.25 + OI floor at $2)
+    if low_3m and price <= low_3m * 1.02:
+        alerts.append(f"📏 AT 3M low ${low_3m:.2f} — squeeze-ready OI (P/C 0.17, walls $3/$4/$5)")
+
+    # Reversal trigger: green close at/after support + volume (Wyckoff buy-stop condition)
+    if regime == 'DOWNTREND':
+        if a['green_streak'] >= 1 and vol_ratio > 1.3 and price >= sma20 * 0.98:
+            alerts.append(f"🟢 Green close + {vol_ratio}x vol near SMA20 — reversal trigger, set buy-stop above candle high")
+        if vol_ratio > 1.5 and a['chg_pct'] < -2:
+            alerts.append(f"🔥 Capitulation ({a['chg_pct']:+.2f}%, {vol_ratio}x vol) — watch for climax reversal")
+        if r is not None and r < 30:
+            alerts.append(f"🟠 RSI oversold {r} (Stoch {stoch}) — deepest zone, trigger still needed")
+        if not alerts:
+            return None
+    else:
+        # If regime ever flips: standard pullback logic
+        if r is not None and r < 45:
+            alerts.append(f"🟢 RSI {r} in {regime} — entry zone")
+        if vol_ratio > 1.5 and a['chg_pct'] < -2:
+            alerts.append(f"🔥 Sell-off ({a['chg_pct']:+.2f}%, {vol_ratio}x vol) — watch for reversal")
+        if not alerts:
+            return None
+
+    summary = "📡 **OPEN Entry Monitor (Opendoor)**\n"
+    summary += f"Price: ${price:.2f} ({a['chg_pct']:+.2f}%) | RSI: {r} | Stoch: {stoch} | Vol: {vol_ratio}x\n"
+    summary += f"SMA 20: ${sma20} | SMA 50: ${a['sma50']} | SMA 100: ${a['sma100']} | 3M low: ${low_3m}\n"
+    summary += f"5d: {a['red_days_5']}🔴/{a['green_days_5']}🟢 | MACD hist: {macd_hist}\n"
+    for alert in alerts:
+        summary += f"• {alert}\n"
+    summary += f"\n{get_verdict(a)}\n"
+    return summary
+
 def check_entry_voo(a):
     """Check VOO (S&P 500 ETF) entry conditions. Pullback entries in uptrend.
     Only alerts on actionable setups — suppresses noise in downtrends."""
@@ -1222,6 +1270,21 @@ def get_verdict(a):
         else:
             return f"📍 **VERDICT: ⏳ MONITOR** | Regime: {r}"
 
+    elif t == 'OPEN':
+        if r == 'DOWNTREND':
+            if rsi and rsi < 30 and a.get('green_streak', 0) >= 1 and (a.get('vol_ratio') or 0) > 1.3:
+                return f"📍 **VERDICT: 🟢 REVERSAL TRIGGER** | Green close + vol at 3M low ${l3m} | Buy-stop above trigger candle | Stop: ${round(2.00-atr/2,2)} ($2 floor) | TP1: $3.00 TP2: $4.00 (OI walls)"
+            elif rsi and rsi < 35:
+                return f"📍 **VERDICT: ⏳ SQUEEZE WATCH** | {r} at 3M low ${l3m} | OI: P/C 0.17, walls $3/$4/$5 | Needs: green close + vol>1.3x | Stop: $2.00 (put wall/max pain)"
+            else:
+                return f"📍 **VERDICT: 🔴 WAIT** | {r} | Knife below all SMAs | Squeeze OI irrelevant until trigger prints"
+        elif r == 'PULLBACK':
+            return f"📍 **VERDICT: 🟡 NEAR ENTRY** | {r} | Entry: ${s50} | Stop: ${round(s50-1.5*atr,2)} | TP: ${s20}"
+        elif r == 'UPTREND':
+            return f"📍 **VERDICT: 🟢 UPTREND** | Entry on dip: ${s50} (SMA50) | Stop: ${round(s50-1.5*atr,2)} | TP: ${h3m}"
+        else:
+            return f"📍 **VERDICT: ⏳ MONITOR** | Regime: {r}"
+
     return f"📍 **VERDICT: ⏳** | {r}"
 
 
@@ -1498,7 +1561,7 @@ def main():
 
     results = []
 
-    for ticker in ["GOOG", "RDDT", "GDDY", "NVDU", "ZS", "BCC", "FBK", "AMZN", "MRVL", "GEV", "MKSI"]:
+    for ticker in ["GOOG", "RDDT", "GDDY", "NVDU", "ZS", "BCC", "FBK", "AMZN", "MRVL", "GEV", "MKSI", "OPEN"]:
         a = analyze_ticker(ticker)
         if not a:
             continue
@@ -1536,6 +1599,8 @@ def main():
             msg = check_entry_gev(a)
         elif a['ticker'] == 'MKSI':
             msg = check_entry_mksi(a)
+        elif a['ticker'] == 'OPEN':
+            msg = check_entry_open(a)
         if msg and a['ticker'] not in POSITIONS:
             triggered.append(msg)
 
