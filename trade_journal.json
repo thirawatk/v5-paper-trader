@@ -39,18 +39,18 @@
       "id": 3,
       "ticker": "NVDU",
       "side": "LONG",
-      "status": "OPEN",
+      "status": "CLOSED",
       "entry_date": null,
-      "exit_date": null,
+      "exit_date": "2026-10-07",
       "entry_price": 90.0,
       "quantity": 13,
       "cost_basis": 1170.0,
-      "exit_price": null,
-      "pnl_usd": null,
-      "pnl_pct": null,
+      "exit_price": 157.57,
+      "pnl_usd": 878.41,
+      "pnl_pct": 75.1,
       "hold_days": null,
-      "exit_reason": null,
-      "notes": "Direxion Daily NVDA Bull 2x. 14 sh trimmed @ $163.20 on 2026-10-06 (+$1,024.80 realized). 13 sh runner: trail $149.54 (2xATR), fail-safe red close < $155."
+      "exit_reason": "Full exit of runner on manual instruction @ $157.57",
+      "notes": "Direxion Daily NVDA Bull 2x. Partial 14 sh @ $163.20 (+$1,024.80, Oct 6); runner 13 sh full exit @ $157.57 (+$878.41). NVDU lifecycle total: +$1,903.21 on $2,430 cost."
     },
     {
       "id": 4,
@@ -88,15 +88,15 @@
     }
   ],
   "realized_summary": {
-    "closed_trades": 3,
-    "wins": 3,
+    "closed_trades": 4,
+    "wins": 4,
     "losses": 0,
     "win_rate": 100.0,
-    "total_pnl_usd": 1387.93,
-    "total_cost_basis": 3356.96,
-    "avg_return_pct": 38.8
+    "total_pnl_usd": 2266.34,
+    "total_cost_basis": 4526.96,
+    "avg_return_pct": 47.9
   },
-  "open_positions_value_at_cost": 3420.0,
+  "open_positions_value_at_cost": 2250.0,
   "planned_trades": [
     {
       "id": "MKSI-LT-1",

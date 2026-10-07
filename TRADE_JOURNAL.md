@@ -1,7 +1,7 @@
 # 📓 Tay's Real Trading Journal
 
 **Account:** Dime/IBKR (real money) | **Currency:** USD
-**Started tracking:** Aug 2026 | **Last updated:** 2026-08-20
+**Started tracking:** Aug 2026 | **Last updated:** 2026-10-07
 
 ---
 
@@ -12,8 +12,10 @@
 | 1 | PTC | $129.50 | $152.64 | ~2.29 | +$53.13 | +17.9% | 9 | 3M high resistance, TP2 passed |
 | 2 | S | $18.00 | $21.10 | 100 | +$310.00 | +17.2% | — | Overbought (RSI 86), TP2 passed |
 | 3 | NVDU | $90.00 | $163.20 | 14 | +$1,024.80 | +81.3% | — | **Partial trim** — 3-expert panel: RSI 84.5 + new 3M high w/o SOS bar |
+| 4 | NVDU | $90.00 | $157.57 | 13 | +$878.41 | +75.1% | — | **Runner full exit** — manual @ $157.57 |
 
-**Realized: +$1,387.93** | Win rate: 3/3 (100%) | Avg return: +38.8%
+**Realized: +$2,266.34** | Win rate: 4/4 (100%) | Avg return: +47.9%
+*NVDU lifecycle total: +$1,903.21 on $2,430 (14 sh @ $163.20 + 13 sh @ $157.57)*
 
 ---
 
@@ -21,11 +23,10 @@
 
 | Ticker | Entry | Qty | Cost | Status |
 |--------|-------|-----|------|--------|
-| NVDU | $90.00 | 13 | $1,170.00 | ✂️ 14 sh trimmed @ $163.20 (+$1,024.80) · runner trail $149.54 |
 | ZS | $150.00 | 15 | $2,250.00 | ⏳ 3-expert WAIT — trail $193.09 (SMA20), trim into $216.97 |
 
-**Open at cost:** $3,420.00
-**Unrealized:** NVDU 13 sh ~+80% · ZS 15 sh ~+38% → **~+$2,811** (Oct 6 premarket)
+**Open at cost:** $2,250.00
+**NVDU proceeds (cash):** $4,333.21 = $2,284.80 (trim) + $2,048.41 (final exit)
 
 ---
 
@@ -41,7 +42,7 @@
 
 - **Total:** 3 sh ≈ $857 (15.5% ≈ full Kelly) · **Cap:** 4 sh (20.6%)
 - **🛑 Kill switch: weekly close <$228.46 → exit all**
-- Funding: NVDU trim $2,284.80 + ZS exit proceeds
+- Funding: NVDU total $4,333.21 + ZS exit proceeds
 - Park remainder in SMH/SOXX · Report: `mksi_longterm_report.md`
 - Log: `trade_journal.json → planned_trades[0]`
 

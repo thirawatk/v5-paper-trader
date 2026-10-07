@@ -92,7 +92,7 @@ TICKERS = {
 
 # Live positions — update as trades are made
 POSITIONS = {
-    "NVDU": {"entry": 90.00, "cost": 1170.00, "currency": "USD"},  # 13 sh runner (14 trimmed @ 163.20 Oct 6)
+    # NVDU closed 2026-10-07: 14 sh @ 163.20 + 13 sh @ 157.57 → +$1,903.21 total
     "ZS": {"entry": 150.00, "cost": 2250.00, "currency": "USD"},
 }
 
