@@ -29,6 +29,24 @@
 
 ---
 
+## 🗓️ Planned Trades
+
+### MKSI — 1–2 Year Staged Entry (3-expert panel, Oct 7 2026)
+
+| Tranche | Trigger | Qty | Cost |
+|---|---|---|---|
+| T1 | Anchor — market | 1 sh | ~$281 |
+| T2 | Pullback **$255–274** (38.2% $261 / SMA50 $274), higher-low >$228.46 | 1 sh | ~$265 |
+| T3 | Daily close **>$311** / weekly **>$322** on volume | 1 sh | ~$311 |
+
+- **Total:** 3 sh ≈ $857 (15.5% ≈ full Kelly) · **Cap:** 4 sh (20.6%)
+- **🛑 Kill switch: weekly close <$228.46 → exit all**
+- Funding: NVDU trim $2,284.80 + ZS exit proceeds
+- Park remainder in SMH/SOXX · Report: `mksi_longterm_report.md`
+- Log: `trade_journal.json → planned_trades[0]`
+
+---
+
 ## 🎯 System Rules Used
 
 - Stop loss: 2× ATR(14) from entry

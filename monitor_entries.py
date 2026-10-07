@@ -891,6 +891,17 @@ def check_entry_mksi(a):
     if sma50 and price >= sma50 * 0.97 and price <= sma50 * 1.03:
         alerts.append(f"📏 Testing SMA 50 support at ${sma50:.2f} — stronger entry")
 
+    # ── MKSI 1-2YR PLAN TRIGGERS (3-expert panel Oct 7) ──
+    # T2: staged tranche 2 zone $255-274
+    if 255 <= price <= 274:
+        alerts.append(f"🎯 MKSI T2 ZONE (${price:.2f} in $255–274) — staged tranche 2 (1 sh) if higher-low holds >$228.46")
+    # T3: confirmation tranche — daily close above SMA100 $311
+    if price >= 311:
+        alerts.append(f"🚀 MKSI T3 CONFIRM (price ${price:.2f} ≥ SMA100 $311) — tranche 3 (1 sh) on daily close, weekly >$322 ideal")
+    # Kill switch warning zone
+    if price <= 228.46 * 1.03:
+        alerts.append(f"🛑 MKSI KILL-ZONE ${price:.2f} — plan invalidation is weekly close <$228.46, do NOT average down")
+
     # Condition 4: Fib pullback zone
     fib382 = a.get('fib_382', 0)
     fib50 = a.get('fib_50', 0)

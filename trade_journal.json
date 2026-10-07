@@ -96,5 +96,43 @@
     "total_cost_basis": 3356.96,
     "avg_return_pct": 38.8
   },
-  "open_positions_value_at_cost": 3420.0
+  "open_positions_value_at_cost": 3420.0,
+  "planned_trades": [
+    {
+      "id": "MKSI-LT-1",
+      "ticker": "MKSI",
+      "type": "LONG-TERM 1-2YR",
+      "status": "PLANNED",
+      "created": "2026-10-07",
+      "framework": "3-expert panel (Thorp/Wyckoff/Medallion) \u2014 deleg_b22d9951",
+      "entry_price_ref": 281.41,
+      "tranches": [
+        {
+          "t": 1,
+          "trigger": "anchor \u2014 market, establish position",
+          "qty": 1,
+          "approx_cost": 281
+        },
+        {
+          "t": 2,
+          "trigger": "pullback $255-274 (38.2% fib 261 / SMA50 274), higher-low holds >228.46",
+          "qty": 1,
+          "approx_cost": 265
+        },
+        {
+          "t": 3,
+          "trigger": "daily close >$311 (SMA100) / weekly >$322 on volume",
+          "qty": 1,
+          "approx_cost": 311
+        }
+      ],
+      "total_plan": "3 sh \u2248 $857 (15.5% \u2248 full Kelly 16%)",
+      "cap": "4 sh max (20.6%, < 22.5% Kelly cap)",
+      "kill_switch": "WEEKLY CLOSE < $228.46 \u2192 exit all, no averaging down",
+      "early_warning": "daily close < $261 \u2192 skip T3; heavy-vol stall $286-322 then loss $255 = redistribution \u2192 stand aside",
+      "funding": "NVDU trim $2,284.80 (in hand) + ZS exit proceeds (~$3,255 at $217 trim)",
+      "parking": "remainder in SMH/SOXX (Thorp default)",
+      "report": "mksi_longterm_report.md"
+    }
+  ]
 }
