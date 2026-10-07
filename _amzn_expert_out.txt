@@ -1,9 +1,9 @@
-loaded: {'GOOG': 1254, 'RDDT': 638, 'GDDY': 1254, 'ZS': 1254, 'BCC': 1254, 'FBK': 1254, 'AMZN': 1254, 'MRVL': 1254, 'GEV': 634, 'SPY': 1254}
+loaded: {'GOOG': 1254, 'RDDT': 639, 'GDDY': 1254, 'ZS': 1254, 'BCC': 1254, 'FBK': 1254, 'AMZN': 1254, 'MRVL': 1254, 'GEV': 635, 'SPY': 1254}
 
 ========== THORP BACKTEST — VARIANT A: SMA50 reclaim + close>SMA100 (no volume filter) ==========
 --- ALL trades (net of 10bp RT costs) ---
-n=185 WR=34.6% avgWin=1.974R avgLoss=1.083R payoff=1.82
-expectancy=-0.025R (-0.24%/trade) t=-0.23 PF=0.96 maxConsecLoss=20 kelly=0.0%
+n=185 WR=34.6% avgWin=1.971R avgLoss=1.083R payoff=1.82
+expectancy=-0.027R (-0.25%/trade) t=-0.24 PF=0.96 maxConsecLoss=20 kelly=0.0%
 trades by reason: TP=62 STOP=120 TIME=3
 avg days in trade: 14.8
 --- H1 (older half) ---
@@ -12,10 +12,10 @@ expectancy=-0.057R (-0.30%/trade) t=-0.36 PF=0.92 maxConsecLoss=20 kelly=0.0%
 trades by reason: TP=30 STOP=62 TIME=0
 avg days in trade: 14.3
 --- H2 (recent half) ---
-n=93 WR=36.6% avgWin=1.902R avgLoss=1.087R payoff=1.75
-expectancy=0.006R (-0.18%/trade) t=0.04 PF=1.01 maxConsecLoss=15 kelly=0.3%
+n=93 WR=36.6% avgWin=1.894R avgLoss=1.087R payoff=1.74
+expectancy=0.003R (-0.20%/trade) t=0.02 PF=1.00 maxConsecLoss=15 kelly=0.2%
 trades by reason: TP=32 STOP=58 TIME=3
-avg days in trade: 15.3
+avg days in trade: 15.4
 --- year 2022 ---
 n=23 WR=8.7% avgWin=1.983R avgLoss=1.059R payoff=1.87
 expectancy=-0.794R (-5.08%/trade) t=-4.31 PF=0.18 maxConsecLoss=20 kelly=0.0%
@@ -37,8 +37,8 @@ expectancy=-0.325R (-2.15%/trade) t=-1.57 PF=0.60 maxConsecLoss=11 kelly=0.0%
 trades by reason: TP=10 STOP=31 TIME=1
 avg days in trade: 19.8
 --- year 2026 ---
-n=37 WR=29.7% avgWin=1.716R avgLoss=1.105R payoff=1.55
-expectancy=-0.267R (-1.06%/trade) t=-1.19 PF=0.66 maxConsecLoss=6 kelly=0.0%
+n=37 WR=29.7% avgWin=1.693R avgLoss=1.105R payoff=1.53
+expectancy=-0.273R (-1.11%/trade) t=-1.22 PF=0.65 maxConsecLoss=6 kelly=0.0%
 trades by reason: TP=9 STOP=26 TIME=2
 avg days in trade: 11.2
 --- AMZN ---
@@ -57,10 +57,10 @@ expectancy=-0.050R (-0.29%/trade) t=-0.15 PF=0.93 maxConsecLoss=8 kelly=0.0%
 trades by reason: TP=6 STOP=12 TIME=1
 avg days in trade: 13.5
 --- GDDY ---
-n=28 WR=50.0% avgWin=1.760R avgLoss=1.077R payoff=1.63
-expectancy=0.342R (1.89%/trade) t=1.21 PF=1.63 maxConsecLoss=6 kelly=19.4%
+n=28 WR=50.0% avgWin=1.742R avgLoss=1.077R payoff=1.62
+expectancy=0.333R (1.82%/trade) t=1.18 PF=1.62 maxConsecLoss=6 kelly=19.1%
 trades by reason: TP=12 STOP=14 TIME=2
-avg days in trade: 15.4
+avg days in trade: 15.5
 --- GEV ---
 n=9 WR=0.0% avgWin=0.000R avgLoss=1.014R payoff=0.00
 expectancy=-1.014R (-7.49%/trade) t=-930.41 PF=0.00 maxConsecLoss=9 kelly=0.0%
@@ -127,13 +127,13 @@ expectancy=-0.882R (-4.18%/trade) t=-3.25 PF=0.16 maxConsecLoss=10 kelly=0.0%
 trades by reason: TP=1 STOP=12 TIME=0
 avg days in trade: 14.2
 --- portfolio sim VARIANT A: SMA50 reclaim + close>SMA100 (no volume filter) (1% equity risk/trade, chronological, stop-sized) ---
-final equity multiple = 0.971 over 185 trades; maxDD=23.0%; CAGR=-0.6% (4.56y)
-SPY buy&hold same window: 94.2%
+final equity multiple = 0.969 over 185 trades; maxDD=23.1%; CAGR=-0.7% (4.56y)
+SPY buy&hold same window: 93.8%
 
 ========== THORP BACKTEST — VARIANT B: + volume > 1.0x 20d avg (monitor confirmation) ==========
 --- ALL trades (net of 10bp RT costs) ---
-n=85 WR=37.6% avgWin=1.998R avgLoss=1.094R payoff=1.83
-expectancy=0.070R (0.09%/trade) t=0.42 PF=1.10 maxConsecLoss=7 kelly=3.5%
+n=85 WR=37.6% avgWin=1.996R avgLoss=1.094R payoff=1.82
+expectancy=0.069R (0.08%/trade) t=0.42 PF=1.10 maxConsecLoss=7 kelly=3.5%
 trades by reason: TP=31 STOP=52 TIME=2
 avg days in trade: 16.4
 --- H1 (older half) ---
@@ -142,8 +142,8 @@ expectancy=0.251R (0.80%/trade) t=0.99 PF=1.39 maxConsecLoss=7 kelly=12.1%
 trades by reason: TP=18 STOP=24 TIME=0
 avg days in trade: 16.0
 --- H2 (recent half) ---
-n=43 WR=32.6% avgWin=1.898R avgLoss=1.073R payoff=1.77
-expectancy=-0.106R (-0.61%/trade) t=-0.48 PF=0.85 maxConsecLoss=7 kelly=0.0%
+n=43 WR=32.6% avgWin=1.892R avgLoss=1.073R payoff=1.76
+expectancy=-0.108R (-0.63%/trade) t=-0.49 PF=0.85 maxConsecLoss=7 kelly=0.0%
 trades by reason: TP=13 STOP=28 TIME=2
 avg days in trade: 16.7
 --- year 2022 ---
@@ -167,10 +167,10 @@ expectancy=-0.199R (-1.31%/trade) t=-0.65 PF=0.72 maxConsecLoss=6 kelly=0.0%
 trades by reason: TP=5 STOP=13 TIME=1
 avg days in trade: 21.7
 --- year 2026 ---
-n=18 WR=27.8% avgWin=1.744R avgLoss=1.137R payoff=1.53
-expectancy=-0.337R (-2.51%/trade) t=-1.03 PF=0.59 maxConsecLoss=4 kelly=0.0%
+n=18 WR=27.8% avgWin=1.729R avgLoss=1.137R payoff=1.52
+expectancy=-0.341R (-2.57%/trade) t=-1.05 PF=0.58 maxConsecLoss=4 kelly=0.0%
 trades by reason: TP=4 STOP=13 TIME=1
-avg days in trade: 12.3
+avg days in trade: 12.4
 --- AMZN ---
 n=14 WR=50.0% avgWin=1.981R avgLoss=1.136R payoff=1.74
 expectancy=0.422R (2.74%/trade) t=0.97 PF=1.74 maxConsecLoss=5 kelly=21.3%
@@ -187,8 +187,8 @@ expectancy=-0.519R (-3.39%/trade) t=-1.23 PF=0.35 maxConsecLoss=4 kelly=0.0%
 trades by reason: TP=1 STOP=5 TIME=1
 avg days in trade: 15.3
 --- GDDY ---
-n=14 WR=50.0% avgWin=1.798R avgLoss=1.058R payoff=1.70
-expectancy=0.370R (1.88%/trade) t=0.91 PF=1.70 maxConsecLoss=3 kelly=20.6%
+n=14 WR=50.0% avgWin=1.787R avgLoss=1.058R payoff=1.69
+expectancy=0.364R (1.81%/trade) t=0.90 PF=1.69 maxConsecLoss=3 kelly=20.4%
 trades by reason: TP=6 STOP=7 TIME=1
 avg days in trade: 16.6
 --- GEV ---
@@ -257,48 +257,48 @@ expectancy=-0.168R (-1.12%/trade) t=-0.30 PF=0.77 maxConsecLoss=5 kelly=0.0%
 trades by reason: TP=2 STOP=5 TIME=0
 avg days in trade: 22.4
 --- portfolio sim VARIANT B: + volume > 1.0x 20d avg (monitor confirmation) (1% equity risk/trade, chronological, stop-sized) ---
-final equity multiple = 1.068 over 85 trades; maxDD=11.0%; CAGR=1.5% (4.51y)
-SPY buy&hold same window: 86.2%
+final equity multiple = 1.067 over 85 trades; maxDD=11.0%; CAGR=1.4% (4.51y)
+SPY buy&hold same window: 85.7%
 
 ========== CURRENT AMZN SIGNAL ECONOMICS ==========
-last bar: 2026-10-06 close=256.29 SMA20=251.25 SMA50=257.43 SMA100=252.94 ATR=5.55 RSI=54.5
-volume vs 20d avg: 0.87x | price vs SMA50: -0.44% -> BELOW = reclaim NOT printed
-monitor plan: entry 257.43 (SMA50 reclaim), stop 246.33 (prior swing low / 2xATR cap), risk 11.09 (4.3%)
-TP1 30d high $267.56: reward=10.13 (3.9%) R:R=0.91:1 breakevenWR=52.3%
-TP2 2.1R $280.72: reward=23.30 (9.0%) R:R=2.10:1 breakevenWR=32.3%
-backtest TP 2R $279.61: reward=22.19 (8.6%) R:R=2.00:1 breakevenWR=33.3%
+last bar: 2026-10-07 close=259.92 SMA20=251.63 SMA50=258.01 SMA100=252.87 ATR=5.65 RSI=58.5
+volume vs 20d avg: 0.94x | price vs SMA50: +0.74% -> ABOVE = reclaim printed
+monitor plan: entry 258.01 (SMA50 reclaim), stop 246.71 (prior swing low / 2xATR cap), risk 11.30 (4.4%)
+TP1 30d high $267.56: reward=9.55 (3.7%) R:R=0.85:1 breakevenWR=54.2%
+TP2 2.1R $281.73: reward=23.72 (9.2%) R:R=2.10:1 breakevenWR=32.3%
+backtest TP 2R $280.60: reward=22.59 (8.8%) R:R=2.00:1 breakevenWR=33.3%
 
 ========== WYCKOFF / VOLUME PROFILE (AMZN 1y) ==========
 1y range: 196.00 (2026-02-17) - 287.20 (2026-08-03)
 3m high: 287.20 on 2026-08-03 | 3m low: 226.16 on 2026-07-29
-current: 256.29 | dist from 3m high: -10.8% | off 3m low: 13.3%
-60d range: 226.16 - 287.20; position in range = 49%
+current: 259.92 | dist from 3m high: -9.5% | off 3m low: 14.9%
+60d range: 226.16 - 287.20; position in range = 55%
 VPOC=232.03 VAH=271.24 VAL=204.76 (70% value area)
-price vs VPOC: +10.5% | price in value area: True
-volume profile around entry $257 (price, vol M): 247:354, 249:470, 251:162, 252:218, 254:218, 256:165, 258:210, 259:306, 261:128, 263:128, 264:356, 266:112
-3m VPOC=248.88 | 3m VAH=283.30 VAL=235.97 | price vs 3m VPOC: +3.0%
-MFI14=64.8
-CMF20=-0.009 (5d avg +0.007)
-OBV 60d slope: -7,586,251/day (FALLING = distribution)
-30d up-volume vs down-volume: 460M vs 575M (ratio 0.80)
+price vs VPOC: +12.0% | price in value area: True
+volume profile around entry $257 (price, vol M): 249:470, 251:162, 252:218, 254:218, 256:168, 258:210, 259:340, 261:128, 263:128, 264:356, 266:112, 268:75
+3m VPOC=248.88 | 3m VAH=283.30 VAL=235.97 | price vs 3m VPOC: +4.4%
+MFI14=65.3
+CMF20=0.046 (5d avg +0.008)
+OBV 60d slope: -7,286,323/day (FALLING = distribution)
+30d up-volume vs down-volume: 497M vs 549M (ratio 0.91)
 distribution days (last 25): 2
-10d: H=256.67 L=244.73 | prior 10d: H=259.49 L=244.30 -> LH/LL or mixed
-price vs SMA20/50/100: +2.0% / -0.4% / +1.3%
+10d: H=260.14 L=244.73 | prior 10d: H=259.49 L=244.30 -> HH/HL (markup)
+price vs SMA20/50/100: +3.3% / +0.7% / +2.8%
 SMA stack: 50>20 or mixed
-30d leg 244.30->267.56, current retrace = 48.5%
+30d leg 244.30->267.56, current retrace = 32.8%
 
 ========== MEDALLION SIGNAL QUALITY ==========
 factors:
-   Regime (close>SMA50) = BELOW -> -1 | reclaim NOT printed
-   SMA stack 20>50 = 251>257 -> -1 | fast above slow
-   Price vs SMA100 = +1.3% -> 1 | above 100d structure
-   RSI14 = 54.5 -> 0.5 | neutral-cool
-   Vol vs 20d = 0.87x -> 0 | no initiative volume
+   Regime (close>SMA50) = ABOVE -> 1 | reclaim printed
+   SMA stack 20>50 = 252>258 -> -1 | fast above slow
+   Price vs SMA100 = +2.8% -> 1 | above 100d structure
+   RSI14 = 58.5 -> 0.5 | neutral-cool
+   Vol vs 20d = 0.94x -> 0 | no initiative volume
    5d pattern = 2R/3G -> 0.5 | mild pullback then bounce
-   Price vs 1y VPOC = +10.5% -> 1 | above VPOC = acceptance
+   Price vs 1y VPOC = +12.0% -> 1 | above VPOC = acceptance
    Price in value area = yes -> 0 | inside 1y value area
-   60d range position = 49% -> 0 | mid-range = balance, not trend
-composite raw sum = +1.0 (scale roughly -10..+10) -> WEAK/NEUTRAL confluence
-sample size: variantB n=85 trades, t=0.42 (Renaissance bar: t>3.0); variantA n=185, t=-0.23
+   60d range position = 55% -> 0 | mid-range = balance, not trend
+composite raw sum = +3.0 (scale roughly -10..+10) -> POSITIVE confluence
+sample size: variantB n=85 trades, t=0.42 (Renaissance bar: t>3.0); variantA n=185, t=-0.24
 cross-market variantB: AMZN:14, BCC:11, FBK:7, GDDY:14, GEV:6, GOOG:10, MRVL:9, RDDT:5, ZS:9
 cross-time variantB: WR H1=43% vs H2=33%

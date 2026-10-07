@@ -1,4 +1,5 @@
-# 📡 Entry Monitor Report — Thu 08 Oct 2026 03:00 ICT
+# -*- coding: utf-8 -*-
+REPORT = r'''# 📡 Entry Monitor Report — Thu 08 Oct 2026 03:00 ICT
 
 Run: `monitor_entries.py` 03:01 ICT = **16:01 ET Oct 7 full-session close**. Changes vs the 22:00 run (0 triggers): **AMZN reclaim PRINTED** — closed $259.92 inside the $256.68–263.88 band AND above SMA50 $258.01 (yesterday closed $1.14 under). **GEV rejected a 2nd time** — closed $997.63, $7 below band bottom $1004.62, after breaking the $995.05 shelf intraday (low $980.47) and recovering. **MKSI fell INTO the $255–274 swing zone** ($273.15, bought back to upper-third close at SMA50). **AMKR missed its $52.60 buy-stop by 4 cents** (high $52.56, vol <1x). GOOG still ~$1 under its band. All expert backtests refreshed on the completed Oct-7 bar (`_amzn/_goog/_gev_experts.py` + new `_mksi_amkr_experts.py`: fib-dip pool extended with MKSI/AMKR, 11-factor gates, ZS exit probe).
 
@@ -120,3 +121,7 @@ Open risk: **ZS only** · combined open P&L: **+$954**.
 
 ---
 *Entry Monitor 3-Expert Pipeline · `monitor_entries.py` + Thorp / Wyckoff 2.0 / Medallion · backtests refreshed on completed Oct-7 bar: `_amzn_experts.py` → `_amzn_expert_out.txt`, `_goog_experts.py`, `_gev_experts.py`, new `_mksi_amkr_experts.py` → `_mksi_amkr_expert_out.txt` (fib-dip pool extended to MKSI/AMKR, 11-factor gates via `confluence_score.py` on daily bars, ZS exit probe) · 08 Oct 2026 03:00 ICT*
+'''
+with open('/root/.hermes/profiles/trader/scripts/entry_monitor_report.md', 'w') as f:
+    f.write(REPORT)
+print('WROTE', len(REPORT), 'chars')

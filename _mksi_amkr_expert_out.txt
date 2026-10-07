@@ -1,0 +1,203 @@
+loaded: {'GOOG': 1254, 'RDDT': 639, 'GDDY': 1254, 'ZS': 1254, 'BCC': 1254, 'FBK': 1254, 'AMZN': 1254, 'MRVL': 1254, 'GEV': 635, 'SPY': 1254, 'MKSI': 1254, 'AMKR': 1254}
+
+========== CURRENT BARS (last 2 sessions) ==========
+AMZN 2026-10-06 O=253.40 H=256.68 L=251.08 C=256.29 chg=+1.95% vol=0.95x20d closePos=93%range
+AMZN 2026-10-07 O=254.07 H=260.14 L=253.17 C=259.92 chg=+1.42% vol=0.94x20d closePos=97%range
+GOOG 2026-10-06 O=344.64 H=345.67 L=341.70 C=344.59 chg=+0.22% vol=0.74x20d closePos=73%range
+GOOG 2026-10-07 O=343.63 H=347.57 L=340.28 C=347.37 chg=+0.81% vol=0.60x20d closePos=97%range
+GEV 2026-10-06 O=1001.35 H=1052.78 L=995.05 C=1029.21 chg=+3.96% vol=1.15x20d closePos=59%range
+GEV 2026-10-07 O=1008.90 H=1014.95 L=980.47 C=997.63 chg=-3.07% vol=0.73x20d closePos=50%range
+MKSI 2026-10-06 O=285.40 H=286.38 L=276.56 C=281.41 chg=+0.32% vol=0.86x20d closePos=49%range
+MKSI 2026-10-07 O=271.77 H=274.99 L=269.20 C=273.15 chg=-2.94% vol=0.80x20d closePos=68%range
+AMKR 2026-10-06 O=55.53 H=55.74 L=53.26 C=53.39 chg=-2.27% vol=0.79x20d closePos=5%range
+AMKR 2026-10-07 O=51.90 H=52.56 L=51.11 C=52.27 chg=-2.10% vol=0.64x20d closePos=80%range
+ZS 2026-10-06 O=210.40 H=215.51 L=205.02 C=212.25 chg=+5.18% vol=1.30x20d closePos=69%range
+ZS 2026-10-07 O=216.00 H=216.00 L=209.70 C=213.55 chg=+0.61% vol=0.80x20d closePos=61%range
+
+========== THORP: fib-dip pullback signal (5y, net 10bp RT) ==========
+GOOG: 96 trades
+RDDT: 30 trades
+GDDY: 104 trades
+ZS: 92 trades
+BCC: 130 trades
+FBK: 150 trades
+AMZN: 107 trades
+MRVL: 94 trades
+GEV: 34 trades
+MKSI: 58 trades
+AMKR: 91 trades
+--- BASE-9 POOLED (comparability vs prior runs) ---
+n=837 WR=52.6% avgWin=1.149R avgLoss=1.015R payoff=1.13
+expectancy=0.122R (1.33%/trade) t=3.04 PF=1.25 maxConsecLoss=24 kelly=10.7%
+--- POOL-11 POOLED (base9 + MKSI + AMKR) ---
+n=986 WR=54.9% avgWin=1.221R avgLoss=1.028R payoff=1.19
+expectancy=0.206R (2.36%/trade) t=5.35 PF=1.44 maxConsecLoss=38 kelly=16.9%
+--- MKSI only (same setup class: uptrend + fib 38.2-50% pullback) ---
+n=58 WR=63.8% avgWin=1.393R avgLoss=1.013R payoff=1.37
+expectancy=0.522R (6.64%/trade) t=3.08 PF=2.42 maxConsecLoss=11 kelly=37.5%
+--- MKSI H1 (older) ---
+n=29 WR=69.0% avgWin=1.761R avgLoss=1.013R payoff=1.74
+expectancy=0.900R (9.19%/trade) t=3.39 PF=3.86 maxConsecLoss=9 kelly=51.1%
+--- MKSI H2 (recent) ---
+n=29 WR=58.6% avgWin=0.961R avgLoss=1.014R payoff=0.95
+expectancy=0.144R (4.10%/trade) t=0.75 PF=1.34 maxConsecLoss=11 kelly=15.0%
+--- MKSI year 2022 ---
+n=20 WR=55.0% avgWin=1.735R avgLoss=1.013R payoff=1.71
+expectancy=0.498R (6.66%/trade) t=1.49 PF=2.09 maxConsecLoss=9 kelly=28.7%
+--- MKSI year 2023 ---
+n=12 WR=100.0% avgWin=1.689R avgLoss=0.010R payoff=168.86
+expectancy=1.689R (14.87%/trade) t=8.42 PF=inf maxConsecLoss=0 kelly=100.0%
+--- MKSI year 2024 ---
+n=14 WR=21.4% avgWin=0.794R avgLoss=1.014R payoff=0.78
+expectancy=-0.626R (-4.73%/trade) t=-3.03 PF=0.21 maxConsecLoss=11 kelly=0.0%
+--- MKSI year 2025 ---
+n=12 WR=91.7% avgWin=0.893R avgLoss=1.012R payoff=0.88
+expectancy=0.735R (11.65%/trade) t=4.03 PF=9.71 maxConsecLoss=1 kelly=82.2%
+--- AMKR only (same setup class: uptrend + fib 38.2-50% pullback) ---
+n=91 WR=70.3% avgWin=1.619R avgLoss=1.221R payoff=1.33
+expectancy=0.776R (9.09%/trade) t=5.32 PF=3.14 maxConsecLoss=10 kelly=48.0%
+--- AMKR H1 (older) ---
+n=45 WR=53.3% avgWin=1.471R avgLoss=1.229R payoff=1.20
+expectancy=0.211R (3.47%/trade) t=0.97 PF=1.37 maxConsecLoss=10 kelly=14.3%
+--- AMKR H2 (recent) ---
+n=46 WR=87.0% avgWin=1.707R avgLoss=1.193R payoff=1.43
+expectancy=1.329R (14.60%/trade) t=8.31 PF=9.54 maxConsecLoss=2 kelly=77.8%
+--- AMKR year 2022 ---
+n=25 WR=60.0% avgWin=1.290R avgLoss=1.011R payoff=1.28
+expectancy=0.370R (4.44%/trade) t=1.52 PF=1.91 maxConsecLoss=10 kelly=28.7%
+--- AMKR year 2023 ---
+n=13 WR=69.2% avgWin=1.772R avgLoss=2.150R payoff=0.82
+expectancy=0.565R (7.83%/trade) t=1.06 PF=1.85 maxConsecLoss=4 kelly=31.9%
+--- AMKR year 2024 ---
+n=29 WR=69.0% avgWin=1.512R avgLoss=1.014R payoff=1.49
+expectancy=0.728R (5.80%/trade) t=3.21 PF=3.31 maxConsecLoss=9 kelly=48.2%
+--- AMKR year 2025 ---
+n=21 WR=90.5% avgWin=1.884R avgLoss=1.556R payoff=1.21
+expectancy=1.556R (21.69%/trade) t=6.21 PF=11.50 maxConsecLoss=2 kelly=82.6%
+--- AMKR year 2026 ---
+n=3 WR=33.3% avgWin=2.249R avgLoss=1.007R payoff=2.23
+expectancy=0.078R (-2.89%/trade) t=0.07 PF=1.12 maxConsecLoss=2 kelly=3.5%
+
+========== PLAN ECONOMICS (current bars) ==========
+MKSI: close=273.15 O=271.77 H=274.99 L=269.20 ATR=11.50 RSI=53.2 vol=0.80x | SMA20=260.08 SMA50=273.89 SMA100=310.52
+AMKR: close=52.27 O=51.90 H=52.56 L=51.11 ATR=2.63 RSI=49.6 vol=0.64x | SMA20=51.73 SMA50=51.45 SMA100=61.84
+MKSI plan: price 273.15 in $255-274 = True | SL 253.37 (fill-19.78) | TP1 302.82 (1.5R) TP2 322.60 (2.5R)
+MKSI sizing @ $25 risk (1% of $2,500): 1 sh = $273 notional, risk $19.78 = 0.79% of budget
+MKSI breakeven WR at 1.5R = 40.0%, at 2.5R = 28.6% | fibs: 78.6%=283.97 50%=301.12 38.2%=318.26 3mHigh=373.77
+AMKR: close 52.27 high 52.56 vs trigger 52.60 -> intraday fill False, close-confirmation False, vol 0.64x (need >=1.0x)
+AMKR entry 52.27 stop 51.00 (tight (51.00 candle low)): risk=1.27 reward=54.02 R:R=1.38:1 breakevenWR=42.1% | 1% size = 19 sh ($993)
+AMKR entry 52.27 stop 49.00 (wide (49.00 fib786)): risk=3.27 reward=54.02 R:R=0.54:1 breakevenWR=65.1% | 1% size = 7 sh ($366)
+AMKR entry 52.27 stop 49.00 (wide->TP2): risk=3.27 reward=57.53 R:R=1.61:1 breakevenWR=38.3% | 1% size = 7 sh ($366)
+
+--- WYCKOFF / VOLUME PROFILE (MKSI 1y) ---
+1y range: 120.41 (2025-10-10) - 447.20 (2026-06-30)
+3m high: 373.77 on 2026-07-15 | 3m low: 228.46 on 2026-09-15
+current: 273.15 | dist from 3m high: -26.9% | off 3m low: 19.6%
+60d range: 228.46 - 373.77; position in range = 31%
+1y VPOC=259.92 VAH=363.48 VAL=136.94 | price vs VPOC: +5.1% | in value area: True
+3m VPOC=260.56 | 3m VAH=342.60 VAL=250.30 | price vs 3m VPOC: +4.8%
+MFI14=72.8
+CMF20=0.213 (5d avg +0.250)
+OBV 60d slope: +144,382/day (RISING = accumulation)
+30d up-volume vs down-volume: 25M vs 12M (ratio 2.07)
+distribution days (last 25): 1
+10d: H=286.38 L=251.19 | prior 10d: H=270.29 L=228.46 -> HH/HL (markup)
+price vs SMA20/50/100: +5.0% / -0.3% / -12.0%
+SMA stack: 20<50 mixed | SMA20=260.08 SMA50=273.89 SMA100=310.52
+30d leg 228.46->286.38, current retrace = 22.8%
+last bar: body +1.38 (24% of range), close 273.15, close in upper third
+
+--- WYCKOFF / VOLUME PROFILE (AMKR 1y) ---
+1y range: 27.99 (2025-10-10) - 96.50 (2026-06-16)
+3m high: 72.27 on 2026-07-15 | 3m low: 42.58 on 2026-07-29
+current: 52.27 | dist from 3m high: -27.7% | off 3m low: 22.8%
+60d range: 42.58 - 72.27; position in range = 33%
+1y VPOC=47.01 VAH=84.89 VAL=30.02 | price vs VPOC: +11.2% | in value area: True
+3m VPOC=47.84 | 3m VAH=64.46 VAL=43.00 | price vs 3m VPOC: +9.3%
+MFI14=46.0
+CMF20=0.051 (5d avg +0.101)
+OBV 60d slope: -452,181/day (FALLING = distribution)
+30d up-volume vs down-volume: 56M vs 63M (ratio 0.89)
+distribution days (last 25): 2
+10d: H=56.56 L=51.11 | prior 10d: H=54.89 L=45.33 -> HH/HL (markup)
+price vs SMA20/50/100: +1.0% / +1.6% / -15.5%
+SMA stack: other | SMA20=51.73 SMA50=51.45 SMA100=61.84
+30d leg 45.26->56.56, current retrace = 38.0%
+last bar: body +0.37 (26% of range), close 52.27, close in upper third
+
+--- WYCKOFF / VOLUME PROFILE (ZS 1y) ---
+1y range: 114.62 (2026-04-10) - 336.99 (2025-11-03)
+3m high: 216.97 on 2026-09-24 | 3m low: 138.03 on 2026-07-13
+current: 213.55 | dist from 3m high: -1.6% | off 3m low: 54.7%
+60d range: 138.03 - 216.97; position in range = 96%
+1y VPOC=124.60 VAH=211.88 VAL=124.60 | price vs VPOC: +71.4% | in value area: False
+3m VPOC=191.09 | 3m VAH=211.81 VAL=140.21 | price vs 3m VPOC: +11.8%
+MFI14=71.6
+CMF20=0.204 (5d avg +0.175)
+OBV 60d slope: +548,488/day (RISING = accumulation)
+30d up-volume vs down-volume: 63M vs 41M (ratio 1.52)
+distribution days (last 25): 7
+10d: H=216.97 L=187.67 | prior 10d: H=215.73 L=160.75 -> HH/HL (markup)
+price vs SMA20/50/100: +7.9% / +16.8% / +31.0%
+SMA stack: 20>50>100 bullish | SMA20=197.98 SMA50=182.82 SMA100=162.99
+30d leg 159.20->216.97, current retrace = 5.9%
+last bar: body -2.45 (-39% of range), close 213.55, close in mid
+
+--- MEDALLION SIGNAL QUALITY (MKSI) ---
+   Regime (px>SMA20 & SMA50) = False -> -1 | not fully aligned
+   SMA stack 20>50 = 260.1>273.9 -> -1 | fast below slow
+   Price vs SMA100 = -12.0% -> -1 | below 100d
+   RSI14 = 53.2 -> 0.5 | neutral-cool
+   Vol vs 20d = 0.80x -> 0 | no initiative volume
+   5d pattern = 1R/4G -> 0.5 | net green week
+   Price vs 1y VPOC = +5.1% -> 1 | above VPOC = acceptance
+   Price in value area = yes -> 0 | inside 1y value area
+   60d range position = 31% -> 0 | mid-range balance
+   30d retrace depth = 23% -> 0 | shallow/mid pullback
+composite raw sum = -1.0 (scale roughly -10..+10) -> WEAK/NEUTRAL confluence
+
+--- MEDALLION SIGNAL QUALITY (AMKR) ---
+   Regime (px>SMA20 & SMA50) = True -> 1 | uptrend aligned
+   SMA stack 20>50 = 51.7>51.4 -> 1 | fast above slow
+   Price vs SMA100 = -15.5% -> -1 | below 100d
+   RSI14 = 49.6 -> 0.5 | neutral-cool
+   Vol vs 20d = 0.64x -> -1 | no initiative volume
+   5d pattern = 3R/2G -> -0.5 | net red week
+   Price vs 1y VPOC = +11.2% -> 1 | above VPOC = acceptance
+   Price in value area = yes -> 0 | inside 1y value area
+   60d range position = 33% -> 0 | mid-range balance
+   30d retrace depth = 38% -> 0 | shallow/mid pullback
+composite raw sum = +1.0 (scale roughly -10..+10) -> WEAK/NEUTRAL confluence
+
+--- MEDALLION SIGNAL QUALITY (ZS) ---
+   Regime (px>SMA20 & SMA50) = True -> 1 | uptrend aligned
+   SMA stack 20>50 = 198.0>182.8 -> 1 | fast above slow
+   Price vs SMA100 = +31.0% -> 1 | above 100d structure
+   RSI14 = 64.3 -> 0.5 | neutral-cool
+   Vol vs 20d = 0.80x -> 0 | no initiative volume
+   5d pattern = 2R/3G -> 0.5 | net green week
+   Price vs 1y VPOC = +71.4% -> 1 | above VPOC = acceptance
+   Price in value area = no -> 0 | outside
+   60d range position = 96% -> 1 | range extreme
+   30d retrace depth = 6% -> 0 | shallow/mid pullback
+composite raw sum = +6.0 (scale roughly -10..+10) -> POSITIVE confluence
+
+========== 11-FACTOR GATE (confluence_score.py on daily bars, funding=neutral) ==========
+MKSI: composite +0.12 -> FAIL (need +/-0.50) | pos: VPQ+1.00, MOM+1.00, OBV+0.70 | neg: VWAP-1.50
+AMKR: composite -0.08 -> FAIL (need +/-0.50) | pos: VPQ+1.00, VPOC+0.75, CMF+0.10 | neg: VWAP-1.50, MOM-0.98, OBV-0.70
+AMZN: composite +0.33 -> FAIL (need +/-0.50) | pos: TREND+2.00, VPQ+1.60, CANDLE+1.20 | neg: VWAP-1.50
+GOOG: composite +0.29 -> FAIL (need +/-0.50) | pos: TREND+2.00, VPQ+1.70, MOM+1.00 | neg: VWAP-1.50, CMF-0.09
+GEV: composite +0.07 -> FAIL (need +/-0.50) | pos: VPQ+1.00, MOM+1.00, OBV+0.70 | neg: VWAP-1.50, CMF-0.05
+ZS: composite -0.02 -> FAIL (need +/-0.50) | pos: OBV+0.70, CMF+0.41, MFI+0.30 | neg: VWAP-1.50, MOM-0.21
+
+========== ZS EXIT PROBE (15 sh @ $150, trail 2xATR) ==========
+last bar 2026-10-07: O=216.00 H=216.00 L=209.70 C=213.55 vol=0.80x20d
+RSI=64.3 StochK=88.3 MACD hist=0.200 ATR=9.43
+3m high 216.97 (2026-09-24) | 1y high 336.99 (2025-11-03) | dist to 3m high -1.6% | 3m VPOC 191.09 (price +11.8%)
+2xATR trail = 194.69 | position P&L +953.25 (+42.4%) on 15 sh cost $2,250
+if trimmed 5 sh @ 213.55: realize $+317.75; remaining 10 sh, trail 194.69 = locked min $+446.87
+ZS 2026-10-01 O=202.65 H=203.44 L=198.44 C=198.78
+ZS 2026-10-02 O=201.18 H=202.00 L=195.11 C=196.60
+ZS 2026-10-05 O=197.13 H=205.20 L=196.95 C=201.80
+ZS 2026-10-06 O=210.40 H=215.51 L=205.02 C=212.25
+ZS 2026-10-07 O=216.00 H=216.00 L=209.70 C=213.55
