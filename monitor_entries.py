@@ -891,16 +891,16 @@ def check_entry_mksi(a):
     if sma50 and price >= sma50 * 0.97 and price <= sma50 * 1.03:
         alerts.append(f"📏 Testing SMA 50 support at ${sma50:.2f} — stronger entry")
 
-    # ── MKSI 1-2YR PLAN TRIGGERS (3-expert panel Oct 7) ──
-    # T2: staged tranche 2 zone $255-274
+    # ── MKSI SWING PLAN TRIGGERS (revised Oct 7 from 1-2yr staged → normal plan) ──
+    # Zone A: single full-size entry on pullback $255-274
     if 255 <= price <= 274:
-        alerts.append(f"🎯 MKSI T2 ZONE (${price:.2f} in $255–274) — staged tranche 2 (1 sh) if higher-low holds >$228.46")
-    # T3: confirmation tranche — daily close above SMA100 $311
+        alerts.append(f"🎯 MKSI SWING ENTRY ZONE (${price:.2f} in $255–274) — single entry full size, SL 2×ATR below fill (~$19.78), TP1 1.5R / TP2 2.5R")
+    # Zone B: breakout confirm — daily close above SMA100 $311
     if price >= 311:
-        alerts.append(f"🚀 MKSI T3 CONFIRM (price ${price:.2f} ≥ SMA100 $311) — tranche 3 (1 sh) on daily close, weekly >$322 ideal")
-    # Kill switch warning zone
-    if price <= 228.46 * 1.03:
-        alerts.append(f"🛑 MKSI KILL-ZONE ${price:.2f} — plan invalidation is weekly close <$228.46, do NOT average down")
+        alerts.append(f"🚀 MKSI BREAKOUT ENTRY (price ${price:.2f} ≥ SMA100 $311) — single entry on daily close w/ volume, SL 2×ATR below fill")
+    # Stop zone: 2×ATR stop at mid-zone entry ≈ $245 (structure floor $248.69)
+    if price <= 248.69 * 1.03:
+        alerts.append(f"🛑 MKSI STOP ZONE ${price:.2f} — swing SL ≈ $245 (2×ATR below $265 fill) / structure $248.69; hit = exit, do NOT average down")
 
     # Condition 4: Fib pullback zone
     fib382 = a.get('fib_382', 0)

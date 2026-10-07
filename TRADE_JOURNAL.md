@@ -32,19 +32,22 @@
 
 ## 🗓️ Planned Trades
 
-### MKSI — 1–2 Year Staged Entry (3-expert panel, Oct 7 2026)
+### MKSI — Swing Plan (normal plan, revised Oct 7 2026 from 1–2yr version)
 
-| Tranche | Trigger | Qty | Cost |
-|---|---|---|---|
-| T1 | Anchor — market | 1 sh | ~$281 |
-| T2 | Pullback **$255–274** (38.2% $261 / SMA50 $274), higher-low >$228.46 | 1 sh | ~$265 |
-| T3 | Daily close **>$311** / weekly **>$322** on volume | 1 sh | ~$311 |
+| Step | Rule |
+|---|---|
+| Entry | **ONE entry, full size** — Zone A: pullback **$255–274** (fib 38.2% $261 / SMA50 $274) · Zone B: daily close **>$311** on volume. **Never lump at $281** |
+| Stop | **2× ATR(14) = $19.78** below actual fill (Wyckoff candle-low floor). Example @ $265 → SL **$245** |
+| TP1 | **1.5R** from actual fill → trim ½ (example @ $265: **$295**) |
+| TP2 | **2.5R** from actual fill → trim ½ (example @ $265: **$314** ≈ SMA100) |
+| Runner | Trail 2× ATR · exit on RSI>85 / Stoch>90 overbought |
+| Time stop | 2–4 wks without TP1 → exit, recycle |
+| Sizing | risk$ ÷ $19.78 (1% account risk) · gate must pass ≥ +0.50 |
 
-- **Total:** 3 sh ≈ $857 (15.5% ≈ full Kelly) · **Cap:** 4 sh (20.6%)
-- **🛑 Kill switch: weekly close <$228.46 → exit all**
-- Funding: NVDU total $4,333.21 + ZS exit proceeds
-- Park remainder in SMH/SOXX · Report: `mksi_longterm_report.md`
-- Log: `trade_journal.json → planned_trades[0]`
+- **🛑 Kill: SL hit → full exit, no averaging** (old weekly <$228.46 invalidation retired)
+- Funding: NVDU total $4,333.21 + ZS exit proceeds · remainder in SMH/SOXX
+- Supersedes: 1–2yr staged plan (3 tranches, $380/$447 targets) → `mksi_longterm_report.md` still valid for entry zones
+- Log: `trade_journal.json → planned_trades[0]` (MKSI-SW-1)
 
 ---
 

@@ -99,40 +99,37 @@
   "open_positions_value_at_cost": 2250.0,
   "planned_trades": [
     {
-      "id": "MKSI-LT-1",
+      "id": "MKSI-SW-1",
       "ticker": "MKSI",
-      "type": "LONG-TERM 1-2YR",
+      "type": "SWING \u2014 normal plan (days/weeks, like PTC/S/NVDU/ZS)",
       "status": "PLANNED",
       "created": "2026-10-07",
-      "framework": "3-expert panel (Thorp/Wyckoff/Medallion) \u2014 deleg_b22d9951",
+      "revised": "2026-10-07: rewritten from LONG-TERM 1-2YR staged plan \u2192 normal swing plan (user decision)",
+      "framework": "3-expert panel entry zones (deleg_b22d9951) + normal plan mechanics (2xATR stop, R-multiple TP, overbought exit)",
       "entry_price_ref": 281.41,
-      "tranches": [
-        {
-          "t": 1,
-          "trigger": "anchor \u2014 market, establish position",
-          "qty": 1,
-          "approx_cost": 281
-        },
-        {
-          "t": 2,
-          "trigger": "pullback $255-274 (38.2% fib 261 / SMA50 274), higher-low holds >228.46",
-          "qty": 1,
-          "approx_cost": 265
-        },
-        {
-          "t": 3,
-          "trigger": "daily close >$311 (SMA100) / weekly >$322 on volume",
-          "qty": 1,
-          "approx_cost": 311
-        }
+      "entry_rules": [
+        "ONE entry, full size \u2014 NEVER lump at $281 (top of +23% bounce)",
+        "Zone A: pullback $255-274 (38.2% fib 261 / SMA50 274 / 78.6% 261), higher-low holds",
+        "Zone B: daily close >$311 (SMA100) on volume \u2014 breakout confirm",
+        "Entry must pass monitor verdict + 11-factor gate (>= +0.50)"
       ],
-      "total_plan": "3 sh \u2248 $857 (15.5% \u2248 full Kelly 16%)",
-      "cap": "4 sh max (20.6%, < 22.5% Kelly cap)",
-      "kill_switch": "WEEKLY CLOSE < $228.46 \u2192 exit all, no averaging down",
-      "early_warning": "daily close < $261 \u2192 skip T3; heavy-vol stall $286-322 then loss $255 = redistribution \u2192 stand aside",
-      "funding": "NVDU trim $2,284.80 (in hand) + ZS exit proceeds (~$3,255 at $217 trim)",
+      "sizing": "shares = risk$ / 19.78 (ATR 9.89 x 2); 1% account risk per trade",
+      "stop": "2x ATR(14) = $19.78 below ACTUAL fill (Wyckoff candle-low floor). Example @ $265 entry: SL $245 (structure $248.69) -> risk $19.78/sh",
+      "targets": {
+        "tp1": "1.5R from ACTUAL fill \u2014 trim half (example @ $265: $295)",
+        "tp2": "2.5R from ACTUAL fill \u2014 trim half (example @ $265: $314, at SMA100 $311)",
+        "runner": "trail 2x ATR below price; exit on RSI>85 / Stoch>90 overbought (usual rule)"
+      },
+      "time_stop": "2-4 weeks without TP1 progress -> exit, recycle capital",
+      "kill_switch": "SL hit -> full exit, no averaging down (old 1-2yr invalidation weekly <$228.46 retired)",
+      "discipline_notes": [
+        "Never chase: RSI>70 = no entry (Oct 7 lesson, gate +0.05)",
+        "TP recalc from ACTUAL fill, not plan example",
+        "Whipsaw risk: 3.5%/day ATR -> expect multiple stop attempts; re-enter only at zone retests"
+      ],
+      "funding": "NVDU proceeds $4,333.21 (in hand) + ZS exit proceeds",
       "parking": "remainder in SMH/SOXX (Thorp default)",
-      "report": "mksi_longterm_report.md"
+      "reports": "mksi_longterm_report.md (original 1-2yr panel, superseded for sizing/exit by this revision)"
     }
   ]
 }
