@@ -98,6 +98,7 @@ TICKERS = {
 POSITIONS = {
     # NVDU closed 2026-10-07: 14 sh @ 163.20 + 13 sh @ 157.57 → +$1,903.21 total
     "ZS": {"entry": 150.00, "cost": 2250.00, "currency": "USD"},
+    "AMZN": {"entry": 259.55, "cost": 2595.55, "currency": "USD"},  # 10 sh entered 2026-10-07
 }
 
 def _fetch_chart_yahoo(ticker, period="5d", interval="1d"):

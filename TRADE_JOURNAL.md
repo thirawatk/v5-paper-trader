@@ -24,8 +24,9 @@
 | Ticker | Entry | Qty | Cost | Status |
 |--------|-------|-----|------|--------|
 | ZS | $150.00 | 15 | $2,250.00 | ⏳ 3-expert WAIT — trail $193.09 (SMA20), trim into $216.97 |
+| AMZN | $259.55 | 10 | $2,595.55 | 🆕 Entered Oct 7 — SL $249.33 (2×ATR) · TP1 $274.88 · TP2 $285.10 · TP3 $295.32 |
 
-**Open at cost:** $2,250.00
+**Open at cost:** $4,845.55
 **NVDU proceeds (cash):** $4,333.21 = $2,284.80 (trim) + $2,048.41 (final exit)
 
 ---

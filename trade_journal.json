@@ -50,7 +50,7 @@
       "pnl_pct": 75.1,
       "hold_days": null,
       "exit_reason": "Full exit of runner on manual instruction @ $157.57",
-      "notes": "Direxion Daily NVDA Bull 2x. Partial 14 sh @ $163.20 (+$1,024.80, Oct 6); runner 13 sh full exit @ $157.57 (+$878.41). NVDU lifecycle total: +$1,903.21 on $2,430 cost."
+      "notes": "Direxion Daily NVDA Bull 2x. Runner 13 sh full exit @ $157.57 (+$878.41). NVDU lifecycle complete: 14 sh @ 163.20 + 13 sh @ 157.57 = +$1,903.21 total."
     },
     {
       "id": 4,
@@ -85,6 +85,23 @@
       "hold_days": null,
       "exit_reason": "3-expert panel TRIM: RSI 84.5 extreme + new 3M high lacked SOS bar + Kelly 0-keep dissent",
       "notes": "Partial exit of position #3. 13 sh runner remains, trail $149.54. Fill better than premarket ($162.60)."
+    },
+    {
+      "id": 6,
+      "ticker": "AMZN",
+      "side": "LONG",
+      "status": "OPEN",
+      "entry_date": "2026-10-07",
+      "exit_date": null,
+      "entry_price": 259.55,
+      "quantity": 10,
+      "cost_basis": 2595.55,
+      "exit_price": null,
+      "pnl_usd": null,
+      "pnl_pct": null,
+      "hold_days": null,
+      "exit_reason": null,
+      "notes": "Manual entry per user. Monitor POSITIONS updated \u2014 dynamic exits (2xATR SL, 1.5R/2.5R TP) active."
     }
   ],
   "realized_summary": {
@@ -93,10 +110,9 @@
     "losses": 0,
     "win_rate": 100.0,
     "total_pnl_usd": 2266.34,
-    "total_cost_basis": 4526.96,
-    "avg_return_pct": 47.9
+    "note": "PTC +53.13, S +310.00, NVDU 14sh@163.20 +1024.80, NVDU 13sh@157.57 +878.41 = +2,266.34"
   },
-  "open_positions_value_at_cost": 2250.0,
+  "open_positions_value_at_cost": 4845.55,
   "planned_trades": [
     {
       "id": "MKSI-SW-1",
