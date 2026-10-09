@@ -1,0 +1,175 @@
+loaded: {'GOOG': 1255, 'RDDT': 641, 'GEV': 637, 'MKSI': 1255, 'ZS': 1255, 'AMZN': 1255, 'SPY': 1255}
+
+========== CURRENT BARS (today = INTRADAY partial, session open) ==========
+GOOG 2026-10-08 O=349.64 H=353.53 L=343.51 C=344.86 chg=-0.72% vol=0.80x20d closePos=13%range
+GOOG 2026-10-09 O=348.01 H=350.40 L=346.88 C=348.77 chg=+1.14% vol=0.18x20d closePos=54%range
+RDDT 2026-10-08 O=152.81 H=157.30 L=152.00 C=156.47 chg=+2.46% vol=0.98x20d closePos=84%range
+RDDT 2026-10-09 O=161.06 H=162.96 L=159.00 C=159.54 chg=+1.97% vol=0.28x20d closePos=14%range
+GEV 2026-10-08 O=985.91 H=1027.00 L=973.36 C=999.35 chg=+0.23% vol=1.03x20d closePos=48%range
+GEV 2026-10-09 O=1000.30 H=1009.00 L=978.64 C=999.72 chg=+0.04% vol=0.18x20d closePos=69%range
+MKSI 2026-10-08 O=266.69 H=274.07 L=257.60 C=260.38 chg=-4.68% vol=1.03x20d closePos=17%range
+MKSI 2026-10-09 O=266.09 H=267.96 L=256.74 C=261.20 chg=+0.31% vol=0.13x20d closePos=40%range
+ZS 2026-10-08 O=214.38 H=218.82 L=212.37 C=216.81 chg=+1.53% vol=1.13x20d closePos=69%range
+ZS 2026-10-09 O=222.29 H=226.40 L=219.79 C=225.92 chg=+4.20% vol=0.35x20d closePos=93%range
+AMZN 2026-10-08 O=259.74 H=259.86 L=253.78 C=254.06 chg=-2.25% vol=1.05x20d closePos=5%range
+AMZN 2026-10-09 O=256.30 H=260.70 L=256.00 C=260.17 chg=+2.40% vol=0.30x20d closePos=89%range
+SPY 2026-10-08 O=774.86 H=777.09 L=770.44 C=773.93 chg=-0.42% vol=0.88x20d closePos=52%range
+SPY 2026-10-09 O=776.24 H=777.57 L=775.14 C=777.36 chg=+0.44% vol=0.13x20d closePos=91%range
+
+========== SIGNAL ECONOMICS (monitor bands vs live price) ==========
+GOOG: px 348.77 band 348.35-356.25 in_band=True | stop 331.99 tp 381.81 | R:R bottom 2.05:1 top 1.05:1 | vol=0.18x20d RSI=56.7 ATR=8.13
+   vs SMA20 +1.8% / SMA50 +1.6% / SMA100 -0.4% | 1% size from band bottom = 1 sh ($348) risk $16.36
+RDDT: px 159.54 band 171.11-179.58 in_band=False | stop 156.10 tp 207.00 | R:R bottom 2.39:1 top 1.17:1 | vol=0.28x20d RSI=56.4 ATR=7.05
+   vs SMA20 +4.7% / SMA50 +3.6% / SMA100 -3.2% | 1% size from band bottom = 1 sh ($171) risk $15.01
+GEV: px 999.72 band 1004.62-1036.80 in_band=False | stop 936.46 tp 1140.99 | R:R bottom 2.00:1 top 1.04:1 | vol=0.18x20d RSI=57.2 ATR=39.03
+   vs SMA20 +4.3% / SMA50 +3.2% / SMA100 +0.3% | 1% size from band bottom = 0 sh ($0) risk $0.00
+MKSI plan: price 261.20 in $255-274 = True | SL 241.42 | TP1 290.87 (1.5R) TP2 310.65 (2.5R) | sizing 1 sh = $261 notional, risk $19.78 (0.79%)
+
+--- WYCKOFF / VOLUME PROFILE (GOOG 1y) ---
+1y range 236.07-403.96 | 3m high 381.56 | dist from 3m high -8.6%
+1y VPOC=332.26 VAH=380.76 VAL=251.42 | price vs VPOC +5.0% | in VA: True
+3m VPOC=334.51 | price vs 3m VPOC +4.3%
+CMF20=-0.104 (5d avg -0.068)
+OBV 60d slope: +245,358/day (RISING = accumulation)
+30d up/down volume: 293M vs 203M (ratio 1.44)
+distribution days (last 25): 4
+10d H=353.53 L=332.65 | prior 10d H=359.98 L=332.81 -> LH/LL or mixed
+price vs SMA20/50/100: +1.8% / +1.6% / -0.4% | stack 20<50 mixed
+30d leg 325.63->359.98, retrace = 32.6%
+last bar: body +0.76 (22% range), close 348.77 (mid)
+
+--- WYCKOFF / VOLUME PROFILE (RDDT 1y) ---
+1y range 119.27-263.50 | 3m high 207.00 | dist from 3m high -22.9%
+1y VPOC=139.66 VAH=230.14 VAL=136.92 | price vs VPOC +14.2% | in VA: True
+3m VPOC=177.45 | price vs 3m VPOC -10.1%
+CMF20=-0.142 (5d avg -0.133)
+OBV 60d slope: -2,013,047/day (FALLING = distribution)
+30d up/down volume: 51M vs 83M (ratio 0.62)
+distribution days (last 25): 1
+10d H=162.96 L=141.32 | prior 10d H=166.18 L=147.77 -> LH/LL or mixed
+price vs SMA20/50/100: +4.7% / +3.6% / -3.2% | stack 20<50 mixed
+30d leg 141.32->166.18, retrace = 26.7%
+last bar: body -1.51 (-38% range), close 159.54 (lower third)
+
+--- WYCKOFF / VOLUME PROFILE (GEV 1y) ---
+1y range 529.18-1195.94 | 3m high 1140.99 | dist from 3m high -12.4%
+1y VPOC=578.34 VAH=1068.11 VAL=553.23 | price vs VPOC +72.9% | in VA: True
+3m VPOC=984.64 | price vs 3m VPOC +1.5%
+CMF20=-0.016 (5d avg -0.026)
+OBV 60d slope: +158,363/day (RISING = accumulation)
+30d up/down volume: 41M vs 20M (ratio 2.02)
+distribution days (last 25): 2
+10d H=1052.78 L=942.00 | prior 10d H=971.34 L=868.25 -> HH/HL (markup)
+price vs SMA20/50/100: +4.3% / +3.2% / +0.3% | stack 20<50 mixed
+30d leg 868.25->1052.78, retrace = 28.8%
+last bar: body -0.58 (-2% range), close 999.72 (upper third)
+
+--- WYCKOFF / VOLUME PROFILE (MKSI 1y) ---
+1y range 120.41-447.20 | 3m high 373.77 | dist from 3m high -30.1%
+1y VPOC=259.92 VAH=318.17 VAL=136.94 | price vs VPOC +0.5% | in VA: True
+3m VPOC=258.40 | price vs 3m VPOC +1.1%
+CMF20=0.191 (5d avg +0.206)
+OBV 60d slope: +178,440/day (RISING = accumulation)
+30d up/down volume: 24M vs 13M (ratio 1.87)
+distribution days (last 25): 1
+10d H=286.38 L=251.19 | prior 10d H=263.78 L=228.46 -> HH/HL (markup)
+price vs SMA20/50/100: +0.6% / -4.4% / -15.7% | stack 20<50 mixed
+30d leg 228.46->286.38, retrace = 43.5%
+last bar: body -4.89 (-44% range), close 261.20 (mid)
+
+--- WYCKOFF / VOLUME PROFILE (ZS 1y) ---
+1y range 114.62-336.99 | 3m high 226.40 | dist from 3m high -0.2%
+1y VPOC=124.60 VAH=211.88 VAL=124.60 | price vs VPOC +81.3% | in VA: False
+3m VPOC=177.42 | price vs 3m VPOC +27.3%
+CMF20=0.249 (5d avg +0.214)
+OBV 60d slope: +578,167/day (RISING = accumulation)
+30d up/down volume: 62M vs 41M (ratio 1.49)
+distribution days (last 25): 6
+10d H=226.40 L=187.67 | prior 10d H=216.97 L=170.06 -> HH/HL (markup)
+price vs SMA20/50/100: +10.9% / +21.7% / +37.7% | stack 20>50>100 bullish
+30d leg 159.20->226.40, retrace = 0.7%
+last bar: body +3.62 (55% range), close 225.92 (upper third)
+
+--- MEDALLION SIGNAL QUALITY (GOOG) ---
+   Regime (px>SMA20 & SMA50) = True -> 1
+   SMA stack 20>50 = 342.5>343.3 -> -1
+   Price vs SMA100 = -0.4% -> -1
+   RSI14 = 56.7 -> 0.5
+   Vol vs 20d = 0.18x -> -1
+   5d pattern = 1R/4G -> 0.5
+   Price vs 1y VPOC = +5.0% -> 1
+   Price in value area = yes -> 0
+   60d range position = 51% -> 0
+   30d retrace depth = 33% -> 0
+composite raw sum = +0.0 -> WEAK/NEUTRAL confluence
+
+--- MEDALLION SIGNAL QUALITY (RDDT) ---
+   Regime (px>SMA20 & SMA50) = True -> 1
+   SMA stack 20>50 = 152.4>154.0 -> -1
+   Price vs SMA100 = -3.2% -> -1
+   RSI14 = 56.4 -> 0.5
+   Vol vs 20d = 0.28x -> -1
+   5d pattern = 1R/4G -> 0.5
+   Price vs 1y VPOC = +14.2% -> 1
+   Price in value area = yes -> 0
+   60d range position = 34% -> 0
+   30d retrace depth = 27% -> 0
+composite raw sum = +0.0 -> WEAK/NEUTRAL confluence
+
+--- MEDALLION SIGNAL QUALITY (GEV) ---
+   Regime (px>SMA20 & SMA50) = True -> 1
+   SMA stack 20>50 = 958.2>968.6 -> -1
+   Price vs SMA100 = +0.3% -> 1
+   RSI14 = 57.2 -> 0.5
+   Vol vs 20d = 0.18x -> -1
+   5d pattern = 1R/4G -> 0.5
+   Price vs 1y VPOC = +72.9% -> 1
+   Price in value area = yes -> 0
+   60d range position = 48% -> 0
+   30d retrace depth = 29% -> 0
+composite raw sum = +2.0 -> WEAK/NEUTRAL confluence
+
+--- MEDALLION SIGNAL QUALITY (MKSI) ---
+   Regime (px>SMA20 & SMA50) = False -> -1
+   SMA stack 20>50 = 259.7>273.3 -> -1
+   Price vs SMA100 = -15.7% -> -1
+   RSI14 = 46.1 -> 0.5
+   Vol vs 20d = 0.13x -> -1
+   5d pattern = 2R/3G -> 0.5
+   Price vs 1y VPOC = +0.5% -> 1
+   Price in value area = yes -> 0
+   60d range position = 23% -> 0
+   30d retrace depth = 43% -> 0
+composite raw sum = -2.0 -> WEAK/NEUTRAL confluence
+
+--- MEDALLION SIGNAL QUALITY (ZS) ---
+   Regime (px>SMA20 & SMA50) = True -> 1
+   SMA stack 20>50 = 203.7>185.6 -> 1
+   Price vs SMA100 = +37.7% -> 1
+   RSI14 = 70.1 -> 0
+   Vol vs 20d = 0.35x -> -1
+   5d pattern = 0R/5G -> 0.5
+   Price vs 1y VPOC = +81.3% -> 1
+   Price in value area = no -> 0
+   60d range position = 99% -> 1
+   30d retrace depth = 1% -> 0
+composite raw sum = +4.5 -> POSITIVE confluence
+
+========== 11-FACTOR GATE (confluence_score.py on daily bars, funding=neutral) ==========
+GOOG: composite +0.17 -> FAIL (need +/-0.50) | pos: VPQ+1.70, MOM+1.00, VPOC+0.75 | neg: VWAP-1.50, CMF-0.21
+RDDT: composite +0.10 -> FAIL (need +/-0.50) | pos: VPQ+1.70, MOM+1.00, OBV+0.70 | neg: VWAP-1.50, CMF-0.28
+GEV: composite +0.07 -> FAIL (need +/-0.50) | pos: VPQ+1.00, MOM+1.00, OBV+0.70 | neg: VWAP-1.50, CMF-0.03
+MKSI: composite +0.11 -> FAIL (need +/-0.50) | pos: VPQ+1.00, VPOC+0.75, OBV+0.70 | neg: VWAP-1.46
+ZS: composite +0.06 -> FAIL (need +/-0.50) | pos: MOM+1.00, OBV+0.70, CMF+0.50 | neg: VWAP-1.50
+AMZN: composite +0.26 -> FAIL (need +/-0.50) | pos: TREND+2.00, CANDLE+1.20, VPQ+1.00 | neg: VWAP-1.50, CMF-0.04
+
+========== ZS EXIT PROBE (15 sh @ $150, trail 2xATR) ==========
+last bar 2026-10-09: C=225.92 vol=0.35x20d | RSI=70.1 StochK=98.8 MACD hist=1.347 ATR=9.28
+3m high 226.40 (2026-10-09) | dist -0.2% | 2xATR trail = 207.37 | P&L +1,138.80 (+50.6%)
+if trimmed 5 sh @ 225.92: realize $+379.60; remaining 10 sh trail 207.37 = locked min $+573.69
+
+========== AMZN POSITION STATUS ==========
+AMZN close=260.17 entry=259.55 P&L +0.24% (+6.20 USD) | SL 249.33 TP1 274.88 TP2 285.10 TP3 295.32 | ATR=5.75 RSI=57.1 | SMA20 +3.3% SMA50 +0.4%
+
+========== SPY BENCHMARK ==========
+SPY last 2026-10-09 C=777.36 5d chg=+1.00%
