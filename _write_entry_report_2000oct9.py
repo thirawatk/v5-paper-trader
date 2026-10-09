@@ -1,4 +1,7 @@
-# 📡 Entry Monitor Report — Fri 09 Oct 2026 20:05 ICT
+#!/usr/bin/env python3
+"""Write entry_monitor_report.md for the 20:00 ICT run (terminal-only overwrite)."""
+
+report = """# 📡 Entry Monitor Report — Fri 09 Oct 2026 20:05 ICT
 
 Run: `monitor_entries.py` (20:01 ICT) + pre-market feed. **Pre-open briefing — US opens 20:30 ICT (09:30 ET), 25 min after this run.**
 
@@ -112,3 +115,9 @@ Discipline notes:
 
 ---
 *Entry Monitor 3-Expert Pipeline · monitor_entries.py + pre-market feed · Thorp / Wyckoff 2.0 / Medallion · 09 Oct 2026 20:05 ICT*
+"""
+
+path = "/root/.hermes/profiles/trader/scripts/entry_monitor_report.md"
+with open(path, "w") as f:
+    f.write(report)
+print(f"wrote {len(report)} bytes -> {path}")
