@@ -1,4 +1,7 @@
-# 📡 Entry Monitor Report — Fri 09 Oct 2026 21:17 ICT
+#!/usr/bin/env python3
+"""Write entry_monitor_report.md for the 21:00 ICT run (terminal-only overwrite)."""
+
+report = """# 📡 Entry Monitor Report — Fri 09 Oct 2026 21:17 ICT
 
 Run: `monitor_entries.py` (21:09 ICT) — **regular session OPEN, 43 min in (US close 03:00 ICT).** 2 TV feed timeouts (MKSI absent from live output → pre-run 21:00 snapshot + Yahoo used).
 
@@ -129,3 +132,9 @@ Discipline notes:
 
 ---
 *Entry Monitor 3-Expert Pipeline · monitor_entries.py · Thorp / Wyckoff 2.0 / Medallion · 09 Oct 2026 21:17 ICT*
+"""
+
+path = "/root/.hermes/profiles/trader/scripts/entry_monitor_report.md"
+with open(path, "w") as f:
+    f.write(report)
+print("wrote %d bytes -> %s" % (len(report), path))
