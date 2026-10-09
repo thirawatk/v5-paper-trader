@@ -101,7 +101,16 @@
       "pnl_pct": null,
       "hold_days": null,
       "exit_reason": null,
-      "notes": "Manual entry per user. Monitor POSITIONS updated \u2014 dynamic exits (2xATR SL, 1.5R/2.5R TP) active."
+      "notes": "Manual entry per user. Monitor POSITIONS updated \u2014 dynamic exits (2xATR SL, 1.5R/2.5R TP) active.",
+      "exit_plan": {
+        "created": "2026-10-08",
+        "invalidation": "daily close < $256.68 (Oct 8 setup) \u2192 exit all",
+        "hard_stop": "$249.33 (2\u00d7ATR $5.11) \u2192 full exit, no averaging",
+        "tp1": "$274.88 (1.5R) \u2192 trim 5 sh, trail stop to breakeven $259.55",
+        "tp2": "$285.10 (2.5R, near 3M high $287.2) \u2192 trim 3 sh",
+        "runner": "2 sh trail 2\u00d7ATR below price; exit RSI>85/Stoch>90 or regime DOWNTREND",
+        "no_averaging": true
+      }
     }
   ],
   "realized_summary": {

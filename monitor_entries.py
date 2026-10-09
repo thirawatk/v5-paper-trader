@@ -1641,6 +1641,13 @@ def check_exit_signals(a, pos):
 
     alerts = []
 
+    # === PLAN-SPECIFIC EXITS (documented exit plans) ===
+    _pos_plans = {
+        "AMZN": 256.68,  # Oct 8 setup: daily close below this negates the trigger
+    }
+    if ticker in _pos_plans and price <= _pos_plans[ticker]:
+        alerts.append(f"⚠️ **SETUP INVALIDATION ZONE** ${price:.2f} ≤ ${_pos_plans[ticker]} — plan: DAILY CLOSE below ${_pos_plans[ticker]} → exit all; hard stop ${stop_loss}")
+
     # === CRITICAL EXITS ===
 
     # 1. Stop Loss hit
