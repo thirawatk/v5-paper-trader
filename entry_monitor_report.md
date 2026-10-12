@@ -1,7 +1,7 @@
-# 📡 Entry Monitor Report — Mon 12 Oct 2026 20:35 ICT
+# 📡 Entry Monitor Report — Mon 12 Oct 2026 21:00 ICT
 
-**Run:** monitor_entries.py (live) | **Routed:** 4× 🟢 structure (all conditional), 1× exit trail, 2× not routed
-**Data note:** TradingView feed timed out → Google Finance fallback for 2 symbols; intraday volume ratios session-adjusted.
+**Run:** monitor_entries.py (live) | **Routed:** 2× 🟢 structure (both conditional), 1× exit trail, 2× not routed
+**Data note:** TradingView feed timed out → fallback quotes; US session only ~30 min old, so volume ratios (0.03–0.09x) are partial-session and no daily close exists yet.
 
 ---
 
@@ -9,63 +9,37 @@
 
 **None — no confirmation triggers printed this run.**
 
-All four 🟢 verdicts are structure-only: volume 0.00–0.05x across the board (confirmation requires >1x), no SOS bar, and three of four prices sit outside their entry bands. Routed to experts as conditional setups below.
+Both 🟢 verdicts are structure-only: no SOS bar, no close, volume far below 1.0x, and GEV is still outside its band. Routed as conditional setups below.
 
 ---
 
 ## 🟡 Conditional Setup — Trigger Not Printed
 
 ### GOOG
-- **Setup:** Uptrend — price $348.74 sitting on SMA100 $349.97, 1.8% above 60d VPOC $341.60, SMA20 rising ($339.7 → $342.6)
-- **Trigger needed:** Green close ≥ $349.97 on volume >1x (SOS bar). Volume now 0.01x — drift, no participation
-- **Planned:** Entry $348.35–356.25 | Stop $332.88 | TP $381.81 | R:R ≈ 2.0
+- **Setup:** UPTREND — price $349.83 sitting exactly on SMA100 $349.98, above SMA20 $342.65 / SMA50 $343.25. Ascending lows 332.65 → 339.15 → 341.70 → 346.88 → 348.06. RSI 52.4 neutral, 5d 1🔴/4🟢, 6mo range 313.69–404.47
+- **Trigger needed:** Green close ≥ $350 on volume ≥1.0x (16.3M sh) — SOS bar confirming acceptance above SMA100. Now vol 0.09x = drift, no participation. **NOT PRINTED**
+- **Planned:** Entry $348.35–356.25 | Stop $332.62 | TP1 $367.00 (1.5R) | TP2 $381.81 | R:R ≈ 1.9
 
 | Expert | Verdict | Key finding |
 |---|---|---|
-| 🔢 Thorp | **NO BET** (conf: high) | R:R 2.08 → breakeven WR 33%. EV @45% WR = +0.39R, half-Kelly ≈ 0.09 — economics fine, but 0.01x volume means there is no signal to evaluate yet |
-| 📊 Wyckoff | **NEUTRAL** | Phase E markup pullback (Back Up) into SMA100/VPOC confluence — textbook test, but no SOS bar. Wait for the test to hold |
-| 🧬 Medallion | **WEAK SIGNAL** | 3/9 factors aligned (trend, SMA stack, momentum); volume factor dead. Single-ticker n=1 → no statistical significance |
+| 🔢 Thorp | **NO BET** (conf: medium) | R:R 1.9 → breakeven WR 34%; EV @45% WR ≈ +0.30R, half-Kelly ≈ 0.07. Economics fine — but with 0.09x volume and no close there is no signal to evaluate yet. Logical basis = trend continuation only, no structural edge. Score 22/40 → paper only |
+| 📊 Wyckoff | **NEUTRAL-BULLISH** | Phase E markup out of the Oct-1 SC ($332.65), current action = Back Up into the SMA100/HVN. Acceptance above $350 with volume → $356 then $381. Loss of $341.70 → back to range, bias flips |
+| 🧬 Medallion | **WEAK SIGNAL** | 4/9 factors (trend, higher lows, SMA stack, momentum +5) / dead volume, neutral RSI (no edge), mid-range position. n=1 asset, no OOS, t-stat n/a — the missing volume leg is exactly what separates signal from noise |
 
 **Consensus: WAIT 3/3** — budget $2,500 held in reserve, $0 deployed.
 
-### RDDT
-- **Setup:** +6.9% 5d bounce off $142–145 base, reclaimed SMA50 $154.44, now at Fib 61.8% zone $160–165 (60d VPOC $158 = acceptance)
-- **Trigger needed:** Green close > SMA100 $164.84 on >1x volume, THEN price must reach band $171.11–179.58. Price $160.62 still below band
-- **Planned:** Entry $171.11–179.58 | Stop $156.69 | TP $207.00 | R:R ≈ 1.7
-
-| Expert | Verdict | Key finding |
-|---|---|---|
-| 🔢 Thorp | **NO BET** (conf: medium) | R:R 1.70 → breakeven WR 37%. EV @45% = +0.22R, half-Kelly ≈ 0.06. Decent economics — but price hasn't reached the band, so no trade exists |
-| 📊 Wyckoff | **NEUTRAL (accumulation lean)** | Higher lows from $140 base = potential Phase D; 61.8% retrace = overhead supply. Needs SOS above $164.84 to confirm |
-| 🧬 Medallion | **WEAK SIGNAL** | 4/9 factors (trend, reclaim, momentum, Fib) but below SMA100 + 0.02x volume. +6.9% in 5d on dead volume = thin move |
-
-**Consensus: WAIT 3/3** — $0 deployed.
-
-### MRVL
-- **Setup:** +23.7% 20d markup, 87% of 3m range, 2d green streak — but price $275.33 is **~20% above 60d VPOC $229.02** and $27 above the band top
-- **Trigger needed:** Pullback INTO band $232.08–248.41 (value area). No chase above the band
-- **Planned:** Entry $232.08–248.41 | Stop $202.62 | TP $301.27 | R:R ≈ 1.6
-
-| Expert | Verdict | Key finding |
-|---|---|---|
-| 🔢 Thorp | **NO BET** (conf: high) | Chasing 20% above value destroys the edge. In-band entry: R:R 1.62, EV +0.18R @45%, half-Kelly ≈ 0.06 — marginal even at plan levels |
-| 📊 Wyckoff | **NEUTRAL** | Late Phase E markup; last 10 sessions stall below 3m high $286.95 = possible Shortening of Thrust. Don't buy extension |
-| 🧬 Medallion | **WEAK SIGNAL** | Momentum strong but extension above VPOC is mean-reversion risk, not trend edge. Overfit risk high on 1 hot stretch |
-
-**Consensus: WAIT 3/3** — $0 deployed.
-
 ### GEV
-- **Setup:** +13.4% 20d uptrend pulling into SMA50 $968.82 + 60d VPOC $971.95 + SMA100 $996.82 confluence; Fib zone $1004.62–1036.80
-- **Trigger needed:** Price must first RISE into band $1004.62–1036.80 and print a green close on >1x volume. Now $995.99 (below band), vol 0.00x
-- **Planned:** Entry $1004.62–1036.80 | Stop $937.39 | TP $1140.99 | R:R ≈ 1.4
+- **Setup:** UPTREND — price $999.80 is **below** the Fib band, holding SMA100 $996.86 (SMA20 $964.66 / SMA50 $968.90 below). Markup 856 → 1195.94; Oct 6 SOS bar to $1052.78 on 1.21x vol, now backing up. RSI 65.2 stretched, vol 0.05x
+- **Trigger needed:** Price must first reclaim $1004.62 and print a wide-range green close ≥$1010 on ≥1.0x vol (2.1M sh). **NOT PRINTED** (price below band)
+- **Planned:** Entry $1004.62–1036.80 | Stop $937.32 | TP $1140.99 | R:R = 2.03R at low band, **only 1.05R at high band** — entry placement is the whole trade
 
 | Expert | Verdict | Key finding |
 |---|---|---|
-| 🔢 Thorp | **NO BET** (conf: medium) | R:R 1.44 → breakeven WR 41%. EV +0.10R @45% — thinnest of the four, half-Kelly ≈ 0.03. Fails Thorp's "better than the index?" bar without a trigger |
-| 📊 Wyckoff | **NEUTRAL** | Pullback to value (VPOC/SMA50) = healthy Back Up in markup, but today's bar is a low-volume lower-high test — no SOS |
-| 🧬 Medallion | **WEAK SIGNAL** | 3/9 factors; good confluence zone, zero volume participation → no confirmation |
+| 🔢 Thorp | **NO BET** (conf: medium) | Breakeven WR 33% at $1004.62 vs 49% at $1036.80 — same "setup", opposite expectancy. No structural edge; buying a 40% run at RSI 65 is momentum-chasing. EV +0.10R @45% at low band only, half-Kelly ≈ 0.03 — thinnest of the two. Score 21/40 |
+| 📊 Wyckoff | **NEUTRAL** | Markup pullback, not accumulation. Oct 6 = SOS; today = Back Up testing broken structure + SMA100. Hold $996.86 → continuation; lose $973/$964 → deeper markdown. Cannot anticipate with a limit order |
+| 🧬 Medallion | **WEAK SIGNAL** | 3/9 factors; adverse RSI 65, price outside band, 5d mixed (2🔴/3🟢), momentum fading since Oct 7, zero volume participation → no confirmation |
 
-**Consensus: WAIT 3/3** — $0 deployed.
+**Consensus: WAIT 3/3** — $0 deployed. Prefer low band only; skip if it runs to $1036 without you.
 
 ---
 
@@ -73,13 +47,14 @@ All four 🟢 verdicts are structure-only: volume 0.00–0.05x across the board 
 
 | Ticker | Action | Exit Price | P&L | Notes |
 |---|---|---|---|---|
-| ZS (15 sh @ $150) | **HOLD — TRAILING** | $235.66 (trail stop $217.26) | +57.1% (+$1,284.90) | 2×ATR trail. New 3M high $235.02, Stoch 98.8 / RSI 66.7 overbought. Floor if stopped: **+$1,008.90 (+44.8%)** |
+| ZS (15 sh @ $150) | **HOLD — TRAILING** | last $231.82 (trail $212.90) | +54.5% (+$1,227.30) | Gapped to 3M high $237.22 then faded to $230.55; Stoch 89 overbought. Let run |
 
-- **Wyckoff:** Phase E markup, no SOW bar → no distribution evidence. Let profits run
-- **Medallion:** momentum STRONG (+4), +16.5% 5d → hold. But 0.04x volume + 3M-high resistance $236.26 = do not add
-- **Thorp:** giving back ~7.8% to the trail is the cost of the trend; expectancy positive while regime intact. No action
+- **⚠️ Trail ratchet flaw:** script recomputes 2×ATR off *current* price — trail dropped $217.26 (20:35 run) → $212.90 as price pulled back. A trailing stop must never move down. **Hard floor = $217.26 → locks ≥ +$1,008.90 (+44.8%)**
+- **Wyckoff:** Phase E markup, no SOW bar on the fade from $237 → distribution not confirmed. Let profits run
+- **Medallion:** momentum STRONG (+5) → hold; but 0.14x volume at 3M-high resistance = do not add
+- **Thorp:** giving back ~8% from peak to the trail is the cost of the trend; expectancy still positive while regime intact. No action
 
-**Not routed this run:** OPEN (⏳ squeeze watch — downtrend at 3M low; trigger: green close + vol>1.3x), ACMR (🔴 wait — below all SMAs; needs close > $74.16).
+**Not routed this run:** OPEN (⏳ squeeze watch — RSI 14.4 at 3M low $2.11, trigger: green close + vol>1.3x), ACMR (🔴 wait — below all SMAs, needs close > $74.16). RDDT/MRVL no longer emitting 🟢 (still outside their bands per the 20:35 run — unchanged).
 
 ---
 
@@ -87,10 +62,8 @@ All four 🟢 verdicts are structure-only: volume 0.00–0.05x across the board 
 
 | Ticker | Entry | Stop | TP1 | TP2 | R:R | Trigger State | Expert Consensus | Budget $2,500 |
 |---|---|---|---|---|---|---|---|---|
-| GOOG | $348.35–356.25 | $332.88 | $381.81 | — | 2.0 | ❌ NOT PRINTED (vol 0.01x) | WAIT 3/3 | $0 deployed |
-| RDDT | $171.11–179.58 | $156.69 | $207.00 | — | 1.7 | ❌ NOT PRINTED (price below band) | WAIT 3/3 | $0 deployed |
-| MRVL | $232.08–248.41 | $202.62 | $301.27 | — | 1.6 | ❌ NOT PRINTED (price above band) | WAIT 3/3 | $0 deployed |
-| GEV | $1004.62–1036.80 | $937.39 | $1140.99 | — | 1.4 | ❌ NOT PRINTED (vol 0.00x) | WAIT 3/3 | $0 deployed |
-| ZS | — (hold) | $217.26 trail | — | — | — | ✅ TRAILING ACTIVE | HOLD 3/3 | +57.1% running |
+| GOOG | $348.35–356.25 | $332.62 | $367.00 | $381.81 | 1.9 | ❌ NOT PRINTED (close ≥$350 + vol ≥1.0x needed) | WAIT 3/3 | $0 deployed |
+| GEV | $1004.62–1036.80 | $937.32 | $1070.50 | $1140.99 | 2.03 (low band) | ❌ NOT PRINTED (price $999.80 below band) | WAIT 3/3 | $0 deployed |
+| ZS | — (hold) | **$217.26 hard floor** (script: $212.90) | — | — | — | ✅ TRAILING ACTIVE | HOLD 3/3 | +54.5% running |
 
-**Bottom line:** 0 entries, 0 exits. Four structures are healthy but every volume reading is ≤0.05x — the market is not confirming anything today. ZS trail holds at $217.26 (locks ≥ +44.8%). Next run: GOOG close vs $349.97 and RDDT close vs $164.84, both on >1x volume.
+**Bottom line:** 0 entries, 0 exits. Both structures are healthy but nothing is confirmed — partial session + volume ≤0.09x. ZS floor fixed at $217.26 (locks ≥ +44.8%). Next run: GOOG close vs $350 and GEV reclaim of $1004.62, both on >1x volume.
