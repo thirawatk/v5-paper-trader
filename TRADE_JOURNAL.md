@@ -46,7 +46,7 @@
 | Sizing | risk$ ÷ $19.78 (1% account risk) · gate must pass ≥ +0.50 |
 
 - **🛑 Kill: SL hit → full exit, no averaging** (old weekly <$228.46 invalidation retired)
-- Funding: NVDU total $4,333.21 + ZS exit proceeds · remainder in SMH/SOXX
+- Funding: **cash $1,922** (Oct 10) + ZS exit proceeds · remainder in SMH/SOXX
 - Supersedes: 1–2yr staged plan (3 tranches, $380/$447 targets) → `mksi_longterm_report.md` still valid for entry zones
 - Log: `trade_journal.json → planned_trades[0]` (MKSI-SW-1)
 

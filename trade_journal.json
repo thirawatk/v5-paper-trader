@@ -152,9 +152,14 @@
         "TP recalc from ACTUAL fill, not plan example",
         "Whipsaw risk: 3.5%/day ATR -> expect multiple stop attempts; re-enter only at zone retests"
       ],
-      "funding": "NVDU proceeds $4,333.21 (in hand) + ZS exit proceeds",
+      "funding": "Cash $1,922 (user-confirmed Oct 10, post-AMZN entry) + ZS exit proceeds when trimmed",
       "parking": "remainder in SMH/SOXX (Thorp default)",
       "reports": "mksi_longterm_report.md (original 1-2yr panel, superseded for sizing/exit by this revision)"
     }
-  ]
+  ],
+  "cash_available": {
+    "amount": 1922.0,
+    "as_of": "2026-10-10",
+    "source": "user-confirmed"
+  }
 }
