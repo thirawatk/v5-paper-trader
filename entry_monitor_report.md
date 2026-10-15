@@ -1,64 +1,68 @@
-# 📡 Entry Monitor Report — Thu 15 Oct 2026 22:00 ICT
+# 📡 Entry Monitor Report — Fri 16 Oct 2026 03:00 ICT
 
-> 🕥 **Mid-session run** — US session 23% in (20:30 ICT open → 03:00 ICT close). Every volume ratio below is **partial-session**; full-day pace estimate in brackets. All entry triggers are **close-based → judged at 03:00 ICT**.
-> 🆕 **State changes vs the 21:05 report:**
-> - **RDDT 🆕 back on the board with a 🟢 UPTREND verdict** — first appearance since Oct 14 (absent 22:05 / 03:12 / 21:05). **$155.56 (+4.68%)**, reclaimed SMA50 $154.22, RSI 55.3, 3/5 green. But price sits **$5.76 (3.6%) BELOW its own entry band $161.32–167.49** (fib50–fib382) — the planned zone was never re-entered — so **trigger NOT printed → conditional**.
-> - **OPEN crossed back ABOVE its own $2.00 stop line** — $2.06 (+3.52%) vs $1.98-red at 21:05. Trigger halves: **green OK (in progress)**, volume **0.4x partial ≈ 1.7x full-day pace vs the >1.3x required** — both halves tracking for the first time today (was 0/2). The close still decides.
-> - 🚨 **AMZN exit still UNEXECUTED 90 min into the session** — $252.85, −2.6% (−$67). POSITIONS still carries 10 sh. Hard stop $248.25 = **1.8% below**; plan-invalidation zone still breached ($252.85 ≤ $256.68).
-> - ZS trail floor **fell $200.51 → $199.22** (price −$1.29, blind 2×ATR ratchet) — gap to the intended ratcheted floor $210.24 widened to **$11.02/sh = $165.30 surrendered on 15 sh** (was $145.95 at 21:05).
-> - GOOG slipped **further** from its reclaim: $346.42 → **$344.67**, now **$3.68 under band bottom $348.35** (was $1.93) and $4.20 under SMA100 $348.87 — yesterday's SOW repair is stalling. 📏 class, not routed.
-> - CRWV volume accelerating: **1.32x at 23% of session ≈ 5.7x full-day pace** on −5.02% (RSI 21.4 / Stoch 8.8) — climax-grade tape, still no green reclaim. Not routed (downtrend class).
-> - GDDY $106.60 (was $107.62), RSI 68.6 — still ~10.9% above its band, verdict unchanged. MRVL no longer alerting (plan already voided at 21:05). ACMR $56.70 (−7.2%), still a knife.
+> 🕛 **Session close run** — US session just ended (20:30 → 03:00 ICT). All closes below are FINAL for Oct 15.
+> 🆕 **State changes vs the 22:00 report:**
+> - ⚡ **OPEN trigger HALVES 1/2 → 2/2 PRINTED** — first completed trigger on the board in days. Green close **$2.32 (+16.58%)**, low $1.93 = exact 3M low touch, close in the upper third of the range; volume **65.96M = 2.09x** 20d avg (31.58M). Both plan halves met. **But the plan's second gate (a Phase A range: SC→AR→ST) is absent and all three experts pre-committed NO ENTRY** → routed, verdict below, $0. (The monitor script itself stayed silent: its reversal line needs price ≥0.98×SMA20 = $2.3304; close $2.32 missed by **1 cent**. Caught manually.)
+> - 🚨 **AMZN exit now 2 sessions overdue** — second consecutive close below invalidation: **$254.71 < $256.68**. Yesterday's "sell at the open" order still unfilled (would have filled $250.50; waiting is +$42 vs that — luck, not a plan). **Sell at tonight's open (Fri 16 Oct 20:30 ICT), market order, no discretion.**
+> - **RDDT gap to its band halved $5.76 → $1.95** — $159.37 (+7.22%) — but **full-session volume came in at 0.66x**, i.e. below average: the rally ran on thin tape. Trigger still fails BOTH halves (close <$161.32, vol <1.0x).
+> - **MRVL 🆕 back on board** — reclaimed the plan zone: $241.39 **AT SMA50 $240.70**, RSI 39.7, Fib $232.08–248.41 (was "plan dead" at 21:05 after falling to $231.84). Confirmation **fails**: MACD hist **−4.24 and falling** (needs >0) → not routed.
+> - **MKSI 🆕 alerting** $228.51 (−2.55%, 1.67x vol) with a stop-zone line — `trade_journal` status is still **PLANNED, no position exists**, so the SL warning is moot; but price is now $26–45 below the entire $255–274 plan zone → plan inactive unless reclaimed.
+> - **ZS trail recovered** $199.22 → **$201.09** with price back to $220.38; protection surrendered vs the intended ratchet narrows **$165.30 → $137.25**.
+> - **CRWV V-reversed**: $62.48 (−5.02%) → **$69.67 (+5.91%) on 3.21x vol** — still below all SMAs (SMA20 $83.96), knife class, not routed. GDDY still 11.7% above its band (RSI 69.5, vol 0.36x). GOOG gap to band narrowed $3.68 → $3.47 (still 📏).
 
 ---
 
 ## 🟢 Entry Triggered
 
-**None — no confirmation triggers printed this run. $0 deployed to new entries.**
-RDDT is *below* its own band, GDDY is 10.9% *above* its band, OPEN's close cannot print for ~5 hours, GOOG is 📏 below its reclaim level, ACMR/CRWV are downtrend knives.
+### OPEN (Opendoor) — trigger PRINTED, expert gate BLOCKS entry
+
+- **Setup:** Downtrend/markdown at the 3M low, squeeze context intact (OI P/C 0.17, call walls $3/$4/$5). Oct 15 bar: open $1.96, low **$1.93 = exact 3M low**, high $2.35, close **$2.32 (+16.58%)** — wide-range bar closing in the upper third, RSI 20.7 → 38.9, MACD hist turned **+0.016**, Stoch 63.9. Still below ALL SMAs: $2.378 / $2.896 / $3.693 (**−37.2% vs SMA100**).
+- **Trigger: ✅ PRINTED** — plan required green close AND volume >1.3x 20d avg: green close ✓ (+16.58%), volume **65.96M = 2.09x** ✓ (both halves, previously 1/2). Price is **through** the $2.15–2.25 stop-entry zone (closed $2.32, $0.07 above it).
+- **Plan's second gate: ❌ ABSENT** — entry was conditioned on a Phase A range (SC → AR → ST) before any Spring is tradeable. One bar is not a range. No stop order was ever placed.
+- **Planned levels (only if a range forms AND ST holds):** Stop-entry $2.15–2.25 (or above the ST/Spring candle high) | Stop $2.00 | TP1 $2.45 | TP2 $3.00 | **R:R 0.8R (TP1 from $2.25) – 5.7R (TP2 from $2.15)**
+
+| Expert | Verdict | Score |
+|---|---|---|
+| Thorp | **NO BET (confidence: high)** — unchanged from 22:00 and the print does not move it. Edge claim would be "buy a one-day snapback in a −37%-vs-SMA100 markdown on a squeeze-OI signal": no structural/constraint reason it persists, and the party who sold you $1.93–2.00 has no information disadvantage you can name. **n=0** sampled trades from this setup → expectancy and Kelly **undefined**, not small. Friction: $0.01 spread on $2.32 ≈ **0.43% round trip** that must be cleared by a stop only $0.25–0.32 wide. Benchmark test fails: −37% vs SMA100, no quantified alpha vs SPY produced. **0% now; still 0% on this print — a range + ST test is the earliest re-consideration.** | — |
+| Wyckoff | **NEUTRAL — candidate Selling Climax, ACCUMULATION NOT CONFIRMED** — the bar is textbook SC-ingredients: exact 3M-low tap $1.93 (shakeout of the shelf), 2.09x volume, close in upper third, first positive MACD hist of the decline. But an SC is only **Phase A**: it needs AR, then ST (higher-low test) before a Spring exists to buy. Close $2.32 is still under SMA20 $2.378 — supply overhead, no base. Scenario: SC holds → AR pullback → ST holds ≥$2.00–2.15 → Spring/SOS entry. **Alternative (SOW):** rejection back below $1.99 → failed climax, markdown resumes into the vacuum under the 3M low (no 6-month volume support). | Neutral (Phase A watch) |
+| Medallion | **WEAK SIGNAL — 3/6 (up from 2/6)** — added: volume-qualified bar (2.09x), MACD cross, exact-support touch. Still fail: **0/3 MA families** (below 20/50/100), n=0 single asset, **one bar = one observation**, squeeze-OI is positioning not price, ~2yr listed history dominated by one down-regime → no t-stat >3.0, no multi-market, no out-of-sample. Fails "improves portfolio Sharpe when added". Weakest greens on the board qualify as WEAK, not deployable. | Weak |
+| **Consensus** | **NO ENTRY — Phase A watch.** Trigger printed but plan gate (range) absent + Thorp NO BET (high). Re-arm only on: range forms (AR prints) → ST holds above $2.00 → buy-stop above that structure's high. Invalidation: close back below $1.93. | |
+
+**Budget $2,500 → 0%.** (If the range gate later completes: stop $2.00, 1% = $25 → 100 sh ≈ $225 = 9% of budget — sized then, not now.)
+
+*Only trigger that printed this run. $0 deployed to new entries.*
 
 ---
 
 ## 🟡 Conditional Setup — Trigger Not Printed
 
-### RDDT (NEW on board)
-- **Setup:** Regime flipped to UPTREND — $155.56 (**+4.68%**), reclaimed SMA50 $154.22 today, above SMA20 $151.79, RSI 55.3 (neutral, not extended), 5d 2R/3G, volume 0.24x partial ≈ **1.0x full-day pace**. The alert that fired is the SMA50 reclaim. **But the plan's own demand band $161.32–167.49 straddles SMA100 $165.04 — and price is $5.76 BELOW the band bottom**, i.e. the pullback ran *through* the buy zone rather than into it, and today's bounce has not yet retaken it. Until it does, this is a repair move inside a correction, not an entry.
-- **Trigger needed:** daily close **back INSIDE the band (≥$161.32)** on **≥1.0x volume** with a green SOS bar (wide-range, close upper third) → **buy-stop above that bar's high**. NOT printed — price is $5.76 under the band bottom. **Invalidate:** close back below SMA50 $154.22.
-- **Planned levels (only on trigger):** Entry $167.49–$161.32 (mid $164.40) | Stop $147.71 | TP $187.43 (3M high) | **R:R 1.0R (top of band) – 1.9R (bottom), ~1.4R mid-band**
+### RDDT — materially closer, both halves still fail
+- **Setup:** $159.37 (**+7.22**), RSI 58.2, reclaimed SMA50 $154.29, above SMA20 $151.98, below SMA100 $165.08, 5d 2R/3G. Gap to the plan's band $161.32–167.49 **halved $5.76 → $1.95 (1.2%)**.
+- **Trigger needed:** daily close **≥$161.32** (band bottom) on **≥1.0x volume** + green SOS bar → buy-stop above that bar's high. **NOT printed — close $159.37 AND volume 0.66x: both halves fail.** The +7.2% ran on 3.48M shares vs ~5.3M average = low-volume rally into band/SMA100 supply. Invalidate: close < SMA50 $154.29.
+- **Planned levels (only on trigger):** Entry $167.49–$161.32 (mid $164.40) | Stop $147.48 | TP $187.43 | **R:R 1.0–1.9R (~1.4R mid)**
 
 | Expert | Verdict | Score |
 |---|---|---|
-| Thorp | **NO BET (confidence: medium-high)** — the edge claim would be "buy the pullback in an uptrend," the single most crowded pattern in systematic equities: no regulatory/constraint/asymmetry reason for it to survive, and the party selling to you at $155.56 has no information disadvantage you can name. **n=0** sampled trades from this setup (RDDT alerted Oct 13/14 as conditional, never triggered) → expectancy and Kelly are undefined, not small. Benchmark test fails as written: a long-only momentum entry in a high-beta growth name is a beta position, and no quantified excess return over SPY has been produced. **0% now; at most 1% (1 share) only after the reclaim prints.** | — |
-| Wyckoff | **NEUTRAL — pre-SOS, no accumulation confirmed** — fractally: a minor uptrend nested inside the larger correction from the $187.43 3M high, price parked *between* SMA50 (last leg's supply now flipped to demand) and SMA100 $165.04 = the overhead HVN/mean. Today's +4.68% reclaim is a *candidate* SOS but it is **one bar on ~1.0x pace — not initiative volume**, so Phase D cannot be called. Scenario: reclaim $161.32–167.49 (which contains SMA100) on an SOS bar → continuation toward $187.43. **Alternative:** rejection at the band/SMA100 → retest SMA20 $151.79, then the pullback low; if that low fails the whole bounce reclassifies as distribution. | Neutral |
-| Medallion | **WEAK SIGNAL — 3/6 with heavy redundancy** — OK: UPTREND regime, above SMA20, SMA50 reclaimed, 3/5 green. Fail: below SMA100, price *outside* its own entry band, volume only ~1.0x (no initiative). **Independence problem:** regime + SMA20 + SMA50 are all moving-average derivatives = one signal family counted three times; real independent families here are 2 of 3 (trend yes, momentum neutral, volume no). n=0, single asset, RDDT has under two years of listed history dominated by one regime → no t-stat >3.0, no out-of-sample, high multiple-hypothesis risk on a textbook pattern. Would not measurably improve portfolio Sharpe today. | Weak |
-| **Consensus** | **WAIT — 0% now. Trigger = close ≥$161.32 on ≥1.0x vol + SOS bar, then buy-stop above it. Below $154.22 the setup is dead.** | |
+| Thorp | **NO BET (confidence: high)** — gap narrowed but both halves fail, and volume disqualifies the move: a +7.2% day on 0.66x has no participation behind it, which is exactly the low-volume rally into supply that mean-reverts. **n=0** from this setup → expectancy/Kelly undefined. No structural edge claim for "buy a pullback in an uptrend," crowded pattern, benchmark not beaten (still under SMA100). **0% now; 1 share max (0.68% risk) only after BOTH halves print.** | — |
+| Wyckoff | **NEUTRAL — pre-SOS, candidate rejected on volume** — fractally a minor uptrend inside the larger correction from $187.43; price sandwiched between SMA50 $154.29 (demand) and SMA100 $165.08 + band (overhead HVN/mean). A Phase D SOS requires **initiative volume**; 0.66x is not it. Scenario: reclaim $161.32–167.49 on volume → continuation toward $187.43. **Alternative:** rejection at band → retest SMA20 $151.98; lose SMA50 $154.29 and the bounce reclassifies as distribution (LPSY). | Neutral |
+| Medallion | **WEAK SIGNAL — 3/6, heavy redundancy** — regime + SMA20 + SMA50 are one MA family counted three times; independent families: trend ✓, momentum neutral (RSI 58.2), **volume ✗ (0.66x)**, structure ✗ (outside band). n=0, <2yr history, single regime, no t-stat, textbook pattern = high multiple-hypothesis risk. Would not measurably improve portfolio Sharpe today. | Weak |
+| **Consensus** | **WAIT — 0%.** Trigger = close ≥$161.32 on ≥1.0x vol + SOS bar, then buy-stop above it. Below $154.29 setup dead. | |
 
-**Budget $2,500 → 0% now.** On trigger: 1 share ≈ $164, risk $16.69 = **0.67% — inside the 1% rule** (2 shares = 1.34%, too much).
+**Budget $2,500 → 0%.** On trigger: 1 share ≈ $164, risk $16.92 = **0.68% — inside the 1% rule** (2 shares = 1.36%, too much).
 
-### OPEN (Opendoor) — trigger halves moved 0/2 → 1/2
-- **Setup:** $2.06 (**+3.52%**), RSI 20.7 / Stoch 21.3 (still the deepest oversold zone), 3M low $1.93 6.3% below, 5d 3R/2G, MACD hist 0.0, price back **above** the plan's $2.00 stop line (it was $1.98 — *under* its own stop — at 21:05, so stop placement is valid again). Volume 0.4x partial ≈ **1.7x pace vs the >1.3x needed**. Squeeze context intact (OI P/C 0.17, call walls $3/$4/$5) — that is positioning, not structure.
-- **Trigger needed:** green close **AND** volume >1.3x 20d avg → **1/2 halves so far (green in progress; volume on pace, unknowable until the close)**. Expert addendum still binds: even with both halves, a Phase A range (SC/AR/ST) must form before any Spring is tradeable.
-- **Planned levels (only if trigger prints AND a range forms):** Stop-entry $2.15–$2.25 | Stop $2.00 (valid again — price above it) | TP1 $2.45 (SMA20 $2.36) | TP2 $3.00 (call wall) | R:R 0.8–5.7R
-
-| Expert | Verdict | Score |
-|---|---|---|
-| Thorp | **NO BET (confidence: high)** — unchanged, and the green tape does not move it: buying a −44%-vs-SMA100 markdown on a squeeze-OI signal is a crowded zero-sum bet where the call positioning *is* the trade, not evidence of one; base rates for catching a markdown in progress are negative; **n=0** → expectancy and Kelly undefined; $0.01 spread on a $2.06 stock ≈ **0.49% round trip** that any real edge must clear first. 0% now → **0% even if both halves print.** | — |
-| Wyckoff | **NEUTRAL — Phase A watch (SC candidate); was distribution-bear** — today's +3.52% off the $1.93–2.00 shelf on ~1.7x pace is the first tape today that *could* be a Selling Climax, which is why the read moves off hard-bear. But an SC is only Phase A: it needs AR then ST (a higher-low test) before a Spring exists to trade. Both halves printing = **watch for a range**, not an entry. **SOW alternative:** expanding-volume break below $1.93 → vacuum below, no 6-month volume support. | Neutral |
-| Medallion | **NOISE — 2/6** — OK: extreme oversold (RSI 20.7 / Stoch 21.3), green day with volume on pace. Fail: below ALL SMAs, −44% vs SMA100 with no base, no structure/range, squeeze-OI is positioning not price. Crowded meme-squeeze bet, no t-stat, single asset, would drag portfolio Sharpe — fails the "improves Sharpe when added" test. | Noise |
-| **Consensus** | **WAIT / NO BET — even a full trigger print only buys a Phase A watch. Re-arm only on: green close + >1.3x vol, THEN a range.** | |
-
-**Budget $2,500 → 0% now → 0% on trigger (Thorp NO BET regardless of the print).**
-
-### GDDY — carried (no state change)
-$106.60 (+3.13%), RSI 68.6, 3d green streak, 1R/4G — still **10.9% above** its demand band $91.72–96.12 (was 12.0%). Trigger = pullback INTO $96.12–91.72 + green SOS bar, buy-stop above its high. **NOT printed.** Experts carried from 21:05: Thorp **NO BET (high)** / Wyckoff **Phase-E markup but NEUTRAL at this price** / Medallion **WEAK** → **WAIT, $0.** On trigger: 2 shares ≈ $188, risk 0.78% — inside the rule.
+### GDDY — carried (verdict unchanged, participation worsened)
+$107.32 (+3.83%), RSI **69.5** (overbought), volume **0.36x** (weakest on the board), 3d green streak — now **11.7% above** its demand band $91.72–96.12. Trigger = pullback INTO band + green SOS bar → **NOT printed.** Experts carried: Thorp **NO BET (high)** — chasing +3.8% at RSI 69.5 on 0.36x volume has no edge claim, n=0, 0%; Wyckoff **Phase-E markup but NEUTRAL at price** — low-volume markup, expect a BUEC back-up into the SMA20/50 cluster $98.06–99.55; Medallion **WEAK (volume + extension fails)** → **WAIT, $0.** On trigger: 2 shares ≈ $188, risk 0.78% — inside the rule.
 
 ### GOOG — not re-routed (testing-support class)
-$344.67 (+0.30%), $3.68 under band bottom $348.35 and $4.20 under SMA100 $348.87 — the gap to its own reclaim *widened* since 21:05. Trigger (close ≥$356.25 on ≥1.0x vol) receded; prerequisite is reclaiming $348.35 → $348.87 first. Carried verdicts: Thorp **NO BET (high)** / Wyckoff **SOW → neutral-bear ST** / Medallion **NOISE** → WAIT.
+$344.88 (+0.36%), gap to band bottom $348.35 narrowed $3.68 → **$3.47**; SMA100 $348.87 still overhead. Trigger (close ≥$356.25 on ≥1.0x vol) receded; prerequisite = reclaim $348.35 → $348.87 first. Carried: Thorp **NO BET (high)** / Wyckoff **SOW → neutral-bear ST** / Medallion **NOISE** → WAIT.
+
+### MRVL (NEW on board) — not routed (NEAR ENTRY class, confirmation fails)
+$241.39 (−1.59%) **AT SMA50 $240.70**, RSI 39.7, Fib zone $232.08–248.41 — the plan zone it fell through at 21:05 ($231.84 low) has been reclaimed. **Confirmation required by the plan: MACD hist >0 — actual: −4.24 and falling → trigger NOT printed, not routed.** Planned levels if it later confirms: Entry $240.70 | Stop $216.02 | TP1 $263.98 | TP2 $268.64.
 
 ### Not routed
-- **ACMR** $56.70 (−7.23%), RSI 22.7 / Stoch 6.3 — downtrend knife below all SMAs; needs a green close above SMA20 $73.39. No market-buy.
-- **CRWV** $62.48 (−5.02%) — capitulation watch on **~5.7x full-day volume pace**; needs a green close + reclaim before it becomes a setup.
-- **MRVL** — no longer alerting; plan already voided (price fell through $240.09 to $231.97 at 21:05).
+- **MKSI** $228.51 (−2.55%, 1.67x vol), RSI 31.6 — stop-zone line fired, but `trade_journal` = **PLANNED / no position** → nothing to exit. Plan zone $255–274 sits $26–45 above price; price $0.05 above the retired weekly level $228.46. Plan inactive; needs reclaim before any re-plan.
+- **ACMR** $58.09 (−4.96%), RSI 23.5 / Stoch 10.7 — downtrend knife below all SMAs; needs green close > SMA20 $73.46. No market-buy.
+- **CRWV** $69.67 (**+5.91%** vs −5.02% at 22:00) on **3.21x vol**, RSI 29.8 — V-reversal off the retrace, but still 20% below SMA20 $83.96 → capitulation watch, needs reclaim before it becomes a setup.
 
 ---
 
@@ -66,8 +70,8 @@ $344.67 (+0.30%), $3.68 under band bottom $348.35 and $4.20 under SMA100 $348.87
 
 | Ticker | Action | Exit Price | P&L | Notes |
 |---|---|---|---|---|
-| AMZN | **EXIT STILL UNEXECUTED** | now **$252.85** | **−2.6% (−$67.00, 10 sh)** | The 03:12 rule (close $254.13 < invalidation $256.68 → sell at the 20:30 open) is **90 minutes old and still not filled** — POSITIONS still lists 10 sh. Regime **DOWNTREND**, RSI 53.7, Stoch 42.8, momentum +2. Hard stop **$248.25 = 1.8% below** (−4.4%, −$113 if reached); invalidation zone still breached. Price improved $1.44 vs 21:05 ($251.41 → $252.85) — waiting has cost nothing *so far*, which is luck, not a plan. **Action: confirm/execute now.** Experts carried: Thorp **exit = the bet** (pre-committed rule beats discretion) · Wyckoff **SOW confirmed, supply controlling** · Medallion **remove**. |
-| ZS | **TRAILING — HOLD** | — (mark $218.50) | **+45.7% ($+1,027.50, 15 sh)** | Trail stop **$199.22** (2×ATR $9.64 below price) — down $0.54 from $200.51 as price pulled back $1.29. Still **$11.02/sh under the intended ratcheted floor $210.24 = $165.30 of protection surrendered** (was $145.95). RSI 68.3, momentum STRONG +6, TPs long since hit → let profits run. One-line ratchet fix still awaiting go. |
+| AMZN | **SELL AT NEXT OPEN — now 2 sessions overdue** | close **$254.71** | **−1.9% (−$48.40, 10 sh)** | Second consecutive close below invalidation **$256.68** ($254.08 then $254.71). The 03:12 rule (sell at the open) was **not filled at the Oct 15 open $250.50** and price closed at $254.71 — waiting is +$42 vs that fill, which is luck, not the plan. Regime improved to BOUNCE (RSI 55.9, momentum +5) — irrelevant to a pre-committed rule. Hard stop **$248.03** (would be −$115) sits 2.6% below. **Execute: market sell at Fri 16 Oct 20:30 ICT open.** Experts: Thorp **exit = the bet** (rule beats discretion) · Wyckoff **supply still capping, close under invalidation** · Medallion **REMOVE**. |
+| ZS | **TRAILING — HOLD** | mark $220.38 | **+46.9% ($+1,055.63, 15 sh)** | Trail stop **$201.09** (2×ATR $9.64 below price) — recovered $0.87 from $199.22 as price bounced. Still **$9.15/sh under the intended ratcheted floor $210.24 = $137.25 surrendered** (was $165.30). RSI 70.2, momentum STRONG +5, TPs long since hit → let profits run. One-line ratchet fix still awaiting go. |
 
 ---
 
@@ -75,12 +79,12 @@ $344.67 (+0.30%), $3.68 under band bottom $348.35 and $4.20 under SMA100 $348.87
 
 | Ticker | Entry | Stop | TP1 | TP2 | R:R | Trigger State | Expert Consensus | Budget $2,500 |
 |---|---|---|---|---|---|---|---|---|
-| **RDDT** (new) | $167.49–$161.32 (close ≥$161.32 + SOS bar ≥1.0x) | $147.71 | — | $187.43 | 1.0–1.9R | **NOT PRINTED — $155.56, $5.76 below band bottom** | WAIT — Thorp NO BET (med-high) / Wyckoff neutral pre-SOS / Medallion weak | $0 (1 share = 0.67% on trigger) |
-| **OPEN** | $2.15–2.25 stop-entry (after a range forms) | $2.00 (valid again) | $2.45 | $3.00 | 0.8–5.7R | **NOT PRINTED — 1/2 halves (green in progress, vol 0.4x partial ≈1.7x pace)** | WAIT / NO BET — Thorp high / Wyckoff SC-candidate with no structure / Medallion noise | $0 |
-| GDDY | $96.12–91.72 + green SOS bar | $84.23 | — | $110.35 | 1.7R | **NOT PRINTED — $106.60, 10.9% above band** | carried: Thorp NO BET / Wyckoff neutral-at-price / Medallion weak | $0 |
-| GOOG | $348.35 → $356.25 (reclaim first) | $332.56 | $365 | $381.81 | 1.5R | **NOT PRINTED — $344.67, gap to band widened $1.93 → $3.68** | carried: NO BET / SOW→neutral-bear / noise | $0 |
-| MRVL (dead) | $240.09 — LOST | void | $263.95 | $271.31 | — | **plan dead (fell through zone to $231.97); no longer alerting** | not routed — re-plan after news check | $0 |
-| ZS (exit) | — | trail $199.22 (intended $210.24) | — | — | — | **TRAILING HOLD — +45.7%, RSI 68.3, TPs hit** | let profits run | — |
-| AMZN (exit) | — | hard $248.25 (1.8% below); invalidation $256.68 breached | — | — | — | **EXIT UNEXECUTED 90 min — $252.85, −2.6%** | exit — verify/execute now | — |
+| **OPEN** | stop-entry $2.15–2.25 (after range) | $2.00 | $2.45 | $3.00 | 0.8–5.7R | **PRINTED — green close $2.32 +16.58%, vol 2.09x (both halves); range gate ABSENT** | **NO ENTRY** — Thorp NO BET (high) / Wyckoff SC-candidate Phase A / Medallion weak 3/6 | **$0** |
+| **RDDT** | $167.49–$161.32 (close ≥$161.32 + SOS ≥1.0x) | $147.48 | — | $187.43 | 1.0–1.9R | **NOT PRINTED — $159.37, $1.95 below band; vol 0.66x also fails** | WAIT — Thorp NO BET (high) / Wyckoff pre-SOS / Medallion weak | $0 (1 sh = 0.68% on trigger) |
+| GDDY | $96.12–91.72 + green SOS bar | $84.22 | — | $110.35 | 1.7R | **NOT PRINTED — $107.32, 11.7% above band, RSI 69.5, vol 0.36x** | carried: Thorp NO BET / Wyckoff neutral-at-price / Medallion weak | $0 (2 sh = 0.78% on trigger) |
+| GOOG | $348.35 → $356.25 (reclaim first) | $332.14 | $365 | $381.81 | 1.5R | **NOT PRINTED — $344.88, gap $3.47 below band** | carried: NO BET / SOW→neutral-bear / noise | $0 |
+| MRVL | $240.70 (needs MACD hist >0) | $216.02 | $263.98 | $268.64 | ~1.1R | **NOT PRINTED — AT SMA50 but MACD hist −4.24 falling; not routed** | not routed (NEAR ENTRY class) | $0 |
+| ZS (exit) | — | trail $201.09 (intended $210.24) | — | — | — | **TRAILING HOLD — +46.9%, RSI 70.2, TPs hit** | let profits run | — |
+| AMZN (exit) | — | hard $248.03 (2.6% below); invalidation $256.68 breached 2 closes | — | — | — | **SELL AT NEXT OPEN — $254.71, −1.9%, 2 sessions overdue** | exit — execute at 20:30 ICT | — |
 
-**Run verdict: 0 entries, 1 hard action still outstanding.** The board changed in two places and neither is an entry. **RDDT came back with a UPTREND verdict but sits $5.76 below the band that defines its own plan** — one SMA50 reclaim on ~1.0x pace is a candidate SOS, not a Phase D move, so all three experts land on WAIT (Thorp n=0 → Kelly undefined; Wyckoff pre-SOS; Medallion 3/6 where three of the ticks are the same MA family). **OPEN is the live one to watch: it climbed back over its own $2.00 stop on +3.52% with volume pacing ~1.7x, taking the trigger from 0/2 to 1/2 for the first time today** — but even a full print only buys a Phase A range watch, and Thorp stays NO BET on a squeeze-OI markdown. **The one thing that is not a watch is AMZN: the pre-committed exit fired at 03:12 and is still unfilled 90 minutes into the session at $252.85 (−2.6%, −$67), with the hard stop 1.8% underneath and the regime in DOWNTREND — confirm that fill landed.** ZS trails on at +45.7% while its blind floor slid to $199.22, widening the gap to the intended $210.24 ratchet to **$165.30** (one-line fix, still awaiting go). GOOG drifted further from its reclaim, GDDY is still 10.9% above its own, ACMR/CRWV remain knives (CRWV now on ~5.7x volume pace). Cash unchanged: **$0 of the $2,500 budget deployed.**
+**Run verdict: 1 trigger printed but blocked by its own pre-committed gate → 0 entries, 1 hard action still overdue.** OPEN completed both halves for the first time (green close off the exact 3M low $1.93, +16.58%, 2.09x volume) — yet the plan demands a Phase A range before any Spring is tradeable, and the expert panel holds: Thorp NO BET (high, n=0, −37% vs SMA100, spread eats 4% of a $0.25 stop), Wyckoff says SC-candidate-but-unconfirmed (Phase A needs AR+ST), Medallion WEAK 3/6. **$0 of $2,500 deployed.** The overdue item is AMZN: its second close printed below the invalidation line ($254.71 < $256.68) and the exit from yesterday's session was never filled — **market sell at tonight's open, hard stop $248.03 below.** ZS rides at +46.9% with its trail recovered to $201.09 ($137.25 still surrendered vs the ratcheted floor — fix awaiting go). RDDT closed the gap to its band to $1.95 but on 0.66x volume; MRVL re-entered its zone with a failing MACD confirmation; MKSI's stop-zone alert is moot (journal status PLANNED, no fill); CRWV V-reversed on 3.21x but remains a knife.
