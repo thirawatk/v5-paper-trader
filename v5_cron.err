@@ -1,0 +1,120 @@
+HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: CMA"}}}
+$CMA: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$BK: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+
+2 Failed downloads:
+['CMA', 'BK']: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$FBHS: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$DISH: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$CTRA: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$FLT: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$FRC: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$DFS: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+
+6 Failed downloads:
+['FBHS', 'DISH', 'CTRA', 'FLT', 'FRC', 'DFS']: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$JNPR: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$MMC: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$IPG: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$K: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$HOLX: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+
+5 Failed downloads:
+['JNPR', 'MMC', 'IPG', 'K', 'HOLX']: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$PEAK: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$MRO: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$PXD: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$RE: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$PKI: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$SEE: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+
+6 Failed downloads:
+['PEAK', 'MRO', 'PXD', 'RE', 'PKI', 'SEE']: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$WBA: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$WRK: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+
+2 Failed downloads:
+['WBA', 'WRK']: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+you are using nologin method, data you access may be limited
+ERROR:tvDatafeed.main:Connection timed out
+ERROR:tvDatafeed.main:no data, please check the exchange and symbol
+HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: CMA"}}}
+$CMA: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$BK: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+
+2 Failed downloads:
+['CMA', 'BK']: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$FBHS: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$DFS: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$DISH: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$FRC: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$CTRA: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$FLT: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+
+6 Failed downloads:
+['FBHS', 'DFS', 'DISH', 'FRC', 'CTRA', 'FLT']: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$JNPR: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$HOLX: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$IPG: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$MMC: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$K: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+
+5 Failed downloads:
+['JNPR', 'HOLX', 'IPG', 'MMC', 'K']: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$PEAK: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$RE: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$PKI: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$MRO: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$PXD: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$SEE: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+
+6 Failed downloads:
+['PEAK', 'RE', 'PKI', 'MRO', 'PXD', 'SEE']: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$WRK: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$WBA: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+
+2 Failed downloads:
+['WRK', 'WBA']: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+you are using nologin method, data you access may be limited
+ERROR:tvDatafeed.main:Connection timed out
+ERROR:tvDatafeed.main:no data, please check the exchange and symbol
+HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: CMA"}}}
+$CMA: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$BK: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+
+2 Failed downloads:
+['CMA', 'BK']: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$CTRA: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$FLT: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$DFS: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$FRC: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$DISH: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$FBHS: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+
+6 Failed downloads:
+['CTRA', 'FLT', 'DFS', 'FRC', 'DISH', 'FBHS']: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$MMC: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$JNPR: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$IPG: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$K: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$HOLX: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+
+5 Failed downloads:
+['MMC', 'JNPR', 'IPG', 'K', 'HOLX']: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$MRO: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$PKI: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$RE: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$PEAK: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$SEE: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$PXD: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+
+6 Failed downloads:
+['MRO', 'PKI', 'RE', 'PEAK', 'SEE', 'PXD']: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$WBA: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$WRK: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+
+2 Failed downloads:
+['WBA', 'WRK']: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+you are using nologin method, data you access may be limited
+ERROR:tvDatafeed.main:Connection timed out
+ERROR:tvDatafeed.main:no data, please check the exchange and symbol
