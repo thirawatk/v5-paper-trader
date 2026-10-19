@@ -1,18 +1,39 @@
-# 📡 Entry Monitor Report — Mon 19 Oct 2026 21:00 ICT
+# 📡 Entry Monitor Report — Tue 20 Oct 2026 03:11 ICT
 
-> ⚠️ **State changes vs 03:00 ICT report:** ZS exit signal **persists** (TP2 hit at $170.4/2.0R, MACD hist worsening to -1.31, momentum WEAK +0). **AMZN exit signal RESOLVED** — no longer firing; price recovered above $256.68 invalidation (position still OPEN per journal, exit was NOT logged/executed). **GEV NEW** signal — 🟢 green close at Fib 78.6% $917.77 support but vol 0.18× too low to confirm. **BCC dropped out** of conditional (was ⚠️ BOUNCE). **OPEN dropped out** (was carried 🔴). CRWV flipped from ⏳ CAPITULATION WATCH to 🔴 WAIT (vol normalized 2.41×→0.59×, still knife). 0 🟢 entry triggers.
+> ⚠️ **State changes vs Mon 19 Oct 21:00 ICT:** ZS exit signal **persists** (TP2 hit at $175.78/2.5R, MACD Hist worsening to -1.12, momentum NEUTRAL +2, P&L improved +39.8%→**+41.7%**). **CRWV NEW** conditional — flipped from 🔴 WAIT to ⏳ CAPITULATION WATCH (RSI 25.0/Stoch 5.5, vol spike 2.21× at 78.6% Fib). **AMZN exit RESOLVED** — no exit signal (price $262.49 > $256.68 invalidation, position still OPEN per journal). 0 🟢 entry triggers.
 
 ---
 
 ## 🟢 Entry Triggered
 
-**None — no confirmation triggers printed this run.** All live alerts are exit signals (ZS) and capitulation knives (ACMR, CRWV, GEV). 0 🟢 triggers.
+**None — no confirmation triggers printed this run.** No green close above resistance, no SOS bar with >1× volume, no MACD-confirmed entries at price level. 0 🟢 triggers.
 
 ---
 
 ## 🟡 Conditional Setup — Trigger Not Printed
 
-**None this run.** CRWV regressed to 🔴 WAIT (deep oversold Stoch 6.0 / RSI 25.4, vol 0.59×, below all SMAs — knife, no SOS bar). ACMR persists 🔴 WAIT (bounced +6.46% to $56.53 but below all SMAs, vol 0.11×). GEV new signal is 🔴 WAIT (green close at Fib 78.6%, vol 0.18× too low). 0 🟡 setups.
+### CRWV (CoreWeave) — ⏳ CAPITULATION WATCH
+
+**Setup:** AI-GPU cloud stock deep in markdown, at 78.6% Fib retracement ($71.71), 3M low $59.25, extreme oversold (RSI 25.0, Stoch 5.5), volume spike 2.21× (capitulation climax). Below all SMAs (SMA20 $81.75, SMA50 $86.44, SMA100 $89.29). Knife below structure — no market-buy.
+
+**Trigger needed (NOT printed yet):** Green daily close above SMA20 $81.75 + volume ≥1.5× avg OR SOS bar (wide-range bullish candle, close upper-third) with >1.0× vol.
+
+**Planned levels:**
+- Entry: >$81.75 (SMA20 reclaim) — buy-stop above trigger candle high
+- Stop: $53.28 (3M low $59.25, structure invalidation)
+- TP1: $86.44 (SMA50 reclaim) — 1.5R
+- TP2: $89.29 (SMA100) — 2.5R
+- R:R: ~4:1 (if entered at ~$82)
+
+#### 🧪 3-Expert Panel
+
+| Expert | Verdict | Notes |
+|--------|---------|-------|
+| 🔢 **Thorp** | **NO BET** | Capitulation watch only. No confirmed edge: RSI 25/Stoch 5.5 oversold + vol spike 2.21× = potential climax but trigger NOT printed (needs green close > SMA20). Expected value negative without confirmation (AI-beta knife = 50%+ dump risk). Kelly ≈ 0. |
+| 📊 **Wyckoff 2.0** | **CAPITULATION WATCH** | Markdown → Phase C shakeout at 78.6% Fib ($71.71). Volume spike 2.21× = climax/capitulation. Scenario: green close > SMA20 $81.75 + vol → Phase D SOS bar → enter. If < $53.28 (3M low $59.25) → Phase E breakdown, no entry. Stop: $53.28. |
+| 🧬 **Medallion** | **WEAK SIGNAL** | Only 2 confluence factors (extreme oversold + vol spike). CRWV is AI-beta — noise-to-signal ratio elevated. No statistical significance without confirmation bar. Pattern risk: 50%+ dump if capitulation fails. |
+
+**Consensus: WAIT — CAPITULATION WATCH.** CRWV deep oversold (RSI 25/Stoch 5.5) at 78.6% Fib ($71.71) with vol spike 2.21×. Trigger NOT printed — needs green close > SMA20 $81.75 + volume ≥1.5×. Stop: $53.28 (3M low $59.25). If 3M low breaks, pattern invalidated. **Budget: $0 of $2,500** — wait for trigger.
 
 ---
 
@@ -20,53 +41,51 @@
 
 | Ticker | Action | Exit Price | P&L | Notes |
 |--------|--------|------------|-----|-------|
-| **ZS** | **Take partial profits** | live **$209.67** | **+39.8% (+$895.05, 15 sh)** | TP2 hit at $170.4 (2.0R). MACD bearish (hist -1.31, worsening from -0.57). Below SMA20 ($210.79). Momentum WEAK (+0). |
-| **AMZN** | **EXIT signal RESOLVED** | — | — | No longer firing — price recovered above $256.68 invalidation. Position still OPEN per journal (status OPEN, no exit_date logged). |
+| **ZS** | **Take FULL PROFITS** | market ~$212.56 | **+41.7% (+$938.40, 15 sh)** | TP2 hit at $175.78 (2.5R). Price now 6.0R above entry. MACD bearish (Hist -1.12), Stoch cooling (41.4), momentum NEUTRAL (+2). SL trailed to $165.47 (TP1 level). |
+| **AMZN** | **EXIT RESOLVED — hold** | — | — | Price $262.49 > $256.68 invalidation. No exit signal. Position OPEN per journal. Re-evaluate per Oct 8 plan. |
 
 ### ZS — 3-Expert Exit Panel
 
-|| Expert | Verdict | Notes |
-||---|---|---|
-|| 🔢 **Thorp** | **EXIT (partial) — lock the realized edge** | TP2 (2.0R) already captured at $170.4, momentum WEAK (+0), MACD hist worsening (-1.31 vs -0.57 prev = accelerating bearish momentum), price below SMA20 ($210.79) = regime shift PULLBACK→DOWNTREND. Forward expectancy now negative (momentum collapse). Kelly: 0% on new adds; lock +39.8%. Portfolio-level: ZS is the strongest winner (+$895), trim while momentum holds before full regime collapse. |
-|| 📊 **Wyckoff** | **SUPPLY — Phase E exhausting** | ZS markup $150→$209.67 faded under SMA20 creek ($210.79); MACD histogram turning negative = failed back-up, sellers stepping in at the structure boundary. Phase E exhaustion: the back-up (retest of SMA20) is failing, cannot hold above creek. Protect into supply: trim ~50% now, trail remainder. |
-|| 🧬 **Medallion** | **EXIT (aligned)** | TP2-hit ✓ + MACD-bearish ✓ (hist -1.31) + below-SMA20 ✓ ($209.67<$210.79) + momentum-WEAK ✓ — one-family trend-collapse cluster, unanimous. No positive signal family supports hold. Signal degrading — remove from book. |
+| Expert | Verdict | Notes |
+|--------|---------|-------|
+| 🔢 **Thorp** | **EXIT (full) — lock edge** | TP2 hit $175.78 (2.5R), price 6.0R above entry ($212.56). MACD bearish (Hist -1.12, worsening), momentum NEUTRAL (+2), Stoch cooling. Edge was genuine (+$938.40, 4/4 pattern) but forward expectancy now negative. Kelly: 0% on new adds. Lock +41.7%. |
+| 📊 **Wyckoff 2.0** | **SUPPLY — Phase E exhausting** | Markup $150→$212.56 complete. Price above SMA20 ($210.93) but MACD histogram strongly negative (-1.12) = bearish divergence. Back-up to SMA20 creek failing; supply stepping in at structure boundary. Phase E exhaustion — distribute into supply. |
+| 🧬 **Medallion** | **EXIT (aligned)** | TP2-hit ✓ + MACD-bearish ✓ (Hist -1.12) + Stoch-cooling ✓ + momentum-NEUTRAL ✓ — unanimous trend-collapse cluster. ZS ran 6.0R, 1.4× beyond TP2. Signal family flipped bearish. Remove from book. |
 
-**Consensus: TAKE PARTIAL PROFITS now.** Trim ~50% at market (~$209.67), lock +39.8% ($895.05 realized). Trail remainder at $193.09 (journal trim level) / $165.34 (TP1/floor). Do NOT chase back above SMA20 ($210.79) — failed back-up confirmed.
+**Consensus: TAKE FULL PROFITS NOW.** ZS ran 6.0R ($150→$212.56), TP2 captured at $175.78. MACD bearish + Stoch cooling + momentum NEUTRAL = trend collapse. Lock +41.7% ($938.40). Reallocate capital.
 
 ### AMZN — Exit Signal Resolved
 
-|| Expert | Verdict | Notes |
-||---|---|---|
-|| 🔢 **Thorp** | **EXIT RESOLVED — re-evaluate** | AMZN no longer fires exit signal → recovered above $256.68 invalidation. Position still OPEN per journal (status OPEN, no exit_date, no exit_price). Previous recommendation EXIT @ ~$250 was NOT executed. Invalidation lifted by price action. Re-evaluate per Oct 8 plan: hard stop $249.33 no longer threatened. Edge status: regime neutral, wait for fresh signal. |
-|| 📊 **Wyckoff** | **REGIME NEUTRALIZED** | Invalidity line ($256.68) reclaimed → supply receded above the creek. Distribution capping supply failed (if sustained above $256.68). Wait for fresh SOS bar + volume before taking directional view. Structure: Phase D back-up attempting, not yet confirmed. |
-|| 🧬 **Medallion** | **NO SIGNAL** | No signal family currently active. Exit conditions lifted (invalidation reclaimed, hard stop clear). If holding: flat momentum, regime neutral. Re-assess when fresh signal appears (SOS bar + volume ≥1.0×). |
+| Expert | Verdict | Notes |
+|--------|---------|-------|
+| 🔢 **Thorp** | **EXIT RESOLVED — re-evaluate** | AMZN $262.49, above $256.68 invalidation. No exit signal. Position OPEN per journal (entry $259.55, 10 sh). Regime UPTREND, above SMA20 $253.43. Re-evaluate per Oct 8 plan: hard stop $249.33 no longer threatened. |
+| 📊 **Wyckoff 2.0** | **REGIME NEUTRALIZED** | Invalidity line ($256.68) reclaimed → supply receded. Phase D back-up attempting, not yet confirmed as Phase E. Wait for fresh SOS bar + volume. |
+| 🧬 **Medallion** | **NO SIGNAL** | Exit conditions lifted (invalidation reclaimed, hard stop clear). No active signal family. If holding: flat momentum, regime neutral. Re-assess on fresh signal (SOS bar + volume). |
 
-**Consensus: AMZN exit signal resolved.** Price recovered above $256.68 invalidation. **VERIFY POSITION STATUS** — journal still shows OPEN with no exit logged. If truly still open, re-evaluate per Oct 8 plan (invalidation lifted, hold for SOS or TP1 $274.88).
+**Consensus: AMZN exit signal resolved.** Price recovered above $256.68 invalidation. Position still OPEN per journal (10 sh @ $259.55, cost $2,595.55). Hold per Oct 8 plan — TP1 $274.88, TP2 $285.10, hard stop $249.33.
 
 ---
 
-## Not Routed (🔴 class, carried)
+## Not Routed (🔴 class, silent)
 
-- **GEV (NEW)** — 🔴 WAIT. Green close at Fib 78.6% $917.77 support, but vol 0.18× (far too low to confirm shakeout-buy). DOWNTREND regime, below all SMAs. Needs capitulation (vol>1.5× + red day) OR sustained green close with ≥1.0× volume.
-- **ACMR** — 🔴 WAIT. Bounced +6.46% to $56.53 but still below all SMAs (SMA20 $71.88). Vol 0.11×. At 78.6% retrace $61.85 — deep support, no entry without reversal trigger.
-- **CRWV** — 🔴 WAIT. Deep oversold (Stoch 6.0 / RSI 25.4), vol 0.59× (normalized from 2.41× capitulation spike). Knife below all SMAs — no entry without SMA20 reclaim + SOS bar.
+- **ACMR** — 🔴 WAIT. Price $56.07 (+5.63%), RSI 27.0/Stoch 9.4, DOWNTREND below all SMAs. At/near 78.6% retrace $61.85 — deep support, no entry without reversal trigger. SMA20 reclaim needed ($71.86). Knife — no market-buy.
 
 ---
 
 ## 📋 SUMMARY — Entry Points
 
-|| Ticker | Entry | Stop | TP1 | TP2 | R:R | Trigger State | Expert Consensus | Budget $2,500 |
-||---|---|---|---|---|---|---|---|---|
-|| **ZS** | — | $165.34 (TP1/floor) | $170.46 (2.0R **HIT**) | — | — | **EXIT — TP2 hit, MACD bearish, <SMA20** | **TAKE PARTIAL PROFITS (+39.8%)** | $0 |
-|| **AMZN** | — | $249.33 (2×ATR) | $274.88 (1.5R) | $285.10 (2.5R) | — | **EXIT RESOLVED — above $256.68 invalidation** | **VERIFY POSITION — re-evaluate** | $0 |
-|| ACMR | >$71.88 (SMA20 reclaim) | $62.04 (78.6%) | — | — | — | **NOT PRINTED — knife, vol 0.11×** | **NO ENTRY (🔴 WAIT)** | $0 |
-|| CRWV | >$81.77 (SMA20 reclaim) | $53.63 (3M low) | — | — | — | **NOT PRINTED — knife, Stoch 6.0** | **NO ENTRY (🔴 WAIT)** | $0 |
-|| GEV | Fib 78.6% green close (~$918) | 3M low (~$895) | — | — | — | **NOT PRINTED — vol 0.18× too low** | **NO ENTRY (🔴 WAIT)** | $0 |
+| Ticker | Entry | Stop | TP1 | TP2 | R:R | Trigger State | Expert Consensus | Budget $2,500 |
+|--------|-------|------|-----|-----|-----|---------------|-----------------|---------------|
+| **CRWV** | >$81.75 (SMA20 reclaim) | $53.28 (3M low $59.25) | $86.44 (SMA50) | $89.29 (SMA100) | ~4:1 | **NOT PRINTED — needs green close > SMA20 + vol ≥1.5×** | W**AIT — capitulation watch, Kelly ≈ 0** | $0 |
+| **ZS** | — | — | $165.47 (TP1, 1.5R) | $175.78 (TP2 **HIT**) | — | **EXIT — TP2 hit, MACD bearish, 6.0R run** | **TAKE FULL PROFITS (+41.7%)** | $0 |
+| **AMZN** | — | $249.33 (2×ATR) | $274.88 (1.5R) | $285.10 (2.5R) | 3.2:1 | **EXIT RESOLVED — above $256.68** | **HOLD — regime neutralized, per Oct 8 plan** | $0 |
+| ACMR | >$71.86 (SMA20 reclaim) | $61.85 (78.6%) | — | — | — | **NOT PRINTED — knife, vol 0.69×** | **NO ENTRY (🔴 WAIT)** | $0 |
 
 ---
 
 ## Action Items
 
-- **ZS — take partial profits NOW** (~50% trim at ~$209.67, lock +39.8% / +$895.05), trail remainder at $193.09 / $165.34. Momentum WEAK + MACD bearish (hist -1.31, worsening) + below SMA20 ($210.79) = regime shift. Do NOT chase back above $210.79 — failed back-up confirmed.
-- **AMZN — verify position status:** exit signal resolved (price > $256.68), but journal shows OPEN with no exit logged. If truly still open, re-evaluate per Oct 8 plan (invalidation lifted). Log any fill to trade_journal.json.
-- **ACMR/CRWV/GEV — 0% until structure reclaim + SOS bar + volume ≥1.0×.** All deep knives, no reversal trigger printed. Budget stays at $0 of $2,500.
+- **ZS — take FULL PROFITS NOW** at ~$212.56. 15 sh × $212.56 = $3,188.40. Realized +$938.40 (+41.7%). TP2 captured at $175.78, MACD bearish, momentum NEUTRAL + price above all TP levels. Lock the edge — reallocate capital.
+- **CRWV — monitor for capitulation reversal.** Trigger: green daily close > SMA20 $81.75 + volume ≥1.5×. If triggered → route to 3-expert panel. If 3M low $59.25 breaks → pattern invalidated, drop from watch. Stop if entered: $53.28.
+- **AMZN — verify position status.** Journal shows OPEN (10 sh @ $259.55). Exit signal resolved (price $262.49 > $256.68). Hold per Oct 8 plan: TP1 $274.88, TP2 $285.10, hard stop $249.33. Budget remains at $0 of $2,500 (no entries triggered this run).
+- **ACMR — 0% until SMA20 reclaim + SOS bar + volume ≥1.0×.** Deep knife below all SMAs, at 78.6% retrace $61.85. No entry without reversal trigger.
