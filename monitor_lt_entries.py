@@ -3,7 +3,61 @@
 Long-Term Entry Monitor — VOO/VXUS deep pullback alerts.
 Checks daily at US close. Silent unless RSI <30 or -5%+ drawdown from peak.
 """
-import json, urllib.request, sys
+import json, urllib.request, sys, subprocess
+from datetime import datetime, timezone, timedelta
+
+BKK = timezone(timedelta(hours=7))
+SCRIPTS_DIR = "/root/.hermes/profiles/trader/scripts"
+REPORT_FILE = SCRIPTS_DIR + "/lt_entry_report.md"
+
+def _load_tg_token():
+    try:
+        with open("/root/.hermes/profiles/trader/.env") as f:
+            for line in f:
+                if line.startswith("TELEGRAM_BOT_TOKEN="):
+                    return line.split("=", 1)[1].strip()
+    except Exception:
+        pass
+    return None
+
+def send_telegram_document(filepath, caption=""):
+    """Send a file to Telegram as a document (same pattern as monitor_entries.py)."""
+    token = _load_tg_token()
+    if not token:
+        print("⚠️ No TELEGRAM_BOT_TOKEN found — report file not sent")
+        return False
+    cmd = [
+        "curl", "-s", "-X", "POST",
+        f"https://api.telegram.org/bot{token}/sendDocument",
+        "-F", "chat_id=2135517501",
+        "-F", f"document=@{filepath}",
+        "-F", f"caption={caption}",
+    ]
+    try:
+        r = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        ok = '"ok":true' in r.stdout
+        print(f"{'✅' if ok else '❌'} Report file {'sent' if ok else 'FAILED'}: {filepath}")
+        return ok
+    except Exception as e:
+        print(f"❌ Telegram send error: {e}")
+        return False
+
+def write_and_send_report(now_str, blocks):
+    """Write lt_entry_report.md, send as Telegram document, best-effort git push."""
+    report = f"# 📊 Long-Term Entry Report — {now_str}\n\n" + "\n---\n\n".join(blocks) + "\n"
+    try:
+        with open(REPORT_FILE, "w") as f:
+            f.write(report)
+    except Exception as e:
+        print(f"❌ Report write error: {e}")
+        return
+    send_telegram_document(REPORT_FILE, f"📊 Long-Term Entry Report — {now_str}")
+    try:
+        subprocess.run(["git", "add", "lt_entry_report.md"], cwd=SCRIPTS_DIR, capture_output=True, timeout=15)
+        subprocess.run(["git", "commit", "-m", f"Long-Term entry report — {now_str}"], cwd=SCRIPTS_DIR, capture_output=True, timeout=15)
+        subprocess.run(["git", "push"], cwd=SCRIPTS_DIR, capture_output=True, timeout=60)
+    except Exception:
+        pass
 
 def fetch_yf(ticker, period="1y", interval="1d"):
     """Fetch OHLCV from Yahoo Finance v8."""
@@ -49,6 +103,7 @@ def sma(data, p):
         return sum(data) / len(data) if data else 0
     return sum(data[-p:]) / p
 
+report_blocks = []
 for ticker in ["VOO", "VXUS"]:
     bars = fetch_yf(ticker, "1y", "1d")
     if not bars or len(bars) < 50:
@@ -88,11 +143,11 @@ for ticker in ["VOO", "VXUS"]:
     signals = []
     if rsi < 30:
         signals.append(f"RSI oversold ({rsi:.1f})")
-    if rsi < 35:
+    elif rsi < 35:
         signals.append(f"RSI approaching oversold ({rsi:.1f})")
     if drawdown < -5:
         signals.append(f"-{abs(drawdown):.1f}% from 52-week high")
-    if drawdown < -3:
+    elif drawdown < -3:
         signals.append(f"{drawdown:.1f}% from 52-week high")
     if price < s50 and price > s100:
         signals.append(f"At SMA50 support (${s50:.2f})")
@@ -101,6 +156,16 @@ for ticker in ["VOO", "VXUS"]:
 
     # Only output if there's a signal
     if signals:
+        block = (
+            f"## 📊 {ticker} Long-Term Entry Alert\n\n"
+            f"Price: ${price:.2f} ({chg:+.2f}%) | RSI: {rsi:.1f} | Trend: {trend}\n\n"
+            f"SMA50: ${s50:.2f} | SMA100: ${s100:.2f} | EMA200: ${e200:.2f}\n\n"
+            f"52-week high: ${high_52w:.2f} | Drawdown: {drawdown:.1f}%\n\n"
+            f"ATR: ${atr:.2f} ({atr/price*100:.1f}%)\n\n"
+            f"🔔 Signals:\n" + "\n".join(f"  • {s}" for s in signals) + "\n\n"
+            f"💡 Long-term DCA opportunity — consider adding at these levels"
+        )
+        report_blocks.append(block)
         print(f"📊 **{ticker} Long-Term Entry Alert**")
         print(f"Price: ${price:.2f} ({chg:+.2f}%) | RSI: {rsi:.1f} | Trend: {trend}")
         print(f"SMA50: ${s50:.2f} | SMA100: ${s100:.2f} | EMA200: ${e200:.2f}")
@@ -111,5 +176,10 @@ for ticker in ["VOO", "VXUS"]:
             print(f"  • {s}")
         print(f"\n💡 Long-term DCA opportunity — consider adding at these levels")
         print()
+
+# Write .md report + send as Telegram document + git push (only when signals fired)
+if report_blocks:
+    now_str = datetime.now(BKK).strftime("%a %d %b %Y %H:%M ICT")
+    write_and_send_report(now_str, report_blocks)
 
 # If no signals, output nothing (silent)
