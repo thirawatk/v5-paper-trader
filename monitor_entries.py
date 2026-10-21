@@ -3,8 +3,60 @@
 Monitor GOOG, RDDT, GDDY, PTC, VOO, and VXUS entry points.
 Runs via cronjob every 30-60 min. Only outputs when conditions trigger (watchdog mode).
 """
-import json, urllib.request, sys
+import json, urllib.request, sys, subprocess
 from datetime import datetime, timezone, timedelta
+
+SCRIPTS_DIR = "/root/.hermes/profiles/trader/scripts"
+REPORT_FILE = SCRIPTS_DIR + "/entry_monitor_report.md"
+
+def _load_tg_token():
+    try:
+        with open("/root/.hermes/profiles/trader/.env") as f:
+            for line in f:
+                if line.startswith("TELEGRAM_BOT_TOKEN="):
+                    return line.split("=", 1)[1].strip()
+    except Exception:
+        pass
+    return None
+
+def send_telegram_document(filepath, caption=""):
+    """Send a file to Telegram as a document (same pattern as v5_weekly_report.py)."""
+    token = _load_tg_token()
+    if not token:
+        print("⚠️ No TELEGRAM_BOT_TOKEN found — report file not sent")
+        return False
+    cmd = [
+        "curl", "-s", "-X", "POST",
+        f"https://api.telegram.org/bot{token}/sendDocument",
+        "-F", "chat_id=2135517501",
+        "-F", f"document=@{filepath}",
+        "-F", f"caption={caption}",
+    ]
+    try:
+        r = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        ok = '"ok":true' in r.stdout
+        print(f"{'✅' if ok else '❌'} Report file {'sent' if ok else 'FAILED'}: {filepath}")
+        return ok
+    except Exception as e:
+        print(f"❌ Telegram send error: {e}")
+        return False
+
+def write_and_send_report(now_str, triggered):
+    """Write entry_monitor_report.md, send as Telegram document, best-effort git push."""
+    report = f"# 📡 Entry Monitor Report — {now_str}\n\n" + "\n\n".join(triggered) + "\n"
+    try:
+        with open(REPORT_FILE, "w") as f:
+            f.write(report)
+    except Exception as e:
+        print(f"❌ Report write error: {e}")
+        return
+    send_telegram_document(REPORT_FILE, f"📡 Entry Monitor Report — {now_str}")
+    try:
+        subprocess.run(["git", "add", "entry_monitor_report.md"], cwd=SCRIPTS_DIR, capture_output=True, timeout=15)
+        subprocess.run(["git", "commit", "-m", f"Entry Monitor Report — {now_str}"], cwd=SCRIPTS_DIR, capture_output=True, timeout=15)
+        subprocess.run(["git", "push"], cwd=SCRIPTS_DIR, capture_output=True, timeout=60)
+    except Exception:
+        pass
 
 # Thailand timezone
 BKK = timezone(timedelta(hours=7))
@@ -1868,6 +1920,8 @@ def main():
         output = f"**📡 Entry Monitor — {now_str}**\n\n"
         output += "\n".join(triggered)
         print(output)
+        # Write .md report + send as Telegram document + git push
+        write_and_send_report(now_str, triggered)
     # else: silent — no entry signals, no output
 
 if __name__ == "__main__":
