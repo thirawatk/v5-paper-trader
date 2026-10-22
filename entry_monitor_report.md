@@ -1,65 +1,65 @@
-# 📡 Entry Monitor Report — Thu 22 Oct 2026 21:00 ICT
+# 📡 Entry Monitor Report — Thu 22 Oct 2026 22:00 ICT
 
 📡 **GDDY Entry Monitor**
-Price: $110.24 (+1.32%) | RSI: 76.5 | Vol: 0.07x
-SMA 20: $101.29 | SMA 50: $99.42 | SMA 100: $93.3
+Price: $112.11 (+3.05%) | RSI: 78.1 | Vol: 0.19x
+SMA 20: $101.38 | SMA 50: $99.46 | SMA 100: $93.32
 5d: 1🔴/4🟢
-• 🚀 Bounce from SMA 20 — 3d green streak, RSI 76.5
+• 🚀 Bounce from SMA 20 — 3d green streak, RSI 78.1
 
-📍 **VERDICT: 🟡 OVERBOUGHT** | UPTREND | Wait for pullback: $97.13–$92.54 | Stop: $84.85 | TP: $111.99
+📍 **VERDICT: 🟡 OVERBOUGHT** | UPTREND | Wait for pullback: $97.29–$92.67 | Stop: $84.93 | TP: $112.24
 
 
 🚨 **ZS EXIT SIGNAL**
-Price: $232.71 | Entry: $150.00 | P&L: +55.1% ($+1240.65)
-Regime: UPTREND | RSI: 67.5 | Stoch: 88.6 | ATR: $11.79
-Momentum: NEUTRAL (+1) | R: $11.79
-SL: $167.69 (2.0×ATR) | TP1: $167.69 (1.5R) | TP2: $179.47 (2.5R)
-• 🎯 **TP2 HIT** $179.47 (2.5R) | P&L: +55.1% — take profits, momentum: NEUTRAL
-• 📏 **Near 3M High** $237.53 | P&L: +55.1% — resistance zone
-• 📊 **MACD Bearish** | Hist: -0.38 | P&L: +55.1% — momentum fading
+Price: $237.52 | Entry: $150.00 | P&L: +58.3% ($+1312.87)
+Regime: UPTREND | RSI: 69.1 | Stoch: 99.3 | ATR: $11.81
+Momentum: WEAK (+0) | R: $11.81
+SL: $167.72 (1.5×ATR) | TP1: $167.72 (1.5R) | TP2: $173.62 (2.0R)
+• 🎯 **TP2 HIT** $173.62 (2.0R) | P&L: +58.3% — take profits, momentum: WEAK
+• 📏 **Near 3M High** $237.82 | P&L: +58.3% — resistance zone
+• 📊 **MACD Bearish** | Hist: -0.08 | P&L: +58.3% — momentum fading
 
 
 📡 **BCC Entry Monitor**
-Price: $77.36 (+1.42%) | RSI: 61.2 | Vol: 0.13x
-SMA 20: $75.12 | SMA 50: $77.28 | SMA 100: $76.51
+Price: $77.41 (+1.48%) | RSI: 61.4 | Vol: 0.25x
+SMA 20: $75.13 | SMA 50: $77.29 | SMA 100: $76.51
 5d: 1🔴/4🟢
-• 📏 Testing SMA 50 support at $77.28 — stronger entry
+• 📏 Testing SMA 50 support at $77.29 — stronger entry
 
-📍 **VERDICT: 🟢 UPTREND** | Entry on dip: $82.18–$80.25 | Stop: $76.3 | TP: $88.43
+📍 **VERDICT: 🟢 UPTREND** | Entry on dip: $82.18–$80.25 | Stop: $76.29 | TP: $88.43
 
 
 📡 **FBK Entry Monitor**
-Price: $53.40 (+2.20%) | RSI: 56.9 | Vol: 0.04x
-SMA 20: $52.21 | SMA 50: $55.02 | SMA 100: $55.96
+Price: $53.46 (+2.32%) | RSI: 57.2 | Vol: 0.1x
+SMA 20: $52.22 | SMA 50: $55.02 | SMA 100: $55.96
 5d: 0🔴/5🟢
-• 🟢 4d green streak, RSI 56.9 — bounce confirmed
+• 🟢 4d green streak, RSI 57.2 — bounce confirmed
 
 📍 **VERDICT: ⚠️ BOUNCE** | Risky | Wait for SMA50 reclaim (>$55.02) | Entry then: $55.02
 
 
 🚨 **AMZN EXIT SIGNAL**
-Price: $253.33 | Entry: $259.55 | P&L: -2.4% ($-62.20)
-Regime: DOWNTREND | RSI: 54.1 | Stoch: 28.3 | ATR: $6.88
-Momentum: NEUTRAL (+2) | R: $6.88
-SL: $245.79 (2.0×ATR) | TP1: $269.87 (1.5R) | TP2: $276.75 (2.5R)
-• ⚠️ **SETUP INVALIDATION ZONE** $253.33 ≤ $256.68 — plan: DAILY CLOSE below $256.68 → exit all; hard stop $245.79
+Price: $252.13 | Entry: $259.55 | P&L: -2.9% ($-74.17)
+Regime: DOWNTREND | RSI: 53.1 | Stoch: 21.1 | ATR: $6.91
+Momentum: NEUTRAL (+2) | R: $6.91
+SL: $245.73 (2.0×ATR) | TP1: $269.92 (1.5R) | TP2: $276.82 (2.5R)
+• ⚠️ **SETUP INVALIDATION ZONE** $252.13 ≤ $256.68 — plan: DAILY CLOSE below $256.68 → exit all; hard stop $245.73
 
 
 📡 **ACMR Entry Monitor**
-Price: $52.48 (-4.51%) | RSI: 9.3 | Stoch: 4.6 | Vol: 0.09x
-SMA 20: $69.41 | SMA 50: $72.81 | SMA 100: $81.97
+Price: $50.24 (-8.60%) | RSI: 8.8 | Stoch: 0.5 | Vol: 0.18x
+SMA 20: $69.3 | SMA 50: $72.77 | SMA 100: $81.94
 5d: 4🔴/1🟢
-• 📏 At/near 78.6% retrace $59.77 — deep support, no entry without reversal trigger
+• 📏 At/near 78.6% retrace $59.15 — deep support, no entry without reversal trigger
 
-📍 **VERDICT: 🔴 WAIT** | DOWNTREND below all SMAs | Needs green close > SMA20 $69.41 | Knife — no market-buy
+📍 **VERDICT: 🔴 WAIT** | DOWNTREND below all SMAs | Needs green close > SMA20 $69.3 | Knife — no market-buy
 
 
 📡 **CRWV Entry Monitor**
-Price: $59.68 (-3.94%) | RSI: 21.4 | Stoch: 6.8 | Vol: 0.33x
-SMA 20: $79.16 | SMA 50: $85.31 | SMA 100: $88.34
+Price: $57.31 (-7.76%) | RSI: 20.4 | Stoch: 0.5 | Vol: 0.6x
+SMA 20: $79.04 | SMA 50: $85.26 | SMA 100: $88.32
 5d: 3🔴/2🟢
-• ⚡ Deep oversold (Stoch 6.8, RSI 21.4) — bounce-watch context only, still no entry without reclaim
-• 📏 At/near 78.6% retrace $70.13 — deep support, no entry without reversal trigger
+• ⚡ Deep oversold (Stoch 0.5, RSI 20.4) — bounce-watch context only, still no entry without reclaim
+• 📏 At/near 78.6% retrace $70.04 — deep support, no entry without reversal trigger
 
-📍 **VERDICT: 🔴 WAIT** | DOWNTREND below all SMAs | Needs green close > SMA20 $79.16 | Knife — no market-buy (fib78.6 $70.13 below)
+📍 **VERDICT: 🔴 WAIT** | DOWNTREND below all SMAs | Needs green close > SMA20 $79.04 | Knife — no market-buy (fib78.6 $70.04 below)
 
