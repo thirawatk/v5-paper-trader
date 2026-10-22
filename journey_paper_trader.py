@@ -10,7 +10,7 @@ Universe: ~370 curated liquid stocks from NYSE, NASDAQ, AMEX.
 Daily cron job → Telegram report.
 """
 
-import json, os, sys, warnings
+import json, os, sys, subprocess, warnings
 warnings.filterwarnings("ignore")
 import numpy as np
 import pandas as pd
@@ -584,8 +584,63 @@ def generate_report(state, signals_today, exits_today, vix_val, stocks_scanned):
     return "\n".join(lines)
 
 
+# ═══ REPORT FILE + TELEGRAM DOCUMENT ═══
+
+REPORT_FILE = f"{BASE}/journey_report.md"
+
+def _load_tg_token():
+    try:
+        with open("/root/.hermes/profiles/trader/.env") as f:
+            for line in f:
+                if line.startswith("TELEGRAM_BOT_TOKEN="):
+                    return line.split("=", 1)[1].strip()
+    except Exception:
+        pass
+    return None
+
+def send_telegram_document(filepath, caption=""):
+    """Send a file to Telegram as a document (same pattern as monitor_entries.py)."""
+    token = _load_tg_token()
+    if not token:
+        print("⚠️ No TELEGRAM_BOT_TOKEN found — report file not sent", file=sys.stderr)
+        return False
+    cmd = [
+        "curl", "-s", "-X", "POST",
+        f"https://api.telegram.org/bot{token}/sendDocument",
+        "-F", "chat_id=2135517501",
+        "-F", f"document=@{filepath}",
+        "-F", f"caption={caption}",
+    ]
+    try:
+        r = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        ok = '"ok":true' in r.stdout
+        print(f"{'✅' if ok else '❌'} Report file {'sent' if ok else 'FAILED'}: {filepath}", file=sys.stderr)
+        return ok
+    except Exception as e:
+        print(f"❌ Telegram send error: {e}", file=sys.stderr)
+        return False
+
+def write_and_send_report(report, now_str):
+    """Write journey_report.md, send as Telegram document, best-effort git push."""
+    try:
+        with open(REPORT_FILE, "w") as f:
+            f.write(report if report.endswith("\n") else report + "\n")
+    except Exception as e:
+        print(f"❌ Report write error: {e}", file=sys.stderr)
+        return
+    send_telegram_document(REPORT_FILE, f"📊 Trading Journey — {now_str}")
+    try:
+        subprocess.run(["git", "add", "journey_report.md"], cwd=BASE, capture_output=True, timeout=15)
+        subprocess.run(["git", "commit", "-m", f"Trading Journey report — {now_str}"], cwd=BASE, capture_output=True, timeout=15)
+        subprocess.run(["git", "push"], cwd=BASE, capture_output=True, timeout=60)
+    except Exception:
+        pass
+
+
 # ═══ CLI ═══
 
 if __name__ == "__main__":
     report, state = scan_and_trade()
     print(report)
+    # Write .md report + send as Telegram document + git push
+    write_and_send_report(report, datetime.now().strftime("%a %d %b %Y"))
