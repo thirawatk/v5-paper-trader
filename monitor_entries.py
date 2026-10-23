@@ -55,9 +55,11 @@ def write_and_send_report(now_str, triggered):
     except Exception as e:
         print(f"❌ Report write error: {e}")
         return
-    # ARTIFACT-ONLY write (consolidated design): the Daily Best Entry job reads
-    # entry_monitor_report.md and folds its signals + 3-expert analysis into the
-    # single daily report. No per-run MEDIA delivery here — that is now one daily file.
+    # Ship the per-run Entry Monitor report as a doc in this chat (cheap no_agent path).
+    # NOTE: the consolidated 3-expert DAILY report (full 1,463 scan + watchlist + ZS/AMZN
+    # exits + Journey/LT) is a SEPARATE file produced by the Daily Best Entry job
+    # (51604df99f62) -> scripts/daily_entry_report.md, delivered 04:30 ICT.
+    print(f"MEDIA:{REPORT_FILE}")
     try:
         subprocess.run(["git", "add", "entry_monitor_report.md"], cwd=SCRIPTS_DIR, capture_output=True, timeout=15)
         subprocess.run(["git", "commit", "-m", f"Entry Monitor Report — {now_str}"], cwd=SCRIPTS_DIR, capture_output=True, timeout=15)
