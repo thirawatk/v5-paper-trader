@@ -51,7 +51,9 @@ def write_and_send_report(now_str, blocks):
     except Exception as e:
         print(f"❌ Report write error: {e}")
         return
-    send_telegram_document(REPORT_FILE, f"📊 Long-Term Entry Report — {now_str}")
+    # Native platform delivery: cron layer extracts MEDIA: tags from stdout and attaches
+    # the file to the same chat as the alert text (curl path landed in the wrong bot chat).
+    print(f"MEDIA:{REPORT_FILE}")
     try:
         subprocess.run(["git", "add", "lt_entry_report.md"], cwd=SCRIPTS_DIR, capture_output=True, timeout=15)
         subprocess.run(["git", "commit", "-m", f"Long-Term entry report — {now_str}"], cwd=SCRIPTS_DIR, capture_output=True, timeout=15)

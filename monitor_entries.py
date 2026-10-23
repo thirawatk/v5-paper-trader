@@ -50,7 +50,10 @@ def write_and_send_report(now_str, triggered):
     except Exception as e:
         print(f"❌ Report write error: {e}")
         return
-    send_telegram_document(REPORT_FILE, f"📡 Entry Monitor Report — {now_str}")
+    # Native platform delivery: the cron delivery layer extracts MEDIA: tags from script
+    # stdout and attaches the file to the SAME chat as the alert text. (Raw Bot-API curl
+    # from @Taetraderbot landed in a different bot chat — user never saw the files.)
+    print(f"MEDIA:{REPORT_FILE}")
     try:
         subprocess.run(["git", "add", "entry_monitor_report.md"], cwd=SCRIPTS_DIR, capture_output=True, timeout=15)
         subprocess.run(["git", "commit", "-m", f"Entry Monitor Report — {now_str}"], cwd=SCRIPTS_DIR, capture_output=True, timeout=15)

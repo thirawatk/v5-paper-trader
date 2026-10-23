@@ -621,14 +621,16 @@ def send_telegram_document(filepath, caption=""):
         return False
 
 def write_and_send_report(report, now_str):
-    """Write journey_report.md, send as Telegram document, best-effort git push."""
+    """Write journey_report.md + best-effort git push. Delivery is native: the job prompt
+    ends the LLM response with MEDIA:/path which the platform attaches in the target chat.
+    (Raw Bot-API curl via @Taetraderbot landed in a different bot chat — dropped.)"""
     try:
         with open(REPORT_FILE, "w") as f:
             f.write(report if report.endswith("\n") else report + "\n")
     except Exception as e:
         print(f"❌ Report write error: {e}", file=sys.stderr)
         return
-    send_telegram_document(REPORT_FILE, f"📊 Trading Journey — {now_str}")
+    print(f"MEDIA:{REPORT_FILE}", file=sys.stderr)
     try:
         subprocess.run(["git", "add", "journey_report.md"], cwd=BASE, capture_output=True, timeout=15)
         subprocess.run(["git", "commit", "-m", f"Trading Journey report — {now_str}"], cwd=BASE, capture_output=True, timeout=15)
