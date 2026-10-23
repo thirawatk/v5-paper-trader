@@ -1,33 +1,34 @@
-# 📊 Long-Term Entry Report — Fri 23 Oct 2026 03:00 ICT
+# 📊 Long-Term Entry Report — Sat 24 Oct 2026 03:00 ICT
 
 ## 📊 VOO Long-Term Entry Alert
 
-Price: $701.99 (-1.23%) | RSI: 44.8 | Trend: neutral
+Price: $698.56 (-0.53%) | RSI: 36.9 | Trend: neutral
 
-SMA50: $706.31 | SMA100: $697.09 | EMA200: $671.00
+SMA50: $705.98 | SMA100: $697.09 | EMA200: $671.18
 
-52-week high: $718.47 | Drawdown: -2.3%
+52-week high: $718.47 | Drawdown: -2.8%
 
-ATR: $6.72 (1.0%)
+ATR: $6.61 (0.9%)
 
 🔔 Signals:
-  • At SMA50 support ($706.31)
+  • At SMA50 support ($705.98)
 
 💡 Long-term DCA opportunity — consider adding at these levels
 ---
 
 ## 📊 VXUS Long-Term Entry Alert
 
-Price: $82.73 (-1.21%) | RSI: 38.6 | Trend: neutral
+Price: $82.53 (-0.24%) | RSI: 25.9 | Trend: bearish
 
-SMA50: $86.14 | SMA100: $85.58 | EMA200: $82.61
+SMA50: $85.97 | SMA100: $85.51 | EMA200: $82.62
 
-52-week high: $88.62 | Drawdown: -6.6%
+52-week high: $88.62 | Drawdown: -6.9%
 
-ATR: $0.88 (1.1%)
+ATR: $0.86 (1.0%)
 
 🔔 Signals:
-  • -6.6% from 52-week high
-  • Below SMA100 ($85.58) — deep value zone
+  • RSI oversold (25.9)
+  • -6.9% from 52-week high
+  • Below SMA100 ($85.51) — deep value zone
 
 💡 Long-term DCA opportunity — consider adding at these levels
