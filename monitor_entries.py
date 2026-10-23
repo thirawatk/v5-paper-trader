@@ -42,7 +42,12 @@ def send_telegram_document(filepath, caption=""):
         return False
 
 def write_and_send_report(now_str, triggered):
-    """Write entry_monitor_report.md, send as Telegram document, best-effort git push."""
+    """Write entry_monitor_report.md + best-effort git push.
+
+    Consolidated design: the Entry Monitor is a no_agent alert watchdog. It writes the
+    report file as an ARTIFACT (read by the Daily Best Entry job 51604df99f62 which folds
+    these signals + the 3-expert analysis into ONE daily report shipped to the DM).
+    No per-run media file here — that's now the single daily report's job."""
     report = f"# 📡 Entry Monitor Report — {now_str}\n\n" + "\n\n".join(triggered) + "\n"
     try:
         with open(REPORT_FILE, "w") as f:
@@ -50,10 +55,9 @@ def write_and_send_report(now_str, triggered):
     except Exception as e:
         print(f"❌ Report write error: {e}")
         return
-    # Native platform delivery: the cron delivery layer extracts MEDIA: tags from script
-    # stdout and attaches the file to the SAME chat as the alert text. (Raw Bot-API curl
-    # from @Taetraderbot landed in a different bot chat — user never saw the files.)
-    print(f"MEDIA:{REPORT_FILE}")
+    # ARTIFACT-ONLY write (consolidated design): the Daily Best Entry job reads
+    # entry_monitor_report.md and folds its signals + 3-expert analysis into the
+    # single daily report. No per-run MEDIA delivery here — that is now one daily file.
     try:
         subprocess.run(["git", "add", "entry_monitor_report.md"], cwd=SCRIPTS_DIR, capture_output=True, timeout=15)
         subprocess.run(["git", "commit", "-m", f"Entry Monitor Report — {now_str}"], cwd=SCRIPTS_DIR, capture_output=True, timeout=15)
