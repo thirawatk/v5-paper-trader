@@ -1,17 +1,17 @@
-# 📊 Long-Term Entry Report — Sat 24 Oct 2026 03:00 ICT
+# 📊 Long-Term Entry Report — Mon 26 Oct 2026 03:00 ICT
 
 ## 📊 VOO Long-Term Entry Alert
 
-Price: $698.56 (-0.53%) | RSI: 36.9 | Trend: neutral
+Price: $698.58 (-0.53%) | RSI: 36.9 | Trend: neutral
 
-SMA50: $705.98 | SMA100: $697.09 | EMA200: $671.18
+SMA50: $705.99 | SMA100: $697.09 | EMA200: $671.18
 
 52-week high: $718.47 | Drawdown: -2.8%
 
 ATR: $6.61 (0.9%)
 
 🔔 Signals:
-  • At SMA50 support ($705.98)
+  • At SMA50 support ($705.99)
 
 💡 Long-term DCA opportunity — consider adding at these levels
 ---
