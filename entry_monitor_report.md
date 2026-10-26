@@ -1,4 +1,4 @@
-# 📡 Entry Monitor Report — Mon 26 Oct 2026 03:00 ICT
+# 📡 Entry Monitor Report — Mon 26 Oct 2026 20:00 ICT
 
 ## 1️⃣ Watchlist Snapshot
 
