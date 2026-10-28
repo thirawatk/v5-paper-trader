@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
 """
-Daily Full-Market Scan — TradingView bulk API (single request).
-Runs at 04:30 ICT after US close. Watchdog mode: outputs ONLY when
-a setup scores >= MIN_SCORE and is NEW (not in previous day's report).
+Daily Full-Market Scan — TradingView bulk API (paginated full-market pull).
+Runs at 04:30 ICT after US close. Outputs the qualified list every run, flagging
+tickers new vs the previous day.
+
+FIX 2026-10-29: the old `name match |TI|ER|LIST` filter is SUBSTRING-based in the
+TradingView screener (asking for "BA" returns BAC, BABA, ABAT...). With 1,463
+tickers it produced ~4,389 rows against a capped response, so only 539 exact
+names survived — i.e. the scan silently covered ~37% of the universe and the
+surviving set depended on truncation order. Now: paginated full-market pull with
+server-side liquidity floors, then exact intersection with the universe file.
 """
 import json, urllib.request, os
 from datetime import datetime, timezone, timedelta
@@ -13,9 +20,13 @@ UNIVERSE_FILE = "/root/.hermes/profiles/trader/scripts/journey_universe.txt"
 
 MIN_SCORE = 7.0        # quality floor for alerts
 TOP_N = 10             # max setups to show
+MIN_MCAP = 5e8         # $500M liquidity floor (server-side)
+MIN_VOL = 200000       # 200k shares/day (server-side; dollar floor applied again client-side)
 
 COLS = ["name","exch","close","open","rsi","stoch","atr","sma20","sma50","sma200",
         "vol","avgvol","macd","macd_sig","cmf","mfi_like","mom","high3m","mcap"]
+
+URL = "https://scanner.tradingview.com/america/scan"
 
 
 def load_universe():
@@ -23,14 +34,22 @@ def load_universe():
         return [l.strip() for l in f if l.strip() and not l.startswith('#')]
 
 
-def scan():
-    tickers = load_universe()
-    ticker_set = set(tickers)
-    url = "https://scanner.tradingview.com/america/scan"
-    body = {
+def _post(body):
+    req = urllib.request.Request(
+        URL, data=json.dumps(body).encode(),
+        headers={"Content-Type": "application/json", "User-Agent": "Mozilla/5.0"},
+        method="POST")
+    with urllib.request.urlopen(req, timeout=90) as resp:
+        return json.loads(resp.read()).get("data", [])
+
+
+def fetch_market_rows():
+    """Paginated full-market pull. Deterministic + complete (no substring bleed)."""
+    base = {
         "filter": [
-            {"left": "name", "operation": "match", "right": "|".join(sorted(ticker_set))},
             {"left": "type", "operation": "equal", "right": "stock"},
+            {"left": "market_cap_basic", "operation": "greater", "right": MIN_MCAP},
+            {"left": "volume", "operation": "greater", "right": MIN_VOL},
         ],
         "options": {"lang": "en"},
         "markets": ["america"],
@@ -47,15 +66,22 @@ def scan():
             "High.3M.all", "market_cap_basic",
         ],
         "sort": {"sortBy": "name", "sortOrder": "asc"},
-        "range": [0, len(tickers) * 3],
     }
-    req = urllib.request.Request(
-        url, data=json.dumps(body).encode(),
-        headers={"Content-Type": "application/json", "User-Agent": "Mozilla/5.0"},
-        method="POST")
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        data = json.loads(resp.read())
-    rows = data.get("data", [])
+    rows = []
+    for lo in range(0, 8000, 1000):
+        body = dict(base)
+        body["range"] = [lo, lo + 1000]
+        chunk = _post(body)
+        rows.extend(chunk)
+        if len(chunk) < 1000:
+            break
+    return rows
+
+
+def scan():
+    tickers = load_universe()
+    ticker_set = set(tickers)
+    rows = fetch_market_rows()
 
     candidates = []
     matched_exact = 0
@@ -77,7 +103,7 @@ def scan():
 
         mcap = r.get('mcap')
         vol = r.get('vol') or 0
-        if mcap and mcap < 5e8:
+        if mcap and mcap < MIN_MCAP:
             continue
         if vol * price < 2e6:
             continue
@@ -142,17 +168,20 @@ def scan():
             'sl': round(price - 2 * atr, 2),
             'tp2': round(price + 2.5 * atr, 2),
             'mcap_m': round(mcap / 1e6) if mcap else None,
+            'from_high': round(from_high, 1) if from_high is not None else None,
+            'atr': round(atr, 2),
+            'sma20': round(sma20, 2), 'sma50': round(sma50, 2), 'sma200': round(sma200, 2),
         })
 
     candidates.sort(key=lambda x: -x['score'])
-    return {'matched': matched_exact, 'universe': len(tickers), 'candidates': candidates}
+    return {'matched': matched_exact, 'universe': len(tickers),
+            'market_rows': len(rows), 'candidates': candidates}
 
 
 def main():
     now = datetime.now(BKK)
     now_str = now.strftime("%a %d %b %Y")
 
-    # Weekday gate only — cron schedule handles the time
     if now.weekday() >= 5:
         return
 
@@ -164,34 +193,40 @@ def main():
 
     try:
         result = scan()
-    except Exception:
-        return  # silent on data failure; next run retries
-
-    qualified = [c for c in result['candidates'] if c['score'] >= MIN_SCORE][:TOP_N]
-
-    # Watchdog: only output if there are NEW qualifying tickers vs last reported
-    new_qualified = [c for c in qualified if c['ticker'] not in prev_tickers]
-    if not new_qualified:
-        # save state silently
+    except Exception as e:
+        print(f"SCAN ERROR: {e}")
         state['last_run'] = now.isoformat()
-        state['reported_tickers'] = [c['ticker'] for c in qualified]
         with open(STATE_FILE, 'w') as f:
             json.dump(state, f, indent=1)
         return
 
+    # persist full candidate list for downstream report writers
+    with open('/root/.hermes/profiles/trader/scripts/daily_scan_latest.json', 'w') as f:
+        json.dump({'run': now.isoformat(), **{k: v for k, v in result.items() if k != 'candidates'},
+                   'candidates': result['candidates'][:40]}, f, indent=1)
+
+    qualified = [c for c in result['candidates'] if c['score'] >= MIN_SCORE][:TOP_N]
+    new_set = set(c['ticker'] for c in qualified) - prev_tickers
+
     lines = [f"🔍 **Daily Market Scan — {now_str}**",
-             f"Universe: {result['matched']} stocks analyzed | Qualifying: {len(qualified)} (≥{MIN_SCORE})", ""]
-    for i, c in enumerate(new_qualified, 1):
+             f"Universe: {result['matched']} stocks analyzed | Qualifying: {len(qualified)} (>= {MIN_SCORE})",
+             f"_(market rows pulled: {result['market_rows']} | universe file: {result['universe']})_", ""]
+    for i, c in enumerate(qualified, 1):
         mcap = f"${c['mcap_m']/1000:.1f}B" if c['mcap_m'] and c['mcap_m'] >= 1000 else (f"${c['mcap_m']}M" if c['mcap_m'] else '?')
+        new_tag = " 🆕" if c['ticker'] in new_set else ""
         flags = []
         if c['cmf'] is not None and c['cmf'] > 0: flags.append("💰CMF+")
         if c['macd_hist'] is not None and c['macd_hist'] > 0: flags.append("📈MACD+")
         flag_str = f" [{', '.join(flags)}]" if flags else ""
         lines.append(
-            f"**{i}. {c['ticker']}** — Score {c['score']} | ${c['price']} | {c['regime']} | {mcap}{flag_str}\n"
+            f"**{i}. {c['ticker']}**{new_tag} — Score {c['score']} | ${c['price']} | {c['regime']} | {mcap}{flag_str}\n"
             f"   RSI {c['rsi']} | Stoch {c['stoch']} | Vol {c['vol_ratio']}x\n"
             f"   SL ${c['sl']} | TP2 ${c['tp2']}"
         )
+    if not qualified and result['candidates']:
+        best = result['candidates'][:3]
+        lines.append("**Near-misses (below floor):** " + ", ".join(
+            f"{c['ticker']} {c['score']}" for c in best))
     lines.append("")
     lines.append("_Confirmation required before entry (green candle / Wyckoff buy-stop)._")
 
