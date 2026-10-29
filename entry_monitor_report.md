@@ -1,42 +1,43 @@
-# 📡 Entry Monitor Report — Thu 29 Oct 2026 20:00 ICT
+# 📡 Entry Monitor Report — Thu 29 Oct 2026 20:53 ICT
 
 ## 1️⃣ Watchlist Snapshot
 
 | Ticker | Price | Δ% | RSI | Vol | SMA20 | SMA50 | SMA100 | Regime | 5d |
 |--------|------:|:--:|---:|---:|------:|------:|-------:|--------|----:|
-| GOOG | $321.89 | +1.60% | 29.70 | 2.03x | $336.31 | $338.12 | $344.69 | DOWNTREND | 3🔴/2🟢 |
-| RDDT | $134.70 | -1.29% | 28.80 | 1.26x | $150.67 | $151.98 | $163.16 | DOWNTREND | 5🔴/0🟢 |
-| GDDY | $106.54 | +0.31% | 55.90 | 0.86x | $104.63 | $100.87 | $94.43 | UPTREND | 3🔴/2🟢 |
-| NVDU | $127.80 | -2.25% | 33.60 | 1.08x | $139.18 | $138.57 | $132.48 | DOWNTREND | 3🔴/2🟢 |
-| ZS | $255.80 | -1.67% | 68.30 | 0.87x | $225.21 | $201.67 | $174.61 | UPTREND | 2🔴/3🟢 |
-| BCC | $74.56 | -1.92% | 51.20 | 1.67x | $75.14 | $76.62 | $76.88 | DOWNTREND | 3🔴/2🟢 |
-| FBK | $52.94 | -0.99% | 50.20 | 0.58x | $52.44 | $54.17 | $55.98 | BOUNCE | 3🔴/2🟢 |
-| AMZN | $254.60 | +0.59% | 50.50 | 0.97x | $255.17 | $255.12 | $251.85 | DOWNTREND | 2🔴/3🟢 |
-| MRVL | $251.65 | +3.32% | 40.40 | 0.76x | $254.27 | $244.08 | $239.80 | PULLBACK | 1🔴/4🟢 |
-| GEV | $878.03 | -1.90% | 33.90 | 2.13x | $939.11 | $939.16 | $985.21 | DOWNTREND | 3🔴/2🟢 |
-| MKSI | $218.24 | +2.87% | 30.10 | 0.71x | $237.68 | $250.96 | $296.80 | DOWNTREND | 1🔴/4🟢 |
-| OPEN | $1.91 | +0.00% | 34.70 | 0.81x | $2.13 | $2.62 | $3.43 | DOWNTREND | 3🔴/1🟢 |
-| ACMR | $53.02 | +2.02% | 22.80 | 1.12x | $63.00 | $69.71 | $80.25 | DOWNTREND | 1🔴/4🟢 |
-| AMKR | $42.21 | +5.68% | 31.90 | 1.59x | $46.02 | $48.39 | $57.96 | DOWNTREND | 2🔴/3🟢 |
-| CRWV | $63.93 | +7.32% | 31.60 | 1.06x | $71.90 | $80.75 | $85.61 | DOWNTREND | 2🔴/3🟢 |
+| GOOG | $281.38 | -12.59% | 14.70 | 1.47x | $333.63 | $336.91 | $343.89 | DOWNTREND | 3🔴/2🟢 |
+| RDDT | $128.46 | -4.63% | 20.90 | 0.42x | $149.61 | $151.52 | $162.73 | DOWNTREND | 5🔴/0🟢 |
+| GDDY | $104.86 | -1.57% | 50.90 | 0.14x | $105.03 | $101.03 | $94.68 | PULLBACK | 4🔴/1🟢 |
+| NVDU | $124.58 | -2.52% | 32.70 | 0.15x | $137.96 | $138.33 | $132.41 | DOWNTREND | 3🔴/2🟢 |
+| ZS | $250.43 | -2.10% | 58.80 | 0.23x | $227.79 | $202.99 | $175.82 | UPTREND | 3🔴/2🟢 |
+| BCC | $75.75 | +1.60% | 57.40 | 0.02x | $75.19 | $76.47 | $76.96 | BOUNCE | 3🔴/2🟢 |
+| FBK | $53.95 | +1.91% | 57.60 | 0.02x | $52.53 | $54.07 | $55.99 | BOUNCE | 3🔴/2🟢 |
+| AMZN | $245.34 | -3.64% | 35.00 | 0.40x | $255.03 | $254.71 | $251.85 | DOWNTREND | 2🔴/3🟢 |
+| MRVL | $219.29 | -12.86% | 31.60 | 0.45x | $251.83 | $243.72 | $239.10 | DOWNTREND | 1🔴/4🟢 |
+| GEV | $889.01 | +1.25% | 34.90 | 0.20x | $934.18 | $937.19 | $984.77 | DOWNTREND | 2🔴/3🟢 |
+| MKSI | $216.65 | -0.73% | 26.80 | 0.03x | $234.95 | $249.66 | $295.85 | DOWNTREND | 1🔴/4🟢 |
+| OPEN | $1.95 | +2.09% | 38.80 | 0.25x | $2.11 | $2.59 | $3.41 | DOWNTREND | 3🔴/1🟢 |
+| ACMR | $50.08 | -5.55% | 19.60 | 0.13x | $61.33 | $69.16 | $79.95 | DOWNTREND | 1🔴/4🟢 |
+| AMKR | $40.79 | -3.36% | 32.50 | 0.05x | $45.41 | $48.19 | $57.68 | DOWNTREND | 2🔴/3🟢 |
+| CRWV | $61.13 | -4.37% | 29.10 | 0.14x | $70.53 | $80.16 | $85.20 | DOWNTREND | 2🔴/3🟢 |
 
 ## 2️⃣ Entry Verdicts
 
 | Ticker | Price | Δ% | RSI | Verdict / Plan |
 |--------|------:|---:|:--:|---------------|
-| BCC | $74.56 | -1.92% | 51.20 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND \| Entry: $78.31–$75.56 \| Needs RSI<30 + green candle |
-| MRVL | $251.65 | +3.32% | 40.40 | 📍 **VERDICT: 🟡 NEAR ENTRY** \| PULLBACK \| Entry: $244.08 (SMA50) \| Stop: $219.36 \| TP1: $254.27 \| TP2: $237.23 \| Confirmation: MACD hist >0 |
-| ACMR | $53.02 | +2.02% | 22.80 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND below all SMAs \| Needs green close > SMA20 $63.0 \| Knife — no market-buy |
-| CRWV | $63.93 | +7.32% | 31.60 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND below all SMAs \| Needs green close > SMA20 $71.9 \| Knife — no market-buy (fib78.6 $65.42 below) |
+| GDDY | $104.86 | -1.57% | 50.90 | 📍 **VERDICT: 🟡 PULLBACK** \| Entry: $105.03 (SMA20) \| Stop: $97.27 \| TP: $108.46 |
+| BCC | $75.75 | +1.60% | 57.40 | 📍 **VERDICT: ⚠️ BOUNCE** \| Risky \| Wait for SMA50 reclaim (>$76.47) \| Entry then: $76.47 |
+| FBK | $53.95 | +1.91% | 57.60 | 📍 **VERDICT: ⚠️ BOUNCE** \| Risky \| Wait for SMA50 reclaim (>$54.07) \| Entry then: $54.07 |
+| ACMR | $50.08 | -5.55% | 19.60 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND below all SMAs \| Needs green close > SMA20 $61.33 \| Knife — no market-buy |
+| CRWV | $61.13 | -4.37% | 29.10 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND below all SMAs \| Needs green close > SMA20 $70.53 \| Knife — no market-buy (fib78.6 $65.42 below) |
 
 ## 3️⃣ Exit Signals
 
 | Ticker | Price | Entry | P&L% | Regime | RSI | Stoch | ATR | SL | TP1 | TP2 | Momentum | Notes |
 |--------|------:|------:|---:|:-----:|---:|-----:|----:|---:|----:|----:|---------:|-------|
-| ZS | $255.80 | $150.00 | +70.53% | UPTREND | 68.30 | 81.30 | $12.98 | $229.84 | $169.47 | $188.94 | STRONG | 🚨 **ZS EXIT SIGNAL** Price: $255.80 \| Entry: $150.00 \| P&L: +70.5% ($+1587.00) Regime: UPTREND \| RSI: 68.3 \| Stoch: 81.3 \| ATR: $12.98 Momentum: STRONG (+5) \| R: $12.98 SL: $229.84 (TRAILING 2×ATR) \| TP1: $169.47 \| TP2: $188.94 \| TP3: ∞ (letting run) • 📈 **TRAILING** @ $255.80 \| Trail stop: $229.84 (2×ATR below price) \| P&L: +70.5% — let profits run |
-| AMZN | $254.60 | $259.55 | -1.91% | DOWNTREND | 50.50 | 43.10 | $6.67 | $246.21 | $269.56 | $272.89 | WEAK | 🚨 **AMZN EXIT SIGNAL** Price: $254.60 \| Entry: $259.55 \| P&L: -1.9% ($-49.50) Regime: DOWNTREND \| RSI: 50.5 \| Stoch: 43.1 \| ATR: $6.67 Momentum: WEAK (-2) \| R: $6.67 SL: $246.21 (2.0×ATR) \| TP1: $269.56 (1.5R) \| TP2: $272.89 (2.0R) • ⚠️ **SETUP INVALIDATION ZONE** $254.60 ≤ $256.68 — plan: DAILY CLOSE below $256.68 → exit all; hard stop $246.21 |
+| ZS | $250.43 | $150.00 | +66.96% | UPTREND | 58.80 | 73.00 | $13.35 | $223.73 | $170.03 | $190.05 | STRONG | 🚨 **ZS EXIT SIGNAL** Price: $250.43 \| Entry: $150.00 \| P&L: +67.0% ($+1506.52) Regime: UPTREND \| RSI: 58.8 \| Stoch: 73.0 \| ATR: $13.35 Momentum: STRONG (+6) \| R: $13.35 SL: $223.73 (TRAILING 2×ATR) \| TP1: $170.03 \| TP2: $190.05 \| TP3: ∞ (letting run) • 📈 **TRAILING** @ $250.43 \| Trail stop: $223.73 (2×ATR below price) \| P&L: +67.0% — let profits run |
+| AMZN | $245.34 | $259.55 | -5.48% | DOWNTREND | 35.00 | 17.00 | $7.00 | $245.55 | $270.05 | $273.55 | WEAK | 🚨 **AMZN EXIT SIGNAL** Price: $245.34 \| Entry: $259.55 \| P&L: -5.5% ($-142.15) Regime: DOWNTREND \| RSI: 35.0 \| Stoch: 17.0 \| ATR: $7.00 Momentum: WEAK (-3) \| R: $7.00 SL: $245.55 (2.0×ATR) \| TP1: $270.05 (1.5R) \| TP2: $273.55 (2.0R) • ⚠️ **SETUP INVALIDATION ZONE** $245.34 ≤ $256.68 — plan: DAILY CLOSE below $256.68 → exit all; hard stop $245.55 • 🛑 **STOP LOSS** @ $245.34 (SL: $245.55, 2.0×ATR) \| P&L: -5.5% ($-142.15) |
 
 ## 4️⃣ Summary
 
-- Tickers watched: 15 | Entry verdicts: 4 | Exit signals: 2 | Open positions: 2
+- Tickers watched: 15 | Entry verdicts: 5 | Exit signals: 2 | Open positions: 2
 
