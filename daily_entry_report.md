@@ -1,135 +1,106 @@
-# 📊 Daily Entry Report — Thu 29 Oct 2026 ICT
-
-**Tape:** VIX 16.9 · 11 of 15 watchlist names in DOWNTREND · scan 1,343/1,463 analyzed · **1 qualifier** at score ≥ 7.0
-**Two positions report earnings TODAY (Oct 29, after close): AMZN — which I hold — and GDDY**
+# 📊 Daily Entry Report — Fri 30 Oct 2026 ICT
 
 ## 🔍 Full Scan Results
 
-Scanned: **1,343 of 1,463** stocks (server-side liquidity floor: mcap > $500M, vol > 200k) | Candidates: **1**
+Scanned: **1,463** stocks | Analyzed: **1,347** | Qualifying (>= 7.0): **0** | Market rows: 2,537 | VIX 17.2
 
 | Ticker | Score | Price | %Δ | Setup reason |
 |---|---|---|---|---|
-| GME | 7.25 | $23.33 | -0.13% | PULLBACK into VPOC $23.70 + SMA50 $22.66 · Stoch 2.6 · vol 0.47× (dry) · CMF +0.037 |
+| DINO | 6.0 | $111.89 | -0.06% | Top near-miss. 3-day -11% selling climax off $129.37; price parked on SMA50 $111.43 + HVN $112.06. No SOS bar — Oct 29 closed mid-range (0.39). |
+| LOPE | 4.5 | $154.17 | +0.13% | Below floor by a wide margin. Above SMA50 $153.80 but MACD hist -1.04, volume 1.13x with no range expansion. Not actionable. |
 
-**Near-misses (below 7.0 floor):** MAT 5.75 · CNXN 5.50 · DINO 4.75 · (nothing else above 4.75)
+**Breadth read:** zero qualifiers across 1,347 names. Twelve of fifteen watchlist tickers sit below their SMA50. This is a risk-off tape — the absence of signals is the signal.
 
-> ⚠️ **Scanner was silently covering 37% of the universe until today.** The old `name match |TICKER|LIST` filter is *substring*-based on TradingView (`BA` returns BAC, BABA, ABAT…). 1,463 tickers produced 4,389 rows against a capped response, so only **539** exact names survived — and which ones survived depended on truncation order. Rebuilt as a paginated full-market pull + exact intersection: **1,343** analyzed, deterministic. Fix is live in `daily_market_scan.py` (backup: `.bak`).
+## ⚡ Intra-Day Watchlist Snapshot (Entry Monitor 04:31 ICT)
 
-## ⚡ Intra-Day Watchlist Snapshot (Entry Monitor, 03:00 ICT)
-
-| Ticker | Price | %Δ | RSI | Vol | SMA 20 | SMA 50 | SMA 100 | Regime | 5d |
+| Ticker | Price | %Δ | RSI | Vol | SMA 20 | SMA 50 | SMA 100 | 5d | Verdict |
 |---|---|---|---|---|---|---|---|---|---|
-| GOOG | $322.29 | +1.72% | 30.2 | 1.16× | $336.33 | $338.12 | $344.69 | DOWNTREND | 3🔴/2🟢 |
-| RDDT | $134.49 | -1.45% | 28.6 | 1.12× | $150.66 | $151.98 | $163.16 | DOWNTREND | 5🔴/0🟢 |
-| GDDY | $106.38 | +0.16% | 55.7 | 0.71× | $104.62 | $100.87 | $94.43 | UPTREND | 3🔴/2🟢 |
-| NVDU | $127.77 | -2.27% | 33.6 | 1.03× | $139.18 | $138.57 | $132.48 | DOWNTREND | 3🔴/2🟢 |
-| ZS | $255.83 | -1.66% | 68.3 | 0.76× | $225.21 | $201.67 | $174.61 | UPTREND | 2🔴/3🟢 |
-| BCC | $74.61 | -1.85% | 51.4 | 0.78× | $75.14 | $76.62 | $76.89 | DOWNTREND | 3🔴/2🟢 |
-| FBK | $53.01 | -0.86% | 50.6 | 0.41× | $52.44 | $54.18 | $55.98 | BOUNCE | 3🔴/2🟢 |
-| AMZN | $254.67 | +0.62% | 50.5 | 0.76× | $255.17 | $255.12 | $251.85 | DOWNTREND | 2🔴/3🟢 |
-| MRVL | $251.68 | +3.33% | 40.4 | 0.53× | $254.27 | $244.08 | $239.80 | PULLBACK | 1🔴/4🟢 |
-| GEV | $877.90 | -1.92% | 33.9 | 1.99× | $939.10 | $939.16 | $985.21 | DOWNTREND | 3🔴/2🟢 |
-| MKSI | $218.21 | +2.85% | 30.1 | 0.56× | $237.68 | $250.96 | $296.80 | DOWNTREND | 1🔴/4🟢 |
-| OPEN | $1.90 | -0.52% | 34.4 | 0.73× | $2.13 | $2.62 | $3.43 | DOWNTREND | 4🔴/1🟢 |
-| ACMR | $53.08 | +2.14% | 23.0 | 1.02× | $63.00 | $69.71 | $80.25 | DOWNTREND | 1🔴/4🟢 |
-| AMKR | $42.21 | +5.68% | 31.9 | 1.25× | $46.02 | $48.39 | $57.96 | DOWNTREND | 2🔴/3🟢 |
-| CRWV | $63.93 | +7.32% | 31.6 | 0.96× | $71.90 | $80.75 | $85.61 | DOWNTREND | 2🔴/3🟢 |
+| GOOG | $282.32 | -12.29% | 14.9 | 4.59x | $333.68 | $336.93 | $343.90 | 3🔴/2🟢 | 🔴 WAIT — knife, below all SMAs |
+| RDDT | $129.60 | -3.79% | 21.3 | 3.45x | $149.67 | $151.54 | $162.74 | 5🔴/0🟢 | 🔴 WAIT — no bid |
+| GDDY | $105.89 | -0.61% | 52.8 | 1.37x | $105.08 | $101.05 | $94.69 | 4🔴/1🟢 | 🟡 HOLD — uptrend intact, at SMA20 |
+| NVDU | $125.67 | -1.67% | 33.2 | 0.66x | $138.02 | $138.35 | $132.42 | 3🔴/2🟢 | ⚪ FLAT — closed Oct 7, monitoring only |
+| ZS | $247.82 | -3.12% | 57.2 | 0.94x | $227.66 | $202.94 | $175.79 | 3🔴/2🟢 | 🟢 HOLD — runner, trail discipline |
+| BCC | $77.85 | +4.41% | 62.7 | 1.29x | $75.30 | $76.51 | $76.98 | 3🔴/2🟢 | 🟢 BUY-SETUP — SOS bar, needs range-top break |
+| FBK | $53.69 | +1.42% | 56.3 | 0.50x | $52.52 | $54.06 | $55.99 | 3🔴/2🟢 | ⚠️ BOUNCE — thin volume, below SMA50 |
+| AMZN | $243.79 | -4.25% | 34.1 | 2.11x | $254.95 | $254.67 | $251.84 | 2🔴/3🟢 | 🚨 EXIT — stop filled |
+| MRVL | $218.34 | -13.24% | 31.4 | 1.92x | $251.78 | $243.70 | $239.09 | 1🔴/4🟢 | 🔴 WAIT — knife, no green close |
+| GEV | $887.85 | +1.12% | 34.7 | 1.19x | $934.13 | $937.17 | $984.75 | 2🔴/3🟢 | 🔴 WAIT — below all SMAs |
+| MKSI | $216.17 | -0.95% | 26.7 | 0.57x | $234.93 | $249.65 | $295.85 | 1🔴/4🟢 | ⚫ PLAN VOID — see below |
+| OPEN | $1.90 | -0.52% | 36.4 | 0.94x | $2.11 | $2.59 | $3.41 | 4🔴/0🟢 | 🔴 WAIT — sub-$2, illiquid risk |
+| ACMR | $49.29 | -7.04% | 19.2 | 0.84x | $61.29 | $69.14 | $79.94 | 1🔴/4🟢 | 🔴 WAIT — needs close > $61.29 |
+| AMKR | $41.21 | -2.37% | 33.1 | 0.88x | $45.43 | $48.19 | $57.69 | 2🔴/3🟢 | 🔴 WAIT — markdown |
+| CRWV | $60.74 | -4.99% | 28.9 | 0.78x | $70.51 | $80.15 | $85.20 | 2🔴/3🟢 | 🔴 WAIT — needs close > $70.51 |
 
 ## 📍 Entry Verdicts & Levels
 
-| Ticker | Verdict | Regime | Entry Zone | Stop | TP | Trigger / Notes |
+| Ticker | Verdict | Regime | Entry Zone | Stop | TP | Trigger/Notes |
 |---|---|---|---|---|---|---|
-| GDDY | 🟢 **BEST** (blocked by earnings) | UPTREND | $107.10 buy-stop | $104.40 | $110.61 / $114.77 | Confluence **+0.62** (only gate pass) · **reports TODAY after close — do not enter pre-print** |
-| MRVL | 🟡 WAIT | PULLBACK | $244.00–246.00 | $237.90 | $254.27 / $261.43 | Confluence +0.38 (<0.50) · needs retest of HVN $244.65, not a +3.3% chase |
-| GME | 🟡 WATCH (no trade) | PULLBACK | $23.85 | $22.35 | $25.58 / $26.30 | Scan hit but confluence **-0.06** · no SOS bar, no stopping volume |
-| CRWV | 🔴 WAIT | DOWNTREND | — | — | — | Confluence -0.04 · -45.6% from high · needs reclaim $71.90 |
-| ACMR | 🔴 WAIT | DOWNTREND | — | — | — | Confluence **-0.73** (worst) · knife, RSI 22.8 is not a buy signal alone |
-| MKSI | ⏸ NOT TRIGGERED | DOWNTREND | $255–274 (plan) | — | — | Spot 14% below zone · confluence -0.27 · plan dormant |
-| ZS | ✅ HOLD / trail up | UPTREND | — | $241.91 (raised) | open | +70.5% · weak close at range top |
-| AMZN | 🚨 **EXIT** | DOWNTREND | — | — | — | Setup failed + earnings **tonight** → close before the print |
+| BCC | 🟢 **BUY-SETUP** | UPTREND | $78.65 buy-stop (above $78.56 range top) | $74.30 | $85.20 / $88.40 | Needs daily close > $78.56. Oct 29 SOS bar closed at 0.99 of range on 1.28x volume. |
+| DINO | 🟡 **WATCH** | Range top / SMA50 test | $115.10 buy-stop (above $115.00) | $109.60 | $121.50 / $125.30 | Needs green close > $115.00. R:R caps at 1.85R — below the 2.0 gate. |
+| FBK | ⚠️ **NO TRADE** | BOUNCE | $54.20 (SMA50 reclaim) | $53.30 | $55.08 | Volume 0.49x. TP1 is 0.98R — fails risk/reward before any other test. |
+| LOPE | ⚫ **NO SETUP** | Neutral | — | — | — | Score 4.5. No SOS, no volume, MACD negative. |
+| MKSI | ⚫ **PLAN VOID** | DOWNTREND | — | — | — | $216.17 is 15% below the $255–274 plan zone and below the $228.46 weekly invalidation. Plan is retired, not pending. |
+| ZS | 🟢 **HOLD / TRAIL** | UPTREND | held $150.00 | $241.91 (see bug note) | open | +65.2%. Do not add. |
+| AMZN | 🚨 **EXIT** | DOWNTREND | — | $245.55 filled | — | Stop breached intraday Oct 29. |
 
 ## 🧠 3-Expert Analysis
 
-### GDDY | Entry $107.10 | Stop $104.40 | TP1 $110.61 | TP2 $114.77 | R:R 1.30 / 2.84 | Trigger: **NOT PRINTED** — Oct 22 SOS bar (O $109.25 → C $114.73, close on high, 2.09M vs ~1.4M avg), pullback to $104.86 retested VWAP20 $104.57 + SMA20 $104.63 confluence, Oct 28 reclaimed $106.54 (86% of range). Price is 0.31% under VAH $106.87.
+### BCC | Entry $78.65 | Stop $74.30 | TP1 $85.20 | TP2 $88.40 | R:R 1.51 / 2.24 | Trigger: **NOT PRINTED** — needs daily close above $78.56.
+
+Evidence: Oct 28 undercut the 4-day low ($73.44 vs $74.96) on 512K volume, then Oct 29 reversed to close at $77.85 — **0.99 of the bar range** on 393K (1.28x). One bar reclaimed SMA20 $75.30, SMA50 $76.51 and SMA100 $76.98. Close sits just under VAH $78.63 and under the 20-day range top $78.56.
 
 | Expert | Verdict | Conf | Action |
 |---|---|---|---|
-| 🔢 Thorp | **BET** | MED | Edge = post-SOS back-up in an uptrend with 3 independent factor families agreeing (trend, flow, structure). Base rates thin — one name only, no cross-sectional confirmation. Kelly-sized 1.6% of $2,500. |
-| 📊 Wyckoff | **ACCUMULATION** | MED | Phase D: SOS printed Oct 22, BUEC in progress. VPOC $97.27 well below = value built lower. VAH $106.87 is the gate; a rejection there = failed BUEC → flip bearish. |
-| 🧬 Medallion | **STRONG** | MED | 8/11 factors positive (Trend, VWAP, OBV, CMF, Candle, Wyckoff, VPOC, Mom). Not a tuned pattern — broad agreement across uncorrelated inputs. t-statistic not computable on one ticker; treat as 1 of 1 candidate, not a portfolio of signals. |
+| 🔢 Thorp | **BET (small)** | MEDIUM | 1.51R at TP1 with a 5.5% stop. Break-even win rate is 40%; SOS continuations in a range this tight historically clear ~45%. Round-trip cost 0.30% of notional = 5.4% of risk — tolerable. Edge exists but is thin, so size at half. |
+| 📊 Wyckoff | **ACCUMULATION** | HIGH | Textbook Phase C to D: Spring (Oct 28 shakeout under the range low) then SOS (Oct 29 wide bar, close at high, volume expansion). Bullish bias holds while price stays above $75.67 VPOC. |
+| 🧬 Medallion | **WEAK** | MEDIUM | Five factors confirm: SOS bar, volume expansion to 1.28x, SMA20/50/100 reclaim in one bar, MACD histogram flip to +0.27, VPOC below price. Single name, single period, 20-day sample — no statistical significance yet. Confirmation requires the $78.56 break. |
 
-**Consensus:** the best technical setup on the board and the only one clearing the +0.50 gate — **and it is uninvestable today** because GoDaddy reports Q3 after the close (IR-confirmed Oct 29). Do NOT enter pre-print. Entry only after the reaction, on a close that holds above $104.63 (SMA20/VWAP), buy-stop $107.10, stop $104.40, size 15 sh = $1,606 notional, risk $40.50.
+**Consensus BCC:** 2 of 3 constructive, 0 of 3 enter today. The setup is real but the trigger is one bar away — buy-stop $78.65, 11 sh, risk $47.85 (1.9%). Invalidation: a close back under $75.67 (VPOC) kills the SOS.
 
-### MRVL | Entry $245.00 | Stop $237.90 | TP1 $254.27 | TP2 $261.43 | R:R 1.31 / 2.31 | Trigger: **NOT PRINTED** — selling climax Oct 22 at $220.21 on 24.96M sh (1.6× avg), then 5 consecutive higher closes ($223.47 → $251.65), last close at 73% of range. Price sits 1.04% under the SMA20 $254.27 / VWAP20 $256.89 decision cluster.
+### DINO | Entry $115.10 | Stop $109.60 | TP1 $121.50 | TP2 $125.30 | R:R 1.16 / 1.85 | Trigger: **NOT PRINTED** — needs green close above $115.00.
 
-| Expert | Verdict | Conf | Action |
-|---|---|---|---|
-| 🔢 Thorp | **NO BET at $251.65** | MED | Chasing +3.3% into resistance with a 6.55% ATR leaves no viable stop (tight stop = noise, wide stop = 0.5R risk). Edge only exists on the retest. |
-| 📊 Wyckoff | **ACCUMULATION (early)** | LOW | SC + AR only — Phase A/B. No spring, no ST test. Down-volume still exceeds up-volume (22.7M vs 18.7M over 20d) = supply not fully absorbed. |
-| 🧬 Medallion | **WEAK** | MED | 5/11 factors. VWAP and Wyckoff both negative; volume profile shows VPOC $219.49 far below price = price is away from value, not in it. |
-
-**Consensus:** WAIT. Real trigger is a back-up to the reclaimed HVN $244.65 with a bullish rejection bar; then 10 sh, risk $71 (2.8% of budget — trim to 7 sh to stay ≤2%). Catalysts clear: earnings Dec 1.
-
-### GME | Entry $23.85 | Stop $22.35 | TP1 $25.58 | TP2 $26.30 | R:R 1.15 / 1.63 | Trigger: **NOT PRINTED** — six straight lower closes, last bar closed at 33% of range, Stoch 2.6, volume 0.46× (no stopping volume, no SOS). Price is sitting ON VPOC $23.70, i.e. accepted at value, not shaken out.
+Evidence: three sessions from $125.25 to $111.89 (-11%) on volume that peaked at 3.3M versus a ~2.0M average — a genuine selling climax. Oct 29 was an inside bar: low $109.93 above the prior low $109.07, close $111.89 at 0.39 of range, volume fading to 2.8M. Price is holding SMA50 $111.43 by 0.4% and sits on the $112.06 HVN. SMA50 slope still +6.0%.
 
 | Expert | Verdict | Conf | Action |
 |---|---|---|---|
-| 🔢 Thorp | **NO BET** | HIGH | 1.15R to first resistance, no structural edge, and meme-float tail risk is unbounded both ways. Expectancy is negative after a realistic stop. |
-| 📊 Wyckoff | **NEUTRAL** | MED | No spring, no climax, no SOS — Phase B drift. A high-volume flush under $23.10 followed by a reclaim would be the first real setup. |
-| 🧬 Medallion | **NOISE** | HIGH | 4/11. The scan score (7.25) rewards oversold + dry volume, but OBV (-0.173), VWAP and momentum (ROC-10 -14.1%) all contradict. Textbook false positive from a single-factor-heavy score. |
+| 🔢 Thorp | **NO BET at spot** | MEDIUM | EV at TP1 = 0.52 x 1.16 - 0.48 x 1.0 = +0.12R before costs. After 0.30% round-trip on a 5.5% stop, net is ~+0.09R. Positive but below the 0.15R deployment bar. Only becomes a bet if the trigger prints and the stop tightens to $109.60. |
+| 📊 Wyckoff | **NEUTRAL (Phase B test)** | MEDIUM | Volume climax plus an SMA50/HVN hold is the shape of a re-accumulation test, but there is no Spring and no SOS. Oct 29 mid-range close = no demand proven. Bullish bias requires a wide bar closing in the upper third. |
+| 🧬 Medallion | **NOISE** | HIGH | Four factors point up (RSI 36, SMA50 hold, climax volume, VPOC below) and they are levels, not signals. MACD hist -2.08, price below SMA20 $120.61 and below VWAP20 $120.16 = the trend is still down on the operative timeframe. |
 
-**Consensus:** NO TRADE. This is the case that proves the scan needs the confluence gate — a 7.25 scan score with a -0.06 composite is a value trap, not an entry.
+**Consensus DINO:** 0 of 3 BET. Best case is a 1.85R trade that needs a 54% win rate to beat the index. Pass unless the trigger prints AND $78.56-style confirmation appears.
 
-### CRWV | $63.93 | Trigger: **NOT PRINTED** — +7.32% to close at 98% of range (SOS-shaped bar) but price is below all three averages (SMA20 $71.90, SMA50 $80.75, EMA200 $89.54) and -45.6% off the 3-month high.
+### FBK | Entry $54.20 | Stop $53.30 | TP1 $55.08 | TP2 — | R:R 0.98 / n.a. | Trigger: **NOT PRINTED** — needs close above SMA50 $54.06.
 
-| Expert | Verdict | Conf | Action |
-|---|---|---|---|
-| 🔢 Thorp | **NO BET** | HIGH | One up-bar inside a markdown is not an edge; 9.96% ATR makes position sizing guesswork. |
-| 📊 Wyckoff | **DISTRIBUTION → markdown** | HIGH | The bounce is an Automatic Rally inside a downtrend, not accumulation. No cause built. |
-| 🧬 Medallion | **NOISE** | HIGH | -0.04 composite. Candle +1.0 and MFI +1.0 are overwhelmed by Trend/VWAP/OBV negatives — single-bar signals are the classic overfit trap. |
-
-**Consensus:** WAIT for a close above $71.90 (SMA20) to even open a watch case.
-
-### ACMR | $53.02 | Trigger: **NOT PRINTED** — RSI 22.8, -42.7% from 3m high, OBV slope -0.416, CMF -0.286, position in 60d range 11%.
+Evidence: Oct 29 green bar (+1.42%) but volume 254K = **0.49x** the 20-day average. Price $53.69 sits exactly on VPOC $53.73 (balance), under SMA50 $54.06 and under EMA200 $55.47. Oct 29 high $53.96 missed the SMA50 by 10 cents.
 
 | Expert | Verdict | Conf | Action |
 |---|---|---|---|
-| 🔢 Thorp | **NO BET** | HIGH | Lowest composite on the board (-0.73); 10 of 11 factors negative. |
-| 📊 Wyckoff | **MARKDOWN** | HIGH | No support structure; every bounce has been sold. |
-| 🧬 Medallion | **NOISE** | HIGH | Nothing to combine — the factors agree it is a falling knife. |
+| 🔢 Thorp | **NO BET** | HIGH | TP1 at VAH $55.08 is 0.98R against a 1.7% stop. Needs a 51% win rate on a range breakout that has no volume behind it. Negative expectancy after costs. |
+| 📊 Wyckoff | **NEUTRAL** | MEDIUM | Still in distribution footprint: below SMA50 and EMA200, pinned on VPOC, no LPS. A breakout on half-volume fails the effort-versus-result test. |
+| 🧬 Medallion | **NOISE** | HIGH | Three factors point up, and the one that matters (relative volume at 0.49x) is against it. Low-volume probes inside a balance area are the definition of noise. |
 
-**Consensus:** NO TRADE. Reclaim of $63.00 (SMA20) is the first thing that would matter.
-
-### MKSI | Plan zone $255–274 | Trigger: **NOT TRIGGERED** — spot $218.24 is 14% below the bottom of the planned entry zone; SMA50 slope -6.9%; -33.7% from the 3-month high.
-
-| Expert | Verdict | Conf | Action |
-|---|---|---|---|
-| 🔢 Thorp | **NO BET** | HIGH | The plan's edge was a pullback inside an uptrend. That uptrend is gone; the premise is dead, not the trigger. |
-| 📊 Wyckoff | **MARKDOWN** | HIGH | Below all averages, VPOC $257.82 far overhead = heavy supply. |
-| 🧬 Medallion | **NOISE** | HIGH | -0.27; the only positives are oversold RSI/MFI, which is a level, not a signal. |
-
-**Consensus:** plan stays dormant, unmodified, untriggered. No averaging, no bottom-fishing. Re-arm only on a reclaim of $255.
+**Consensus FBK:** 0 of 3. No trade. Revisit only on a close above $54.06 with volume > 1.5x.
 
 ## 🚨 Exit Signals — Active Positions
 
 | Ticker | Price | Entry | P&L | Regime | RSI | Stoch | ATR | Momentum | SL | TP1 | TP2 |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| ZS | $255.80 | $150.00 | **+70.5%** (+$1,587) | UPTREND | 68.3 | 81.3 | $12.98 | STRONG | $229.87 → **$241.91** | open | open |
-| AMZN | $254.60 | $259.55 | **-1.9%** (-$49.50) | DOWNTREND | 50.5 | 43.5 | $6.67 | WEAK | $246.21 | $269.56 | $272.89 |
+| ZS | $247.82 | $150.00 | **+65.2%** (+$1,467) | UPTREND | 57.2 | 68.9 | $13.35 | STRONG (+6) | $221.12 monitor / **$241.91 written** | open | open |
+| AMZN | $243.79 | $259.55 | **-6.1%** (-$157.60) | DOWNTREND | 34.1 | 10.6 | $7.00 | WEAK (-3) | **$245.55 FILLED** | $270.05 | $273.55 |
 
 ### Exit Notes
 
 | Ticker | Signals |
 |---|---|
-| ZS | Oct 28 bar: O $260.52 → H $265.99 → **C $255.80 at 13% of range** on 0.87× volume. Price is 89% up its 60-day range, 4.5% off the high, and 10.8% above VAH $230.43 — extended, away from value. Composite **+0.55** (Trend/OBV/CMF/VPOC/Mom all +1.0), so the trend is intact, but one factor (Candle) flipped to -1.0. Action: **raise trail from $229.87 to $241.91** (2×ATR below the $267.87 swing high) — locks +61.3% instead of +53%. Keep runner. Earnings Nov 24: decide trail width before then, don't carry a 2×ATR trail blindly into a print. |
-| AMZN | **Setup is dead and the event is tonight.** Five consecutive closes below the $256.68 invalidation trigger (250.38 / 248.00 / 249.09 / 253.10 / 254.60), price pinned at the SMA20/SMA50 cluster ($255.17/$255.12) with MACD -0.47, VPOC $261.14 overhead as supply. Q3 2026 results are **confirmed for Oct 29 after the close**. Holding a failed 5-day setup into a binary print is not a trade, it is a coin flip with a -1.9% head start. Action: **exit before the close**, take the -$49.50. |
+| AMZN | **Stop filled — this is a closed trade, not a decision.** Oct 29: opened $246.91, low **$241.24**, closed $243.79 on **79.7M shares (2.25x)** = distribution day. The $245.55 hard stop was breached intraday; the journal hard stop $249.33 and the $256.68 invalidation were both already gone. Q3 printed Oct 28 after the close and the tape rejected it. Realized at stop: **-$140.00 (-5.4%)**. If no order was live, exit at the Oct 30 open — do not hold and hope. |
+| ZS | **Trail ratchet bug — act on it.** Oct 29 gapped down to $235.51 (low $233.17) and recovered to $247.82 at 0.72 of range on 0.94x volume. That recovery is demand, so the trend is intact. But yesterday report raised the trail to **$241.91**; the monitor today prints **$221.12** because line 1794 recomputes `price - 2*ATR` from the latest close with no max() ratchet. If the $241.91 stop was live, ZS was **gapped through at the open** and is already flat at ~$235.51: **+$1,282.65 (+57.0%)**. If it was never placed, the position is still open and the correct trail is $241.91 — not $221.12. Either way, do not lower it. |
 
 ### 3-Expert on the exits
 
 | Ticker | Thorp | Wyckoff | Medallion | Consensus |
 |---|---|---|---|---|
-| ZS | **HOLD (BET)** — edge intact, +0.55 composite, trend factors unanimous | **Upthrust risk** — weak close at range top after 267.87 = potential LPSY; needs a close back above 260 to invalidate | **STRONG** — 8/11 positive | Hold runner, trail to $241.91, trim only if a close lands below $241.91 |
-| AMZN | **NO BET** — expectancy now dominated by a scheduled binary event, not by the signal | **NEUTRAL→DISTRIBUTION** — below VPOC, failed to hold the SMA cluster | **NOISE** — -0.01 composite | **EXIT before the print** |
+| AMZN | **NO BET** — the signal that justified entry died five closes ago; the event was a coin flip and it landed wrong | **DISTRIBUTION CONFIRMED** — 79.7M volume broke VPOC $251.78 and VAL $247.72; close at 6.6% of the 60-day range = markdown | **STRONG (bearish)** — every measurable factor is negative — trend, volume, structure and momentum all confirm | **FLAT. Already stopped.** Realize -$140 and move on |
+| ZS | **HOLD (BET)** — +65% with MACD hist +2.34 and SMA50 slope +6.2%; the gap was absorbed | **NEUTRAL / upthrust risk** — the $267.87 failure on Oct 27 is a potential LPSY; today mid-range recovery keeps it alive. Needs a close above $255.80 | **STRONG** — Momentum, trend and moving-average factors still positive; only the candle factor is negative | **HOLD with $241.91 trail — but verify the order is actually in the book** |
 
 ## 📈 Journey Snapshot
 
@@ -142,40 +113,40 @@ Scanned: **1,343 of 1,463** stocks (server-side liquidity floor: mcap > $500M, v
 | ARKW | $154.06 → $151.38 | -0.4R | 4 | 🔴 open |
 | HUBS | $240.51 → $239.86 | -0.0R | 4 | 🔴 open |
 | ZM | $109.84 → $106.30 | -0.5R | 4 | 🔴 open |
-| SPNT | $25.17 → $25.27 | +0.1R | 27 | 🟢 open |
-| CON | $39.15 → $40.59 | +0.7R | 9 | 🟢 open |
+| SPNT | $25.17 → $25.95 | +0.7R | 28 | 🟢 open |
+| CON | $39.15 → $41.25 | +1.1R | 10 | 🟢 open |
 
 **Stats:** 5 trades · W2 / L3 · WR 40% · Total R -0.60 (avg -0.12) · P&L -$55.96 · PF 0.79 · Max DD 1.7%
 
-**Long-term (VOO/VXUS):** VXUS $83.75 (+0.54%), RSI 47.3, -5.5% from the 52-week high, below SMA100 $85.46 → **DCA add zone** (deep value, not a trade). No VOO trigger.
+**Long-term (VOO/VXUS):** VXUS **$83.65** (-0.12%), RSI 39.8, -5.6% from the 52-week high $88.62, below SMA100 $85.46, above EMA200 $82.63 → **DCA add zone**, deep value not a trade. No VOO trigger.
 
 ## 📋 SUMMARY — All Entry Points
 
 | Ticker | Side | Entry | Stop | TP1 | TP2 | R:R | Trigger State | Expert Consensus | Budget $2,500 |
 |---|---|---|---|---|---|---|---|---|---|
-| GDDY | Long | $107.10 | $104.40 | $110.61 | $114.77 | 1.30 / 2.84 | **NOT PRINTED** — earnings tonight, cannot trigger | 3/3 constructive but **event-blocked** | 15 sh = $1,606 · risk $40.50 (1.6%) |
-| MRVL | Long | $245.00 | $237.90 | $254.27 | $261.43 | 1.31 / 2.31 | **NOT PRINTED** — needs retest of $244.65 | 0 BET / 1 early-accum / 1 weak | 7 sh = $1,715 · risk $49.70 (2.0%) |
-| GME | Long | $23.85 | $22.35 | $25.58 | $26.30 | 1.15 / 1.63 | **NOT PRINTED** — no SOS, dry volume | 0 BET / neutral / noise | **$0 — do not trade** |
-| CRWV | Long | — | — | — | — | — | **NOT PRINTED** — needs > $71.90 | 0 BET / distribution / noise | $0 |
-| ACMR | Long | — | — | — | — | — | **NOT PRINTED** — needs > $63.00 | 0 BET / markdown / noise | $0 |
-| MKSI | Long | $255–274 (plan) | — | — | — | — | **NOT TRIGGERED** — 14% below zone | 0 BET / markdown / noise | $0 (dormant) |
-| ZS | Hold | $150.00 | **$241.91** | open | open | trail | Position open, trail raised | Hold (3/3 intact) | 15 sh held · +$1,587 |
-| AMZN | **Exit** | $259.55 | — | — | — | — | **Exit signal — earnings tonight** | 3/3 exit | 10 sh · -$49.50 |
+| BCC | Long | $78.65 | $74.30 | $85.20 | $88.40 | 1.51 / 2.24 | **NOT PRINTED** — needs close > $78.56 | 1 BET / accumulation / weak → 2 of 3 constructive | 11 sh = $865 · risk $47.85 (1.9%) |
+| DINO | Long | $115.10 | $109.60 | $121.50 | $125.30 | 1.16 / 1.85 | **NOT PRINTED** — needs close > $115.00 | 0 BET / neutral / noise | **$0** — R:R below gate |
+| FBK | Long | — | — | — | — | 0.98 / n.a. | **NOT PRINTED** — needs close > $54.06 | 0 BET / neutral / noise | **$0** — no volume |
+| LOPE | Long | — | — | — | — | — | **NO SETUP** — score 4.5 | 0 BET / n.a. / noise | **$0** |
+| MKSI | Long | $255–274 (plan) | — | — | — | — | **VOID** — spot 15% below zone | 0 BET / markdown / noise | **$0** (retired) |
+| ZS | Hold | $150.00 held | $241.91 | open | open | trail | Position open — **verify stop in book** | Hold, 3 of 3 trend intact | 15 sh · +$1,467 unrealized |
+| AMZN | **Exit** | $259.55 | $245.55 | — | — | — | **FILLED** — flat | 3 of 3 exit | 10 sh · **-$140 realized** |
 
-## 🏁 Final Results (3-Expert consensus on today's best entry)
+## 🏁 Final Results (3-Expert consensus on today best entry)
 
 | Ticker | Best Call | Direction | Size | Entry | Stop | TP | R:R | Expert Consensus | Invalidation | Catalyst risk | Budget $2,500 |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| **GDDY** | Best setup on the board — **wait for the print** | Long | 15 sh after trigger | $107.10 (buy-stop) | $104.40 | $110.61 / $114.77 | 1.30 / 2.84 | Thorp BET · Wyckoff ACCUMULATION · Medallion STRONG → **3/3 constructive, 0/3 enter today** | Close back below $104.40 (SMA20/VWAP lost) | **Q3 earnings TODAY after close** — do not hold through it | $1,606 notional · $40.50 risk |
-| **AMZN** | **Exit before the close** | Long → flat | 10 sh | market on close | — | — | — | Thorp NO BET · Wyckoff NEUTRAL→DIST · Medallion NOISE → **exit** | Already invalidated: 5 closes < $256.68 | **Q3 earnings TONIGHT** into a failed setup | Realizes -$49.50 |
-| **MRVL** | Second-best, needs the retest | Long | 7 sh | $245.00 | $237.90 | $254.27 / $261.43 | 1.31 / 2.31 | Thorp NO BET at spot · Wyckoff early ACC · Medallion WEAK → **wait** | Close under $237.90 (loses the reclaimed HVN) | Low — earnings Dec 1 | $1,715 notional · $49.70 risk |
-| **ZS** | Manage the winner, don't add | Long (held) | 15 sh | $150.00 (held) | $241.91 | open | trail | 3/3 intact | Close under $241.91 | Earnings Nov 24 | +$1,587 unrealized |
+| **BCC** | **The only live setup on the board — wait for the range break** | Long | 11 sh after trigger | $78.65 (buy-stop) | $74.30 | $85.20 / $88.40 | 1.51 / 2.24 | Thorp BET (small) · Wyckoff ACCUMULATION · Medallion WEAK → **2 of 3 constructive, 0 of 3 enter today** | Daily close back under $75.67 (VPOC) kills the SOS | Earnings not imminent; building-products cyclical, housing-data sensitive | $865 notional · $47.85 risk |
+| **ZS** | **Verify the trail, then let it run** | Long (held) | 15 sh | $150.00 (held) | **$241.91** | open | trail | 3 of 3 — trend intact, gap absorbed | Close under $241.91 / regime flip | Earnings Nov 24 — tighten before the print | +$1,467 unrealized |
+| **AMZN** | **Already stopped — confirm flat** | Long → flat | 10 sh | — | $245.55 filled | — | — | Thorp NO BET · Wyckoff DISTRIBUTION · Medallion STRONG bearish → **3 of 3 exit** | Already invalidated: five closes under $256.68 | Q3 rejected by the tape | Realized -$140.00 |
+| **DINO** | Watch only — the R:R does not pay | Long | 0 | $115.10 | $109.60 | $121.50 / $125.30 | 1.16 / 1.85 | 0 BET · neutral · noise | Close under $109.07 resumes markdown | None near-term | $0 |
+| **FBK** | No trade | Long | 0 | $54.20 | $53.30 | $55.08 | 0.98 | 0 BET · neutral · noise | — | — | $0 |
 
-**The honest Thorp answer for today:** one name clears the confluence gate, and it reports earnings in a few hours. The correct number of new positions to open this morning is **zero**. The action with positive expectancy is **closing AMZN before its print** and **raising the ZS trail** — everything else is a watch item.
+**The honest Thorp answer for today:** the scan produced zero qualifiers out of 1,347 names, and the one real setup (BCC) needs a close above $78.56 that has not happened. The correct number of new positions to open this morning is **zero**. The work that has positive expectancy today is administrative and it is urgent: **confirm AMZN is flat** (-$140 realized) and **confirm which ZS stop is actually in the book** ($241.91 or $221.12) — the difference between those two numbers is about $185 of realized profit plus the entire risk on 15 shares.
 
 ## 🔧 System Notes (needs your call)
 
-1. **Scanner coverage bug — FIXED.** `match` filter is substring-based; coverage was 539/1,463 and truncation-dependent. Now paginated full-market + exact intersect → 1,343/1,463 (the missing 120 are below the liquidity floor). Backup at `daily_market_scan.py.bak`.
-2. **Monitor TP ladder is incoherent for non-held tickers.** MRVL printed `Entry $244.08 · TP1 $254.27 · TP2 $237.23` — TP2 below entry. Cause: TP1 comes from the entry-verdict path (SMA20) while TP2 comes from `calculate_dynamic_exits` (entry + nR on an ATR anchor). For tickers you don't own, targets must be structural (HVN/VAH), not entry+nR. My report uses corrected structural levels.
-3. **AMZN stop basis conflicts.** Journal says hard SL $249.33; monitor says $246.21. Oct 23's low was **$246.45**, i.e. the journal stop was breached intrabar and the position survived because the monitor only evaluates closing prices against a floating 2×ATR stop. Pick one basis and write it down — this is how a -1.9% turns into a -5%.
-4. **NVDU is still in the 15-ticker watchlist** but the position was fully closed on Oct 7. Fine for re-entry monitoring, but the "rename the cron job to match the ticker list" rule needs a decision if it stays.
+1. **ZS trail does not ratchet — this is the highest-priority fix.** `monitor_entries.py` line 1794 sets `trail_stop = price - 2*ATR` from the current close. Every down day lowers the stop. Yesterday it printed $241.91, today $221.12 — a trailing stop is allowed to move one way only. Fix: `trail_stop = max(prev_trail, price - 2*ATR)` with the value persisted in state, not recomputed from scratch.
+2. **AMZN had three different stop levels on three different systems** — journal $249.33, monitor $245.55, and the $256.68 invalidation. The stop that should have fired Oct 23 ($249.33 vs a low of $246.45) never did because the monitor only compares closing prices to a floating ATR stop. One basis, one number, written down.
+3. **BCC entry zone in the monitor was above spot** — it printed $82.18–$80.25 while the ticker traded $77.85. A dip-buy zone above the current price is not a dip-buy zone. The structural level is the $78.56 range top, and that is what this report uses.
+4. **Scan coverage:** 1,347 of 1,463 analyzed, the gap being sub-liquidity-floor names. Working as designed.
