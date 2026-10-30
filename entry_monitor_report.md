@@ -1,41 +1,42 @@
-# 📡 Entry Monitor Report — Fri 30 Oct 2026 20:30 ICT
+# 📡 Entry Monitor Report — Fri 30 Oct 2026 21:31 ICT
 
 ## 1️⃣ Watchlist Snapshot
 
 | Ticker | Price | Δ% | RSI | Vol | SMA20 | SMA50 | SMA100 | Regime | 5d |
 |--------|------:|:--:|---:|---:|------:|------:|-------:|--------|----:|
-| GOOG | $279.76 | -0.91% | 13.50 | 0.17x | $330.65 | $335.76 | $343.07 | DOWNTREND | 3🔴/2🟢 |
-| RDDT | $97.82 | -24.52% | 13.30 | 0.59x | $147.17 | $150.49 | $161.94 | DOWNTREND | 5🔴/0🟢 |
-| GDDY | $107.15 | +1.19% | 59.00 | 0.03x | $105.57 | $101.23 | $94.94 | UPTREND | 3🔴/2🟢 |
-| NVDU | $119.30 | -5.07% | 31.90 | 0.20x | $136.35 | $138.03 | $132.30 | DOWNTREND | 3🔴/2🟢 |
-| ZS | $248.18 | +0.14% | 62.40 | 0.02x | $230.24 | $204.40 | $177.01 | UPTREND | 3🔴/2🟢 |
-| BCC | $78.08 | +0.30% | 63.80 | 0.02x | $75.45 | $76.44 | $77.06 | UPTREND | 2🔴/3🟢 |
-| FBK | $53.69 | +1.42% | 56.30 | 0.50x | $52.52 | $54.06 | $55.99 | BOUNCE | 3🔴/2🟢 |
-| AMZN | $231.01 | -5.24% | 29.10 | 0.25x | $253.92 | $254.09 | $251.70 | DOWNTREND | 2🔴/3🟢 |
-| MRVL | $205.07 | -6.08% | 30.60 | 0.08x | $248.42 | $242.79 | $238.47 | DOWNTREND | 2🔴/3🟢 |
-| GEV | $851.62 | -4.08% | 32.30 | 0.05x | $927.27 | $934.88 | $984.07 | DOWNTREND | 2🔴/3🟢 |
-| MKSI | $200.98 | -7.03% | 26.50 | 0.01x | $231.02 | $248.03 | $294.65 | DOWNTREND | 2🔴/3🟢 |
-| OPEN | $1.88 | -1.32% | 40.00 | 0.04x | $2.08 | $2.56 | $3.38 | DOWNTREND | 4🔴/0🟢 |
-| ACMR | $45.82 | -7.04% | 19.10 | 0.06x | $59.41 | $68.49 | $79.58 | DOWNTREND | 2🔴/3🟢 |
-| AMKR | $38.31 | -7.05% | 30.60 | 0.05x | $44.55 | $47.94 | $57.36 | DOWNTREND | 3🔴/2🟢 |
-| CRWV | $56.40 | -7.15% | 27.50 | 0.06x | $68.84 | $79.48 | $84.78 | DOWNTREND | 2🔴/3🟢 |
+| GOOG | $278.92 | -1.20% | 13.40 | 0.53x | $330.61 | $335.74 | $343.07 | DOWNTREND | 3🔴/2🟢 |
+| RDDT | $96.24 | -25.74% | 13.10 | 2.13x | $147.09 | $150.46 | $161.92 | DOWNTREND | 5🔴/0🟢 |
+| GDDY | $110.24 | +4.11% | 63.20 | 0.28x | $105.73 | $101.29 | $94.97 | UPTREND | 3🔴/2🟢 |
+| NVDU | $116.69 | -7.15% | 30.60 | 0.49x | $136.22 | $137.98 | $132.27 | DOWNTREND | 3🔴/2🟢 |
+| ZS | $237.87 | -4.02% | 56.10 | 0.17x | $229.73 | $204.19 | $176.91 | UPTREND | 4🔴/1🟢 |
+| BCC | $78.00 | +0.19% | 63.70 | 0.11x | $75.45 | $76.43 | $77.06 | UPTREND | 2🔴/3🟢 |
+| FBK | $53.78 | +0.17% | 55.20 | 0.02x | $52.53 | $53.97 | $55.99 | BOUNCE | 2🔴/3🟢 |
+| AMZN | $238.19 | -2.30% | 32.60 | 0.98x | $254.28 | $254.24 | $251.78 | DOWNTREND | 2🔴/3🟢 |
+| MRVL | $200.90 | -7.99% | 29.80 | 0.49x | $248.22 | $242.70 | $238.43 | DOWNTREND | 2🔴/3🟢 |
+| GEV | $863.21 | -2.78% | 33.30 | 0.39x | $927.85 | $935.11 | $984.18 | DOWNTREND | 2🔴/3🟢 |
+| MKSI | $200.40 | -7.30% | 26.40 | 0.21x | $230.99 | $248.02 | $294.64 | DOWNTREND | 2🔴/3🟢 |
+| OPEN | $1.82 | -4.27% | 38.00 | 0.18x | $2.08 | $2.55 | $3.38 | DOWNTREND | 4🔴/0🟢 |
+| ACMR | $45.60 | -7.49% | 19.00 | 0.23x | $59.40 | $68.49 | $79.58 | DOWNTREND | 2🔴/3🟢 |
+| AMKR | $39.76 | -3.52% | 32.50 | 0.20x | $44.62 | $47.97 | $57.37 | DOWNTREND | 3🔴/2🟢 |
+| CRWV | $55.04 | -9.38% | 26.80 | 0.29x | $68.78 | $79.46 | $84.76 | DOWNTREND | 2🔴/3🟢 |
 
 ## 2️⃣ Entry Verdicts
 
 | Ticker | Price | Δ% | RSI | Verdict / Plan |
 |--------|------:|---:|:--:|---------------|
-| FBK | $53.69 | +1.42% | 56.30 | 📍 **VERDICT: ⚠️ BOUNCE** \| Risky \| Wait for SMA50 reclaim (>$54.06) \| Entry then: $54.06 |
-| ACMR | $45.82 | -7.04% | 19.10 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND below all SMAs \| Needs green close > SMA20 $59.41 \| Knife — no market-buy |
-| CRWV | $56.40 | -7.15% | 27.50 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND below all SMAs \| Needs green close > SMA20 $68.84 \| Knife — no market-buy (fib78.6 $65.42 below) |
+| RDDT | $96.24 | -25.74% | 13.10 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND \| Entry: $129.1–$114.11 \| Needs RSI<35 + green candle |
+| FBK | $53.78 | +0.17% | 55.20 | 📍 **VERDICT: ⚠️ BOUNCE** \| Risky \| Wait for SMA50 reclaim (>$53.97) \| Entry then: $53.97 |
+| ACMR | $45.60 | -7.49% | 19.00 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND below all SMAs \| Needs green close > SMA20 $59.4 \| Knife — no market-buy |
+| CRWV | $55.04 | -9.38% | 26.80 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND below all SMAs \| Needs green close > SMA20 $68.78 \| Knife — no market-buy (fib78.6 $65.42 below) |
 
 ## 3️⃣ Exit Signals
 
 | Ticker | Price | Entry | P&L% | Regime | RSI | Stoch | ATR | SL | TP1 | TP2 | Momentum | Notes |
 |--------|------:|------:|---:|:-----:|---:|-----:|----:|---:|----:|----:|---------:|-------|
-| ZS | $248.18 | $150.00 | +65.45% | UPTREND | 62.40 | 69.50 | $12.64 | $222.90 | $168.96 | $187.92 | STRONG | 🚨 **ZS EXIT SIGNAL** Price: $248.18 \| Entry: $150.00 \| P&L: +65.5% ($+1472.63) Regime: UPTREND \| RSI: 62.4 \| Stoch: 69.5 \| ATR: $12.64 Momentum: STRONG (+6) \| R: $12.64 SL: $222.9 (TRAILING 2×ATR) \| TP1: $168.96 \| TP2: $187.92 \| TP3: ∞ (letting run) • 📈 **TRAILING** @ $248.18 \| Trail stop: $222.9 (2×ATR below price) \| P&L: +65.5% — let profits run |
-| AMZN | $231.01 | $259.55 | -11.00% | DOWNTREND | 29.10 | 4.60 | $7.71 | $244.13 | $271.12 | $274.97 | WEAK | 🚨 **AMZN EXIT SIGNAL** Price: $231.01 \| Entry: $259.55 \| P&L: -11.0% ($-285.41) Regime: DOWNTREND \| RSI: 29.1 \| Stoch: 4.6 \| ATR: $7.71 Momentum: WEAK (-3) \| R: $7.71 SL: $244.13 (2.0×ATR) \| TP1: $271.12 (1.5R) \| TP2: $274.97 (2.0R) • ⚠️ **SETUP INVALIDATION ZONE** $231.01 ≤ $256.68 — plan: DAILY CLOSE below $256.68 → exit all; hard stop $244.13 • 🛑 **STOP LOSS** @ $231.01 (SL: $244.13, 2.0×ATR) \| P&L: -11.0% ($-285.41) |
+| ZS | $237.87 | $150.00 | +58.58% | UPTREND | 56.10 | 53.50 | $13.38 | $211.11 | $170.07 | $190.14 | STRONG | 🚨 **ZS EXIT SIGNAL** Price: $237.87 \| Entry: $150.00 \| P&L: +58.6% ($+1318.05) Regime: UPTREND \| RSI: 56.1 \| Stoch: 53.5 \| ATR: $13.38 Momentum: STRONG (+6) \| R: $13.38 SL: $211.11 (TRAILING 2×ATR) \| TP1: $170.07 \| TP2: $190.14 \| TP3: ∞ (letting run) • 📈 **TRAILING** @ $237.87 \| Trail stop: $211.11 (2×ATR below price) \| P&L: +58.6% — let profits run |
+| AMZN | $238.19 | $259.55 | -8.23% | DOWNTREND | 32.60 | 24.50 | $7.71 | $244.13 | $271.12 | $274.97 | WEAK | 🚨 **AMZN EXIT SIGNAL** Price: $238.19 \| Entry: $259.55 \| P&L: -8.2% ($-213.60) Regime: DOWNTREND \| RSI: 32.6 \| Stoch: 24.5 \| ATR: $7.71 Momentum: WEAK (-3) \| R: $7.71 SL: $244.13 (2.0×ATR) \| TP1: $271.12 (1.5R) \| TP2: $274.97 (2.0R) • ⚠️ **SETUP INVALIDATION ZONE** $238.19 ≤ $256.68 — plan: DAILY CLOSE below $256.68 → exit all; hard stop $244.13 • 🛑 **STOP LOSS** @ $238.19 (SL: $244.13, 2.0×ATR) \| P&L: -8.2% ($-213.60) |
 
 ## 4️⃣ Summary
 
-- Tickers watched: 15 | Entry verdicts: 3 | Exit signals: 2 | Open positions: 2
+- Tickers watched: 15 | Entry verdicts: 4 | Exit signals: 2 | Open positions: 2
 
