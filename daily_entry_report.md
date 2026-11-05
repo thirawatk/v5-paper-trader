@@ -1,6 +1,6 @@
 # 📊 Daily Entry Report — Fri 06 Nov 2026 ICT
 
-_Run 04:35 ICT (pre-market, ~17:35 ET Thu close). Full scan → filter → 3 independent experts per ticker → consolidated plan. New entries only._
+_Run 05:05 ICT (pre-market, ~17:05 ET Thu). Full scan → filter → 3 independent experts per ticker → consolidated plan. New entries only._
 
 ## 🔍 Full Scan Results
 
@@ -40,7 +40,7 @@ Signals Watchlist after filter: **VAC only**. FBK's 🟢 is stale (price below i
 
 | Ticker | Verdict | Regime | Entry Zone | Stop | TP | Trigger/Notes |
 |--------|---------|--------|------------|------|----|---------------|
-| VAC | 🟡 **CONDITIONAL — no trade at spot** | Late Phase B/C re-distribution, $96.80–$120.00 | Buy-stop **$113.85** only after an SOS reclaim of $113.83 on **>1.5x volume**; alternative: buy-stop above a no-supply test bar that holds ≥ $104.01 on **<450k** volume | $106.20 (SOS route, below Nov 5 low $106.36); alternative: below the test bar's low | TP1 $119.99 (40d high) / TP2 $131.34 (52w high) | Trigger **NOT PRINTED**. Nov 4's $104.01 sweep closed at 89.9% of range (valid spring shape) but Nov 5 failed the test — close at 11.0% of range, 1.64x vol, back under SMA20 $111.46. 0/3 experts long |
+| VAC | 🟡 **CONDITIONAL — no trade at spot** | Late Phase B/C re-distribution, $96.80–$120.00 | Buy-stop **$113.85** only after an SOS reclaim of $113.83 on **>1.5x volume**; alternative: buy-stop above a no-supply test bar that holds ≥ $104.01 on **<450k** volume | $106.36 (below Nov 5 low); alternative: below the test bar's low | TP1 $119.99 (40d high) / TP2 $131.34 (52w high) | Trigger **NOT PRINTED**. Nov 4's $104.01 sweep closed at 89.9% of range (valid spring shape) but Nov 5 failed the test — close at 11.0% of range, 1.64x vol, back under SMA20 $111.46. 0/3 experts long |
 
 ## 🧠 3-Expert Analysis (delegate_task — 3 independent subagents)
 
