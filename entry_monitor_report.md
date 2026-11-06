@@ -1,16 +1,16 @@
-# 📡 Entry Monitor Report — Fri 06 Nov 2026 20:30 ICT
+# 📡 Entry Monitor Report — Fri 06 Nov 2026 21:30 ICT
 
 ## 1️⃣ Watchlist Snapshot
 
 | Ticker | Price | Δ% | RSI | Vol | SMA20 | SMA50 | SMA100 | Regime | 5d |
 |--------|------:|:--:|---:|---:|------:|------:|-------:|--------|----:|
 | GOOG | $281.74 | -1.94% | 21.10 | 1.62x | $317.81 | $330.86 | $339.96 | DOWNTREND | 3🔴/2🟢 |
-| RDDT | $93.81 | -7.93% | 13.40 | 1.11x | $135.58 | $145.55 | $158.81 | DOWNTREND | 3🔴/2🟢 |
-| GDDY | $120.12 | +1.52% | 67.20 | 1.19x | $109.59 | $102.95 | $96.64 | UPTREND | 2🔴/3🟢 |
+| RDDT | $94.76 | +1.01% | 14.50 | 0.02x | $132.32 | $144.37 | $158.01 | DOWNTREND | 2🔴/3🟢 |
+| GDDY | $117.00 | -2.60% | 61.80 | 0.01x | $110.22 | $103.35 | $97.02 | UPTREND | 3🔴/2🟢 |
 | NVDU | $89.12 | -18.85% | 27.30 | 3.91x | $126.37 | $136.23 | $131.42 | DOWNTREND | 4🔴/1🟢 |
 | ZS | $203.88 | -9.16% | 48.40 | 1.13x | $231.36 | $207.81 | $180.58 | DOWNTREND | 4🔴/1🟢 |
 | BCC | $73.75 | -5.42% | 45.40 | 1.31x | $75.70 | $75.97 | $77.27 | DOWNTREND | 3🔴/2🟢 |
-| FBK | $54.27 | -2.58% | 66.40 | 0.68x | $52.99 | $53.72 | $56.02 | UPTREND | 3🔴/2🟢 |
+| FBK | $53.81 | -0.85% | 62.70 | 0.01x | $53.05 | $53.64 | $56.01 | UPTREND | 3🔴/2🟢 |
 | AMZN | $260.21 | -2.19% | 56.40 | 1.78x | $254.43 | $253.89 | $252.38 | UPTREND | 2🔴/3🟢 |
 | MRVL | $133.55 | -16.43% | 24.60 | 2.37x | $223.95 | $236.31 | $233.53 | DOWNTREND | 4🔴/1🟢 |
 | GEV | $770.51 | -7.48% | 35.60 | 2.09x | $895.99 | $927.11 | $981.03 | DOWNTREND | 3🔴/2🟢 |
@@ -24,8 +24,7 @@
 
 | Ticker | Price | Δ% | RSI | Verdict / Plan |
 |--------|------:|---:|:--:|---------------|
-| GDDY | $120.12 | +1.52% | 67.20 | 📍 **VERDICT: 🟡 OVERBOUGHT** \| UPTREND \| Wait for pullback: $110.09–$106.01 \| Stop: $96.67 \| TP: $123.29 |
-| FBK | $54.27 | -2.58% | 66.40 | 📍 **VERDICT: 🟢 UPTREND** \| Entry on dip: $57.69–$56.16 \| Stop: $53.31 \| TP: $62.65 |
+| FBK | $53.81 | -0.85% | 62.70 | 📍 **VERDICT: 🟢 UPTREND** \| Entry on dip: $57.69–$56.16 \| Stop: $53.29 \| TP: $62.65 |
 | MRVL | $133.55 | -16.43% | 24.60 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND \| Entry: $196.99–$168.65 \| Needs RSI<30 + green candle |
 | GEV | $770.51 | -7.48% | 35.60 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND \| At Fib 78.6% ($824.83) — needs GREEN close at support or capitulation (vol>1.5x + red) |
 | MKSI | $176.82 | -9.30% | 32.80 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND \| Needs capitulation (vol>1.5x) + green close \| Stop: $160.2 |
@@ -40,5 +39,5 @@
 
 ## 4️⃣ Summary
 
-- Tickers watched: 15 | Entry verdicts: 7 | Exit signals: 1 | Open positions: 2
+- Tickers watched: 15 | Entry verdicts: 6 | Exit signals: 1 | Open positions: 2
 
