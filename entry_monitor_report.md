@@ -1,41 +1,42 @@
-# 📡 Entry Monitor Report — Fri 06 Nov 2026 22:30 ICT
+# 📡 Entry Monitor Report — Mon 09 Nov 2026 04:30 ICT
 
 ## 1️⃣ Watchlist Snapshot
 
 | Ticker | Price | Δ% | RSI | Vol | SMA20 | SMA50 | SMA100 | Regime | 5d |
 |--------|------:|:--:|---:|---:|------:|------:|-------:|--------|----:|
-| GOOG | $285.87 | +1.47% | 21.90 | 0.24x | $314.71 | $329.82 | $339.11 | DOWNTREND | 2🔴/3🟢 |
-| RDDT | $95.29 | +1.57% | 15.10 | 0.21x | $132.35 | $144.38 | $158.01 | DOWNTREND | 2🔴/3🟢 |
-| GDDY | $116.88 | -2.70% | 61.60 | 0.08x | $110.21 | $103.34 | $97.02 | UPTREND | 3🔴/2🟢 |
-| NVDU | $97.46 | +9.36% | 31.20 | 0.75x | $123.92 | $135.22 | $131.10 | DOWNTREND | 3🔴/2🟢 |
-| ZS | $202.60 | -0.63% | 45.40 | 0.17x | $229.81 | $208.11 | $181.33 | DOWNTREND | 4🔴/1🟢 |
-| BCC | $72.57 | -1.60% | 45.20 | 0.04x | $75.65 | $75.84 | $77.28 | DOWNTREND | 4🔴/1🟢 |
-| FBK | $54.42 | +0.29% | 66.80 | 0.05x | $53.08 | $53.66 | $56.02 | UPTREND | 2🔴/3🟢 |
-| AMZN | $262.77 | +0.99% | 50.20 | 0.23x | $254.45 | $254.02 | $252.55 | UPTREND | 1🔴/4🟢 |
-| MRVL | $137.79 | +3.17% | 22.50 | 0.43x | $217.07 | $234.24 | $232.13 | DOWNTREND | 3🔴/2🟢 |
-| GEV | $781.26 | +1.40% | 37.80 | 0.60x | $884.82 | $923.66 | $979.02 | DOWNTREND | 2🔴/3🟢 |
-| MKSI | $186.81 | +5.65% | 38.10 | 0.19x | $211.09 | $240.03 | $286.67 | DOWNTREND | 3🔴/2🟢 |
-| OPEN | $1.55 | -13.40% | 28.10 | 0.58x | $1.95 | $2.38 | $3.24 | DOWNTREND | 3🔴/1🟢 |
-| ACMR | $42.65 | +8.50% | 27.80 | 0.21x | $51.86 | $64.88 | $77.22 | DOWNTREND | 3🔴/2🟢 |
-| AMKR | $32.00 | +4.95% | 33.30 | 0.17x | $40.22 | $46.48 | $55.09 | DOWNTREND | 3🔴/2🟢 |
-| CRWV | $44.99 | +3.05% | 33.00 | 0.32x | $59.25 | $75.53 | $82.01 | DOWNTREND | 3🔴/2🟢 |
+| GOOG | $283.93 | +0.78% | 20.30 | 0.95x | $314.61 | $329.79 | $339.09 | DOWNTREND | 2🔴/3🟢 |
+| RDDT | $95.10 | +1.38% | 14.90 | 0.84x | $132.34 | $144.37 | $158.01 | DOWNTREND | 2🔴/3🟢 |
+| GDDY | $114.38 | -4.78% | 58.30 | 1.06x | $110.09 | $103.29 | $96.99 | UPTREND | 3🔴/2🟢 |
+| NVDU | $94.27 | +5.78% | 28.60 | 1.80x | $123.76 | $135.16 | $131.06 | DOWNTREND | 3🔴/2🟢 |
+| ZS | $197.66 | -3.05% | 43.40 | 1.06x | $229.56 | $208.01 | $181.28 | DOWNTREND | 4🔴/1🟢 |
+| BCC | $70.24 | -4.76% | 41.50 | 0.81x | $75.53 | $75.80 | $77.26 | DOWNTREND | 4🔴/1🟢 |
+| FBK | $54.17 | -0.18% | 65.40 | 0.48x | $53.07 | $53.65 | $56.02 | UPTREND | 3🔴/2🟢 |
+| AMZN | $259.30 | -0.35% | 47.70 | 0.88x | $254.28 | $253.95 | $252.52 | UPTREND | 2🔴/3🟢 |
+| MRVL | $141.20 | +5.73% | 23.90 | 1.16x | $217.24 | $234.31 | $232.16 | DOWNTREND | 3🔴/2🟢 |
+| GEV | $774.11 | +0.47% | 36.90 | 1.83x | $884.46 | $923.51 | $978.95 | DOWNTREND | 2🔴/3🟢 |
+| MKSI | $192.27 | +8.74% | 40.80 | 1.58x | $211.36 | $240.14 | $286.73 | DOWNTREND | 3🔴/2🟢 |
+| OPEN | $1.40 | -21.79% | 24.80 | 1.77x | $1.94 | $2.38 | $3.24 | DOWNTREND | 3🔴/1🟢 |
+| ACMR | $44.61 | +13.48% | 32.20 | 1.16x | $51.96 | $64.92 | $77.24 | DOWNTREND | 3🔴/2🟢 |
+| AMKR | $32.82 | +7.64% | 35.10 | 1.20x | $40.26 | $46.50 | $55.10 | DOWNTREND | 3🔴/2🟢 |
+| CRWV | $46.40 | +6.28% | 34.90 | 0.87x | $59.33 | $75.56 | $82.03 | DOWNTREND | 3🔴/2🟢 |
+| WTM | $2241.12 | -2.31% | 57.50 | 1.20x | $2216.22 | $2119.69 | $2124.60 | UPTREND | 3🔴/2🟢 |
 
 ## 2️⃣ Entry Verdicts
 
 | Ticker | Price | Δ% | RSI | Verdict / Plan |
 |--------|------:|---:|:--:|---------------|
-| FBK | $54.42 | +0.29% | 66.80 | 📍 **VERDICT: 🟢 UPTREND** \| Entry on dip: $57.69–$56.16 \| Stop: $53.25 \| TP: $62.65 |
-| GEV | $781.26 | +1.40% | 37.80 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND \| At Fib 78.6% ($824.83) — needs GREEN close at support or capitulation (vol>1.5x + red) |
-| ACMR | $42.65 | +8.50% | 27.80 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND below all SMAs \| Needs green close > SMA20 $51.86 \| Knife — no market-buy |
-| CRWV | $44.99 | +3.05% | 33.00 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND below all SMAs \| Needs green close > SMA20 $59.25 \| Knife — no market-buy (fib78.6 $57.04 below) |
+| FBK | $54.17 | -0.18% | 65.40 | 📍 **VERDICT: 🟢 UPTREND** \| Entry on dip: $57.69–$56.16 \| Stop: $53.25 \| TP: $62.65 |
+| GEV | $774.11 | +0.47% | 36.90 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND \| At Fib 78.6% ($824.83) — needs GREEN close at support or capitulation (vol>1.5x + red) |
+| ACMR | $44.61 | +13.48% | 32.20 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND below all SMAs \| Needs green close > SMA20 $51.96 \| Knife — no market-buy |
+| CRWV | $46.40 | +6.28% | 34.90 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND below all SMAs \| Needs green close > SMA20 $59.33 \| Knife — no market-buy (fib78.6 $57.04 below) |
 
 ## 3️⃣ Exit Signals
 
 | Ticker | Price | Entry | P&L% | Regime | RSI | Stoch | ATR | SL | TP1 | TP2 | Momentum | Notes |
 |--------|------:|------:|---:|:-----:|---:|-----:|----:|---:|----:|----:|---------:|-------|
-| ZS | $202.60 | $150.00 | +35.06% | DOWNTREND | 45.40 | 0.90 | $13.89 | $170.84 | $170.84 | $177.78 | WEAK | 🚨 **ZS EXIT SIGNAL** Price: $202.60 \| Entry: $150.00 \| P&L: +35.1% ($+788.93) Regime: DOWNTREND \| RSI: 45.4 \| Stoch: 0.9 \| ATR: $13.89 Momentum: WEAK (-3) \| R: $13.89 SL: $170.84 (2.0×ATR) \| TP1: $170.84 (1.5R) \| TP2: $177.78 (2.0R) • ⚠️ **REGIME → DOWNTREND** \| P&L: +35.1% — exit before gains erode • 🎯 **TP2 HIT** $177.78 (2.0R) \| P&L: +35.1% — take profits, momentum: WEAK • 📊 **MACD Bearish** \| Hist: -5.9 \| P&L: +35.1% — momentum fading • 📉 **Below SMA20** ($229.81) \| P&L: +35.1% — trend weakening |
+| ZS | $197.66 | $150.00 | +31.77% | DOWNTREND | 43.40 | 0.80 | $14.24 | $171.36 | $171.36 | $178.48 | WEAK | 🚨 **ZS EXIT SIGNAL** Price: $197.66 \| Entry: $150.00 \| P&L: +31.8% ($+714.90) Regime: DOWNTREND \| RSI: 43.4 \| Stoch: 0.8 \| ATR: $14.24 Momentum: WEAK (-3) \| R: $14.24 SL: $171.36 (2.0×ATR) \| TP1: $171.36 (1.5R) \| TP2: $178.48 (2.0R) • ⚠️ **REGIME → DOWNTREND** \| P&L: +31.8% — exit before gains erode • 🎯 **TP2 HIT** $178.48 (2.0R) \| P&L: +31.8% — take profits, momentum: WEAK • 📊 **MACD Bearish** \| Hist: -6.21 \| P&L: +31.8% — momentum fading • 📉 **Below SMA20** ($229.56) \| P&L: +31.8% — trend weakening |
 
 ## 4️⃣ Summary
 
-- Tickers watched: 15 | Entry verdicts: 4 | Exit signals: 1 | Open positions: 2
+- Tickers watched: 16 | Entry verdicts: 4 | Exit signals: 1 | Open positions: 2
 
