@@ -1,101 +1,105 @@
-# 📊 Daily Entry Report — Mon 09 Nov 2026 ICT
+# 📊 Daily Entry Report — Tue 10 Nov 2026 ICT
 
-_Run 04:30 ICT pre-market (last US close Fri 06 Nov 2026). Full scan → filter → 3 independent experts → consolidated plan. New entries only._
+**Scan window:** post-close of Mon 09 Nov US session | Generated 04:32 ICT | VIX 19.6 | New-entry budget: $2,500/day
 
 ## 🔍 Full Scan Results
 
-Scanned **1,348** stocks (universe 1,463 · 2,530 market rows) | Candidates ≥ 7.0: **0**
+Scanned: **1,344 stocks** (universe file 1,463 | 2,541 market rows) | Candidates above 7.0 floor: **0**
 
 | Ticker | Score | Price | %Δ | Setup reason |
-|--------|:-----:|------:|----:|--------------|
-| URI | 5.25 | $1,055.57 | +1.13% | Near-miss, **below floor** — −12.2% from 52w high; ATR 4.7%; two-session −12% decline, Friday bounced +4.6% off the low but closed below SMA20 $1,098.91 and below its own high. Knife, no base. |
-| AIG | 4.75 | $77.75 | −3.93% | Near-miss, **below floor** — RSI 40.9; closed **below** SMA50 $77.47, SMA100 $77.62 and EMA200 $77.82 on 1.1x volume (SOW bar through support). No spring, no reclaim. |
+|--------|------:|------:|----:|--------------|
+| SCHL | 5.0 | $37.17 | -0.07% | PULLBACK regime but price below SMA200 ($39.09): RSI 43.8, Stoch 14.3, Vol 0.72x, MACD hist -0.27, CMF -0.15, mcap $684M |
+| — | — | — | — | No stock cleared the 7.0 gate; SCHL fails trend (below SMA200) and money-flow (MACD-, CMF-) components |
 
-Neither near-miss reaches the 7.0 gate → **not analysed**. Tape: SPY $735.29 (−5.9% off 52w high, RSI 34.9, below SMA20 $763.36 / SMA50 $765.68 / SMA100 $759.53 / EMA200 $759.29), **VIX 25.6**; SPY −4.4% two sessions ago on 126M shares. Risk-off — the bar for new longs is high.
-
-## ⚡ Intra-Day Watchlist Snapshot (informational — 04:30 ICT)
+## ⚡ Intra-Day Watchlist Snapshot (informational)
 
 | Ticker | Price | %Δ | RSI | Vol | SMA 20 | SMA 50 | SMA 100 | 5d | Verdict |
-|--------|------:|:--:|---:|---:|------:|------:|--------:|:--:|---------|
-| GOOG | $283.93 | +0.78% | 20.3 | 0.95x | $314.61 | $329.79 | $339.09 | 2🔴/3🟢 | no entry — downtrend |
-| RDDT | $95.10 | +1.38% | 14.9 | 0.84x | $132.34 | $144.37 | $158.01 | 2🔴/3🟢 | no entry — downtrend |
-| GDDY | $114.38 | −4.78% | 58.3 | 1.06x | $110.09 | $103.29 | $96.99 | 3🔴/2🟢 | no signal — uptrend, no setup |
-| NVDU | $94.27 | +5.78% | 28.6 | 1.80x | $123.76 | $135.16 | $131.06 | 3🔴/2🟢 | position closed — no re-entry |
-| ZS | $197.66 | −3.05% | 43.4 | 1.06x | $229.56 | $208.01 | $181.28 | 4🔴/1🟢 | **held — context only** |
-| BCC | $70.24 | −4.76% | 41.5 | 0.81x | $75.53 | $75.80 | $77.26 | 4🔴/1🟢 | no entry — downtrend |
-| FBK | $54.17 | −0.18% | 65.4 | 0.48x | $53.07 | $53.65 | $56.02 | 3🔴/2🟢 | 🟢 **stale — invalidated** (below $56.16 zone floor) |
-| AMZN | $259.30 | −0.35% | 47.7 | 0.88x | $254.28 | $253.95 | $252.52 | 2🔴/3🟢 | **held — context only** |
-| MRVL | $141.20 | +5.73% | 23.9 | 1.16x | $217.24 | $234.31 | $232.16 | 3🔴/2🟢 | 🔴 WAIT (knife) |
-| GEV | $774.11 | +0.47% | 36.9 | 1.83x | $884.46 | $923.51 | $978.95 | 2🔴/3🟢 | 🔴 WAIT |
-| MKSI | $192.27 | +8.74% | 40.8 | 1.58x | $211.36 | $240.14 | $286.73 | 3🔴/2🟢 | no entry — old swing plan retired |
-| OPEN | $1.40 | −21.79% | 24.8 | 1.77x | $1.94 | $2.38 | $3.24 | 3🔴/1🟢 | no setup |
-| ACMR | $44.61 | +13.48% | 32.2 | 1.16x | $51.96 | $64.92 | $77.24 | 3🔴/2🟢 | 🔴 WAIT |
-| AMKR | $32.82 | +7.64% | 35.1 | 1.20x | $40.26 | $46.50 | $55.10 | 3🔴/2🟢 | no entry — downtrend |
-| CRWV | $46.40 | +6.28% | 34.9 | 0.87x | $59.33 | $75.56 | $82.03 | 3🔴/2🟢 | 🔴 WAIT (knife) |
-| WTM | $2241.12 | −2.31% | 57.5 | 1.20x | $2216.22 | $2119.69 | $2124.60 | 3🔴/2🟢 | no signal |
-
-Signals Watchlist after filter: **FBK only** (the single 🟢). It clears liquidity easily — market cap $2.66B, avg 3m volume 477k shares (~$25.8M/day) — but its quoted entry zone sits **above** the market, so it is a watch item, not a live plan.
+|--------|------:|----:|---:|---:|-------:|-------:|--------:|:--:|---------|
+| GOOG | $286.01 | +0.73% | 22.9 | 0.86x | $311.46 | $328.65 | $338.33 | 1🔴/4🟢 | — |
+| RDDT | $100.79 | +5.98% | 19.7 | 0.77x | $129.38 | $143.33 | $157.36 | 1🔴/4🟢 | — |
+| GDDY | $111.71 | -2.33% | 53.1 | 0.85x | $110.56 | $103.57 | $97.35 | 3🔴/2🟢 | — |
+| NVDU | $86.08 | -8.69% | 26.3 | 6.15x | $120.94 | $134.19 | $130.66 | 3🔴/2🟢 | — (flat, closed) |
+| ZS | $199.04 | +0.70% | 43.1 | 0.85x | $228.22 | $208.31 | $182.03 | 3🔴/2🟢 | HELD (context only) |
+| BCC | $72.57 | +3.32% | 43.8 | 0.96x | $75.49 | $75.67 | $77.27 | 3🔴/2🟢 | — |
+| FBK | $55.10 | +1.72% | 66.5 | 0.56x | $53.17 | $53.60 | $56.04 | 3🔴/2🟢 | — |
+| AMZN | $266.93 | +2.94% | 52.8 | 1.02x | $254.65 | $253.96 | $252.81 | 2🔴/3🟢 | HELD (context only) |
+| MRVL | $154.60 | +9.49% | 27.9 | 1.13x | $211.68 | $233.06 | $230.81 | 2🔴/3🟢 | — |
+| GEV | $829.34 | +7.13% | 44.5 | 1.05x | $876.09 | $921.86 | $976.76 | 2🔴/3🟢 | 🔴 WAIT |
+| MKSI | $211.59 | +10.05% | 50.2 | 1.20x | $209.45 | $239.26 | $285.13 | 2🔴/3🟢 | ⏳ MONITOR |
+| OPEN | $1.41 | +0.71% | 24.8 | 1.05x | $1.91 | $2.34 | $3.21 | 3🔴/2🟢 | — (sub-$2, no size) |
+| ACMR | $49.75 | +11.52% | 42.8 | 1.46x | $51.04 | $64.42 | $76.77 | 2🔴/3🟢 | 🔴 WAIT |
+| AMKR | $35.00 | +6.64% | 39.7 | 0.65x | $39.61 | $46.24 | $54.59 | 2🔴/3🟢 | — |
+| CRWV | $48.98 | +5.56% | 36.9 | 0.68x | $57.76 | $74.86 | $81.37 | 2🔴/3🟢 | 🔴 WAIT |
+| WTM | $2,256.20 | +0.67% | 54.6 | 1.09x | $2,224.70 | $2,122.11 | $2,127.13 | 3🔴/2🟢 | — |
+| ITRN | $51.82 | +4.14% | 53.9 | 0.80x | $51.31 | $51.60 | $53.67 | 2🔴/3🟢 | — |
 
 ## 📍 Entry Verdicts & Levels (new entries only)
 
 | Ticker | Verdict | Regime | Entry Zone | Stop | TP | Trigger/Notes |
 |--------|---------|--------|------------|------|----|---------------|
-| FBK | 🔴 **NO ENTRY** (🟢 stale) | UPTREND on SMA20/50 only — price below SMA100 $56.02 and EMA200 $54.54 | Old zone $56.16–$57.69 **void** (price 5.8% below the floor) | — | — | Conditional spring only: undercut < $53.38 into $52.50–52.80, then close > $53.60 in the upper half on > 1.0x volume → buy-stop above that candle's high; stop below its low; TP1 $54.87 / TP2 $55.60. Pays **0.86R / 1.42R** — fails the 2R floor. |
+| GEV | 🔴 WAIT | DOWNTREND | Fib 78.6% $824.83 | n/a | n/a | Needs GREEN close at support or capitulation (vol > 1.5x + red). Below all SMAs; +7.1% bounce is not confirmation |
+| MKSI | ⏳ MONITOR | BOUNCE | none valid (old plan $255–274 is -17% away) | n/a | n/a | +10.05% bounce reclaimed SMA20 $209.45 but still below SMA50 $239.26 / SMA100 $285.13. Old swing plan stale — needs a rebuilt structure |
+| ACMR | 🔴 WAIT | DOWNTREND | green close > SMA20 $51.04 | n/a | n/a | Below all SMAs; +11.5% knife bounce, vol 1.46x. No market-buy |
+| CRWV | 🔴 WAIT | DOWNTREND | green close > SMA20 $57.76 | n/a | n/a | Below all SMAs (fib 78.6% $57.04 also overhead). No trigger |
 
-## 🧠 3-Expert Analysis (delegate_task — 3 independent subagents)
+**Result: 0 new-entry plans today.** Every watchlist name is WAIT or MONITOR; nothing earns position sizing or expert review.
 
-### FBK | Entry (conditional spring) ≈ $53.55–$53.95 buy-stop | Stop ≈ $52.45 | TP1 $54.87 | TP2 $55.60 | R:R 0.86 / 1.42 | Trigger: **NOT PRINTED** — Friday was a narrow-range bar ($53.38–$54.87, range 1.1× ATR, 0.48× volume) that undercut Thursday's low ($53.99) and closed mid-range; no spring reclaim, no SOS close above $55.61.
+## 🧠 3-Expert Analysis (delegate_task — 3 independent subagents per ticker)
 
-| Expert | Verdict | Conf | Action |
-|--------|---------|:----:|--------|
-| Thorp (edge) | **NO BET** — 11/40 | high | Logic 2/5 (regional-bank beta + failed breakout, no structural mispricing); significance 1/5 (5y analogue n=19, 5d −0.36% vs +0.16% baseline, t≈−0.4); expectancy 1/5; robustness 1/5; capacity 4/5; backtest integrity 1/5; paper validation 0/5; R/R 1/5. Only trigger he would accept: buy-stop **$57.31** (above $57.26), stop **$53.33**, TP1 $62.66 = **1.34R**, TP2 $65.00 = 1.93R — still under his 2R floor. Size 26 sh ($1,490, $103 risk); cap-compliant but no validated expectancy. |
-| Wyckoff 2.0 | **WAIT FOR TEST** | medium | Range $49.24–$62.66, price mid-range → **range, not trend**. Phase B/C re-accumulation: SC $49.24 (late Sep) → AR $54.3 → ST $52.79 (28 Oct) → SOS attempt $52.94→$57.26 (bars 6–8) → **UTAD/LPSY** bar 9 (gap-up, close bottom 9% of range) → bar 10 light-volume test candidate. $54.87 is HVN/VAH supply — a chase. Arm only on a spring undercut of $53.38 into $52.50–52.80 reclaiming $53.60; TP1 $54.87, TP2 $55.60, stretch $57.20. Invalidation: daily close < $52.30. |
-| Medallion | **INSUFFICIENT DATA** | high | 5y FBK daily (n=1,255): unconditional 20d +0.62% / 52.1% hit (t=2.49 naive; block-bootstrap 95% CI −1.09%…+2.40%, p=0.24 → no drift). Exact conditional pattern: **n=0**. Relaxed analogue: n=7 raw / 6 deduped → 5d +1.32% (t=0.95), 10d +0.18%, 20d −1.47% / 14.3% hit — **no significance at any horizon**. Single name, one 5y path, survivorship-biased, rule specified post-hoc. 15% notional cap = 29 sh → a $53.25 stop risks only $26.68. |
+Survivors after the Step-2 filter: **0** (no 🟢 verdict, no ticker above the 7.0 score gate).
 
-**Consensus: 0/3 long — no trade at spot.** Even the best conditional plan (spring reclaim) pays only 0.86R to TP1 and 1.42R to TP2, and the 15% notional cap (29 sh) limits risk to ~$45 (0.4%), so it cannot carry 1% risk. Do **not** buy the $54.87 area (HVN/VAH supply). Do **not** chase $57.31 — it re-buys the failed-breakout level at 1.34R. Invalidation: daily close below **$52.30**; cancel the spring plan if price runs through $55.60 without a test. Catalyst risk: **ex-dividend $0.21 on 10 Nov 2026** (~0.4% mechanical drag), Wall Street Zen downgrade to Sell on 7 Nov, no earnings until **20 Jan 2027** (estimate). **Budget committed: $0 of $2,500.**
+| Ticker | Thorp /40 | Wyckoff 2.0 | Medallion | Consensus |
+|--------|----------:|-------------|-----------|-----------|
+| — | not run | not run | not run | No ticker survived selection — no expert round triggered; no placeholder verdicts issued |
+
+Per the no-placeholder rule, expert slots stay vacant rather than fabricating a verdict on a sub-threshold name. Expert review resumes on the first genuine 🟢 signal.
 
 ## 🚨 Active Positions — informational only (owned by 906420a9f2e2)
 
 | Ticker | Price | Entry | P&L | Regime | RSI | ATR | Monitor flag |
 |--------|------:|------:|----:|--------|---:|----:|--------------|
-| ZS | $197.66 | $150.00 | +31.8% (+$714.90) | DOWNTREND | 43.4 | $14.24 | 🚨 exit signal — TP2 $178.48 exceeded, momentum weak, MACD bearish → **pending 04:30 position review**. Monitor state still carries ZS open (15 sh); reconcile there. |
-| AMZN | $259.30 | $259.55 | −0.10% (−$2.50) | UPTREND | 47.7 | $9.76 | none — recorded SL $249.33 / TP1 $274.88 / TP2 $285.10 |
+| ZS | $199.04 | $150.00 | +32.69% (+$735.60) | DOWNTREND | 43.1 | $14.10 | 🚨 ZS exit signal — pending 04:30 position review |
+| AMZN | $266.93 | $259.55 | +2.84% (+$73.80) | UPTREND | 52.8 | — | — |
 
-No recommendations here per scope.
+No position action taken or recommended by this scanner. Exit decisions stay with job 906420a9f2e2.
+
+## 🏦 Long-Term DCA Monitor (VOO / VXUS — informational)
+
+| Ticker | Price | Chg | RSI | vs SMA100 | 52w High | Drawdown | Trigger |
+|--------|------:|----:|---:|----------:|---------:|---------:|---------|
+| VOO | $691.87 | +2.35% | 43.1 | -0.94% | $718.47 | -3.70% | Drawdown > 3% + below SMA100 → DCA add zone |
+| VXUS | $83.22 | +2.84% | 47.8 | -2.37% | $88.62 | -6.09% | Drawdown > 3% + below SMA100 → DCA add zone |
+
+Trigger type: drawdown-based; RSI 43.1 / 47.8 is still neutral, not an oversold signal. Execution owned by LT monitor e2e9a512dcf0.
 
 ## 📈 Journey Snapshot
 
 | Account | Capital | Deployed | Total | Today | Target |
 |---------|--------:|---------:|------:|------:|-------:|
-| Journey paper | $9,680.06 | $467.92 (5/5) | $10,147.98 (+1.48%) | $0.00 (0.00%) | $100/day (148% of target) |
+| Journey | $9,680.06 | $467.92 (5/5) | $10,147.98 (+1.48%) | +$0.00 (0.00%) | $100/day |
 
-| Ticker | Entry→ | R | Days | Status |
-|--------|--------|--:|-----:|--------|
-| ARKW | $154.06→$151.38 | −0.4R | 4 | open |
-| HUBS | $240.51→$239.86 | −0.0R | 4 | open |
-| ZM | $109.84→$106.30 | −0.5R | 4 | open |
-| DXC | $14.98→$14.86 | −0.1R | 5 | open |
-| SMP | $46.14→$44.46 | −0.6R | 4 | open |
+| Ticker | Entry → | R | Days | Status |
+|--------|---------|----:|-----:|--------|
+| ARKW | $154.06 → $151.38 | -0.4R | 4d | 🔴 |
+| HUBS | $240.51 → $239.86 | -0.0R | 4d | 🔴 |
+| ZM | $109.84 → $106.30 | -0.5R | 4d | 🔴 |
+| DXC | $14.98 → $15.10 | +0.1R | 6d | 🟢 |
+| SMP | $46.14 → $45.01 | -0.4R | 5d | 🔴 |
 
-Stats: 7 trades · W4/L3 (57%) · total +1.56R (avg +0.22R) · P&L +$147.97 · PF 1.57 · max DD 1.7%.
-
-## 🎯 Long-Term DCA — informational (VOO/VXUS, separate job e2e9a512dcf0)
-
-| Ticker | Price | RSI | Trend | SMA100 | EMA200 | 52w high | Drawdown | Signal |
-|--------|------:|----:|-------|-------:|-------:|---------:|---------:|--------|
-| VOO | $675.99 | 34.9 | neutral | $698.36 | $672.62 | $718.47 | −5.9% | RSI nearing oversold, below SMA100 — DCA zone |
-| VXUS | $80.92 | 38.3 | bearish | $85.27 | $82.60 | $88.62 | −8.7% | below SMA100 — DCA zone |
+Stats: 7 trades, W4 / L3 (57%), PF 1.57, total R +1.56 (avg +0.22), max DD 1.7%.
 
 ## 📋 SUMMARY — All Entry Points
 
 | Ticker | Side | Entry | Stop | TP1 | TP2 | R:R | Trigger State | Expert Consensus | Budget $2,500 |
-|--------|------|-------|------|-----|-----|-----|---------------|------------------|---------------|
-| FBK | LONG (conditional only) | Buy-stop above reclaim candle ≈ $53.55–$53.95 | Below reclaim/spring low ≈ $52.45 | $54.87 | $55.60 | 0.86 / 1.42 | **NOT PRINTED** | 0/3 long (NO BET / WAIT / INSUFFICIENT) | $0 committed — $2,500 available |
+|--------|------|------:|-----:|----:|----:|----:|---------------|------------------|---------------|
+| — | — | — | — | — | — | — | NO TRIGGER — 0 candidates >= 7.0; watchlist all WAIT/MONITOR | not required (0 survivors) | $0 used / $2,500 |
 
-## 🏁 Final Results (3-expert consensus on the day's best entry)
-
-**No candidate earned a 🟢/🟡 plan today.** Zero of 1,348 scanned names cleared the 7.0 gate; the only watchlist 🟢 (FBK) is stale — price sits 5.8% below its own $56.16 entry floor and below SMA100/EMA200 — and all three experts rejected a market entry. New-entry budget committed: **$0**.
+## 🏁 Final Results (3-expert consensus on the best entry of the day)
 
 | Ticker | Best Call | Direction | Size | Entry | Stop | TP | R:R | Expert Consensus | Invalidation | Catalyst risk | Budget $2,500 |
-|--------|-----------|-----------|-----:|-------|------|----|-----|------------------|--------------|---------------|---------------|
-| FBK | **STAND ASIDE** | — | 0 sh | — | — | — | — | 0/3 long | daily close < $52.30 | ex-div 10 Nov ($0.21); WSM Sell downgrade; earnings 20 Jan 2027 | $0 committed |
+|--------|-----------|-----------|-----:|------:|-----:|---:|----:|------------------|--------------|---------------|---------------|
+| — | **NO TRADE** ✋ | — | — | — | — | — | — | 0 🟢 signals; no setup earned a plan | — | — | $0 used / $2,500 |
+
+---
+
+**Discipline note:** the nearest name, SCHL (5.0), fails trend confirmation (below SMA200 $39.09) with negative MACD histogram (-0.27) and negative CMF (-0.15). Thorp gate: no demonstrable edge means no bet. Cash stays dry; next full scan Wed 11 Nov 04:30 ICT.
