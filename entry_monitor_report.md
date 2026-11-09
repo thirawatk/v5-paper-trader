@@ -1,4 +1,4 @@
-# 📡 Entry Monitor Report — Mon 09 Nov 2026 04:30 ICT
+# 📡 Entry Monitor Report — Mon 09 Nov 2026 20:30 ICT
 
 ## 1️⃣ Watchlist Snapshot
 
@@ -20,6 +20,7 @@
 | AMKR | $32.82 | +7.64% | 35.10 | 1.20x | $40.26 | $46.50 | $55.10 | DOWNTREND | 3🔴/2🟢 |
 | CRWV | $46.40 | +6.28% | 34.90 | 0.87x | $59.33 | $75.56 | $82.03 | DOWNTREND | 3🔴/2🟢 |
 | WTM | $2241.12 | -2.31% | 57.50 | 1.20x | $2216.22 | $2119.69 | $2124.60 | UPTREND | 3🔴/2🟢 |
+| ITRN | $49.76 | -0.34% | 47.50 | 1.25x | $51.29 | $51.58 | $53.80 | DOWNTREND | 3🔴/2🟢 |
 
 ## 2️⃣ Entry Verdicts
 
@@ -38,5 +39,5 @@
 
 ## 4️⃣ Summary
 
-- Tickers watched: 16 | Entry verdicts: 4 | Exit signals: 1 | Open positions: 2
+- Tickers watched: 17 | Entry verdicts: 4 | Exit signals: 1 | Open positions: 2
 
