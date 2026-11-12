@@ -1,5 +1,5 @@
-📊 **Trading Journey** — Thu Nov 12, 2026
-NYSC/NASDAQ/AMEX | 1426 stocks scanned | VIX 17.4
+📊 **Trading Journey** — Fri Nov 13, 2026
+NYSC/NASDAQ/AMEX | 1428 stocks scanned | VIX 18.8
 
 💰 **Capital:** $9,680.06
 📊 **Deployed:** $467.92 (5/5 positions)
@@ -11,8 +11,8 @@ NYSC/NASDAQ/AMEX | 1426 stocks scanned | VIX 17.4
   🔴 ARKW $154.06→$151.38 | -0.4R | 4d
   🔴 HUBS $240.51→$239.86 | -0.0R | 4d
   🔴 ZM $109.84→$106.30 | -0.5R | 4d
-  🟢 DXC $14.98→$15.29 | +0.2R | 8d
-  🔴 SMP $46.14→$44.26 | -0.6R | 7d
+  🔴 DXC $14.98→$14.80 | -0.1R | 9d
+  🔴 SMP $46.14→$43.87 | -0.8R | 8d
 
 **📈 Journey Stats:**
   Trades: 7 (W:4 L:3)
