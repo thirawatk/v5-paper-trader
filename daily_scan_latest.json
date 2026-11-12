@@ -1,7 +1,28 @@
 {
- "run": "2026-11-12T04:31:13.148652+07:00",
- "matched": 1296,
+ "run": "2026-11-13T04:31:09.090870+07:00",
+ "matched": 1300,
  "universe": 1463,
- "market_rows": 2442,
- "candidates": []
+ "market_rows": 2463,
+ "candidates": [
+  {
+   "ticker": "PFE",
+   "price": 28.83,
+   "regime": "PULLBACK",
+   "rsi": 44.3,
+   "stoch": 23.2,
+   "vol_ratio": 0.9,
+   "score": 6.25,
+   "macd_hist": -0.196,
+   "cmf": 0.078,
+   "mfi": 46.4,
+   "sl": 27.36,
+   "tp2": 30.67,
+   "mcap_m": 164327,
+   "from_high": null,
+   "atr": 0.74,
+   "sma20": 29.83,
+   "sma50": 28.8,
+   "sma200": 26.97
+  }
+ ]
 }
