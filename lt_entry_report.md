@@ -1,37 +1,37 @@
-# 📊 Long-Term Entry Report — Fri 20 Nov 2026 04:31 ICT
+# 📊 Long-Term Entry Report — Sat 21 Nov 2026 04:30 ICT
 
 ## 📊 VOO Long-Term Entry Alert
 
-Price: $658.01 (-1.98%) | RSI: 34.3 | Trend: bearish
+Price: $635.54 (-3.41%) | RSI: 29.5 | Trend: bearish
 
-SMA50: $700.36 | SMA100: $698.67 | EMA200: $673.12
+SMA50: $699.02 | SMA100: $698.17 | EMA200: $672.80
 
-52-week high: $718.47 | Drawdown: -8.4%
+52-week high: $718.47 | Drawdown: -11.5%
 
-ATR: $13.05 (2.0%)
+ATR: $14.32 (2.3%)
 
 🔔 Signals:
-  • RSI approaching oversold (34.3)
-  • -8.4% from 52-week high
-  • Below SMA100 ($698.67) — deep value zone
+  • RSI oversold (29.5)
+  • -11.5% from 52-week high
+  • Below SMA100 ($698.17) — deep value zone
 
 💡 Long-term DCA opportunity — consider adding at these levels
 ---
 
 ## 📊 VXUS Long-Term Entry Alert
 
-Price: $77.93 (-1.65%) | RSI: 34.7 | Trend: bearish
+Price: $75.38 (-3.27%) | RSI: 28.6 | Trend: bearish
 
-SMA50: $83.92 | SMA100: $84.91 | EMA200: $82.51
+SMA50: $83.68 | SMA100: $84.82 | EMA200: $82.45
 
-52-week high: $88.62 | Drawdown: -12.1%
+52-week high: $88.62 | Drawdown: -14.9%
 
-ATR: $1.38 (1.8%)
+ATR: $1.50 (2.0%)
 
 🔔 Signals:
-  • RSI approaching oversold (34.7)
-  • -12.1% from 52-week high
-  • Below SMA100 ($84.91) — deep value zone
+  • RSI oversold (28.6)
+  • -14.9% from 52-week high
+  • Below SMA100 ($84.82) — deep value zone
 
 💡 Long-term DCA opportunity — consider adding at these levels
 
@@ -41,5 +41,5 @@ ATR: $1.38 (1.8%)
 
 | Ticker | Price | Chg | RSI | Trend | SMA50 | SMA100 | EMA200 | 52w High | Drawdown | ATR | Signals |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-|VOO|$658.01|-1.98%|34.3|bearish|$700.36|$698.67|$673.12|$718.47|-8.4%|$13.05|RSI approaching oversold (34.3); -8.4% from 52-week high; Below SMA100 ($698.67) — deep value zone|
-|VXUS|$77.93|-1.65%|34.7|bearish|$83.92|$84.91|$82.51|$88.62|-12.1%|$1.38|RSI approaching oversold (34.7); -12.1% from 52-week high; Below SMA100 ($84.91) — deep value zone|
+|VOO|$635.54|-3.41%|29.5|bearish|$699.02|$698.17|$672.80|$718.47|-11.5%|$14.32|RSI oversold (29.5); -11.5% from 52-week high; Below SMA100 ($698.17) — deep value zone|
+|VXUS|$75.38|-3.27%|28.6|bearish|$83.68|$84.82|$82.45|$88.62|-14.9%|$1.50|RSI oversold (28.6); -14.9% from 52-week high; Below SMA100 ($84.82) — deep value zone|
