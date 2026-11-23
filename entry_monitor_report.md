@@ -1,34 +1,37 @@
-# 📡 Entry Monitor Report — Mon 23 Nov 2026 20:30 ICT
+# 📡 Entry Monitor Report — Mon 23 Nov 2026 21:30 ICT
 
 ## 1️⃣ Watchlist Snapshot
 
 | Ticker | Price | Δ% | RSI | Vol | SMA20 | SMA50 | SMA100 | Regime | 5d |
 |--------|------:|:--:|---:|---:|------:|------:|-------:|--------|----:|
-| GOOG | $264.00 | -2.59% | 39.20 | 1.29x | $287.26 | $319.27 | $332.23 | DOWNTREND | 4🔴/1🟢 |
-| RDDT | $85.33 | -5.06% | 45.20 | 0.81x | $103.43 | $133.11 | $150.52 | DOWNTREND | 4🔴/1🟢 |
-| GDDY | $99.53 | -2.56% | 27.30 | 0.91x | $110.85 | $105.39 | $99.81 | DOWNTREND | 5🔴/0🟢 |
-| NVDU | $41.08 | -27.37% | 14.50 | 2.04x | $91.33 | $120.65 | $125.83 | DOWNTREND | 5🔴/0🟢 |
-| ZS | $194.82 | -5.29% | 30.80 | 1.55x | $214.24 | $212.42 | $187.68 | DOWNTREND | 3🔴/2🟢 |
-| BCC | $63.01 | -2.13% | 25.20 | 0.80x | $71.35 | $73.88 | $76.38 | DOWNTREND | 4🔴/1🟢 |
-| FBK | $51.07 | -1.69% | 25.10 | 0.98x | $53.93 | $53.18 | $55.90 | DOWNTREND | 5🔴/0🟢 |
-| AMZN | $246.82 | -4.10% | 50.70 | 1.40x | $257.42 | $255.03 | $255.14 | DOWNTREND | 3🔴/2🟢 |
-| MRVL | $122.28 | -11.69% | 30.80 | 1.23x | $171.05 | $220.27 | $218.56 | DOWNTREND | 4🔴/1🟢 |
-| GEV | $699.33 | -7.53% | 32.60 | 1.39x | $817.97 | $893.70 | $948.01 | DOWNTREND | 4🔴/1🟢 |
-| MKSI | $184.52 | -10.03% | 45.70 | 1.32x | $205.80 | $230.48 | $267.32 | DOWNTREND | 3🔴/2🟢 |
-| OPEN | $1.30 | -10.62% | 36.00 | 2.04x | $1.55 | $2.03 | $2.92 | DOWNTREND | 2🔴/3🟢 |
-| ACMR | $39.80 | -12.53% | 44.40 | 1.37x | $46.73 | $59.71 | $71.06 | DOWNTREND | 3🔴/2🟢 |
-| AMKR | $30.24 | -11.40% | 37.50 | 0.91x | $36.09 | $43.75 | $50.06 | DOWNTREND | 3🔴/1🟢 |
-| CRWV | $39.51 | -12.02% | 39.90 | 1.10x | $51.85 | $67.99 | $76.76 | DOWNTREND | 4🔴/1🟢 |
+| GOOG | $282.16 | +6.88% | 52.30 | 0.07x | $285.66 | $318.00 | $331.49 | DOWNTREND | 3🔴/2🟢 |
+| RDDT | $90.03 | +5.51% | 44.70 | 0.03x | $101.01 | $131.66 | $149.48 | DOWNTREND | 3🔴/2🟢 |
+| GDDY | $101.32 | +1.80% | 33.30 | 0.01x | $110.43 | $105.32 | $99.94 | DOWNTREND | 4🔴/1🟢 |
+| NVDU | $67.47 | +64.24% | 29.60 | 0.67x | $88.28 | $119.49 | $125.38 | DOWNTREND | 4🔴/1🟢 |
+| ZS | $238.74 | +22.54% | 55.80 | 0.87x | $213.15 | $213.36 | $188.59 | UPTREND | 2🔴/3🟢 |
+| BCC | $64.05 | +1.65% | 28.50 | 0.02x | $70.78 | $73.65 | $76.26 | DOWNTREND | 3🔴/2🟢 |
+| FBK | $51.85 | +1.52% | 32.60 | 0.01x | $53.83 | $53.11 | $55.86 | DOWNTREND | 4🔴/1🟢 |
+| AMZN | $261.33 | +5.88% | 55.60 | 0.08x | $258.03 | $255.19 | $255.33 | UPTREND | 2🔴/3🟢 |
+| MRVL | $144.60 | +18.25% | 40.90 | 0.11x | $166.59 | $218.79 | $217.55 | DOWNTREND | 3🔴/2🟢 |
+| GEV | $770.87 | +10.23% | 34.80 | 0.06x | $813.76 | $891.62 | $944.59 | DOWNTREND | 3🔴/2🟢 |
+| MKSI | $215.01 | +16.52% | 53.00 | 0.02x | $206.43 | $229.99 | $265.82 | BOUNCE | 2🔴/3🟢 |
+| OPEN | $1.39 | +6.51% | 40.20 | 0.07x | $1.52 | $2.00 | $2.89 | DOWNTREND | 1🔴/4🟢 |
+| ACMR | $46.07 | +15.75% | 50.80 | 0.04x | $46.48 | $59.30 | $70.54 | DOWNTREND | 2🔴/3🟢 |
+| AMKR | $34.76 | +14.96% | 45.30 | 0.05x | $35.99 | $43.50 | $49.71 | DOWNTREND | 2🔴/2🟢 |
+| CRWV | $50.69 | +28.30% | 47.50 | 0.21x | $51.62 | $67.35 | $76.45 | DOWNTREND | 3🔴/2🟢 |
 | WTM | $2194.65 | -1.25% | 35.00 | 0.86x | $2255.21 | $2150.41 | $2144.67 | PULLBACK | 3🔴/2🟢 |
-| ITRN | $44.43 | -4.49% | 25.90 | 0.90x | $50.02 | $50.89 | $52.33 | DOWNTREND | 3🔴/2🟢 |
-| NVDA | $125.53 | -14.01% | 13.70 | 2.18x | $181.46 | $207.00 | $209.79 | DOWNTREND | 5🔴/0🟢 |
+| ITRN | $46.08 | +3.71% | 30.50 | 0.02x | $49.75 | $50.78 | $52.22 | DOWNTREND | 2🔴/3🟢 |
+| NVDA | $165.67 | +31.98% | 35.50 | 0.38x | $178.94 | $206.09 | $209.50 | DOWNTREND | 4🔴/1🟢 |
 
 ## 2️⃣ Entry Verdicts
 
 | Ticker | Price | Δ% | RSI | Verdict / Plan |
 |--------|------:|---:|:--:|---------------|
-| ACMR | $39.80 | -12.53% | 44.40 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND below all SMAs \| Needs green close > SMA20 $46.73 \| Knife — no market-buy |
-| CRWV | $39.51 | -12.02% | 39.90 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND below all SMAs \| Needs green close > SMA20 $51.85 \| Knife — no market-buy (fib78.6 $53.26 below) |
+| AMZN | $261.33 | +5.88% | 55.60 | 📍 **VERDICT: 🟢 UPTREND** \| Entry on dip: $257.78–$252.35 \| Stop: $235.08 \| TP: $275.34 |
+| GEV | $770.87 | +10.23% | 34.80 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND \| At Fib 78.6% ($768.99) — needs GREEN close at support or capitulation (vol>1.5x + red) |
+| MKSI | $215.01 | +16.52% | 53.00 | 📍 **VERDICT: ⏳ MONITOR** \| Regime: BOUNCE |
+| ACMR | $46.07 | +15.75% | 50.80 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND below all SMAs \| Needs green close > SMA20 $46.48 \| Knife — no market-buy |
+| CRWV | $50.69 | +28.30% | 47.50 | 📍 **VERDICT: 🔴 WAIT** \| DOWNTREND below all SMAs \| Needs green close > SMA20 $51.62 \| Knife — no market-buy (fib78.6 $53.26 below) |
 
 ## 3️⃣ Exit Signals
 
@@ -37,5 +40,5 @@
 
 ## 4️⃣ Summary
 
-- Tickers watched: 18 | Entry verdicts: 2 | Exit signals: 0 | Open positions: 0
+- Tickers watched: 18 | Entry verdicts: 5 | Exit signals: 0 | Open positions: 0
 
